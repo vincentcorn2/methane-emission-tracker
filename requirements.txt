@@ -1,0 +1,24 @@
+# Core API
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# ML / Scientific
+torch>=2.0.0
+numpy>=1.24.0
+
+# Geospatial (Phase 2 - entity resolution with spatial indexing)
+# geopandas>=0.14.0
+# shapely>=2.0.0
+
+# Data ingestion
+requests>=2.31.0
+# aiohttp>=3.9.0  # Phase 4 - async downloads
+
+# Utilities
+python-dotenv>=1.0.0
+
+# Development
+pytest>=7.4.0
+httpx>=0.25.0  # for testing FastAPI
