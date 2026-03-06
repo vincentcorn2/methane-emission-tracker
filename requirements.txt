@@ -8,7 +8,10 @@ pydantic-settings>=2.1.0
 torch>=2.0.0
 numpy>=1.24.0
 
-# Geospatial (Phase 2 - entity resolution with spatial indexing)
+# Geospatial — REQUIRED for live pipeline (SAFE → .npy bridge)
+rasterio>=1.3.0
+
+# Phase 2 - entity resolution with spatial indexing
 # geopandas>=0.14.0
 # shapely>=2.0.0
 
