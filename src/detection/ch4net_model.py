@@ -205,3 +205,44 @@ class CH4NetDetector:
             centroid_row=centroid_row,
             centroid_col=centroid_col,
         )
+
+    @torch.no_grad()
+    def detect_batch(self, s2_arrays: list[np.ndarray], batch_size: int = 64) -> list[np.ndarray]:
+        """
+        Run detection on a batch of Sentinel-2 image patches to accelerate CPU/GPU inference.
+
+        Args:
+            s2_arrays: List of numpy arrays of shape (H, W, 12)
+            batch_size: Number of patches to process simultaneously
+
+        Returns:
+            List of 2D probability maps (H, W)
+        """
+        all_prob_maps = []
+
+        # Process in chunks of batch_size to maximize core usage without OOM
+        for i in range(0, len(s2_arrays), batch_size):
+            batch = s2_arrays[i:i + batch_size]
+
+            # Stack into a single numpy array: (B, H, W, 12)
+            batch_np = np.stack(batch)
+
+            # Convert to tensor: (B, 12, H, W) and normalize to [0, 1]
+            tensor = (
+                torch.from_numpy(batch_np)
+                .float()
+                .permute(0, 3, 1, 2)
+                / 255.0
+            ).to(self.device)
+
+            # Batched Inference
+            prob_maps = self.model(tensor)  # output shape: (B, H, W, 1)
+            prob_maps = prob_maps.squeeze(-1).cpu().numpy()  # (B, H, W)
+
+            # Handle edge case where the final batch only has 1 item
+            if len(batch) == 1:
+                prob_maps = np.expand_dims(prob_maps, axis=0)
+
+            all_prob_maps.extend(prob_maps)
+
+        return all_prob_maps

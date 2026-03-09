@@ -301,11 +301,11 @@ class LivePipeline:
                      scene.shape[0], scene.shape[1])
         tiles = tile_scene(scene, tile_size=100)
 
-        logger.info("  [Detect] Running CH4Net on %d patches...", len(tiles))
-        predictions = []
-        for tile in tiles:
-            result = self.detector.detect(tile.data)
-            predictions.append(result.probability_map)
+        logger.info("  [Detect] Running CH4Net on %d patches (BATCHED)...", len(tiles))
+        # Extract raw arrays from Tile objects
+        tile_arrays = [tile.data for tile in tiles]
+        # Run inference in batches of 64
+        predictions = self.detector.detect_batch(tile_arrays, batch_size=64)
 
         # ── Step 9-10: Stitch and threshold ───────────────────────
         logger.info("  [Stitch] Assembling full-scene prediction map...")
@@ -325,6 +325,7 @@ class LivePipeline:
         geotiff_path = os.path.join(self.results_dir, geotiff_name)
         save_prediction_geotiff(full_prob_map, geo_meta, geotiff_path)
 
+        
         # ── Step 12: Extract plume events with coordinates ────────
         if total_plume_pixels >= self.min_plume_pixels:
             # Find contiguous plume regions and compute centroids
@@ -335,11 +336,15 @@ class LivePipeline:
             centroid_col = int(plume_cols.mean())
             max_confidence = float(full_prob_map[binary_mask > 0].max())
 
-            # Convert pixel coordinates to geographic coordinates
-            # using the affine transform from the geo metadata
+            # 1. Convert pixel coordinates to native UTM meters
             from rasterio.transform import Affine
             transform = Affine(*geo_meta.transform[:6])
-            lon, lat = transform * (centroid_col, centroid_row)
+            x_utm, y_utm = transform * (centroid_col, centroid_row)
+
+            # 2. Re-project from UTM to standard GPS (EPSG:4326)
+            from pyproj import Transformer
+            transformer = Transformer.from_crs(geo_meta.crs, "EPSG:4326", always_xy=True)
+            lon, lat = transformer.transform(x_utm, y_utm)
 
             event = {
                 "event_uuid": f"evt-{uuid.uuid4().hex[:12]}",
