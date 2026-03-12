@@ -180,3 +180,67 @@ class IntegratedMassEnhancement:
         flow_rate_kgh = flow_rate_kg_s * 3600
 
         return round(flow_rate_kgh, 2)
+
+
+class CEMFIntegratedMassEnhancement(IntegratedMassEnhancement):
+    """
+    IME quantification using CEMF-derived mass instead of geometric proxy.
+    Replaces _simplified_estimate with spectrally-retrieved total_mass_kg.
+    """
+
+    def estimate_from_cemf(
+        self,
+        cemf_result,
+        wind_speed_ms: float = 3.5,
+        wind_source: str = "climatological_fallback",
+    ) -> QuantificationResult:
+        """
+        Compute emission rate using CEMF-retrieved mass.
+
+        Q = (total_mass_kg * wind_speed) / plume_length
+        Units: kg * (m/s) / m = kg/s → convert to kg/h
+
+        Args:
+            cemf_result: CEMFResult from run_cemf()
+            wind_speed_ms: ERA5 wind speed (or climatological fallback)
+            wind_source: label for provenance tracking
+        """
+        if not cemf_result.retrieval_valid or cemf_result.total_mass_kg == 0:
+            return QuantificationResult(
+                flow_rate_kgh=0,
+                flow_rate_lower_kgh=0,
+                flow_rate_upper_kgh=0,
+                methodology="CEMF+IME",
+                wind_speed_ms=wind_speed_ms,
+                plume_length_m=0,
+                total_mass_kg=0,
+            )
+
+        # Plume length from mask geometry
+        rows, cols = np.where(cemf_result.plume_mask > 0)
+        if len(rows) == 0:
+            plume_length_m = 1.0
+        else:
+            plume_length_pixels = max(
+                rows.max() - rows.min(),
+                cols.max() - cols.min()
+            )
+            plume_length_m = max(plume_length_pixels * self.pixel_size_m, 1.0)
+
+        # Core IME inversion
+        residence_time_s = plume_length_m / max(wind_speed_ms, 0.5)
+        flow_rate_kg_s = cemf_result.total_mass_kg / residence_time_s
+        flow_rate_kgh = round(flow_rate_kg_s * 3600, 2)
+
+        # Uncertainty: 30-45% for CEMF+IME with Sentinel-2
+        result = QuantificationResult(
+            flow_rate_kgh=flow_rate_kgh,
+            flow_rate_lower_kgh=round(flow_rate_kgh * 0.6, 2),
+            flow_rate_upper_kgh=round(flow_rate_kgh * 1.4, 2),
+            methodology="CEMF+IME",
+            wind_speed_ms=wind_speed_ms,
+            plume_length_m=plume_length_m,
+            total_mass_kg=cemf_result.total_mass_kg,
+        )
+        result.compute_financial_impact()
+        return result
