@@ -326,50 +326,56 @@ class LivePipeline:
         save_prediction_geotiff(full_prob_map, geo_meta, geotiff_path)
 
         
-        # ── Step 12: Extract plume events with coordinates ────────
-        if total_plume_pixels >= self.min_plume_pixels:
-            # Find contiguous plume regions and compute centroids
-            # Simple approach: treat entire detection as one event
-            # (Phase 2: use connected components for multiple plumes)
-            plume_rows, plume_cols = np.where(binary_mask > 0)
-            centroid_row = int(plume_rows.mean())
-            centroid_col = int(plume_cols.mean())
-            max_confidence = float(full_prob_map[binary_mask > 0].max())
+        # ── Step 12: Extract per-blob events using connected components ──
+        from rasterio.transform import Affine
+        from pyproj import Transformer
+        from scipy import ndimage as ndi
 
-            # 1. Convert pixel coordinates to native UTM meters
-            from rasterio.transform import Affine
-            transform = Affine(*geo_meta.transform[:6])
-            x_utm, y_utm = transform * (centroid_col, centroid_row)
+        transform = Affine(*geo_meta.transform[:6])
+        transformer = Transformer.from_crs(geo_meta.crs, "EPSG:4326", always_xy=True)
 
-            # 2. Re-project from UTM to standard GPS (EPSG:4326)
-            from pyproj import Transformer
-            transformer = Transformer.from_crs(geo_meta.crs, "EPSG:4326", always_xy=True)
-            lon, lat = transformer.transform(x_utm, y_utm)
+        labeled, n_blobs = ndi.label(binary_mask)
+        blob_sizes = np.bincount(labeled.ravel())[1:]
+        significant = [(i + 1, int(sz)) for i, sz in enumerate(blob_sizes)
+                       if sz >= self.min_plume_pixels]
 
-            event = {
-                "event_uuid": f"evt-{uuid.uuid4().hex[:12]}",
-                "timestamp_utc": product.acquisition_date,
-                "latitude": round(lat, 6),
-                "longitude": round(lon, 6),
-                "model_confidence": round(max_confidence, 4),
-                "plume_area_pixels": total_plume_pixels,
-                "tile_id": product.tile_id,
-                "satellite": product.satellite,
-                "cloud_cover_pct": product.cloud_cover,
-                "geotiff_path": geotiff_path,
-                "source_product": product.name,
-            }
-            events.append(event)
+        if significant:
+            logger.info("  Found %d significant blobs (>= %d px)",
+                        len(significant), self.min_plume_pixels)
+            for blob_label, blob_size in significant:
+                blob_mask = labeled == blob_label
+                rows, cols = np.where(blob_mask)
+                centroid_row = int(rows.mean())
+                centroid_col = int(cols.mean())
+                max_conf = float(full_prob_map[blob_mask].max())
+                mean_conf = float(full_prob_map[blob_mask].mean())
 
-            logger.info(
-                "  *** PLUME DETECTED ***  lat=%.4f, lon=%.4f, "
-                "confidence=%.2f, pixels=%d",
-                lat, lon, max_confidence, total_plume_pixels,
-            )
+                x_utm, y_utm = transform * (centroid_col, centroid_row)
+                lon, lat = transformer.transform(x_utm, y_utm)
+
+                event = {
+                    "event_uuid": f"evt-{uuid.uuid4().hex[:12]}",
+                    "timestamp_utc": product.acquisition_date,
+                    "latitude": round(lat, 6),
+                    "longitude": round(lon, 6),
+                    "model_confidence": round(max_conf, 4),
+                    "mean_confidence": round(mean_conf, 4),
+                    "plume_area_pixels": blob_size,
+                    "tile_id": product.tile_id,
+                    "satellite": product.satellite,
+                    "cloud_cover_pct": product.cloud_cover,
+                    "geotiff_path": geotiff_path,
+                    "source_product": product.name,
+                }
+                events.append(event)
+                logger.info(
+                    "  *** PLUME DETECTED ***  lat=%.4f, lon=%.4f, "
+                    "max_conf=%.2f, mean_conf=%.2f, pixels=%d",
+                    lat, lon, max_conf, mean_conf, blob_size,
+                )
         else:
-            logger.info("  No plume detected (below %d pixel threshold)",
+            logger.info("  No significant blobs (>= %d px) detected",
                         self.min_plume_pixels)
-
         return events
 
 
