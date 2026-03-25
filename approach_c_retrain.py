@@ -58,16 +58,44 @@ else:
     device = torch.device("cpu")
 print(f"Device: {device}")
 
+# ── Fixed crop size ───────────────────────────────────────────────────────────
+# The dataset has variable-size crops (e.g. 217×181, 227×166, etc.).
+# We center-crop (or zero-pad if smaller) to a fixed size for batch collation.
+# 160×160 fits within the minimum dimension observed (166) and is 10×16
+# (cleanly divisible by 2^4=16 for the 4 U-Net downsampling stages).
+CROP_H, CROP_W = 160, 160
+
+def _center_crop_pad(arr, target_h, target_w):
+    """Crop or zero-pad a (C, H, W) array to exactly (C, target_h, target_w)."""
+    _, h, w = arr.shape
+    # Height: crop or pad
+    if h >= target_h:
+        start = (h - target_h) // 2
+        arr = arr[:, start:start + target_h, :]
+    else:
+        pad = target_h - h
+        arr = np.pad(arr, [(0, 0), (pad // 2, pad - pad // 2), (0, 0)])
+    # Width: crop or pad
+    _, h2, w2 = arr.shape
+    if w2 >= target_w:
+        start = (w2 - target_w) // 2
+        arr = arr[:, :, start:start + target_w]
+    else:
+        pad = target_w - w2
+        arr = np.pad(arr, [(0, 0), (0, 0), (pad // 2, pad - pad // 2)])
+    return arr
+
 # ── Dataset ───────────────────────────────────────────────────────────────────
 class CH4NetDataset(Dataset):
     """
     Loads (s2_image, label_mask) pairs from the official av555/ch4net dataset.
 
-    Input:  s2    — (217,180,12) uint8 [8,255]  → normalised to (12,217,180) float32
-    Target: label — (217,180)    float64 binary  → (1,217,180)  float32
+    Input:  s2    — variable-size (H,W,12) uint8  → normalised to (12,160,160) float32
+    Target: label — variable-size (H,W)    float64 → (1,160,160) float32 binary
 
-    NOTE: mbmp (217,180,4 uint8 RGBA) is NOT used for training — it is a
+    NOTE: mbmp (H,W,4 uint8 RGBA) is NOT used for training — it is a
     visualisation artefact, not the ground-truth binary mask.
+    Crops vary in size; _center_crop_pad standardises them to CROP_H×CROP_W.
     """
     def __init__(self, split_dir):
         self.s2_paths    = sorted(glob.glob(os.path.join(split_dir, "s2",    "*.npy")))
@@ -87,19 +115,21 @@ class CH4NetDataset(Dataset):
         return len(self.s2_paths)
 
     def __getitem__(self, idx):
-        # Image: (217,180,12) uint8 → (12,217,180) float32 in [0,1]
-        # .copy() converts read-only memory-mapped array to writable RAM
-        # (required for pin_memory=True in DataLoader)
+        # Image: (H,W,12) uint8 → (12,H,W) float32 in [0,1]
         img = np.load(self.s2_paths[idx]).copy().astype(np.float32) / 255.0
         img = img.transpose(2, 0, 1)              # (H,W,C) → (C,H,W)
         img = np.clip(img, 0.0, 1.0)
 
-        # Label: (217,180) float64 → (1,217,180) float32 binary
+        # Label: (H,W) float64 → (1,H,W) float32 binary
         lbl = np.load(self.label_paths[idx]).copy().astype(np.float32)
-        lbl = (lbl > 0).astype(np.float32)        # ensure strictly binary
+        lbl = (lbl > 0).astype(np.float32)
         lbl = lbl[np.newaxis, :, :]               # (H,W) → (1,H,W)
 
-        return torch.from_numpy(img), torch.from_numpy(lbl)
+        # Standardise to fixed spatial size for batch collation
+        img = _center_crop_pad(img, CROP_H, CROP_W)
+        lbl = _center_crop_pad(lbl, CROP_H, CROP_W)
+
+        return torch.from_numpy(img.copy()), torch.from_numpy(lbl.copy())
 
 
 # ── U-Net (matches ch4net_model.py exactly, parametrised by div_factor) ──────
