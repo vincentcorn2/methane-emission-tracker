@@ -88,12 +88,14 @@ class CH4NetDataset(Dataset):
 
     def __getitem__(self, idx):
         # Image: (217,180,12) uint8 → (12,217,180) float32 in [0,1]
-        img = np.load(self.s2_paths[idx]).astype(np.float32) / 255.0
+        # .copy() converts read-only memory-mapped array to writable RAM
+        # (required for pin_memory=True in DataLoader)
+        img = np.load(self.s2_paths[idx]).copy().astype(np.float32) / 255.0
         img = img.transpose(2, 0, 1)              # (H,W,C) → (C,H,W)
         img = np.clip(img, 0.0, 1.0)
 
         # Label: (217,180) float64 → (1,217,180) float32 binary
-        lbl = np.load(self.label_paths[idx]).astype(np.float32)
+        lbl = np.load(self.label_paths[idx]).copy().astype(np.float32)
         lbl = (lbl > 0).astype(np.float32)        # ensure strictly binary
         lbl = lbl[np.newaxis, :, :]               # (H,W) → (1,H,W)
 
@@ -174,9 +176,9 @@ def main():
     val_ds   = CH4NetDataset(val_dir)
 
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
-                              num_workers=2, pin_memory=(device.type != "cpu"))
+                              num_workers=0, pin_memory=False)
     val_loader   = DataLoader(val_ds,   batch_size=args.batch_size, shuffle=False,
-                              num_workers=2, pin_memory=(device.type != "cpu"))
+                              num_workers=0, pin_memory=False)
 
     model = Unet(in_channels=12, div_factor=args.div_factor).to(device)
     n_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
