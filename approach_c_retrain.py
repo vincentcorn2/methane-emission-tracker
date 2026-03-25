@@ -203,7 +203,7 @@ def main():
 
     criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight, reduction="mean")
     optimiser = Adam(model.parameters(), lr=args.lr)
-    scheduler = ReduceLROnPlateau(optimiser, mode="max", factor=0.5, patience=5, verbose=True)
+    scheduler = ReduceLROnPlateau(optimiser, mode="max", factor=0.5, patience=5)
 
     os.makedirs(os.path.dirname(os.path.abspath(args.out_weights)), exist_ok=True)
     best_val_f1 = 0.0
