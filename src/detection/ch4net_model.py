@@ -4,12 +4,14 @@ CH4Net: U-Net architecture for methane plume segmentation.
 Extracted from the Colab notebook implementation and made production-ready.
 Architecture matches the paper (Vaughan et al., 2024, AMT):
   - 4 encoder blocks, 4 decoder blocks, skip connections
-  - Input: 12-band Sentinel-2 imagery (100x100 crop)
+  - Input: 12-band Sentinel-2 imagery (160x160 crop)
   - Output: pixel-wise probability mask
 
-Key changes from notebook:
-  1. div_factor=1 (full channel width, matching best results)
-  2. Threshold calibrated at 0.18 (optimized F1, not default 0.25)
+Key notes:
+  1. div_factor=8 (paper architecture, ~214K params) — retrained on official
+     Vaughan et al. dataset (av555/ch4net on HuggingFace, 8255 train samples)
+  2. div_factor=1 (13.5M params) was the original broken config — massively
+     overfit on 925 samples, acted as a terrain detector not a methane detector
   3. prob_output=False during training (BCEWithLogitsLoss expects logits)
   4. Separate inference method that applies sigmoid + threshold
 """
@@ -43,15 +45,15 @@ class Unet(nn.Module):
     U-Net for methane plume binary segmentation.
 
     Faithfully reproduces the CH4Net architecture from Vaughan et al.
-    with div_factor=1 (full width) which outperformed div_factor=8
-    in our training runs.
+    with div_factor=8 (paper architecture, ~214K params). Retrained on
+    the official av555/ch4net dataset (8,255 training samples).
     """
 
     def __init__(
         self,
         in_channels: int = 12,
         out_channels: int = 1,
-        div_factor: int = 1,
+        div_factor: int = 8,
         prob_output: bool = True,
     ):
         super().__init__()
@@ -148,7 +150,8 @@ class CH4NetDetector:
         self.min_plume_pixels = min_plume_pixels
 
         # Load model with prob_output=True for inference (applies sigmoid)
-        self.model = Unet(in_channels=12, out_channels=1, div_factor=1, prob_output=True)
+        # div_factor=8 matches retrained weights (paper architecture, ~214K params)
+        self.model = Unet(in_channels=12, out_channels=1, div_factor=8, prob_output=True)
         checkpoint = torch.load(weights_path, map_location=self.device)
         self.model.load_state_dict(checkpoint["model_state_dict"])
         self.model.to(self.device)
