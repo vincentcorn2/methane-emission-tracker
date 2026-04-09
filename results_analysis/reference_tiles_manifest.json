@@ -1,0 +1,22 @@
+{
+  "weisweiler": {
+    "tile_id": "T32ULB",
+    "npy_path": "data/npy_cache/T32ULB_ref_20231226.npy",
+    "status": "cached"
+  },
+  "boxberg": {
+    "tile_id": "T33UVT",
+    "npy_path": "data/npy_cache/T33UVT_ref_20240128.npy",
+    "status": "cached"
+  },
+  "rybnik": {
+    "tile_id": "T34UCA",
+    "npy_path": "data/npy_cache/T34UCA_ref_20231228.npy",
+    "status": "cached"
+  },
+  "groningen": {
+    "tile_id": "T31UGV",
+    "npy_path": "data/npy_cache/T31UGV_ref_20240122.npy",
+    "status": "cached"
+  }
+}

@@ -79,8 +79,9 @@ def run_cemf(
 
     # Matched filter: methane absorbs more strongly in B12 than B11
     # dXCH4 proportional to the differential absorption signal
+    # Sensitivity coefficient ~4e-7 reflectance per ppb·m (Varon et al. 2021, AMT, Sec. 2.2)
     # Negative values clipped — non-physical for emission retrieval
-    dxch4 = (d_b12 - 0.5 * d_b11) / (mu_b11 * 1e-9)
+    dxch4 = (d_b12 - 0.5 * d_b11) / (mu_b11 * 4e-7)
     dxch4 = np.clip(dxch4, 0, None)
 
     # Integrate mass over plume pixels

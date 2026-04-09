@@ -1,0 +1,307 @@
+13:17:16  INFO     
+=================================================================
+13:17:16  INFO     Site: WEISWEILER       tile: T32ULB
+13:17:16  INFO     Note: Confirmed emitter (S/C=2.091 on two dates)
+13:17:16  INFO       Target:    S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy
+13:17:16  INFO       Reference: T32ULB_ref_20231226.npy
+13:17:16  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+13:17:19  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+13:17:19  INFO       [baseline] Running inference on original array...
+13:17:19  INFO       Tiling 10980×10980 scene → 100×100 patches...
+13:17:19  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+13:17:19  INFO       Running inference on 11881 tiles...
+13:19:28  INFO         500 / 11881 tiles done
+13:22:47  INFO         1000 / 11881 tiles done
+13:25:55  INFO         1500 / 11881 tiles done
+13:30:27  INFO         2000 / 11881 tiles done
+13:41:09  INFO         2500 / 11881 tiles done
+13:48:53  INFO         3000 / 11881 tiles done
+13:51:36  INFO         3500 / 11881 tiles done
+13:54:20  INFO         4000 / 11881 tiles done
+13:57:01  INFO         4500 / 11881 tiles done
+13:59:36  INFO         5000 / 11881 tiles done
+14:02:51  INFO         5500 / 11881 tiles done
+14:08:23  INFO         6000 / 11881 tiles done
+14:12:55  INFO         6500 / 11881 tiles done
+14:16:01  INFO         7000 / 11881 tiles done
+14:20:00  INFO         7500 / 11881 tiles done
+14:23:33  INFO         8000 / 11881 tiles done
+14:26:58  INFO         8500 / 11881 tiles done
+14:30:12  INFO         9000 / 11881 tiles done
+14:33:03  INFO         9500 / 11881 tiles done
+14:36:08  INFO         10000 / 11881 tiles done
+14:38:49  INFO         10500 / 11881 tiles done
+14:41:26  INFO         11000 / 11881 tiles done
+14:44:40  INFO         11500 / 11881 tiles done
+14:46:47  INFO       Stitching predictions...
+14:47:10  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+14:47:10  INFO       Saved → original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+14:47:19  INFO       [baseline] S/C = 1.000  ring_slope = —
+14:47:19  INFO       [bitemporal] Loading reference array...
+14:47:20  INFO       Reference shape: (10980, 10980, 12)
+14:47:20  INFO       [bitemporal] Computing B11/B12 difference channels...
+14:47:36  INFO       Channel 10 (B11): delta range [-255, 255]  shifted mean=166.5
+14:47:38  INFO       Channel 11 (B12): delta range [-255, 255]  shifted mean=154.5
+14:47:38  INFO       [bitemporal] Running inference on difference array...
+14:47:38  INFO       Tiling 10980×10980 scene → 100×100 patches...
+14:47:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+14:47:38  INFO       Running inference on 11881 tiles...
+14:50:04  INFO         500 / 11881 tiles done
+14:52:35  INFO         1000 / 11881 tiles done
+15:06:58  INFO         1500 / 11881 tiles done
+15:09:14  INFO         2000 / 11881 tiles done
+15:11:28  INFO         2500 / 11881 tiles done
+15:13:37  INFO         3000 / 11881 tiles done
+15:15:55  INFO         3500 / 11881 tiles done
+15:18:04  INFO         4000 / 11881 tiles done
+15:20:12  INFO         4500 / 11881 tiles done
+15:22:35  INFO         5000 / 11881 tiles done
+15:24:36  INFO         5500 / 11881 tiles done
+15:26:43  INFO         6000 / 11881 tiles done
+15:28:49  INFO         6500 / 11881 tiles done
+15:30:50  INFO         7000 / 11881 tiles done
+15:32:53  INFO         7500 / 11881 tiles done
+15:34:55  INFO         8000 / 11881 tiles done
+15:36:57  INFO         8500 / 11881 tiles done
+15:38:57  INFO         9000 / 11881 tiles done
+15:50:27  INFO         9500 / 11881 tiles done
+16:09:14  INFO         10000 / 11881 tiles done
+16:16:51  INFO         10500 / 11881 tiles done
+16:18:43  INFO         11000 / 11881 tiles done
+16:20:41  INFO         11500 / 11881 tiles done
+16:22:12  INFO       Stitching predictions...
+16:22:30  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/bitemporal_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+16:22:30  INFO       Saved → bitemporal_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+16:22:38  INFO       [bitemporal] S/C = 1.000  ring_slope = —
+16:22:39  INFO     
+=================================================================
+16:22:39  INFO     Site: BOXBERG          tile: T33UVT
+16:22:39  INFO     Note: Marginal (S/C=1.517, ~8.6% above Lausitz terrain bg)
+16:22:39  INFO       Target:    S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy
+16:22:39  INFO       Reference: T33UVT_ref_20240128.npy
+16:22:39  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+16:22:40  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+16:22:40  INFO       [baseline] Running inference on original array...
+16:22:40  INFO       Tiling 10980×10980 scene → 100×100 patches...
+16:22:40  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+16:22:40  INFO       Running inference on 11881 tiles...
+16:24:40  INFO         500 / 11881 tiles done
+16:26:39  INFO         1000 / 11881 tiles done
+16:28:36  INFO         1500 / 11881 tiles done
+16:30:32  INFO         2000 / 11881 tiles done
+16:32:29  INFO         2500 / 11881 tiles done
+16:34:25  INFO         3000 / 11881 tiles done
+16:36:22  INFO         3500 / 11881 tiles done
+16:38:26  INFO         4000 / 11881 tiles done
+16:40:22  INFO         4500 / 11881 tiles done
+16:42:18  INFO         5000 / 11881 tiles done
+16:44:16  INFO         5500 / 11881 tiles done
+16:46:12  INFO         6000 / 11881 tiles done
+16:48:10  INFO         6500 / 11881 tiles done
+16:49:43  INFO         7000 / 11881 tiles done
+16:51:13  INFO         7500 / 11881 tiles done
+16:52:45  INFO         8000 / 11881 tiles done
+16:54:19  INFO         8500 / 11881 tiles done
+16:55:53  INFO         9000 / 11881 tiles done
+16:57:28  INFO         9500 / 11881 tiles done
+16:59:00  INFO         10000 / 11881 tiles done
+17:00:32  INFO         10500 / 11881 tiles done
+17:02:04  INFO         11000 / 11881 tiles done
+17:03:38  INFO         11500 / 11881 tiles done
+17:04:48  INFO       Stitching predictions...
+17:04:58  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+17:04:58  INFO       Saved → original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+17:05:02  INFO       [baseline] S/C = 0.358  ring_slope = —
+17:05:02  INFO       [bitemporal] Loading reference array...
+17:05:04  INFO       Reference shape: (10980, 10980, 12)
+17:05:04  INFO       [bitemporal] Computing B11/B12 difference channels...
+17:05:11  INFO       Channel 10 (B11): delta range [-255, 222]  shifted mean=89.1
+17:05:12  INFO       Channel 11 (B12): delta range [-255, 216]  shifted mean=96.4
+17:05:12  INFO       [bitemporal] Running inference on difference array...
+17:05:12  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:05:12  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:05:12  INFO       Running inference on 11881 tiles...
+17:06:43  INFO         500 / 11881 tiles done
+17:08:28  INFO         1000 / 11881 tiles done
+17:10:01  INFO         1500 / 11881 tiles done
+17:11:35  INFO         2000 / 11881 tiles done
+17:13:08  INFO         2500 / 11881 tiles done
+17:14:41  INFO         3000 / 11881 tiles done
+17:16:14  INFO         3500 / 11881 tiles done
+17:17:47  INFO         4000 / 11881 tiles done
+17:19:19  INFO         4500 / 11881 tiles done
+17:20:52  INFO         5000 / 11881 tiles done
+17:22:25  INFO         5500 / 11881 tiles done
+17:23:58  INFO         6000 / 11881 tiles done
+17:25:41  INFO         6500 / 11881 tiles done
+17:27:38  INFO         7000 / 11881 tiles done
+17:29:35  INFO         7500 / 11881 tiles done
+17:31:32  INFO         8000 / 11881 tiles done
+17:33:32  INFO         8500 / 11881 tiles done
+17:35:29  INFO         9000 / 11881 tiles done
+17:37:29  INFO         9500 / 11881 tiles done
+17:39:33  INFO         10000 / 11881 tiles done
+17:41:32  INFO         10500 / 11881 tiles done
+17:43:30  INFO         11000 / 11881 tiles done
+17:45:28  INFO         11500 / 11881 tiles done
+17:46:58  INFO       Stitching predictions...
+17:47:15  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/bitemporal_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+17:47:15  INFO       Saved → bitemporal_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+17:47:23  INFO       [bitemporal] S/C = 0.035  ring_slope = —
+17:47:23  INFO     
+=================================================================
+17:47:23  INFO     Site: RYBNIK           tile: T34UCA
+17:47:23  INFO     Note: Terrain artefact (ring profile increases outward)
+17:47:23  INFO       Target:    S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.npy
+17:47:23  INFO       Reference: T34UCA_ref_20231228.npy
+17:47:23  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+17:47:25  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+17:47:25  INFO       [baseline] Running inference on original array...
+17:47:25  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:47:26  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:47:26  INFO       Running inference on 11881 tiles...
+17:49:22  INFO         500 / 11881 tiles done
+17:51:19  INFO         1000 / 11881 tiles done
+17:53:16  INFO         1500 / 11881 tiles done
+17:55:12  INFO         2000 / 11881 tiles done
+17:57:11  INFO         2500 / 11881 tiles done
+17:59:07  INFO         3000 / 11881 tiles done
+18:01:15  INFO         3500 / 11881 tiles done
+18:03:34  INFO         4000 / 11881 tiles done
+18:05:42  INFO         4500 / 11881 tiles done
+18:08:35  INFO         5000 / 11881 tiles done
+19:24:10  INFO     
+=================================================================
+19:24:10  INFO     Site: WEISWEILER       tile: T32ULB
+19:24:10  INFO     Note: Confirmed emitter (S/C=2.091 on two dates)
+19:24:10  INFO       Target:    S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy
+19:24:10  INFO       Reference: T32ULB_ref_20231226.npy
+19:24:10  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+19:24:13  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+19:24:13  INFO       [baseline] Already exists: original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+19:24:22  INFO       [baseline] S/C = 1.000  ring_slope = —
+19:24:22  INFO       [bitemporal] Already exists: bitemporal_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+19:24:31  INFO       [bitemporal] S/C = 1.000  ring_slope = —
+19:24:31  INFO     
+=================================================================
+19:24:31  INFO     Site: BOXBERG          tile: T33UVT
+19:24:31  INFO     Note: Marginal (S/C=1.517, ~8.6% above Lausitz terrain bg)
+19:24:31  INFO       Target:    S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy
+19:24:31  INFO       Reference: T33UVT_ref_20240128.npy
+19:24:31  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+19:24:33  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+19:24:33  INFO       [baseline] Already exists: original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+19:24:41  INFO       [baseline] S/C = 0.358  ring_slope = —
+19:24:41  INFO       [bitemporal] Already exists: bitemporal_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+19:24:52  INFO       [bitemporal] S/C = 0.035  ring_slope = —
+19:24:52  INFO     
+=================================================================
+19:24:52  INFO     Site: RYBNIK           tile: T34UCA
+19:24:52  INFO     Note: Terrain artefact (ring profile increases outward)
+19:24:52  INFO       Target:    S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.npy
+19:24:52  INFO       Reference: T34UCA_ref_20231228.npy
+19:24:52  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+19:24:53  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+19:24:53  INFO       [baseline] Running inference on original array...
+19:24:53  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:24:54  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:24:54  INFO       Running inference on 11881 tiles...
+19:27:05  INFO         500 / 11881 tiles done
+19:30:04  INFO         1000 / 11881 tiles done
+19:33:50  INFO         1500 / 11881 tiles done
+19:36:21  INFO         2000 / 11881 tiles done
+19:39:09  INFO         2500 / 11881 tiles done
+19:41:53  INFO         3000 / 11881 tiles done
+19:44:27  INFO         3500 / 11881 tiles done
+19:46:48  INFO         4000 / 11881 tiles done
+19:49:24  INFO         4500 / 11881 tiles done
+19:51:09  INFO         5000 / 11881 tiles done
+19:52:45  INFO         5500 / 11881 tiles done
+19:54:30  INFO         6000 / 11881 tiles done
+19:56:50  INFO         6500 / 11881 tiles done
+19:59:03  INFO         7000 / 11881 tiles done
+20:01:25  INFO         7500 / 11881 tiles done
+20:03:53  INFO         8000 / 11881 tiles done
+20:06:06  INFO         8500 / 11881 tiles done
+20:08:45  INFO         9000 / 11881 tiles done
+20:11:15  INFO         9500 / 11881 tiles done
+20:13:31  INFO         10000 / 11881 tiles done
+20:16:20  INFO         10500 / 11881 tiles done
+20:20:24  INFO         11000 / 11881 tiles done
+20:25:07  INFO         11500 / 11881 tiles done
+20:27:58  INFO       Stitching predictions...
+20:28:48  INFO     Saved georeferenced prediction to results_bitemporal/rybnik/original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif
+20:28:48  INFO       Saved → original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif
+20:29:10  INFO       [baseline] S/C = 3.708  ring_slope = —
+20:29:10  INFO       [bitemporal] Loading reference array...
+20:29:15  INFO       Reference shape: (10980, 10980, 12)
+20:29:15  INFO       [bitemporal] Computing B11/B12 difference channels...
+20:30:26  INFO       Channel 10 (B11): delta range [-222, 222]  shifted mean=137.9
+20:31:37  INFO       Channel 11 (B12): delta range [-226, 222]  shifted mean=129.1
+20:31:37  INFO       [bitemporal] Running inference on difference array...
+20:31:37  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:31:37  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:31:37  INFO       Running inference on 11881 tiles...
+20:33:52  INFO         500 / 11881 tiles done
+20:35:26  INFO         1000 / 11881 tiles done
+20:37:30  INFO         1500 / 11881 tiles done
+20:39:31  INFO         2000 / 11881 tiles done
+20:41:31  INFO         2500 / 11881 tiles done
+20:43:37  INFO         3000 / 11881 tiles done
+20:45:15  INFO         3500 / 11881 tiles done
+20:47:19  INFO         4000 / 11881 tiles done
+20:49:05  INFO         4500 / 11881 tiles done
+20:51:20  INFO         5000 / 11881 tiles done
+20:53:20  INFO         5500 / 11881 tiles done
+20:55:30  INFO         6000 / 11881 tiles done
+20:57:18  INFO         6500 / 11881 tiles done
+20:59:54  INFO         7000 / 11881 tiles done
+21:02:08  INFO         7500 / 11881 tiles done
+21:04:12  INFO         8000 / 11881 tiles done
+21:07:20  INFO     
+=================================================================
+21:07:20  INFO     Site: WEISWEILER       tile: T32ULB
+21:07:20  INFO     Note: Confirmed emitter (S/C=2.091 on two dates)
+21:07:20  INFO       Target:    S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy
+21:07:20  INFO       Reference: T32ULB_ref_20231226.npy
+21:07:20  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+21:07:22  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+21:07:22  INFO       [baseline] Already exists: original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+21:07:30  INFO         8500 / 11881 tiles done
+21:07:34  INFO       [baseline] S/C = 1.000  ring_slope = —
+21:07:34  INFO       [bitemporal] Already exists: bitemporal_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+21:07:44  INFO       [bitemporal] S/C = 1.000  ring_slope = —
+21:07:45  INFO     
+=================================================================
+21:07:45  INFO     Site: BOXBERG          tile: T33UVT
+21:07:45  INFO     Note: Marginal (S/C=1.517, ~8.6% above Lausitz terrain bg)
+21:07:45  INFO       Target:    S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy
+21:07:45  INFO       Reference: T33UVT_ref_20240128.npy
+21:07:45  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+21:07:48  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+21:07:48  INFO       [baseline] Already exists: original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+21:07:58  INFO       [baseline] S/C = 0.358  ring_slope = —
+21:07:58  INFO       [bitemporal] Already exists: bitemporal_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+21:08:09  INFO       [bitemporal] S/C = 0.035  ring_slope = —
+21:08:09  INFO     
+=================================================================
+21:08:09  INFO     Site: RYBNIK           tile: T34UCA
+21:08:09  INFO     Note: Terrain artefact (ring profile increases outward)
+21:08:09  INFO       Target:    S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.npy
+21:08:09  INFO       Reference: T34UCA_ref_20231228.npy
+21:08:09  INFO       Loading target array (~1.4 GB for full tile, please wait)...
+21:08:12  INFO       Target shape: (10980, 10980, 12)  dtype: uint8
+21:08:12  INFO       [baseline] Already exists: original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif
+21:08:25  INFO       [baseline] S/C = 3.708  ring_slope = —
+21:08:25  INFO       [bitemporal] Loading reference array...
+21:08:27  INFO       Reference shape: (10980, 10980, 12)
+21:08:27  INFO       [bitemporal] Computing B11/B12 difference channels...
+21:08:45  INFO       Channel 10 (B11): delta range [-222, 222]  shifted mean=137.9
+21:08:48  INFO       Channel 11 (B12): delta range [-226, 222]  shifted mean=129.1
+21:08:48  INFO       [bitemporal] Running inference on difference array...
+21:08:48  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:08:49  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:08:49  INFO       Running inference on 11881 tiles...
+21:11:20  INFO         9000 / 11881 tiles done
+21:14:16  INFO         9500 / 11881 tiles done
+21:16:46  INFO         10000 / 11881 tiles done

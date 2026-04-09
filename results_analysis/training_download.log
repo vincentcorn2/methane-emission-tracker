@@ -1,0 +1,1357 @@
+=================================================================
+  Training Tile Download — TROPOMI-Confirmed Positives
+  Source: results_analysis/tropomi_positives.json
+=================================================================
+
+Loaded 41 confirmed positives
+Unique (tile, date) pairs: 36  (deduplication saves ~5 downloads)
+Unique tiles: ['T30TXN', 'T31UCB', 'T31UFU', 'T31UGS', 'T31UGV', 'T32UQC', 'T33UUR', 'T34TGR', 'T34UCA', 'T34UCB', 'T35TLK']
+
+[1] Authenticating...
+22:58:45  INFO     Copernicus token refreshed, expires in 1800s
+    OK
+
+[2] Processing 41 positives...
+22:58:45  INFO     
+22:58:45  INFO     ────────────────────────────────────────────────────────────
+22:58:45  INFO     silesia_jastrzebie            2023-01-01  +12.4 ppb  tile=T34UCB
+22:58:47  INFO     Found 10 products
+22:58:47  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+22:58:50  INFO     Found 12 products
+22:58:50  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+22:58:53  INFO     Found 14 products
+22:58:53  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+22:58:56  INFO     Found 29 products
+22:58:56  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+22:58:59  INFO     Found 29 products
+22:58:59  INFO       ±21d cloud≤80% [any-tile]: 15 L1C products
+22:58:59  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+22:58:59  INFO       Best: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE  cloud=0.0%  date=2023-01-02
+22:58:59  INFO       Downloading...
+23:00:42  INFO     Downloaded S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE (839.2 MB)
+23:00:42  INFO       Converting to .npy...
+23:00:42  INFO     Unzipping S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE.zip ...
+23:00:45  INFO     Extracted: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE
+23:00:45  INFO     Found 12/12 bands in SAFE archive
+23:00:45  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:05:45  INFO     Stacked array shape: (10980, 10980, 12)
+23:09:03  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy (shape: (10980, 10980, 12))
+23:09:03  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:09:05  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=44.4  label=+12.4 ppb
+23:09:05  INFO     
+23:09:05  INFO     ────────────────────────────────────────────────────────────
+23:09:05  INFO     silesia_jastrzebie            2023-03-01  +18.1 ppb  tile=T34UCB
+23:09:08  INFO     Found 0 products
+23:09:08  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+23:09:11  INFO     Found 4 products
+23:09:11  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+23:09:15  INFO     Found 0 products
+23:09:15  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+23:09:19  INFO     Found 10 products
+23:09:19  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+23:09:22  INFO     Found 10 products
+23:09:22  INFO       ±21d cloud≤80% [any-tile]: 5 L1C products
+23:09:22  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+23:09:22  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+23:09:22  INFO       Downloading...
+23:11:33  INFO     Downloaded S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE (801.4 MB)
+23:11:33  INFO       Converting to .npy...
+23:11:33  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+23:11:35  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+23:11:35  INFO     Found 12/12 bands in SAFE archive
+23:11:35  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:14:34  INFO     Stacked array shape: (10980, 10980, 12)
+23:16:52  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+23:16:52  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:16:54  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+18.1 ppb
+23:16:54  INFO     
+23:16:54  INFO     ────────────────────────────────────────────────────────────
+23:16:54  INFO     silesia_jastrzebie            2023-03-02  +11.2 ppb  tile=T34UCB
+23:16:56  INFO     Found 0 products
+23:16:56  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+23:16:59  INFO     Found 4 products
+23:16:59  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+23:17:02  INFO     Found 0 products
+23:17:02  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+23:17:07  INFO     Found 13 products
+23:17:07  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+23:17:13  INFO     Found 13 products
+23:17:13  INFO       ±21d cloud≤80% [any-tile]: 6 L1C products
+23:17:13  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+23:17:13  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+23:17:13  INFO       Downloading...
+23:17:13  INFO     Already downloaded: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+23:17:13  INFO       Converting to .npy...
+23:17:13  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+23:17:15  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+23:17:15  INFO     Found 12/12 bands in SAFE archive
+23:17:15  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:19:40  INFO     Stacked array shape: (10980, 10980, 12)
+23:22:03  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+23:22:03  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:22:05  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+11.2 ppb
+23:22:05  INFO     
+23:22:05  INFO     ────────────────────────────────────────────────────────────
+23:22:05  INFO     silesia_knurow                2023-02-15  +11.8 ppb  tile=T34UCA
+23:22:08  INFO     Found 8 products
+23:22:08  INFO       ±7d cloud≤40% [T34UCA]: 1 L1C products
+23:22:08  INFO       Best: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE  cloud=0.0%  date=2023-02-09
+23:22:08  INFO       Downloading...
+23:22:19  INFO     Downloaded S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE (80.3 MB)
+23:22:19  INFO       Converting to .npy...
+23:22:19  INFO     Unzipping S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE.zip ...
+23:22:20  INFO     Extracted: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE
+23:22:20  INFO     Found 12/12 bands in SAFE archive
+23:22:20  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:23:34  INFO     Stacked array shape: (10980, 10980, 12)
+23:24:06  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy (shape: (10980, 10980, 12))
+23:24:06  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:24:08  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=2.7  label=+11.8 ppb
+23:24:08  INFO     
+23:24:08  INFO     ────────────────────────────────────────────────────────────
+23:24:08  INFO     silesia_knurow                2023-03-01  +11.0 ppb  tile=T34UCA
+23:24:08  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+23:24:08  INFO     
+23:24:08  INFO     ────────────────────────────────────────────────────────────
+23:24:08  INFO     silesia_pniowek               2023-03-01  +17.1 ppb  tile=T34UCB
+23:24:08  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+23:24:08  INFO     
+23:24:08  INFO     ────────────────────────────────────────────────────────────
+23:24:08  INFO     silesia_zofiowka              2023-01-01  +10.7 ppb  tile=T34UCB
+23:24:08  INFO       ✓ Sharing tile with silesia_jastrzebie: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy
+23:24:08  INFO     
+23:24:08  INFO     ────────────────────────────────────────────────────────────
+23:24:08  INFO     silesia_zofiowka              2023-01-23  +15.4 ppb  tile=T34UCB
+23:24:10  INFO     Found 0 products
+23:24:10  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+23:24:13  INFO     Found 4 products
+23:24:13  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+23:24:16  INFO     Found 18 products
+23:24:16  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+23:24:21  INFO     Found 32 products
+23:24:21  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+23:24:25  INFO     Found 32 products
+23:24:25  INFO       ±21d cloud≤80% [any-tile]: 16 L1C products
+23:24:25  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+23:24:25  INFO       Best: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE  cloud=0.0%  date=2023-01-17
+23:24:25  INFO       Downloading...
+23:25:57  INFO     Downloaded S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE (778.7 MB)
+23:25:57  INFO       Converting to .npy...
+23:25:57  INFO     Unzipping S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE.zip ...
+23:25:58  INFO     Extracted: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE
+23:25:58  INFO     Found 12/12 bands in SAFE archive
+23:25:58  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:31:01  INFO     Stacked array shape: (10980, 10980, 12)
+23:34:50  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.npy (shape: (10980, 10980, 12))
+23:34:50  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:34:53  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=65.2  label=+15.4 ppb
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_zofiowka              2023-03-01  +16.9 ppb  tile=T34UCB
+23:34:53  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_rybnik                2023-02-10  +13.9 ppb  tile=T34UCA
+23:34:53  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_rybnik                2023-02-15  +10.8 ppb  tile=T34UCA
+23:34:53  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_rybnik                2023-03-01  +17.4 ppb  tile=T34UCA
+23:34:53  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_rybnik                2023-03-02  +12.6 ppb  tile=T34UCA
+23:34:53  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+23:34:53  INFO     
+23:34:53  INFO     ────────────────────────────────────────────────────────────
+23:34:53  INFO     silesia_rybnik                2024-06-28  +19.7 ppb  tile=T34UCA
+23:34:54  INFO     Copernicus token refreshed, expires in 1800s
+23:34:57  INFO     Found 15 products
+23:34:57  INFO       ±7d cloud≤40% [T34UCA]: 4 L1C products
+23:34:57  INFO       Best: S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.SAFE  cloud=0.0%  date=2024-06-28
+23:34:57  INFO       Downloading...
+23:36:09  INFO     Downloaded S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.SAFE (74.8 MB)
+23:36:09  INFO       Converting to .npy...
+23:36:09  INFO     Unzipping S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.SAFE.zip ...
+23:36:10  INFO     Extracted: S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.SAFE
+23:36:10  INFO     Found 12/12 bands in SAFE archive
+23:36:10  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+23:37:35  INFO     Stacked array shape: (10980, 10980, 12)
+23:38:15  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.npy (shape: (10980, 10980, 12))
+23:38:15  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:38:17  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=3.3  label=+19.7 ppb
+23:38:17  INFO     
+23:38:17  INFO     ────────────────────────────────────────────────────────────
+23:38:17  INFO     nl_grijpskerk                 2023-02-08  +13.9 ppb  tile=T31UGV
+23:38:20  INFO     Found 23 products
+23:38:20  INFO       ±7d cloud≤40% [T31UGV]: 2 L1C products
+23:38:20  INFO       Best: S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.SAFE  cloud=0.0%  date=2023-02-06
+23:38:20  INFO       Downloading...
+23:39:41  INFO     Downloaded S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.SAFE (743.1 MB)
+23:39:41  INFO       Converting to .npy...
+23:39:41  INFO     Unzipping S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.SAFE.zip ...
+23:39:42  INFO     Extracted: S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.SAFE
+23:39:42  INFO     Found 12/12 bands in SAFE archive
+23:39:42  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:41:30  INFO     Stacked array shape: (10980, 10980, 12)
+23:43:21  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.npy (shape: (10980, 10980, 12))
+23:43:21  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:43:23  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=36.3  label=+13.9 ppb
+23:43:23  INFO     
+23:43:23  INFO     ────────────────────────────────────────────────────────────
+23:43:23  INFO     nl_bergermeer                 2023-01-26  +16.2 ppb  tile=T31UFU
+23:43:25  INFO     Found 6 products
+23:43:25  INFO       ±7d cloud≤40% [T31UFU]: 2 L1C products
+23:43:25  INFO       Best: S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.SAFE  cloud=0.0%  date=2023-01-28
+23:43:25  INFO       Downloading...
+23:43:33  INFO     Downloaded S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.SAFE (67.8 MB)
+23:43:33  INFO       Converting to .npy...
+23:43:33  INFO     Unzipping S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.SAFE.zip ...
+23:43:33  INFO     Extracted: S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.SAFE
+23:43:33  INFO     Found 12/12 bands in SAFE archive
+23:43:33  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:45:19  INFO     Stacked array shape: (10980, 10980, 12)
+23:46:18  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.npy (shape: (10980, 10980, 12))
+23:46:18  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:46:19  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=4.7  label=+16.2 ppb
+23:46:19  INFO     
+23:46:19  INFO     ────────────────────────────────────────────────────────────
+23:46:19  INFO     nl_ravenstein                 2023-01-17  +15.3 ppb  tile=T31UGS
+23:46:22  INFO     Found 1 products
+23:46:22  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+23:46:24  INFO     Found 6 products
+23:46:24  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+23:46:27  INFO     Found 5 products
+23:46:27  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+23:46:31  INFO     Found 19 products
+23:46:31  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+23:46:35  INFO     Found 19 products
+23:46:35  INFO       ±21d cloud≤80% [any-tile]: 11 L1C products
+23:46:35  INFO       Note: using fallback tile(s) ['T31UFT', 'T31UGT'] instead of expected T31UGS
+23:46:35  INFO       Best: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE  cloud=0.0%  date=2023-01-17
+23:46:35  INFO       Downloading...
+23:48:00  INFO     Downloaded S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE (816.4 MB)
+23:48:00  INFO       Converting to .npy...
+23:48:00  INFO     Unzipping S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE.zip ...
+23:48:02  INFO     Extracted: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+23:48:02  INFO     Found 12/12 bands in SAFE archive
+23:48:02  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:50:44  INFO     Stacked array shape: (10980, 10980, 12)
+23:52:43  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy (shape: (10980, 10980, 12))
+23:52:43  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:52:44  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=58.9  label=+15.3 ppb
+23:52:44  INFO     
+23:52:44  INFO     ────────────────────────────────────────────────────────────
+23:52:44  INFO     nl_ravenstein                 2023-01-19  +16.0 ppb  tile=T31UGS
+23:52:47  INFO     Found 1 products
+23:52:47  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+23:52:51  INFO     Found 6 products
+23:52:51  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+23:52:55  INFO     Found 5 products
+23:52:55  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+23:52:58  INFO     Found 19 products
+23:52:58  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+23:53:01  INFO     Found 19 products
+23:53:01  INFO       ±21d cloud≤80% [any-tile]: 11 L1C products
+23:53:01  INFO       Note: using fallback tile(s) ['T31UFT', 'T31UGT'] instead of expected T31UGS
+23:53:01  INFO       Best: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE  cloud=0.0%  date=2023-01-17
+23:53:01  INFO       Downloading...
+23:53:01  INFO     Already downloaded: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+23:53:01  INFO       Converting to .npy...
+23:53:01  INFO     Unzipping S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE.zip ...
+23:53:03  INFO     Extracted: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+23:53:03  INFO     Found 12/12 bands in SAFE archive
+23:53:03  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:56:11  INFO     Stacked array shape: (10980, 10980, 12)
+23:59:11  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy (shape: (10980, 10980, 12))
+23:59:11  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+23:59:14  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=58.9  label=+16.0 ppb
+23:59:14  INFO     
+23:59:14  INFO     ────────────────────────────────────────────────────────────
+23:59:14  INFO     nl_ravenstein                 2023-02-10  +43.3 ppb  tile=T31UGS
+23:59:17  INFO     Found 8 products
+23:59:17  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+23:59:19  INFO     Found 12 products
+23:59:19  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+23:59:23  INFO     Found 16 products
+23:59:23  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+23:59:26  INFO     Found 25 products
+23:59:26  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+23:59:30  INFO     Found 25 products
+23:59:30  INFO       ±21d cloud≤80% [any-tile]: 14 L1C products
+23:59:30  INFO       Note: using fallback tile(s) ['T31UFT', 'T31UGT'] instead of expected T31UGS
+23:59:30  INFO       Best: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE  cloud=0.0%  date=2023-02-14
+23:59:30  INFO       Downloading...
+00:01:02  INFO     Downloaded S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE (841.2 MB)
+00:01:02  INFO       Converting to .npy...
+00:01:02  INFO     Unzipping S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE.zip ...
+00:01:05  INFO     Extracted: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE
+00:01:05  INFO     Found 12/12 bands in SAFE archive
+00:01:05  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+00:06:16  INFO     Stacked array shape: (10980, 10980, 12)
+00:10:19  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.npy (shape: (10980, 10980, 12))
+00:10:19  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:10:21  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=47.2  label=+43.3 ppb
+00:10:21  INFO     
+00:10:21  INFO     ────────────────────────────────────────────────────────────
+00:10:21  INFO     de_bad_lauchstaedt            2023-01-09  +12.2 ppb  tile=T32UQC
+00:10:22  INFO     Copernicus token refreshed, expires in 1800s
+00:10:25  INFO     Found 16 products
+00:10:25  INFO       ±7d cloud≤40% [T32UQC]: 2 L1C products
+00:10:25  INFO       Best: S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.SAFE  cloud=0.0%  date=2023-01-03
+00:10:25  INFO       Downloading...
+00:12:26  INFO     Downloaded S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.SAFE (720.6 MB)
+00:12:26  INFO       Converting to .npy...
+00:12:26  INFO     Unzipping S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.SAFE.zip ...
+00:12:27  INFO     Extracted: S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.SAFE
+00:12:27  INFO     Found 12/12 bands in SAFE archive
+00:12:27  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+00:14:22  INFO     Stacked array shape: (10980, 10980, 12)
+00:15:24  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.npy (shape: (10980, 10980, 12))
+00:15:24  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:15:25  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=42.5  label=+12.2 ppb
+00:15:25  INFO     
+00:15:25  INFO     ────────────────────────────────────────────────────────────
+00:15:25  INFO     de_bad_lauchstaedt            2023-02-08  +11.3 ppb  tile=T32UQC
+00:15:28  INFO     Found 23 products
+00:15:28  INFO       ±7d cloud≤40% [T32UQC]: 2 L1C products
+00:15:28  INFO       Best: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.SAFE  cloud=0.0%  date=2023-02-07
+00:15:28  INFO       Downloading...
+00:16:45  INFO     Downloaded S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.SAFE (737.6 MB)
+00:16:45  INFO       Converting to .npy...
+00:16:45  INFO     Unzipping S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.SAFE.zip ...
+00:16:46  INFO     Extracted: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.SAFE
+00:16:46  INFO     Found 12/12 bands in SAFE archive
+00:16:46  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+00:18:43  INFO     Stacked array shape: (10980, 10980, 12)
+00:20:08  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy (shape: (10980, 10980, 12))
+00:20:08  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:20:10  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=47.5  label=+11.3 ppb
+00:20:10  INFO     
+00:20:10  INFO     ────────────────────────────────────────────────────────────
+00:20:10  INFO     de_bad_lauchstaedt            2023-02-10  +22.0 ppb  tile=T32UQC
+00:20:10  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy
+00:20:10  INFO     
+00:20:10  INFO     ────────────────────────────────────────────────────────────
+00:20:10  INFO     de_bad_lauchstaedt            2023-02-14  +14.0 ppb  tile=T32UQC
+00:20:10  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy
+00:20:10  INFO     
+00:20:10  INFO     ────────────────────────────────────────────────────────────
+00:20:10  INFO     de_bad_lauchstaedt            2023-02-16  +16.2 ppb  tile=T32UQC
+00:20:13  INFO     Found 13 products
+00:20:13  INFO       ±7d cloud≤40% [T32UQC]: 1 L1C products
+00:20:13  INFO       Best: S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.SAFE  cloud=0.0%  date=2023-02-15
+00:20:13  INFO       Downloading...
+00:21:39  INFO     Downloaded S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.SAFE (814.4 MB)
+00:21:39  INFO       Converting to .npy...
+00:21:39  INFO     Unzipping S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.SAFE.zip ...
+00:21:40  INFO     Extracted: S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.SAFE
+00:21:40  INFO     Found 12/12 bands in SAFE archive
+00:21:40  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+00:23:33  INFO     Stacked array shape: (10980, 10980, 12)
+00:24:58  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy (shape: (10980, 10980, 12))
+00:24:58  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:24:59  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=49.2  label=+16.2 ppb
+00:24:59  INFO     
+00:24:59  INFO     ────────────────────────────────────────────────────────────
+00:24:59  INFO     de_bad_lauchstaedt            2023-02-19  +62.6 ppb  tile=T32UQC
+00:24:59  INFO       ✓ Cached: S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy
+00:24:59  INFO     
+00:24:59  INFO     ────────────────────────────────────────────────────────────
+00:24:59  INFO     de_sayda                      2023-01-19  +10.9 ppb  tile=T33UUR
+00:25:01  INFO     Found 6 products
+00:25:01  INFO       ±7d cloud≤40% [T33UUR]: 1 L1C products
+00:25:01  INFO       Best: S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.SAFE  cloud=0.0%  date=2023-01-16
+00:25:01  INFO       Downloading...
+00:26:15  INFO     Downloaded S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.SAFE (571.4 MB)
+00:26:15  INFO       Converting to .npy...
+00:26:15  INFO     Unzipping S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.SAFE.zip ...
+00:26:16  INFO     Extracted: S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.SAFE
+00:26:16  INFO     Found 12/12 bands in SAFE archive
+00:26:16  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+00:27:57  INFO     Stacked array shape: (10980, 10980, 12)
+00:28:48  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.npy (shape: (10980, 10980, 12))
+00:28:48  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:28:50  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=27.8  label=+10.9 ppb
+00:28:50  INFO     
+00:28:50  INFO     ────────────────────────────────────────────────────────────
+00:28:50  INFO     de_sayda                      2023-02-08  +10.6 ppb  tile=T33UUR
+00:28:53  INFO     Found 17 products
+00:28:53  INFO       ±7d cloud≤40% [T33UUR]: 2 L1C products
+00:28:53  INFO       Best: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.SAFE  cloud=0.0%  date=2023-02-07
+00:28:53  INFO       Downloading...
+00:33:40  INFO     Downloaded S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.SAFE (878.6 MB)
+00:33:40  INFO       Converting to .npy...
+00:33:40  INFO     Unzipping S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.SAFE.zip ...
+00:33:41  INFO     Extracted: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.SAFE
+00:33:41  INFO     Found 12/12 bands in SAFE archive
+00:33:41  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+00:35:28  INFO     Stacked array shape: (10980, 10980, 12)
+00:37:02  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy (shape: (10980, 10980, 12))
+00:37:02  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+00:37:04  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=40.0  label=+10.6 ppb
+00:37:04  INFO     
+00:37:04  INFO     ────────────────────────────────────────────────────────────
+00:37:04  INFO     de_sayda                      2023-02-09  +13.0 ppb  tile=T33UUR
+00:37:04  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy
+00:37:04  INFO     
+00:37:04  INFO     ────────────────────────────────────────────────────────────
+00:37:04  INFO     de_sayda                      2023-02-10  +11.8 ppb  tile=T33UUR
+00:37:04  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy
+00:37:04  INFO     
+00:37:04  INFO     ────────────────────────────────────────────────────────────
+00:37:04  INFO     de_sayda                      2024-06-29  +13.5 ppb  tile=T33UUR
+00:37:49  ERROR      Search failed (±7d cloud≤40%): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+00:37:53  INFO     Found 41 products
+00:37:53  INFO       ±7d cloud≤80% [T33UUR]: 5 L1C products
+00:37:53  INFO       Best: S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.SAFE  cloud=0.0%  date=2024-06-29
+00:37:53  INFO       Downloading...
+00:39:40  INFO     Downloaded S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.SAFE (544.1 MB)
+00:39:40  INFO       Converting to .npy...
+00:39:40  INFO     Unzipping S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.SAFE.zip ...
+00:39:40  INFO     Extracted: S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.SAFE
+00:39:40  INFO     Found 12/12 bands in SAFE archive
+00:39:40  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+01:11:41  INFO     Stacked array shape: (10980, 10980, 12)
+01:44:28  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.npy (shape: (10980, 10980, 12))
+01:44:28  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+02:02:13  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=37.2  label=+13.5 ppb
+02:02:13  INFO     
+02:02:13  INFO     ────────────────────────────────────────────────────────────
+02:02:13  INFO     ro_medias                     2023-01-03  +14.8 ppb  tile=T34TGR
+02:02:14  INFO     Copernicus token refreshed, expires in 1800s
+02:02:17  INFO     Found 11 products
+02:02:17  INFO       ±7d cloud≤40% [T34TGR]: 1 L1C products
+02:02:17  INFO       Best: S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE  cloud=0.0%  date=2023-01-08
+02:02:17  INFO       Downloading...
+02:02:51  ERROR    Download failed for S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+02:02:51  INFO     
+02:02:51  INFO     ────────────────────────────────────────────────────────────
+02:02:51  INFO     ro_medias                     2023-02-17  +13.1 ppb  tile=T34TGR
+02:02:53  INFO     Found 6 products
+02:02:53  INFO       ±7d cloud≤40% [T34TGR]: 0 L1C products
+02:02:55  INFO     Found 20 products
+02:02:55  INFO       ±7d cloud≤80% [T34TGR]: 2 L1C products
+02:02:55  INFO       Best: S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.SAFE  cloud=0.0%  date=2023-02-22
+02:02:55  INFO       Downloading...
+02:04:12  INFO     Downloaded S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.SAFE (829.3 MB)
+02:04:12  INFO       Converting to .npy...
+02:04:12  INFO     Unzipping S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.SAFE.zip ...
+02:04:17  INFO     Extracted: S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.SAFE
+02:04:17  INFO     Found 12/12 bands in SAFE archive
+02:04:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+02:09:32  INFO     Stacked array shape: (10980, 10980, 12)
+02:47:16  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.npy (shape: (10980, 10980, 12))
+02:47:16  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+02:47:17  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=83.2  label=+13.1 ppb
+02:47:17  INFO     
+02:47:17  INFO     ────────────────────────────────────────────────────────────
+02:47:17  INFO     ro_medias                     2023-03-02  +21.5 ppb  tile=T34TGR
+02:47:18  INFO     Copernicus token refreshed, expires in 1800s
+02:47:20  INFO     Found 4 products
+02:47:20  INFO       ±7d cloud≤40% [T34TGR]: 1 L1C products
+02:47:20  INFO       Best: S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE  cloud=0.0%  date=2023-03-04
+02:47:20  INFO       Downloading...
+03:04:54  ERROR    Download failed for S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+03:04:54  INFO     
+03:04:54  INFO     ────────────────────────────────────────────────────────────
+03:04:54  INFO     ro_totea                      2023-01-01  +24.6 ppb  tile=T35TLK
+03:05:39  ERROR      Search failed (±7d cloud≤40%): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+03:05:43  INFO     Found 40 products
+03:05:43  INFO       ±7d cloud≤80% [T35TLK]: 5 L1C products
+03:05:43  INFO       Best: S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.SAFE  cloud=0.0%  date=2022-12-31
+03:05:43  INFO       Downloading...
+03:06:52  INFO     Downloaded S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.SAFE (744.6 MB)
+03:06:52  INFO       Converting to .npy...
+03:06:52  INFO     Unzipping S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.SAFE.zip ...
+03:06:56  INFO     Extracted: S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.SAFE
+03:06:56  INFO     Found 12/12 bands in SAFE archive
+03:06:56  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+03:13:33  INFO     Stacked array shape: (10980, 10980, 12)
+03:34:46  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.npy (shape: (10980, 10980, 12))
+03:34:46  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+03:34:47  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=47.6  label=+24.6 ppb
+03:34:47  INFO     
+03:34:47  INFO     ────────────────────────────────────────────────────────────
+03:34:47  INFO     ro_totea                      2023-01-15  +10.8 ppb  tile=T35TLK
+03:34:48  INFO     Copernicus token refreshed, expires in 1800s
+03:34:51  INFO     Found 17 products
+03:34:51  INFO       ±7d cloud≤40% [T35TLK]: 2 L1C products
+03:34:51  INFO       Best: S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.SAFE  cloud=0.0%  date=2023-01-18
+03:34:51  INFO       Downloading...
+03:36:15  INFO     Downloaded S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.SAFE (793.0 MB)
+03:36:15  INFO       Converting to .npy...
+03:36:15  INFO     Unzipping S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.SAFE.zip ...
+03:36:19  INFO     Extracted: S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.SAFE
+03:36:19  INFO     Found 12/12 bands in SAFE archive
+03:36:19  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+04:00:42  INFO     Stacked array shape: (10980, 10980, 12)
+04:05:07  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.npy (shape: (10980, 10980, 12))
+04:05:07  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+04:05:11  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=65.8  label=+10.8 ppb
+04:05:11  INFO     
+04:05:11  INFO     ────────────────────────────────────────────────────────────
+04:05:11  INFO     ro_totea                      2023-02-21  +18.6 ppb  tile=T35TLK
+04:05:12  INFO     Copernicus token refreshed, expires in 1800s
+04:05:15  INFO     Found 18 products
+04:05:15  INFO       ±7d cloud≤40% [T35TLK]: 2 L1C products
+04:05:15  INFO       Best: S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE  cloud=0.0%  date=2023-02-22
+04:05:15  INFO       Downloading...
+04:14:26  ERROR    Download failed for S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+04:14:26  INFO     
+04:14:26  INFO     ────────────────────────────────────────────────────────────
+04:14:26  INFO     fr_lacq                       2024-07-03  +24.2 ppb  tile=T30TXN
+04:15:09  ERROR      Search failed (±7d cloud≤40%): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+06:16:30  ERROR      Search failed (±7d cloud≤80%): HTTPSConnectionPool(host='catalogue.dataspace.copernicus.eu', port=443): Read timed out. (read timeout=60)
+06:16:30  INFO     Copernicus token refreshed, expires in 1800s
+06:16:40  INFO     Found 64 products
+06:16:40  INFO       ±21d cloud≤40% [T30TXN]: 10 L1C products
+06:16:40  INFO       Best: S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE  cloud=0.0%  date=2024-07-03
+06:16:40  INFO       Downloading...
+09:20:12  ERROR    Download failed for S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE: HTTPSConnectionPool(host='download.dataspace.copernicus.eu', port=443): Read timed out.
+09:20:12  INFO     
+09:20:12  INFO     ────────────────────────────────────────────────────────────
+09:20:12  INFO     uk_bacton                     2023-01-08  +30.6 ppb  tile=T31UCB
+09:20:13  INFO     Copernicus token refreshed, expires in 1800s
+09:20:50  ERROR      Search failed (±7d cloud≤40%): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+09:20:53  INFO     Found 30 products
+09:20:53  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+09:20:56  INFO     Found 45 products
+09:20:56  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+09:21:01  INFO     Found 75 products
+09:21:02  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+09:21:08  INFO     Found 75 products
+09:21:08  INFO       ±21d cloud≤80% [any-tile]: 40 L1C products
+09:21:08  INFO       Note: using fallback tile(s) ['T30UYD', 'T31UDU', 'T30UYE', 'T31UCU'] instead of expected T31UCB
+09:21:08  INFO       Best: S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE  cloud=0.0%  date=2023-01-08
+09:21:08  INFO       Downloading...
+09:28:41  ERROR    Download failed for S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE: HTTPSConnectionPool(host='download.dataspace.copernicus.eu', port=443): Read timed out.
+09:28:41  INFO     
+09:28:41  INFO     ────────────────────────────────────────────────────────────
+09:28:41  INFO     uk_bacton                     2023-02-07  +12.3 ppb  tile=T31UCB
+09:29:02  ERROR      Search failed (±7d cloud≤40%): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+09:29:05  INFO     Found 22 products
+09:29:05  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+09:29:09  INFO     Found 43 products
+09:29:09  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+09:29:17  INFO     Found 85 products
+09:29:17  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+09:29:25  INFO     Found 85 products
+09:29:25  INFO       ±21d cloud≤80% [any-tile]: 42 L1C products
+09:29:25  INFO       Note: using fallback tile(s) ['T30UYD', 'T31UDU', 'T30UYE', 'T31UCU'] instead of expected T31UCB
+09:29:25  INFO       Best: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE  cloud=0.0%  date=2023-02-07
+09:29:25  INFO       Downloading...
+09:30:13  INFO     Downloaded S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE (505.2 MB)
+09:30:13  INFO       Converting to .npy...
+09:30:13  INFO     Unzipping S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE.zip ...
+09:30:17  INFO     Extracted: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE
+09:30:17  INFO     Found 12/12 bands in SAFE archive
+09:30:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+09:36:03  INFO     Stacked array shape: (10980, 10980, 12)
+10:08:25  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.npy (shape: (10980, 10980, 12))
+10:08:25  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+10:08:26  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=22.4  label=+12.3 ppb
+10:08:26  INFO     
+10:08:26  INFO     ────────────────────────────────────────────────────────────
+10:08:26  INFO     uk_bacton                     2023-02-25  +29.1 ppb  tile=T31UCB
+10:08:27  INFO     Copernicus token refreshed, expires in 1800s
+10:08:30  INFO     Found 13 products
+10:08:30  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+10:08:35  INFO     Found 37 products
+10:08:35  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+10:08:40  INFO     Found 22 products
+10:08:40  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+10:08:47  INFO     Found 71 products
+10:08:47  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+10:08:53  INFO     Found 71 products
+10:08:53  INFO       ±21d cloud≤80% [any-tile]: 36 L1C products
+10:08:53  INFO       Note: using fallback tile(s) ['T31UDU', 'T30UYE', 'T30UYD', 'T31UCU'] instead of expected T31UCB
+10:08:53  INFO       Best: S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE  cloud=0.0%  date=2023-02-25
+10:08:53  INFO       Downloading...
+10:09:39  ERROR    Download failed for S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+10:09:39  INFO     
+10:09:39  INFO     ────────────────────────────────────────────────────────────
+10:09:39  INFO     uk_bacton                     2024-06-25  +11.1 ppb  tile=T31UCB
+10:09:42  INFO     Found 33 products
+10:09:42  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+10:09:49  INFO     Found 53 products
+10:09:49  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+10:09:54  INFO     Found 40 products
+10:09:54  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+10:10:05  INFO     Found 98 products
+10:10:05  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+10:10:14  INFO     Found 98 products
+10:10:14  INFO       ±21d cloud≤80% [any-tile]: 50 L1C products
+10:10:14  INFO       Note: using fallback tile(s) ['T31UDU', 'T30UYE', 'T30UYD', 'T31UCU'] instead of expected T31UCB
+10:10:14  INFO       Best: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE  cloud=0.0%  date=2024-06-26
+10:10:14  INFO       Downloading...
+10:11:46  INFO     Downloaded S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE (785.1 MB)
+10:11:46  INFO       Converting to .npy...
+10:11:46  INFO     Unzipping S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE.zip ...
+10:11:48  INFO     Extracted: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE
+10:11:48  INFO     Found 12/12 bands in SAFE archive
+10:11:48  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+10:14:03  INFO     Stacked array shape: (10980, 10980, 12)
+10:16:03  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.npy (shape: (10980, 10980, 12))
+10:16:03  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_geo.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:381: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "created":          datetime.utcnow().isoformat() + "Z",
+10:16:05  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=64.2  label=+11.1 ppb
+
+[3] Saving manifest and summary...
+    Manifest → results_analysis/training_manifest.json
+/Users/vincentcornelius/Downloads/methane-api/download_training_tiles.py:395: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  f"Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
+
+TRAINING TILE DOWNLOAD SUMMARY
+Generated: 2026-04-06 14:16 UTC
+=================================================================
+  OK (new downloads):      22
+  Cached/shared:           13
+  No S2 product found:      0
+  Errors:                   6
+  Dry-run skipped:          0
+  Total positives:         41
+
+By source type:
+  ?                            0 /   6 tiles ready
+  coal_mine                    9 /   9 tiles ready
+  coal_mine_plant              5 /   5 tiles ready
+  gas_compressor              17 /  17 tiles ready
+  gas_processing               1 /   1 tiles ready
+  gas_storage                  1 /   1 tiles ready
+  gas_terminal                 2 /   2 tiles ready
+
+By country:
+  ?:    0 /   6
+  DE:   11 /  11
+  NL:    5 /   5
+  PL:   14 /  14
+  RO:    3 /   3
+  UK:    2 /   2
+
+Ready tiles for fine-tuning:
+  de_bad_lauchstaedt           ?  +62.6 ppb  T32UQC  gas_compressor
+  nl_ravenstein                2023-02-10  +43.3 ppb  T31UGS  gas_compressor
+  ro_totea                     2023-01-01  +24.6 ppb  T35TLK  gas_compressor
+  de_bad_lauchstaedt           ?  +22.0 ppb  T32UQC  gas_compressor
+  silesia_rybnik               2024-06-28  +19.7 ppb  T34UCA  coal_mine_plant
+  silesia_jastrzebie           2023-03-01  +18.1 ppb  T34UCB  coal_mine
+  silesia_rybnik               ?  +17.4 ppb  T34UCA  coal_mine_plant
+  silesia_pniowek              ?  +17.1 ppb  T34UCB  coal_mine
+  silesia_zofiowka             ?  +16.9 ppb  T34UCB  coal_mine
+  nl_bergermeer                2023-01-26  +16.2 ppb  T31UFU  gas_storage
+  de_bad_lauchstaedt           2023-02-16  +16.2 ppb  T32UQC  gas_compressor
+  nl_ravenstein                2023-01-19  +16.0 ppb  T31UGS  gas_compressor
+  silesia_zofiowka             2023-01-23  +15.4 ppb  T34UCB  coal_mine
+  nl_ravenstein                2023-01-17  +15.3 ppb  T31UGS  gas_compressor
+  de_bad_lauchstaedt           ?  +14.0 ppb  T32UQC  gas_compressor
+  silesia_rybnik               ?  +13.9 ppb  T34UCA  coal_mine_plant
+  nl_grijpskerk                2023-02-08  +13.9 ppb  T31UGV  gas_compressor
+  de_sayda                     2024-06-29  +13.5 ppb  T33UUR  gas_compressor
+  ro_medias                    2023-02-17  +13.1 ppb  T34TGR  gas_processing
+  de_sayda                     ?  +13.0 ppb  T33UUR  gas_compressor
+  silesia_rybnik               ?  +12.6 ppb  T34UCA  coal_mine_plant
+  silesia_jastrzebie           2023-01-01  +12.4 ppb  T34UCB  coal_mine
+  uk_bacton                    2023-02-07  +12.3 ppb  T31UCB  gas_terminal
+  de_bad_lauchstaedt           2023-01-09  +12.2 ppb  T32UQC  gas_compressor
+  silesia_knurow               2023-02-15  +11.8 ppb  T34UCA  coal_mine
+  de_sayda                     ?  +11.8 ppb  T33UUR  gas_compressor
+  de_bad_lauchstaedt           2023-02-08  +11.3 ppb  T32UQC  gas_compressor
+  silesia_jastrzebie           2023-03-02  +11.2 ppb  T34UCB  coal_mine
+  uk_bacton                    2024-06-25  +11.1 ppb  T31UCB  gas_terminal
+  silesia_knurow               ?  +11.0 ppb  T34UCA  coal_mine
+  de_sayda                     2023-01-19  +10.9 ppb  T33UUR  gas_compressor
+  silesia_rybnik               ?  +10.8 ppb  T34UCA  coal_mine_plant
+  ro_totea                     2023-01-15  +10.8 ppb  T35TLK  gas_compressor
+  silesia_zofiowka             ?  +10.7 ppb  T34UCB  coal_mine
+  de_sayda                     2023-02-08  +10.6 ppb  T33UUR  gas_compressor
+    Summary  → results_analysis/training_summary.txt
+
+=================================================================
+  35 / 41 training tiles ready
+
+  ✓ Sufficient data for fine-tuning.
+  Next: run apply_bitemporal_diff.py (reference subtraction),
+  then approach_c_retrain.py with the European training set.
+=================================================================
+13:36:21  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+19:27:50  INFO     Copernicus token refreshed, expires in 1800s
+19:27:50  INFO     
+19:27:50  INFO     ────────────────────────────────────────────────────────────
+19:27:50  INFO     silesia_jastrzebie            2023-01-01  +12.4 ppb  tile=T34UCB
+19:27:52  INFO     Found 10 products
+19:27:52  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:27:54  INFO     Found 12 products
+19:27:54  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:27:58  INFO     Found 14 products
+19:27:58  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:28:01  INFO     Found 29 products
+19:28:01  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:28:05  INFO     Found 29 products
+19:28:05  INFO       ±21d cloud≤80% [any-tile]: 15 L1C products
+19:28:05  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:28:05  INFO       Best: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE  cloud=0.0%  date=2023-01-02
+19:28:05  INFO       Downloading...
+19:28:05  INFO     Already downloaded: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE
+19:28:05  INFO       Converting to .npy...
+19:28:05  INFO     Unzipping S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE.zip ...
+19:28:08  INFO     Extracted: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE
+19:28:08  INFO     Found 12/12 bands in SAFE archive
+19:28:08  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+19:31:08  INFO     Stacked array shape: (10980, 10980, 12)
+19:33:56  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy (shape: (10980, 10980, 12))
+19:33:56  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_geo.json
+19:33:58  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=44.4  label=+12.4 ppb
+19:33:58  INFO     
+19:33:58  INFO     ────────────────────────────────────────────────────────────
+19:33:58  INFO     silesia_jastrzebie            2023-03-01  +18.1 ppb  tile=T34UCB
+19:34:01  INFO     Found 0 products
+19:34:01  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:34:05  INFO     Found 4 products
+19:34:05  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:34:08  INFO     Found 0 products
+19:34:08  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:34:11  INFO     Found 10 products
+19:34:11  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:34:15  INFO     Found 10 products
+19:34:15  INFO       ±21d cloud≤80% [any-tile]: 5 L1C products
+19:34:15  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:34:15  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+19:34:15  INFO       Downloading...
+19:34:15  INFO     Already downloaded: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:34:15  INFO       Converting to .npy...
+19:34:15  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+19:34:17  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:34:17  INFO     Found 12/12 bands in SAFE archive
+19:34:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+19:36:12  INFO     Stacked array shape: (10980, 10980, 12)
+19:37:34  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+19:37:34  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+19:37:36  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+18.1 ppb
+19:37:36  INFO     
+19:37:36  INFO     ────────────────────────────────────────────────────────────
+19:37:36  INFO     silesia_jastrzebie            2023-03-02  +11.2 ppb  tile=T34UCB
+19:37:38  INFO     Found 0 products
+19:37:38  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:37:41  INFO     Found 4 products
+19:37:41  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:37:45  INFO     Found 0 products
+19:37:45  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:37:50  INFO     Found 13 products
+19:37:50  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:37:54  INFO     Found 13 products
+19:37:54  INFO       ±21d cloud≤80% [any-tile]: 6 L1C products
+19:37:54  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:37:54  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+19:37:54  INFO       Downloading...
+19:37:54  INFO     Already downloaded: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:37:54  INFO       Converting to .npy...
+19:37:54  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+19:37:56  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:37:56  INFO     Found 12/12 bands in SAFE archive
+19:37:56  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+19:40:30  INFO     Stacked array shape: (10980, 10980, 12)
+19:42:06  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+19:42:06  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+19:42:08  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+11.2 ppb
+19:42:08  INFO     
+19:42:08  INFO     ────────────────────────────────────────────────────────────
+19:42:08  INFO     silesia_knurow                2023-02-15  +11.8 ppb  tile=T34UCA
+19:42:08  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+19:42:08  INFO     
+19:42:08  INFO     ────────────────────────────────────────────────────────────
+19:42:08  INFO     silesia_knurow                2023-03-01  +11.0 ppb  tile=T34UCA
+19:42:08  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+19:42:08  INFO     
+19:42:08  INFO     ────────────────────────────────────────────────────────────
+19:42:08  INFO     silesia_pniowek               2023-03-01  +17.1 ppb  tile=T34UCB
+19:42:08  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+19:42:08  INFO     
+19:42:08  INFO     ────────────────────────────────────────────────────────────
+19:42:08  INFO     silesia_zofiowka              2023-01-01  +10.7 ppb  tile=T34UCB
+19:42:08  INFO       ✓ Sharing tile with silesia_jastrzebie: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy
+19:42:08  INFO     
+19:42:08  INFO     ────────────────────────────────────────────────────────────
+19:42:08  INFO     silesia_zofiowka              2023-01-23  +15.4 ppb  tile=T34UCB
+19:42:11  INFO     Found 0 products
+19:42:11  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:42:15  INFO     Found 4 products
+19:42:15  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:42:19  INFO     Found 18 products
+19:42:19  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:42:23  INFO     Found 32 products
+19:42:23  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:42:27  INFO     Found 32 products
+19:42:27  INFO       ±21d cloud≤80% [any-tile]: 16 L1C products
+19:42:27  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:42:27  INFO       Best: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE  cloud=0.0%  date=2023-01-17
+19:42:27  INFO       Downloading...
+19:42:27  INFO     Already downloaded: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE
+19:42:27  INFO       Converting to .npy...
+19:42:27  INFO     Unzipping S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE.zip ...
+19:42:29  INFO     Extracted: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE
+19:42:29  INFO     Found 12/12 bands in SAFE archive
+19:42:29  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+19:44:35  INFO     Stacked array shape: (10980, 10980, 12)
+19:46:04  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.npy (shape: (10980, 10980, 12))
+19:46:04  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_geo.json
+19:46:06  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=65.2  label=+15.4 ppb
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_zofiowka              2023-03-01  +16.9 ppb  tile=T34UCB
+19:46:06  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_rybnik                2023-02-10  +13.9 ppb  tile=T34UCA
+19:46:06  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_rybnik                2023-02-15  +10.8 ppb  tile=T34UCA
+19:46:06  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_rybnik                2023-03-01  +17.4 ppb  tile=T34UCA
+19:46:06  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_rybnik                2023-03-02  +12.6 ppb  tile=T34UCA
+19:46:06  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     silesia_rybnik                2024-06-28  +19.7 ppb  tile=T34UCA
+19:46:06  INFO       ✓ Cached: S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     nl_grijpskerk                 2023-02-08  +13.9 ppb  tile=T31UGV
+19:46:06  INFO       ✓ Cached: S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     nl_bergermeer                 2023-01-26  +16.2 ppb  tile=T31UFU
+19:46:06  INFO       ✓ Cached: S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.npy
+19:46:06  INFO     
+19:46:06  INFO     ────────────────────────────────────────────────────────────
+19:46:06  INFO     nl_ravenstein                 2023-01-17  +15.3 ppb  tile=T31UGS
+19:46:09  INFO     Found 1 products
+19:46:09  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+19:46:11  INFO     Found 6 products
+19:46:11  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+19:46:15  INFO     Found 5 products
+19:46:15  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+19:46:19  INFO     Found 19 products
+19:46:19  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+19:46:23  INFO     Found 19 products
+19:46:23  INFO       ±21d cloud≤80% [any-tile]: 11 L1C products
+19:46:23  INFO       Note: using fallback tile(s) ['T31UGT', 'T31UFT'] instead of expected T31UGS
+19:46:23  INFO       Best: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE  cloud=0.0%  date=2023-01-17
+19:46:23  INFO       Downloading...
+19:46:23  INFO     Already downloaded: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+19:46:23  INFO       Converting to .npy...
+19:46:23  INFO     Unzipping S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE.zip ...
+19:46:24  INFO     Extracted: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+19:46:24  INFO     Found 12/12 bands in SAFE archive
+19:46:24  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+19:48:13  INFO     Stacked array shape: (10980, 10980, 12)
+19:55:41  INFO     Copernicus token refreshed, expires in 1800s
+19:55:41  INFO     
+19:55:41  INFO     ────────────────────────────────────────────────────────────
+19:55:41  INFO     silesia_jastrzebie            2023-01-01  +12.4 ppb  tile=T34UCB
+19:55:44  INFO     Found 10 products
+19:55:44  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:55:47  INFO     Found 12 products
+19:55:47  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:55:50  INFO     Found 14 products
+19:55:50  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:55:54  INFO     Found 29 products
+19:55:54  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:55:57  INFO     Found 29 products
+19:55:57  INFO       ±21d cloud≤80% [any-tile]: 15 L1C products
+19:55:57  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:55:57  INFO       Best: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE  cloud=0.0%  date=2023-01-02
+19:55:57  INFO       Downloading...
+19:55:57  INFO     Already downloaded: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE
+19:55:57  INFO       Converting to .npy...
+19:55:58  INFO     Unzipping S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE.zip ...
+19:55:59  INFO     Extracted: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE
+19:55:59  INFO     Found 12/12 bands in SAFE archive
+19:55:59  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+19:57:55  INFO     Stacked array shape: (10980, 10980, 12)
+19:58:57  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy (shape: (10980, 10980, 12))
+19:58:57  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_geo.json
+19:58:58  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=44.4  label=+12.4 ppb
+19:58:58  INFO     
+19:58:58  INFO     ────────────────────────────────────────────────────────────
+19:58:58  INFO     silesia_jastrzebie            2023-03-01  +18.1 ppb  tile=T34UCB
+19:59:00  INFO     Found 0 products
+19:59:00  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+19:59:04  INFO     Found 4 products
+19:59:04  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+19:59:07  INFO     Found 0 products
+19:59:07  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+19:59:13  INFO     Found 10 products
+19:59:13  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+19:59:17  INFO     Found 10 products
+19:59:17  INFO       ±21d cloud≤80% [any-tile]: 5 L1C products
+19:59:17  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+19:59:17  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+19:59:17  INFO       Downloading...
+19:59:17  INFO     Already downloaded: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:59:17  INFO       Converting to .npy...
+19:59:17  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+19:59:18  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+19:59:18  INFO     Found 12/12 bands in SAFE archive
+19:59:18  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+20:01:01  INFO     Stacked array shape: (10980, 10980, 12)
+20:02:12  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+20:02:12  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+20:02:14  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+18.1 ppb
+20:02:14  INFO     
+20:02:14  INFO     ────────────────────────────────────────────────────────────
+20:02:14  INFO     silesia_jastrzebie            2023-03-02  +11.2 ppb  tile=T34UCB
+20:02:14  ERROR      Search failed (±7d cloud≤40%): 503 Server Error: Service Unavailable for url: https://catalogue.dataspace.copernicus.eu/odata/v1/Products?%24filter=Collection%2FName+eq+%27SENTINEL-2%27+and+OData.CSC.Intersects%28area%3Dgeography%27SRID%3D4326%3BPOLYGON%28%2818.34+49.7%2C18.84+49.7%2C18.84+50.2%2C18.34+50.2%2C18.34+49.7%29%29%27%29+and+ContentDate%2FStart+ge+2023-02-23T00%3A00%3A00.000Z+and+ContentDate%2FStart+le+2023-03-09T23%3A59%3A59.000Z+and+Attributes%2FOData.CSC.DoubleAttribute%2Fany%28att%3Aatt%2FName+eq+%27cloudCover%27+and+att%2FOData.CSC.DoubleAttribute%2FValue+le+40.0%29&%24top=50&%24orderby=ContentDate%2FStart+desc
+20:02:15  ERROR      Search failed (±7d cloud≤80%): 503 Server Error: Service Unavailable for url: https://catalogue.dataspace.copernicus.eu/odata/v1/Products?%24filter=Collection%2FName+eq+%27SENTINEL-2%27+and+OData.CSC.Intersects%28area%3Dgeography%27SRID%3D4326%3BPOLYGON%28%2818.34+49.7%2C18.84+49.7%2C18.84+50.2%2C18.34+50.2%2C18.34+49.7%29%29%27%29+and+ContentDate%2FStart+ge+2023-02-23T00%3A00%3A00.000Z+and+ContentDate%2FStart+le+2023-03-09T23%3A59%3A59.000Z+and+Attributes%2FOData.CSC.DoubleAttribute%2Fany%28att%3Aatt%2FName+eq+%27cloudCover%27+and+att%2FOData.CSC.DoubleAttribute%2FValue+le+80.0%29&%24top=50&%24orderby=ContentDate%2FStart+desc
+20:02:15  ERROR      Search failed (±21d cloud≤40%): 503 Server Error: Service Unavailable for url: https://catalogue.dataspace.copernicus.eu/odata/v1/Products?%24filter=Collection%2FName+eq+%27SENTINEL-2%27+and+OData.CSC.Intersects%28area%3Dgeography%27SRID%3D4326%3BPOLYGON%28%2818.34+49.7%2C18.84+49.7%2C18.84+50.2%2C18.34+50.2%2C18.34+49.7%29%29%27%29+and+ContentDate%2FStart+ge+2023-02-09T00%3A00%3A00.000Z+and+ContentDate%2FStart+le+2023-03-23T23%3A59%3A59.000Z+and+Attributes%2FOData.CSC.DoubleAttribute%2Fany%28att%3Aatt%2FName+eq+%27cloudCover%27+and+att%2FOData.CSC.DoubleAttribute%2FValue+le+40.0%29&%24top=50&%24orderby=ContentDate%2FStart+desc
+20:02:22  INFO     Found 13 products
+20:02:22  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+20:02:24  INFO     Found 13 products
+20:02:24  INFO       ±21d cloud≤80% [any-tile]: 6 L1C products
+20:02:24  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+20:02:24  INFO       Best: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE  cloud=0.0%  date=2023-02-26
+20:02:24  INFO       Downloading...
+20:02:24  INFO     Already downloaded: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+20:02:24  INFO       Converting to .npy...
+20:02:24  INFO     Unzipping S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE.zip ...
+20:02:26  INFO     Extracted: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE
+20:02:26  INFO     Found 12/12 bands in SAFE archive
+20:02:26  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+20:04:05  INFO     Stacked array shape: (10980, 10980, 12)
+20:05:38  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy (shape: (10980, 10980, 12))
+20:05:38  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_geo.json
+20:05:39  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=92.3  label=+11.2 ppb
+20:05:39  INFO     
+20:05:39  INFO     ────────────────────────────────────────────────────────────
+20:05:39  INFO     silesia_knurow                2023-02-15  +11.8 ppb  tile=T34UCA
+20:05:39  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+20:05:39  INFO     
+20:05:39  INFO     ────────────────────────────────────────────────────────────
+20:05:39  INFO     silesia_knurow                2023-03-01  +11.0 ppb  tile=T34UCA
+20:05:39  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+20:05:39  INFO     
+20:05:39  INFO     ────────────────────────────────────────────────────────────
+20:05:39  INFO     silesia_pniowek               2023-03-01  +17.1 ppb  tile=T34UCB
+20:05:39  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+20:05:39  INFO     
+20:05:39  INFO     ────────────────────────────────────────────────────────────
+20:05:39  INFO     silesia_zofiowka              2023-01-01  +10.7 ppb  tile=T34UCB
+20:05:39  INFO       ✓ Sharing tile with silesia_jastrzebie: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy
+20:05:39  INFO     
+20:05:39  INFO     ────────────────────────────────────────────────────────────
+20:05:39  INFO     silesia_zofiowka              2023-01-23  +15.4 ppb  tile=T34UCB
+20:05:42  INFO     Found 0 products
+20:05:42  INFO       ±7d cloud≤40% [T34UCB]: 0 L1C products
+20:05:46  INFO     Found 4 products
+20:05:46  INFO       ±7d cloud≤80% [T34UCB]: 0 L1C products
+20:05:50  INFO     Found 18 products
+20:05:50  INFO       ±21d cloud≤40% [T34UCB]: 0 L1C products
+20:05:54  INFO     Found 32 products
+20:05:54  INFO       ±21d cloud≤80% [T34UCB]: 0 L1C products
+20:05:58  INFO     Found 32 products
+20:05:58  INFO       ±21d cloud≤80% [any-tile]: 16 L1C products
+20:05:58  INFO       Note: using fallback tile(s) ['T34UCA', 'T33UYR'] instead of expected T34UCB
+20:05:58  INFO       Best: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE  cloud=0.0%  date=2023-01-17
+20:05:58  INFO       Downloading...
+20:05:58  INFO     Already downloaded: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE
+20:05:58  INFO       Converting to .npy...
+20:05:58  INFO     Unzipping S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE.zip ...
+20:05:59  INFO     Extracted: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE
+20:05:59  INFO     Found 12/12 bands in SAFE archive
+20:05:59  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+20:07:49  INFO     Stacked array shape: (10980, 10980, 12)
+20:09:06  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.npy (shape: (10980, 10980, 12))
+20:09:06  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_geo.json
+20:09:07  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=65.2  label=+15.4 ppb
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_zofiowka              2023-03-01  +16.9 ppb  tile=T34UCB
+20:09:07  INFO       ✓ Sharing tile with silesia_jastrzebie: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_rybnik                2023-02-10  +13.9 ppb  tile=T34UCA
+20:09:07  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_rybnik                2023-02-15  +10.8 ppb  tile=T34UCA
+20:09:07  INFO       ✓ Cached: S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_rybnik                2023-03-01  +17.4 ppb  tile=T34UCA
+20:09:07  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_rybnik                2023-03-02  +12.6 ppb  tile=T34UCA
+20:09:07  INFO       ✓ Cached: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     silesia_rybnik                2024-06-28  +19.7 ppb  tile=T34UCA
+20:09:07  INFO       ✓ Cached: S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     nl_grijpskerk                 2023-02-08  +13.9 ppb  tile=T31UGV
+20:09:07  INFO       ✓ Cached: S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     nl_bergermeer                 2023-01-26  +16.2 ppb  tile=T31UFU
+20:09:07  INFO       ✓ Cached: S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.npy
+20:09:07  INFO     
+20:09:07  INFO     ────────────────────────────────────────────────────────────
+20:09:07  INFO     nl_ravenstein                 2023-01-17  +15.3 ppb  tile=T31UGS
+20:09:10  INFO     Found 1 products
+20:09:10  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+20:09:12  INFO     Found 6 products
+20:09:12  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+20:09:16  INFO     Found 5 products
+20:09:16  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+20:09:21  INFO     Found 19 products
+20:09:21  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+20:09:25  INFO     Found 19 products
+20:09:25  INFO       ±21d cloud≤80% [any-tile]: 11 L1C products
+20:09:25  INFO       Note: using fallback tile(s) ['T31UGT', 'T31UFT'] instead of expected T31UGS
+20:09:25  INFO       Best: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE  cloud=0.0%  date=2023-01-17
+20:09:25  INFO       Downloading...
+20:09:25  INFO     Already downloaded: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+20:09:25  INFO       Converting to .npy...
+20:09:25  INFO     Unzipping S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE.zip ...
+20:09:27  INFO     Extracted: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+20:09:27  INFO     Found 12/12 bands in SAFE archive
+20:09:27  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+20:11:12  INFO     Stacked array shape: (10980, 10980, 12)
+20:12:51  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy (shape: (10980, 10980, 12))
+20:12:51  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_geo.json
+20:12:52  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=58.9  label=+15.3 ppb
+20:12:52  INFO     
+20:12:52  INFO     ────────────────────────────────────────────────────────────
+20:12:52  INFO     nl_ravenstein                 2023-01-19  +16.0 ppb  tile=T31UGS
+20:12:55  INFO     Found 1 products
+20:12:55  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+20:12:57  INFO     Found 6 products
+20:12:57  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+20:13:02  INFO     Found 5 products
+20:13:02  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+20:13:06  INFO     Found 19 products
+20:13:06  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+20:13:12  INFO     Found 19 products
+20:13:12  INFO       ±21d cloud≤80% [any-tile]: 11 L1C products
+20:13:12  INFO       Note: using fallback tile(s) ['T31UGT', 'T31UFT'] instead of expected T31UGS
+20:13:12  INFO       Best: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE  cloud=0.0%  date=2023-01-17
+20:13:12  INFO       Downloading...
+20:13:12  INFO     Already downloaded: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+20:13:12  INFO       Converting to .npy...
+20:13:12  INFO     Unzipping S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE.zip ...
+20:13:13  INFO     Extracted: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE
+20:13:13  INFO     Found 12/12 bands in SAFE archive
+20:13:13  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+20:15:04  INFO     Stacked array shape: (10980, 10980, 12)
+20:16:59  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy (shape: (10980, 10980, 12))
+20:16:59  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_geo.json
+20:17:01  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=58.9  label=+16.0 ppb
+20:17:01  INFO     
+20:17:01  INFO     ────────────────────────────────────────────────────────────
+20:17:01  INFO     nl_ravenstein                 2023-02-10  +43.3 ppb  tile=T31UGS
+20:17:04  INFO     Found 8 products
+20:17:04  INFO       ±7d cloud≤40% [T31UGS]: 0 L1C products
+20:17:06  INFO     Found 12 products
+20:17:06  INFO       ±7d cloud≤80% [T31UGS]: 0 L1C products
+20:17:09  INFO     Found 16 products
+20:17:09  INFO       ±21d cloud≤40% [T31UGS]: 0 L1C products
+20:17:13  INFO     Found 25 products
+20:17:13  INFO       ±21d cloud≤80% [T31UGS]: 0 L1C products
+20:17:17  INFO     Found 25 products
+20:17:17  INFO       ±21d cloud≤80% [any-tile]: 14 L1C products
+20:17:17  INFO       Note: using fallback tile(s) ['T31UGT', 'T31UFT'] instead of expected T31UGS
+20:17:17  INFO       Best: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE  cloud=0.0%  date=2023-02-14
+20:17:17  INFO       Downloading...
+20:17:17  INFO     Already downloaded: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE
+20:17:17  INFO       Converting to .npy...
+20:17:17  INFO     Unzipping S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE.zip ...
+20:17:20  INFO     Extracted: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE
+20:17:20  INFO     Found 12/12 bands in SAFE archive
+20:17:20  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+20:21:09  INFO     Stacked array shape: (10980, 10980, 12)
+20:24:06  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.npy (shape: (10980, 10980, 12))
+20:24:06  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_geo.json
+20:24:09  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=47.2  label=+43.3 ppb
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-01-09  +12.2 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-02-08  +11.3 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-02-10  +22.0 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-02-14  +14.0 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-02-16  +16.2 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_bad_lauchstaedt            2023-02-19  +62.6 ppb  tile=T32UQC
+20:24:09  INFO       ✓ Cached: S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_sayda                      2023-01-19  +10.9 ppb  tile=T33UUR
+20:24:09  INFO       ✓ Cached: S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:09  INFO     de_sayda                      2023-02-08  +10.6 ppb  tile=T33UUR
+20:24:09  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy
+20:24:09  INFO     
+20:24:09  INFO     ────────────────────────────────────────────────────────────
+20:24:10  INFO     de_sayda                      2023-02-09  +13.0 ppb  tile=T33UUR
+20:24:10  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy
+20:24:10  INFO     
+20:24:10  INFO     ────────────────────────────────────────────────────────────
+20:24:10  INFO     de_sayda                      2023-02-10  +11.8 ppb  tile=T33UUR
+20:24:10  INFO       ✓ Cached: S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy
+20:24:10  INFO     
+20:24:10  INFO     ────────────────────────────────────────────────────────────
+20:24:10  INFO     de_sayda                      2024-06-29  +13.5 ppb  tile=T33UUR
+20:24:10  INFO       ✓ Cached: S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.npy
+20:24:10  INFO     
+20:24:10  INFO     ────────────────────────────────────────────────────────────
+20:24:10  INFO     ro_medias                     2023-01-03  +14.8 ppb  tile=T34TGR
+20:24:11  INFO     Copernicus token refreshed, expires in 1800s
+20:24:14  INFO     Found 11 products
+20:24:14  INFO       ±7d cloud≤40% [T34TGR]: 1 L1C products
+20:24:14  INFO       Best: S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE  cloud=0.0%  date=2023-01-08
+20:24:14  INFO       Downloading...
+20:25:52  INFO     Downloaded S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE (844.2 MB)
+20:25:52  INFO       Converting to .npy...
+20:25:52  INFO     Unzipping S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE.zip ...
+20:25:54  INFO     Extracted: S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE
+20:25:54  INFO     Found 12/12 bands in SAFE archive
+20:25:54  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+20:29:34  INFO     Stacked array shape: (10980, 10980, 12)
+20:33:02  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.npy (shape: (10980, 10980, 12))
+20:33:02  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507_geo.json
+20:33:04  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=48.4  label=+14.8 ppb
+20:33:04  INFO     
+20:33:04  INFO     ────────────────────────────────────────────────────────────
+20:33:04  INFO     ro_medias                     2023-02-17  +13.1 ppb  tile=T34TGR
+20:33:04  INFO       ✓ Cached: S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.npy
+20:33:04  INFO     
+20:33:04  INFO     ────────────────────────────────────────────────────────────
+20:33:04  INFO     ro_medias                     2023-03-02  +21.5 ppb  tile=T34TGR
+20:33:06  INFO     Found 4 products
+20:33:06  INFO       ±7d cloud≤40% [T34TGR]: 1 L1C products
+20:33:06  INFO       Best: S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE  cloud=0.0%  date=2023-03-04
+20:33:06  INFO       Downloading...
+20:35:48  INFO     Downloaded S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE (861.4 MB)
+20:35:48  INFO       Converting to .npy...
+20:35:48  INFO     Unzipping S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE.zip ...
+20:35:50  INFO     Extracted: S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE
+20:35:50  INFO     Found 12/12 bands in SAFE archive
+20:35:50  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+20:37:30  INFO     Stacked array shape: (10980, 10980, 12)
+20:38:26  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.npy (shape: (10980, 10980, 12))
+20:38:26  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957_geo.json
+20:38:27  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=59.5  label=+21.5 ppb
+20:38:27  INFO     
+20:38:27  INFO     ────────────────────────────────────────────────────────────
+20:38:27  INFO     ro_totea                      2023-01-01  +24.6 ppb  tile=T35TLK
+20:38:27  INFO       ✓ Cached: S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.npy
+20:38:27  INFO     
+20:38:27  INFO     ────────────────────────────────────────────────────────────
+20:38:27  INFO     ro_totea                      2023-01-15  +10.8 ppb  tile=T35TLK
+20:38:27  INFO       ✓ Cached: S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.npy
+20:38:27  INFO     
+20:38:27  INFO     ────────────────────────────────────────────────────────────
+20:38:27  INFO     ro_totea                      2023-02-21  +18.6 ppb  tile=T35TLK
+20:38:30  INFO     Found 18 products
+20:38:30  INFO       ±7d cloud≤40% [T35TLK]: 2 L1C products
+20:38:30  INFO       Best: S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE  cloud=0.0%  date=2023-02-22
+20:38:30  INFO       Downloading...
+20:40:56  INFO     Downloaded S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE (794.4 MB)
+20:40:56  INFO       Converting to .npy...
+20:40:56  INFO     Unzipping S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE.zip ...
+20:40:57  INFO     Extracted: S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE
+20:40:57  INFO     Found 12/12 bands in SAFE archive
+20:40:57  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+20:42:39  INFO     Stacked array shape: (10980, 10980, 12)
+20:43:37  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.npy (shape: (10980, 10980, 12))
+20:43:37  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437_geo.json
+20:43:38  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=70.1  label=+18.6 ppb
+20:43:38  INFO     
+20:43:38  INFO     ────────────────────────────────────────────────────────────
+20:43:38  INFO     fr_lacq                       2024-07-03  +24.2 ppb  tile=T30TXN
+20:43:42  INFO     Found 24 products
+20:43:42  INFO       ±7d cloud≤40% [T30TXN]: 4 L1C products
+20:43:42  INFO       Best: S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE  cloud=0.0%  date=2024-07-03
+20:43:42  INFO       Downloading...
+20:45:13  INFO     Downloaded S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE (493.7 MB)
+20:45:13  INFO       Converting to .npy...
+20:45:13  INFO     Unzipping S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE.zip ...
+20:45:14  INFO     Extracted: S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE
+20:45:14  INFO     Found 12/12 bands in SAFE archive
+20:45:14  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+20:46:29  INFO     Stacked array shape: (10980, 10980, 12)
+20:46:59  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.npy (shape: (10980, 10980, 12))
+20:46:59  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100_geo.json
+20:47:00  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=30.3  label=+24.2 ppb
+20:47:00  INFO     
+20:47:00  INFO     ────────────────────────────────────────────────────────────
+20:47:00  INFO     uk_bacton                     2023-01-08  +30.6 ppb  tile=T31UCB
+20:47:02  INFO     Found 19 products
+20:47:02  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+20:47:06  INFO     Found 30 products
+20:47:06  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+20:47:10  INFO     Found 45 products
+20:47:10  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+20:47:16  INFO     Found 75 products
+20:47:16  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+20:47:24  INFO     Found 75 products
+20:47:24  INFO       ±21d cloud≤80% [any-tile]: 40 L1C products
+20:47:24  INFO       Note: using fallback tile(s) ['T31UCU', 'T30UYE', 'T31UDU', 'T30UYD'] instead of expected T31UCB
+20:47:24  INFO       Best: S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE  cloud=0.0%  date=2023-01-08
+20:47:24  INFO       Downloading...
+20:48:48  INFO     Downloaded S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE (785.4 MB)
+20:48:48  INFO       Converting to .npy...
+20:48:48  INFO     Unzipping S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE.zip ...
+20:48:49  INFO     Extracted: S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE
+20:48:49  INFO     Found 12/12 bands in SAFE archive
+20:48:49  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+20:50:35  INFO     Stacked array shape: (10980, 10980, 12)
+20:51:50  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.npy (shape: (10980, 10980, 12))
+20:51:50  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306_geo.json
+20:51:51  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=36.6  label=+30.6 ppb
+20:51:51  INFO     
+20:51:51  INFO     ────────────────────────────────────────────────────────────
+20:51:51  INFO     uk_bacton                     2023-02-07  +12.3 ppb  tile=T31UCB
+20:51:54  INFO     Found 13 products
+20:51:54  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+20:51:56  INFO     Found 22 products
+20:51:56  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+20:51:59  INFO     Found 43 products
+20:51:59  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+20:52:09  INFO     Found 85 products
+20:52:09  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+20:52:18  INFO     Found 85 products
+20:52:18  INFO       ±21d cloud≤80% [any-tile]: 42 L1C products
+20:52:18  INFO       Note: using fallback tile(s) ['T31UCU', 'T30UYE', 'T31UDU', 'T30UYD'] instead of expected T31UCB
+20:52:18  INFO       Best: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE  cloud=0.0%  date=2023-02-07
+20:52:18  INFO       Downloading...
+20:52:18  INFO     Already downloaded: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE
+20:52:18  INFO       Converting to .npy...
+20:52:18  INFO     Unzipping S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE.zip ...
+20:52:19  INFO     Extracted: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE
+20:52:19  INFO     Found 12/12 bands in SAFE archive
+20:52:19  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+20:53:37  INFO     Stacked array shape: (10980, 10980, 12)
+20:54:45  INFO     Saved .npy array: data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.npy (shape: (10980, 10980, 12))
+20:54:45  INFO     Saved geo metadata: data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_geo.json
+20:54:47  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=22.4  label=+12.3 ppb
+20:54:47  INFO     
+20:54:47  INFO     ────────────────────────────────────────────────────────────
+20:54:47  INFO     uk_bacton                     2023-02-25  +29.1 ppb  tile=T31UCB
+20:54:48  INFO     Copernicus token refreshed, expires in 1800s
+20:54:51  INFO     Found 13 products
+20:54:51  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+20:54:54  INFO     Found 37 products
+20:54:54  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+20:54:57  INFO     Found 22 products
+20:54:57  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+20:55:06  INFO     Found 71 products
+20:55:06  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+20:55:12  INFO     Found 71 products
+20:55:12  INFO       ±21d cloud≤80% [any-tile]: 36 L1C products
+20:55:12  INFO       Note: using fallback tile(s) ['T31UCU', 'T30UYE', 'T31UDU', 'T30UYD'] instead of expected T31UCB
+20:55:12  INFO       Best: S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE  cloud=0.0%  date=2023-02-25
+20:55:12  INFO       Downloading...
+20:56:51  INFO     Downloaded S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE (755.5 MB)
+20:56:51  INFO       Converting to .npy...
+20:56:51  INFO     Unzipping S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE.zip ...
+20:56:52  INFO     Extracted: S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE
+20:56:52  INFO     Found 12/12 bands in SAFE archive
+20:56:52  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+20:58:39  INFO     Stacked array shape: (10980, 10980, 12)
+20:59:58  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.npy (shape: (10980, 10980, 12))
+20:59:58  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454_geo.json
+21:00:00  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=45.4  label=+29.1 ppb
+21:00:00  INFO     
+21:00:00  INFO     ────────────────────────────────────────────────────────────
+21:00:00  INFO     uk_bacton                     2024-06-25  +11.1 ppb  tile=T31UCB
+21:00:03  INFO     Found 33 products
+21:00:03  INFO       ±7d cloud≤40% [T31UCB]: 0 L1C products
+21:00:10  INFO     Found 53 products
+21:00:10  INFO       ±7d cloud≤80% [T31UCB]: 0 L1C products
+21:00:14  INFO     Found 40 products
+21:00:14  INFO       ±21d cloud≤40% [T31UCB]: 0 L1C products
+21:00:31  INFO     Found 98 products
+21:00:31  INFO       ±21d cloud≤80% [T31UCB]: 0 L1C products
+21:00:43  INFO     Found 98 products
+21:00:43  INFO       ±21d cloud≤80% [any-tile]: 50 L1C products
+21:00:43  INFO       Note: using fallback tile(s) ['T31UCU', 'T30UYE', 'T31UDU', 'T30UYD'] instead of expected T31UCB
+21:00:43  INFO       Best: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE  cloud=0.0%  date=2024-06-26
+21:00:43  INFO       Downloading...
+21:00:43  INFO     Already downloaded: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE
+21:00:43  INFO       Converting to .npy...
+21:00:43  INFO     Unzipping S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE.zip ...
+21:00:44  INFO     Extracted: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE
+21:00:44  INFO     Found 12/12 bands in SAFE archive
+21:00:44  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+21:02:25  INFO     Stacked array shape: (10980, 10980, 12)
+21:03:29  INFO     Saved .npy array: data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.npy (shape: (10980, 10980, 12))
+21:03:29  INFO     Saved geo metadata: data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_geo.json
+21:03:31  INFO       ✓ shape=(10980, 10980, 12)  B12_mean=64.2  label=+11.1 ppb

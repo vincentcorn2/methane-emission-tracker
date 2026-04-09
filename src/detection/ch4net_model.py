@@ -40,13 +40,50 @@ class DetectionResult:
     centroid_col: Optional[int] = None
 
 
+# ── Sub-modules (must match approach_c_retrain.py exactly so weights load) ────
+
+class _DoubleConv(nn.Module):
+    """Two conv-BN-ReLU blocks. Saved as .net in the state_dict."""
+    def __init__(self, in_ch: int, out_ch: int):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, 3, padding=1), nn.BatchNorm2d(out_ch), nn.ReLU(True),
+            nn.Conv2d(out_ch, out_ch, 3, padding=1), nn.BatchNorm2d(out_ch), nn.ReLU(True),
+        )
+    def forward(self, x): return self.net(x)
+
+
+class _Down(nn.Module):
+    """MaxPool2d + DoubleConv. Saved as .net in the state_dict."""
+    def __init__(self, in_ch: int, out_ch: int):
+        super().__init__()
+        self.net = nn.Sequential(nn.MaxPool2d(2), _DoubleConv(in_ch, out_ch))
+    def forward(self, x): return self.net(x)
+
+
+class _Up(nn.Module):
+    """Bilinear upsample + skip-concat + DoubleConv."""
+    def __init__(self, in_ch: int, out_ch: int):
+        super().__init__()
+        self.up   = nn.Upsample(scale_factor=2, mode="bilinear", align_corners=True)
+        self.conv = _DoubleConv(in_ch, out_ch)
+    def forward(self, x1, x2):
+        x1 = self.up(x1)
+        dy, dx = x2.size(2) - x1.size(2), x2.size(3) - x1.size(3)
+        x1 = F.pad(x1, [dx // 2, dx - dx // 2, dy // 2, dy - dy // 2])
+        return self.conv(torch.cat([x2, x1], dim=1))
+
+
 class Unet(nn.Module):
     """
     U-Net for methane plume binary segmentation.
 
-    Faithfully reproduces the CH4Net architecture from Vaughan et al.
-    with div_factor=8 (paper architecture, ~214K params). Retrained on
-    the official av555/ch4net dataset (8,255 training samples).
+    Architecture exactly matches approach_c_retrain.py so that saved weights
+    load without key remapping. Uses named sub-modules (_DoubleConv, _Down, _Up)
+    which produce state_dict keys like 'inc.net.0.weight', 'down1.net.1.net.0.weight'.
+
+    div_factor=8 → ~214K params (paper architecture, Vaughan et al. 2024 AMT).
+    prob_output=True applies sigmoid for inference; False returns raw logits for training.
     """
 
     def __init__(
@@ -57,49 +94,19 @@ class Unet(nn.Module):
         prob_output: bool = True,
     ):
         super().__init__()
-        self.n_channels = in_channels
         self.prob_output = prob_output
         self.sigmoid = nn.Sigmoid()
-
-        def double_conv(in_ch, out_ch):
-            return nn.Sequential(
-                nn.Conv2d(in_ch, out_ch, kernel_size=3, padding=1),
-                nn.BatchNorm2d(out_ch),
-                nn.ReLU(inplace=True),
-                nn.Conv2d(out_ch, out_ch, kernel_size=3, padding=1),
-                nn.BatchNorm2d(out_ch),
-                nn.ReLU(inplace=True),
-            )
-
-        def down(in_ch, out_ch):
-            return nn.Sequential(nn.MaxPool2d(2), double_conv(in_ch, out_ch))
-
-        class Up(nn.Module):
-            def __init__(self, in_ch, out_ch):
-                super().__init__()
-                self.up = nn.Upsample(
-                    scale_factor=2, mode="bilinear", align_corners=True
-                )
-                self.conv = double_conv(in_ch, out_ch)
-
-            def forward(self, x1, x2):
-                x1 = self.up(x1)
-                dy = x2.size(2) - x1.size(2)
-                dx = x2.size(3) - x1.size(3)
-                x1 = F.pad(x1, [dx // 2, dx - dx // 2, dy // 2, dy - dy // 2])
-                return self.conv(torch.cat([x2, x1], dim=1))
-
         d = div_factor
-        self.inc = double_conv(self.n_channels, 64 // d)
-        self.down1 = down(64 // d, 128 // d)
-        self.down2 = down(128 // d, 256 // d)
-        self.down3 = down(256 // d, 512 // d)
-        self.down4 = down(512 // d, 512 // d)
-        self.up1 = Up(1024 // d, 256 // d)
-        self.up2 = Up(512 // d, 128 // d)
-        self.up3 = Up(256 // d, 64 // d)
-        self.up4 = Up(128 // d, 128 // d)
-        self.out = nn.Conv2d(128 // d, out_channels, kernel_size=1)
+        self.inc   = _DoubleConv(in_channels, 64 // d)
+        self.down1 = _Down(64 // d,  128 // d)
+        self.down2 = _Down(128 // d, 256 // d)
+        self.down3 = _Down(256 // d, 512 // d)
+        self.down4 = _Down(512 // d, 512 // d)
+        self.up1   = _Up(1024 // d,  256 // d)
+        self.up2   = _Up(512 // d,   128 // d)
+        self.up3   = _Up(256 // d,    64 // d)
+        self.up4   = _Up(128 // d,   128 // d)
+        self.out   = nn.Conv2d(128 // d, out_channels, kernel_size=1)
 
     def forward(self, x):
         x1 = self.inc(x)
@@ -107,15 +114,13 @@ class Unet(nn.Module):
         x3 = self.down2(x2)
         x4 = self.down3(x3)
         x5 = self.down4(x4)
-        x = self.up1(x5, x4)
-        x = self.up2(x, x3)
-        x = self.up3(x, x2)
-        x = self.up4(x, x1)
-
+        x  = self.up1(x5, x4)
+        x  = self.up2(x,  x3)
+        x  = self.up3(x,  x2)
+        x  = self.up4(x,  x1)
         if self.prob_output:
             return self.sigmoid(self.out(x)).permute(0, 2, 3, 1)
         else:
-            # Return raw logits for BCEWithLogitsLoss during training
             return self.out(x).permute(0, 2, 3, 1)
 
 
@@ -150,10 +155,33 @@ class CH4NetDetector:
         self.min_plume_pixels = min_plume_pixels
 
         # Load model with prob_output=True for inference (applies sigmoid)
-        # div_factor=8 matches retrained weights (paper architecture, ~214K params)
-        self.model = Unet(in_channels=12, out_channels=1, div_factor=8, prob_output=True)
-        checkpoint = torch.load(weights_path, map_location=self.device)
-        self.model.load_state_dict(checkpoint["model_state_dict"])
+        # Note: approach_c_retrain.py saves raw state_dict (not wrapped in a dict)
+        state_dict = torch.load(weights_path, map_location=self.device)
+        # Handle both raw state_dict and wrapped {"model_state_dict": ...} formats
+        if isinstance(state_dict, dict) and "model_state_dict" in state_dict:
+            state_dict = state_dict["model_state_dict"]
+
+        # Auto-detect div_factor from out.weight shape: out=Conv2d(128//d, 1, 1)
+        # so out.weight has shape [1, 128//d, 1, 1] → d = 128 // in_channels
+        _out_key = "out.weight"
+        _div_factor = 8  # default (paper architecture, ~214K params)
+        if _out_key in state_dict:
+            _in_ch = state_dict[_out_key].shape[1]
+            _div_factor = max(1, 128 // _in_ch)
+
+        self.model = Unet(in_channels=12, out_channels=1, div_factor=_div_factor, prob_output=True)
+
+        # Remap flat-Sequential keys to .net-wrapped keys unconditionally (idempotent).
+        # Old format: inc.0.weight, down1.1.0.weight, up1.conv.0.weight
+        # New format: inc.net.0.weight, down1.net.1.net.0.weight, up1.conv.net.0.weight
+        import re
+        remapped = {}
+        for k, v in state_dict.items():
+            k = re.sub(r'^inc\.(\d)', r'inc.net.\1', k)
+            k = re.sub(r'^(down\d)\.1\.(\d)', r'\1.net.1.net.\2', k)
+            k = re.sub(r'^(up\d\.conv)\.(\d)', r'\1.net.\2', k)
+            remapped[k] = v
+        self.model.load_state_dict(remapped)
         self.model.to(self.device)
         self.model.eval()
 

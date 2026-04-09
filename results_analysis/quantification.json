@@ -1,0 +1,30 @@
+[
+  {
+    "site": "groningen",
+    "methodology": "CEMF+IME",
+    "wind_ms": 5.5,
+    "flow_rate_kgh": 28.7591,
+    "flow_rate_lower_kgh": 17.2555,
+    "flow_rate_upper_kgh": 40.2628,
+    "annual_tonnes": 251.9299,
+    "ira_usd": 377894.9025,
+    "plume_pixels": 1980,
+    "cemf_valid": true,
+    "total_mass_kg": 15.0041,
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021, AMT Sec 2.2)"
+  },
+  {
+    "site": "maasvlakte",
+    "methodology": "CEMF+IME",
+    "wind_ms": 4.5,
+    "flow_rate_kgh": 426.4968,
+    "flow_rate_lower_kgh": 255.8981,
+    "flow_rate_upper_kgh": 597.0956,
+    "annual_tonnes": 3736.1122,
+    "ira_usd": 5604168.2805,
+    "plume_pixels": 1565,
+    "cemf_valid": true,
+    "total_mass_kg": 121.3673,
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021, AMT Sec 2.2)"
+  }
+]

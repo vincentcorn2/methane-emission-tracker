@@ -1,0 +1,106 @@
+16:09:50  INFO     Copernicus token refreshed, expires in 1800s
+16:09:50  INFO     ============================================================
+16:09:50  INFO     Site: WEISWEILER  (tile T32ULB)
+16:09:50  INFO     Note: Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive
+16:09:50  INFO       Searching 2023-11-01 – 2024-02-28 (cloud ≤ 25%)...
+16:09:55  INFO     Found 19 products
+16:09:55  INFO       Found 19 products total, 12 for tile T32ULB
+16:09:55  INFO       Best product: S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.SAFE
+16:09:55  INFO       Cloud cover: 0.0%  Date: 2023-12-26
+16:09:55  INFO       Downloading (~500–700 MB)...
+16:10:02  INFO     Downloaded S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.SAFE (46.0 MB)
+16:10:02  INFO       Downloaded: data/downloads/reference/S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.SAFE.zip
+16:10:02  INFO       Converting SAFE archive to .npy (rasterio required)...
+16:10:02  INFO     Unzipping S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.SAFE.zip ...
+16:10:02  INFO     Extracted: S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.SAFE
+16:10:02  INFO     Found 12/12 bands in SAFE archive
+16:10:02  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+16:11:12  INFO     Stacked array shape: (10980, 10980, 12)
+16:11:53  INFO     Saved .npy array: data/npy_cache/S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540.npy (shape: (10980, 10980, 12))
+16:11:53  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL1C_20231226T105359_N0510_R051_T32ULB_20231226T114540_geo.json
+16:11:54  INFO       Renamed → T32ULB_ref_20231226.npy
+16:11:55  INFO       Shape: (10980, 10980, 12)  dtype: uint8  B11 mean: 2.0  B12 mean: 1.7
+16:11:55  INFO       ✓ Reference tile ready: T32ULB_ref_20231226.npy
+16:11:55  INFO     ============================================================
+16:11:55  INFO     Site: BOXBERG  (tile T33UVT)
+16:11:55  INFO     Note: Boxberg/Lausitz (S/C=1.517, marginal above Lausitz background 1.397)
+16:11:55  INFO       Searching 2023-11-01 – 2024-02-28 (cloud ≤ 25%)...
+16:12:00  INFO     Found 24 products
+16:12:00  INFO       Found 24 products total, 14 for tile T33UVT
+16:12:00  INFO       Best product: S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.SAFE
+16:12:00  INFO       Cloud cover: 0.0%  Date: 2024-01-28
+16:12:00  INFO       Downloading (~500–700 MB)...
+16:17:07  INFO     Downloaded S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.SAFE (1162.7 MB)
+16:17:07  INFO       Downloaded: data/downloads/reference/S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.SAFE.zip
+16:17:07  INFO       Converting SAFE archive to .npy (rasterio required)...
+16:17:07  INFO     Unzipping S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.SAFE.zip ...
+16:17:09  INFO     Extracted: S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.SAFE
+16:17:09  INFO     Found 12/12 bands in SAFE archive
+16:17:09  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+16:19:00  INFO     Stacked array shape: (10980, 10980, 12)
+16:20:41  INFO     Saved .npy array: data/npy_cache/S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856.npy (shape: (10980, 10980, 12))
+16:20:41  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL2A_20240128T101301_N0510_R022_T33UVT_20240128T121856_geo.json
+16:20:41  INFO       Renamed → T33UVT_ref_20240128.npy
+16:20:42  INFO       Shape: (10980, 10980, 12)  dtype: uint8  B11 mean: 56.7  B12 mean: 44.2
+16:20:42  INFO       ✓ Reference tile ready: T33UVT_ref_20240128.npy
+16:20:42  INFO     ============================================================
+16:20:42  INFO     Site: RYBNIK  (tile T34UCA)
+16:20:42  INFO     Note: Rybnik (ring profile increases outward — terrain artifact, bi-temporal should suppress)
+16:20:42  INFO       Searching 2023-11-01 – 2024-02-28 (cloud ≤ 25%)...
+16:20:46  INFO     Found 33 products
+16:20:46  INFO       Found 33 products total, 18 for tile T34UCA
+16:20:46  INFO       Best product: S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.SAFE
+16:20:46  INFO       Cloud cover: 0.0%  Date: 2023-12-28
+16:20:46  INFO       Downloading (~500–700 MB)...
+16:26:06  INFO     Downloaded S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.SAFE (1221.6 MB)
+16:26:06  INFO       Downloaded: data/downloads/reference/S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.SAFE.zip
+16:26:06  INFO       Converting SAFE archive to .npy (rasterio required)...
+16:26:06  INFO     Unzipping S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.SAFE.zip ...
+16:26:09  INFO     Extracted: S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.SAFE
+16:26:09  INFO     Found 12/12 bands in SAFE archive
+16:26:09  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+16:27:43  INFO     Stacked array shape: (10980, 10980, 12)
+16:29:31  INFO     Saved .npy array: data/npy_cache/S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733.npy (shape: (10980, 10980, 12))
+16:29:31  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL2A_20231228T095329_N0510_R079_T34UCA_20231228T112733_geo.json
+16:29:31  INFO       Renamed → T34UCA_ref_20231228.npy
+16:29:33  INFO       Shape: (10980, 10980, 12)  dtype: uint8  B11 mean: 57.8  B12 mean: 46.9
+16:29:33  INFO       ✓ Reference tile ready: T34UCA_ref_20231228.npy
+16:29:33  INFO     ============================================================
+16:29:33  INFO     Site: GRONINGEN  (tile T31UGV)
+16:29:33  INFO     Note: Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)
+16:29:33  INFO       Searching 2023-11-01 – 2024-02-28 (cloud ≤ 25%)...
+16:29:38  INFO     Found 29 products
+16:29:38  INFO       Found 29 products total, 8 for tile T31UGV
+16:29:38  INFO       Best product: S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.SAFE
+16:29:38  INFO       Cloud cover: 0.0%  Date: 2024-01-22
+16:29:38  INFO       Downloading (~500–700 MB)...
+16:31:29  INFO     Downloaded S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.SAFE (1051.4 MB)
+16:31:29  INFO       Downloaded: data/downloads/reference/S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.SAFE.zip
+16:31:29  INFO       Converting SAFE archive to .npy (rasterio required)...
+16:31:29  INFO     Unzipping S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.SAFE.zip ...
+16:31:31  INFO     Extracted: S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.SAFE
+16:31:31  INFO     Found 12/12 bands in SAFE archive
+16:31:31  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+16:33:14  INFO     Stacked array shape: (10980, 10980, 12)
+16:34:44  INFO     Saved .npy array: data/npy_cache/S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143.npy (shape: (10980, 10980, 12))
+16:34:45  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL2A_20240122T104249_N0510_R008_T31UGV_20240122T123143_geo.json
+16:34:45  INFO       Renamed → T31UGV_ref_20240122.npy
+16:34:46  INFO       Shape: (10980, 10980, 12)  dtype: uint8  B11 mean: 41.8  B12 mean: 36.8
+16:34:46  INFO       ✓ Reference tile ready: T31UGV_ref_20240122.npy
+23:45:57  INFO     Copernicus token refreshed, expires in 1800s
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: WEISWEILER  (tile T32ULB)
+23:45:57  INFO     Note: Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive
+23:45:57  INFO       Already cached: T32ULB_ref_20231226.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: BOXBERG  (tile T33UVT)
+23:45:57  INFO     Note: Boxberg/Lausitz (S/C=1.517, marginal above Lausitz background 1.397)
+23:45:57  INFO       Already cached: T33UVT_ref_20240128.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: RYBNIK  (tile T34UCA)
+23:45:57  INFO     Note: Rybnik (ring profile increases outward — terrain artifact, bi-temporal should suppress)
+23:45:57  INFO       Already cached: T34UCA_ref_20231228.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: GRONINGEN  (tile T31UGV)
+23:45:57  INFO     Note: Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)
+23:45:57  INFO       Already cached: T31UGV_ref_20240122.npy — skipping download

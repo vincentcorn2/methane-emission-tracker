@@ -1,0 +1,41 @@
+============================================================
+  Reference Tile Download — Step 2 (Bi-temporal)
+  Window: Nov 2023 – Feb 2024
+  Sites: Weisweiler, Boxberg, Rybnik, Groningen
+============================================================
+
+[1] Authenticating...
+23:45:57  INFO     Copernicus token refreshed, expires in 1800s
+    OK
+
+[2] Downloading reference tiles...
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: WEISWEILER  (tile T32ULB)
+23:45:57  INFO     Note: Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive
+23:45:57  INFO       Already cached: T32ULB_ref_20231226.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: BOXBERG  (tile T33UVT)
+23:45:57  INFO     Note: Boxberg/Lausitz (S/C=1.517, marginal above Lausitz background 1.397)
+23:45:57  INFO       Already cached: T33UVT_ref_20240128.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: RYBNIK  (tile T34UCA)
+23:45:57  INFO     Note: Rybnik (ring profile increases outward — terrain artifact, bi-temporal should suppress)
+23:45:57  INFO       Already cached: T34UCA_ref_20231228.npy — skipping download
+23:45:57  INFO     ============================================================
+23:45:57  INFO     Site: GRONINGEN  (tile T31UGV)
+23:45:57  INFO     Note: Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)
+23:45:57  INFO       Already cached: T31UGV_ref_20240122.npy — skipping download
+
+[3] Results summary:
+  ✓ weisweiler      cached                (cached) T32ULB_ref_20231226.npy
+  ✓ boxberg         cached                (cached) T33UVT_ref_20240128.npy
+  ✓ rybnik          cached                (cached) T34UCA_ref_20231228.npy
+  ✓ groningen       cached                (cached) T31UGV_ref_20240122.npy
+
+  Succeeded: 4/4  Failed: 0/4
+
+  Manifest saved → results_analysis/reference_tiles_manifest.json
+
+[4] Next step: run apply_bitemporal_diff.py to compute
+    delta_B11 / delta_B12 difference arrays, then re-run
+    the CH4Net v2 analysis on the difference imagery.

@@ -1,0 +1,348 @@
+23:45:42  INFO     ============================================================
+23:45:42  INFO     NEGATIVE EXAMPLES — JRC/Expanded Survey
+23:45:42  INFO     ============================================================
+23:45:42  INFO     
+23:45:42  INFO     Site: ctrl_ro_wallachia          sc=0.358  npys=1
+23:45:42  INFO         Saved ctrl_ro_wallachia_T35TLK_20240825.npy  shape=(200, 200, 12)  B12/B11=0.8094
+23:45:42  INFO     
+23:45:42  INFO     Negatives extracted: 1 / 1
+23:51:29  INFO     ============================================================
+23:51:29  INFO     NEGATIVE EXAMPLES — JRC/Expanded Survey
+23:51:29  INFO     ============================================================
+23:51:29  INFO     
+23:51:29  INFO     Site: neurath                    sc=1.000  npys=11
+23:51:29  INFO         Saved neurath_T32ULB_20240920.npy  shape=(200, 200, 12)  B12/B11=0.0000
+23:51:29  INFO     
+23:51:29  INFO     Site: janschwalde                sc=1.000  npys=1
+23:51:29  INFO         Saved janschwalde_T33UVT_20240827.npy  shape=(200, 200, 12)  B12/B11=0.0000
+23:51:29  INFO     
+23:51:29  INFO     Site: rovinari                   sc=0.395  npys=1
+23:51:29  INFO         Saved rovinari_T34TFQ_20240825.npy  shape=(200, 200, 12)  B12/B11=0.7298
+23:51:29  INFO     
+23:51:29  INFO     Site: maritsa_east2              sc=0.699  npys=1
+23:51:29  INFO         Saved maritsa_east2_T35TMG_20240827.npy  shape=(200, 200, 12)  B12/B11=0.8197
+23:51:29  INFO     
+23:51:29  INFO     Site: tusimice                   sc=0.100  npys=1
+23:51:29  INFO         Saved tusimice_T33UUR_20240828.npy  shape=(200, 200, 12)  B12/B11=0.6707
+23:51:29  INFO     
+23:51:29  INFO     Site: ctrl_ro_wallachia          sc=0.358  npys=1
+23:51:29  INFO         Already exists: ctrl_ro_wallachia_T35TLK_20240825.npy
+23:51:29  INFO     
+23:51:29  INFO     Site: belchatow                  sc=0.959  npys=2
+23:51:29  INFO         Saved belchatow_T34UCB_20240824.npy  shape=(200, 200, 12)  B12/B11=0.7951
+23:51:29  INFO     
+23:51:29  INFO     Site: dunkerque                  sc=0.741  npys=2
+23:51:29  INFO         Saved dunkerque_T31UDS_20240827.npy  shape=(200, 200, 12)  B12/B11=0.8387
+23:51:29  INFO     
+23:51:29  INFO     Site: larobla                    sc=0.296  npys=2
+23:51:29  INFO         Saved larobla_T29TQH_20240828.npy  shape=(200, 200, 12)  B12/B11=0.7454
+23:51:29  INFO     
+23:51:29  INFO     Site: philippsburg               sc=1.000  npys=2
+23:51:30  INFO         Saved philippsburg_T32UMV_20240828.npy  shape=(200, 200, 12)  B12/B11=0.0000
+23:51:30  INFO     
+23:51:30  INFO     Site: ctrl_nl_flevoland          sc=0.405  npys=1
+23:51:30  INFO         Saved ctrl_nl_flevoland_T31UFU_20240819.npy  shape=(200, 200, 12)  B12/B11=0.7378
+23:51:30  INFO     
+23:51:30  INFO     Site: ctrl_dk_jutland            sc=0.833  npys=1
+23:51:30  INFO         Saved ctrl_dk_jutland_T32VNH_20240831.npy  shape=(200, 200, 12)  B12/B11=0.7192
+23:51:30  INFO     
+23:51:30  INFO     Negatives extracted: 12 / 12
+13:20:30  INFO     
+13:20:30  INFO     ============================================================
+13:20:30  INFO     POSITIVE EXAMPLES — TROPOMI-Confirmed Sites
+13:20:30  INFO     ============================================================
+13:20:30  INFO     Found 23 label files in training cache
+13:20:30  INFO     
+13:20:30  INFO     Site: de_bad_lauchstaedt         enh=+12.2 ppb  tile=T32UQC
+13:20:30  WARNING      Edge crop: (200, 141, 12) (expected 200x200)
+13:20:30  INFO         Saved de_bad_lauchstaedt_T32UQC_20230109_enh12.npy  shape=(200, 141, 12)  B12/B11=0.0000
+13:20:30  INFO     
+13:20:30  INFO     Site: de_sayda                   enh=+10.9 ppb  tile=T33UUR
+13:20:30  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+13:20:30  WARNING  No .npy found for label: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_label.json
+13:20:30  INFO     
+13:20:30  INFO     Site: ro_totea                   enh=+10.8 ppb  tile=T35TLK
+13:20:30  INFO         Saved ro_totea_T35TLK_20230115_enh10.npy  shape=(200, 200, 12)  B12/B11=0.7853
+13:20:30  INFO     
+13:20:30  INFO     Site: nl_bergermeer              enh=+16.2 ppb  tile=T31UFU
+13:20:30  INFO         Saved nl_bergermeer_T31UFU_20230126_enh16.npy  shape=(200, 200, 12)  B12/B11=0.0000
+13:20:30  WARNING  No .npy found for label: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_label.json
+13:20:30  INFO     
+13:20:30  INFO     Site: silesia_knurow             enh=+11.8 ppb  tile=T34UCA
+13:20:30  INFO         Saved silesia_knurow_T34UCA_20230215_enh11.npy  shape=(200, 200, 12)  B12/B11=0.0000
+13:20:30  WARNING  No .npy found for label: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_label.json
+13:20:30  INFO     
+13:20:30  INFO     Site: de_bad_lauchstaedt         enh=+16.2 ppb  tile=T32UQC
+13:20:30  WARNING      Edge crop: (200, 141, 12) (expected 200x200)
+13:20:30  INFO         Saved de_bad_lauchstaedt_T32UQC_20230216_enh16.npy  shape=(200, 141, 12)  B12/B11=0.0000
+13:20:30  WARNING  No .npy found for label: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_label.json
+13:20:31  INFO     
+13:20:31  INFO     Site: silesia_pniowek            enh=+17.1 ppb  tile=T34UCB
+13:20:31  INFO         Saved silesia_pniowek_T34UCB_20230301_enh17.npy  shape=(200, 200, 12)  B12/B11=0.8847
+13:20:31  INFO     
+13:20:31  INFO     Site: silesia_zofiowka           enh=+16.9 ppb  tile=T34UCB
+13:20:31  INFO         Saved silesia_zofiowka_T34UCB_20230301_enh16.npy  shape=(200, 200, 12)  B12/B11=0.9137
+13:20:31  INFO     
+13:20:31  INFO     Site: de_sayda                   enh=+13.5 ppb  tile=T33UUR
+13:20:31  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+13:20:31  INFO     
+13:20:31  INFO     Site: ro_totea                   enh=+24.6 ppb  tile=T35TLK
+13:20:31  INFO         Saved ro_totea_T35TLK_20230101_enh24.npy  shape=(200, 200, 12)  B12/B11=0.7853
+13:20:31  WARNING  No .npy found for label: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_label.json
+13:20:31  INFO     
+13:20:31  INFO     Site: silesia_zofiowka           enh=+10.7 ppb  tile=T34UCB
+13:20:31  INFO         Saved silesia_zofiowka_T34UCB_20230101_enh10.npy  shape=(200, 200, 12)  B12/B11=0.7916
+13:20:31  WARNING  No .npy found for label: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_label.json
+13:20:31  INFO     
+13:20:31  INFO     Site: nl_grijpskerk              enh=+13.9 ppb  tile=T31UGV
+13:20:31  INFO         Saved nl_grijpskerk_T31UGV_20230208_enh13.npy  shape=(200, 200, 12)  B12/B11=0.6899
+13:20:31  INFO     
+13:20:31  INFO     Site: de_bad_lauchstaedt         enh=+11.3 ppb  tile=T32UQC
+13:20:31  WARNING      Edge crop: (200, 141, 12) (expected 200x200)
+13:20:31  INFO         Saved de_bad_lauchstaedt_T32UQC_20230208_enh11.npy  shape=(200, 141, 12)  B12/B11=0.0000
+13:20:31  INFO     
+13:20:31  INFO     Site: de_sayda                   enh=+10.6 ppb  tile=T33UUR
+13:20:31  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+13:20:31  INFO     
+13:20:31  INFO     Site: ro_medias                  enh=+13.1 ppb  tile=T34TGR
+13:20:31  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+13:20:31  WARNING  No .npy found for label: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_label.json
+13:20:31  INFO     
+13:20:31  INFO     Site: silesia_rybnik             enh=+19.7 ppb  tile=T34UCA
+13:20:31  INFO         Saved silesia_rybnik_T34UCA_20240628_enh19.npy  shape=(200, 200, 12)  B12/B11=0.0000
+13:20:31  INFO     
+13:20:31  INFO     Positives extracted: 12 / 16
+21:05:21  INFO     ============================================================
+21:05:21  INFO     NEGATIVE EXAMPLES — JRC/Expanded Survey
+21:05:21  INFO     ============================================================
+21:05:21  INFO     
+21:05:21  INFO     Site: neurath                    sc=1.000  npys=11
+21:05:21  INFO         Already exists: neurath_T32ULB_20240920.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: janschwalde                sc=1.000  npys=1
+21:05:21  INFO         Already exists: janschwalde_T33UVT_20240827.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: rovinari                   sc=0.395  npys=1
+21:05:21  INFO         Already exists: rovinari_T34TFQ_20240825.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: maritsa_east2              sc=0.699  npys=1
+21:05:21  INFO         Already exists: maritsa_east2_T35TMG_20240827.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: tusimice                   sc=0.100  npys=1
+21:05:21  INFO         Already exists: tusimice_T33UUR_20240828.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: ctrl_ro_wallachia          sc=0.358  npys=1
+21:05:21  INFO         Already exists: ctrl_ro_wallachia_T35TLK_20240825.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: belchatow                  sc=0.959  npys=2
+21:05:21  INFO         Already exists: belchatow_T34UCB_20240824.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: dunkerque                  sc=0.741  npys=2
+21:05:21  INFO         Already exists: dunkerque_T31UDS_20240827.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: larobla                    sc=0.296  npys=2
+21:05:21  INFO         Already exists: larobla_T29TQH_20240828.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: philippsburg               sc=1.000  npys=2
+21:05:21  INFO         Already exists: philippsburg_T32UMV_20240828.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: ctrl_nl_flevoland          sc=0.405  npys=1
+21:05:21  INFO         Already exists: ctrl_nl_flevoland_T31UFU_20240819.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: ctrl_dk_jutland            sc=0.833  npys=1
+21:05:21  INFO         Already exists: ctrl_dk_jutland_T32VNH_20240831.npy
+21:05:21  INFO     
+21:05:21  INFO     Negatives extracted: 12 / 12
+21:05:21  INFO     
+21:05:21  INFO     ============================================================
+21:05:21  INFO     POSITIVE EXAMPLES — TROPOMI-Confirmed Sites
+21:05:21  INFO     ============================================================
+21:05:21  INFO     Found 29 label files in training cache
+21:05:21  INFO     
+21:05:21  INFO     Site: de_bad_lauchstaedt         enh=+12.2 ppb  tile=T32UQC
+21:05:21  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230109_enh12.npy
+21:05:21  INFO     
+21:05:21  INFO     Site: ro_medias                  enh=+14.8 ppb  tile=T34TGR
+21:05:21  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:05:21  WARNING  No .npy found for label: S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306_label.json
+21:05:21  INFO     
+21:05:21  INFO     Site: de_sayda                   enh=+10.9 ppb  tile=T33UUR
+21:05:21  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:05:21  WARNING  No .npy found for label: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_label.json
+21:05:21  INFO     
+21:05:21  INFO     Site: ro_totea                   enh=+10.8 ppb  tile=T35TLK
+21:05:22  INFO         Already exists: ro_totea_T35TLK_20230115_enh10.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: nl_bergermeer              enh=+16.2 ppb  tile=T31UFU
+21:05:22  INFO         Already exists: nl_bergermeer_T31UFU_20230126_enh16.npy
+21:05:22  WARNING  No .npy found for label: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: silesia_knurow             enh=+11.8 ppb  tile=T34UCA
+21:05:22  INFO         Already exists: silesia_knurow_T34UCA_20230215_enh11.npy
+21:05:22  WARNING  No .npy found for label: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: de_bad_lauchstaedt         enh=+16.2 ppb  tile=T32UQC
+21:05:22  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230216_enh16.npy
+21:05:22  WARNING  No .npy found for label: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: silesia_pniowek            enh=+17.1 ppb  tile=T34UCB
+21:05:22  INFO         Already exists: silesia_pniowek_T34UCB_20230301_enh17.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: silesia_zofiowka           enh=+16.9 ppb  tile=T34UCB
+21:05:22  INFO         Already exists: silesia_zofiowka_T34UCB_20230301_enh16.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: de_sayda                   enh=+13.5 ppb  tile=T33UUR
+21:05:22  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:05:22  INFO     
+21:05:22  INFO     Site: ro_totea                   enh=+24.6 ppb  tile=T35TLK
+21:05:22  INFO         Already exists: ro_totea_T35TLK_20230101_enh24.npy
+21:05:22  WARNING  No .npy found for label: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: silesia_zofiowka           enh=+10.7 ppb  tile=T34UCB
+21:05:22  INFO         Already exists: silesia_zofiowka_T34UCB_20230101_enh10.npy
+21:05:22  WARNING  No .npy found for label: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: nl_grijpskerk              enh=+13.9 ppb  tile=T31UGV
+21:05:22  INFO         Already exists: nl_grijpskerk_T31UGV_20230208_enh13.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: de_bad_lauchstaedt         enh=+11.3 ppb  tile=T32UQC
+21:05:22  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230208_enh11.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: de_sayda                   enh=+10.6 ppb  tile=T33UUR
+21:05:22  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:05:22  INFO     
+21:05:22  INFO     Site: ro_medias                  enh=+13.1 ppb  tile=T34TGR
+21:05:22  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:05:22  INFO     
+21:05:22  INFO     Site: ro_totea                   enh=+18.6 ppb  tile=T35TLK
+21:05:22  INFO         Saved ro_totea_T35TLK_20230221_enh18.npy  shape=(200, 200, 12)  B12/B11=0.7853
+21:05:22  WARNING  No .npy found for label: S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: ro_medias                  enh=+21.5 ppb  tile=T34TGR
+21:05:22  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:05:22  WARNING  No .npy found for label: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_label.json
+21:05:22  INFO     
+21:05:22  INFO     Site: silesia_rybnik             enh=+19.7 ppb  tile=T34UCA
+21:05:22  INFO         Already exists: silesia_rybnik_T34UCA_20240628_enh19.npy
+21:05:22  INFO     
+21:05:22  INFO     Site: fr_lacq                    enh=+24.2 ppb  tile=T30TXN
+21:05:22  WARNING      Site pixel (-1130,9182) out of bounds for 10980x10980 tile
+21:05:22  INFO     
+21:05:22  INFO     Positives extracted: 13 / 20
+21:06:50  INFO     ============================================================
+21:06:50  INFO     NEGATIVE EXAMPLES — JRC/Expanded Survey
+21:06:50  INFO     ============================================================
+21:06:50  INFO     
+21:06:50  INFO     Site: neurath                    sc=1.000  npys=11
+21:06:50  INFO         Already exists: neurath_T32ULB_20240920.npy
+21:06:50  INFO     
+21:06:50  INFO     Site: janschwalde                sc=1.000  npys=1
+21:06:50  INFO         Already exists: janschwalde_T33UVT_20240827.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: rovinari                   sc=0.395  npys=1
+21:06:51  INFO         Already exists: rovinari_T34TFQ_20240825.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: maritsa_east2              sc=0.699  npys=1
+21:06:51  INFO         Already exists: maritsa_east2_T35TMG_20240827.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: tusimice                   sc=0.100  npys=1
+21:06:51  INFO         Already exists: tusimice_T33UUR_20240828.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: ctrl_ro_wallachia          sc=0.358  npys=1
+21:06:51  INFO         Already exists: ctrl_ro_wallachia_T35TLK_20240825.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: belchatow                  sc=0.959  npys=2
+21:06:51  INFO         Already exists: belchatow_T34UCB_20240824.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: dunkerque                  sc=0.741  npys=2
+21:06:51  INFO         Already exists: dunkerque_T31UDS_20240827.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: larobla                    sc=0.296  npys=2
+21:06:51  INFO         Already exists: larobla_T29TQH_20240828.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: philippsburg               sc=1.000  npys=2
+21:06:51  INFO         Already exists: philippsburg_T32UMV_20240828.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: ctrl_nl_flevoland          sc=0.405  npys=1
+21:06:51  INFO         Already exists: ctrl_nl_flevoland_T31UFU_20240819.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: ctrl_dk_jutland            sc=0.833  npys=1
+21:06:51  INFO         Already exists: ctrl_dk_jutland_T32VNH_20240831.npy
+21:06:51  INFO     
+21:06:51  INFO     Negatives extracted: 12 / 12
+21:06:51  INFO     
+21:06:51  INFO     ============================================================
+21:06:51  INFO     POSITIVE EXAMPLES — TROPOMI-Confirmed Sites
+21:06:51  INFO     ============================================================
+21:06:51  INFO     Found 29 label files in training cache
+21:06:51  INFO     
+21:06:51  INFO     Site: de_bad_lauchstaedt         enh=+12.2 ppb  tile=T32UQC
+21:06:51  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230109_enh12.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_medias                  enh=+14.8 ppb  tile=T34TGR
+21:06:51  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:06:51  WARNING  No .npy found for label: S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: de_sayda                   enh=+10.9 ppb  tile=T33UUR
+21:06:51  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:06:51  WARNING  No .npy found for label: S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_totea                   enh=+10.8 ppb  tile=T35TLK
+21:06:51  INFO         Already exists: ro_totea_T35TLK_20230115_enh10.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: nl_bergermeer              enh=+16.2 ppb  tile=T31UFU
+21:06:51  INFO         Already exists: nl_bergermeer_T31UFU_20230126_enh16.npy
+21:06:51  WARNING  No .npy found for label: S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: silesia_knurow             enh=+11.8 ppb  tile=T34UCA
+21:06:51  INFO         Already exists: silesia_knurow_T34UCA_20230215_enh11.npy
+21:06:51  WARNING  No .npy found for label: S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: de_bad_lauchstaedt         enh=+16.2 ppb  tile=T32UQC
+21:06:51  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230216_enh16.npy
+21:06:51  WARNING  No .npy found for label: S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: silesia_pniowek            enh=+17.1 ppb  tile=T34UCB
+21:06:51  INFO         Already exists: silesia_pniowek_T34UCB_20230301_enh17.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: silesia_zofiowka           enh=+16.9 ppb  tile=T34UCB
+21:06:51  INFO         Already exists: silesia_zofiowka_T34UCB_20230301_enh16.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: de_sayda                   enh=+13.5 ppb  tile=T33UUR
+21:06:51  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_totea                   enh=+24.6 ppb  tile=T35TLK
+21:06:51  INFO         Already exists: ro_totea_T35TLK_20230101_enh24.npy
+21:06:51  WARNING  No .npy found for label: S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: silesia_zofiowka           enh=+10.7 ppb  tile=T34UCB
+21:06:51  INFO         Already exists: silesia_zofiowka_T34UCB_20230101_enh10.npy
+21:06:51  WARNING  No .npy found for label: S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: nl_grijpskerk              enh=+13.9 ppb  tile=T31UGV
+21:06:51  INFO         Already exists: nl_grijpskerk_T31UGV_20230208_enh13.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: de_bad_lauchstaedt         enh=+11.3 ppb  tile=T32UQC
+21:06:51  INFO         Already exists: de_bad_lauchstaedt_T32UQC_20230208_enh11.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: de_sayda                   enh=+10.6 ppb  tile=T33UUR
+21:06:51  WARNING      Site pixel (-2210,8710) out of bounds for 10980x10980 tile
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_medias                  enh=+13.1 ppb  tile=T34TGR
+21:06:51  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_totea                   enh=+18.6 ppb  tile=T35TLK
+21:06:51  INFO         Already exists: ro_totea_T35TLK_20230221_enh18.npy
+21:06:51  WARNING  No .npy found for label: S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: ro_medias                  enh=+21.5 ppb  tile=T34TGR
+21:06:51  WARNING      Site pixel (-1624,6027) out of bounds for 10980x10980 tile
+21:06:51  WARNING  No .npy found for label: S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_label.json
+21:06:51  INFO     
+21:06:51  INFO     Site: silesia_rybnik             enh=+19.7 ppb  tile=T34UCA
+21:06:51  INFO         Already exists: silesia_rybnik_T34UCA_20240628_enh19.npy
+21:06:51  INFO     
+21:06:51  INFO     Site: fr_lacq                    enh=+24.2 ppb  tile=T30TXN
+21:06:51  WARNING      Site pixel (-1130,9182) out of bounds for 10980x10980 tile
+21:06:51  INFO     
+21:06:51  INFO     Positives extracted: 13 / 20

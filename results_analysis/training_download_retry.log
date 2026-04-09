@@ -1,0 +1,12 @@
+=================================================================
+  Training Tile Download — TROPOMI-Confirmed Positives
+  Source: results_analysis/tropomi_positives.json
+=================================================================
+
+Loaded 41 confirmed positives
+Unique (tile, date) pairs: 36  (deduplication saves ~5 downloads)
+Unique tiles: ['T30TXN', 'T31UCB', 'T31UFU', 'T31UGS', 'T31UGV', 'T32UQC', 'T33UUR', 'T34TGR', 'T34UCA', 'T34UCB', 'T35TLK']
+
+[1] Authenticating...
+13:36:21  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+    Auth failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token

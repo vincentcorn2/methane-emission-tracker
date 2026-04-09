@@ -1,294 +1,336 @@
+#!/usr/bin/env python3
 """
-Approach C: Retrain CH4Net with the correct architecture (div_factor=8, ~1.7M params)
-using the official Vaughan et al. 2024 dataset (av555/ch4net from HuggingFace).
+approach_c_retrain.py — Fine-tune CH4Net v2 on European TROPOMI-confirmed sites.
 
-Fixes vs. current broken weights:
-  1. div_factor=8  (~1.7M params vs broken 13.5M — matches paper architecture)
-  2. Uses official train/val splits from the downloaded dataset
-  3. Correct data format: s2 uint8 /255, label float64 binary mask
-  4. BCE loss reduction='mean' (correct default)
+Training data
+-------------
+  Positives : data/crops/positive/  (TROPOMI-confirmed, label_value=1)
+  Negatives : data/crops/negative/  (JRC/survey confirmed non-emitters, label_value=0)
 
-Data format (confirmed from inspection):
-  s2:    (217, 180, 12) uint8  range [8,255]  → divide by 255 → (12,217,180) float32
-  label: (217, 180)    float64 binary 0/1    → (1,217,180) float32
-  mbmp:  (217, 180, 4) uint8  RGBA visualisation — NOT used for training
+Each crop is a 200x200x12 uint8 .npy file (Sentinel-2 L1C, all 12 bands).
+Non-200x200 crops (edge tiles) are silently skipped.
 
-Dataset size:
-  train: 8,255 samples (includes positives + hard negatives)
-  val:     255 samples
-  test:  2,473 samples
+Model
+-----
+  Architecture : CH4Net U-Net (div_factor auto-detected from checkpoint)
+  Starting weights : weights/best_model.pth  (with flat->net key remap)
+  Output weights   : weights/european_model.pth
 
-Run with:
-  conda activate methane
-  python approach_c_retrain.py
-  python approach_c_retrain.py --epochs 100 --batch_size 32   # more thorough
+Target masks
+------------
+  Positive crop : soft Gaussian disk centred on the site pixel (100,100 in
+                  200x200 space, shifted by random crop offset).
+  Negative crop : all-zero mask.
 
-Outputs:
-  weights/ch4net_div8_retrained.pth   ← best val-F1 checkpoint
+Loss : BCEWithLogitsLoss (model runs with prob_output=False -> raw logits).
+       Positive pixels are up-weighted by POS_WEIGHT to handle sparse plumes.
+
+Usage
+-----
+  python approach_c_retrain.py                      # default settings
+  python approach_c_retrain.py --epochs 100 --lr 5e-5
+  python approach_c_retrain.py --dry-run            # 1 epoch, no save
+  python approach_c_retrain.py --weights-in weights/european_model.pth  # resume
 """
 
-import argparse, os, glob
+import os
+import sys
+import json
+import glob
+import logging
+import argparse
+import re
+from pathlib import Path
+
 import numpy as np
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
-from torch.optim import Adam
-from torch.optim.lr_scheduler import ReduceLROnPlateau
 
-# ── Args ──────────────────────────────────────────────────────────────────────
-parser = argparse.ArgumentParser()
-parser.add_argument("--data_dir",    default=os.path.expanduser("~/Downloads/ch4net_official"))
-parser.add_argument("--out_weights", default="weights/ch4net_div8_retrained.pth")
-parser.add_argument("--epochs",      type=int,   default=50)
-parser.add_argument("--batch_size",  type=int,   default=16)
-parser.add_argument("--lr",          type=float, default=1e-3)
-parser.add_argument("--div_factor",  type=int,   default=8,
-    help="Paper uses 8 (~1.7M params). Broken weights used 1 (~13.5M).")
-parser.add_argument("--threshold",   type=float, default=0.5,
-    help="Probability threshold for F1 during validation (calibrate after training).")
-args = parser.parse_args()
+try:
+    import torch
+    import torch.nn as nn
+    from torch.utils.data import Dataset, DataLoader
+except ImportError:
+    print("ERROR: PyTorch not found. Run: conda activate methane")
+    sys.exit(1)
 
-torch.manual_seed(42)
-if torch.cuda.is_available():
-    device = torch.device("cuda")
-elif torch.backends.mps.is_available():
-    device = torch.device("mps")
-else:
-    device = torch.device("cpu")
-print(f"Device: {device}")
+sys.path.insert(0, str(Path(__file__).parent))
+from src.detection.ch4net_model import Unet
 
-# ── Fixed crop size ───────────────────────────────────────────────────────────
-# The dataset has variable-size crops (e.g. 217×181, 227×166, etc.).
-# We center-crop (or zero-pad if smaller) to a fixed size for batch collation.
-# 160×160 fits within the minimum dimension observed (166) and is 10×16
-# (cleanly divisible by 2^4=16 for the 4 U-Net downsampling stages).
-CROP_H, CROP_W = 160, 160
+# ── Config ─────────────────────────────────────────────────────────────────────
+CROP_OUT    = 160       # random crop size extracted from 200x200 input
+BATCH_SIZE  = 4
+EPOCHS      = 60
+LR          = 1e-4
+LR_STEP     = 10        # decay LR every N epochs
+LR_DECAY    = 0.95
+PLUME_SIGMA = 30        # Gaussian sigma for positive target mask (pixels in crop space)
+POS_WEIGHT  = 5.0       # BCEWithLogitsLoss pos_weight — upweights plume pixels
+PATIENCE    = 15        # early stopping: epochs without val improvement
+CROPS_DIR   = Path("data/crops")
+WEIGHTS_IN  = "weights/best_model.pth"
+WEIGHTS_OUT = "weights/european_model.pth"
+LOG_FILE    = "results_analysis/retrain.log"
 
-def _center_crop_pad(arr, target_h, target_w):
-    """Crop or zero-pad a (C, H, W) array to exactly (C, target_h, target_w)."""
-    _, h, w = arr.shape
-    # Height: crop or pad
-    if h >= target_h:
-        start = (h - target_h) // 2
-        arr = arr[:, start:start + target_h, :]
-    else:
-        pad = target_h - h
-        arr = np.pad(arr, [(0, 0), (pad // 2, pad - pad // 2), (0, 0)])
-    # Width: crop or pad
-    _, h2, w2 = arr.shape
-    if w2 >= target_w:
-        start = (w2 - target_w) // 2
-        arr = arr[:, :, start:start + target_w]
-    else:
-        pad = target_w - w2
-        arr = np.pad(arr, [(0, 0), (0, 0), (pad // 2, pad - pad // 2)])
-    return arr
+# ── Logging ────────────────────────────────────────────────────────────────────
+Path("results_analysis").mkdir(exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-8s %(message)s",
+    datefmt="%H:%M:%S",
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler(LOG_FILE),
+    ],
+)
+log = logging.getLogger(__name__)
 
-# ── Dataset ───────────────────────────────────────────────────────────────────
-class CH4NetDataset(Dataset):
+
+# ── Dataset ────────────────────────────────────────────────────────────────────
+
+def _gaussian_mask(H, W, cy, cx, sigma):
+    """Soft Gaussian disk, peak 1.0 at (cy, cx)."""
+    y, x = np.ogrid[:H, :W]
+    dist2 = (y - cy) ** 2 + (x - cx) ** 2
+    return np.exp(-dist2 / (2 * sigma ** 2)).astype(np.float32)
+
+
+class MethaneDataset(Dataset):
     """
-    Loads (s2_image, label_mask) pairs from the official av555/ch4net dataset.
+    Yields (image, mask, label_int) tuples.
 
-    Input:  s2    — variable-size (H,W,12) uint8  → normalised to (12,160,160) float32
-    Target: label — variable-size (H,W)    float64 → (1,160,160) float32 binary
-
-    NOTE: mbmp (H,W,4 uint8 RGBA) is NOT used for training — it is a
-    visualisation artefact, not the ground-truth binary mask.
-    Crops vary in size; _center_crop_pad standardises them to CROP_H×CROP_W.
+    image : FloatTensor (12, CROP_OUT, CROP_OUT)  normalised [0,1]
+    mask  : FloatTensor ( 1, CROP_OUT, CROP_OUT)  target segmentation mask
+    label : int  0=negative  1=positive
     """
-    def __init__(self, split_dir):
-        self.s2_paths    = sorted(glob.glob(os.path.join(split_dir, "s2",    "*.npy")))
-        self.label_paths = sorted(glob.glob(os.path.join(split_dir, "label", "*.npy")))
-        assert len(self.s2_paths) == len(self.label_paths), (
-            f"Mismatch: {len(self.s2_paths)} images vs {len(self.label_paths)} labels "
-            f"in {split_dir}")
-        assert len(self.s2_paths) > 0, f"No .npy files found in {split_dir}/s2/"
-        # Count positives
-        n_pos = sum(1 for p in self.label_paths
-                    if np.load(p).max() > 0) if len(self.label_paths) < 500 else "?"
-        print(f"  {os.path.basename(split_dir):6s}: {len(self.s2_paths):5d} samples  "
-              f"({n_pos} positive)" if n_pos != "?" else
-              f"  {os.path.basename(split_dir):6s}: {len(self.s2_paths):5d} samples")
+
+    def __init__(self, crops_dir, split="train", augment=True):
+        self.split   = split
+        self.augment = augment and (split == "train")
+        self.samples = []
+
+        for label_path in sorted(Path(crops_dir).glob("**/*_label.json")):
+            with open(label_path) as f:
+                meta = json.load(f)
+            if meta.get("split") != split:
+                continue
+            npy_path = Path(str(label_path).replace("_label.json", ".npy"))
+            if not npy_path.exists():
+                continue
+            arr = np.load(npy_path, mmap_mode="r")
+            if arr.shape[0] != 200 or arr.shape[1] != 200:
+                log.debug("Skipping edge crop %s  shape=%s", npy_path.name, arr.shape)
+                continue
+            self.samples.append({
+                "npy":   str(npy_path),
+                "label": int(meta["label_value"]),
+                "site":  meta.get("site", "?"),
+            })
+
+        n_pos = sum(s["label"] for s in self.samples)
+        n_neg = len(self.samples) - n_pos
+        log.info("Dataset split=%-5s  total=%d  pos=%d  neg=%d",
+                 split, len(self.samples), n_pos, n_neg)
 
     def __len__(self):
-        return len(self.s2_paths)
+        return len(self.samples)
 
     def __getitem__(self, idx):
-        # Image: (H,W,12) uint8 → (12,H,W) float32 in [0,1]
-        img = np.load(self.s2_paths[idx]).copy().astype(np.float32) / 255.0
-        img = img.transpose(2, 0, 1)              # (H,W,C) → (C,H,W)
-        img = np.clip(img, 0.0, 1.0)
+        s   = self.samples[idx]
+        arr = np.load(s["npy"]).astype(np.float32) / 255.0   # (200, 200, 12)
 
-        # Label: (H,W) float64 → (1,H,W) float32 binary
-        lbl = np.load(self.label_paths[idx]).copy().astype(np.float32)
-        lbl = (lbl > 0).astype(np.float32)
-        lbl = lbl[np.newaxis, :, :]               # (H,W) → (1,H,W)
+        # Random 160x160 crop (40px pad on each side)
+        pad = 200 - CROP_OUT
+        if self.augment:
+            r0 = int(np.random.randint(0, pad + 1))
+            c0 = int(np.random.randint(0, pad + 1))
+        else:
+            r0 = c0 = pad // 2   # deterministic centre crop for val/test
 
-        # Standardise to fixed spatial size for batch collation
-        img = _center_crop_pad(img, CROP_H, CROP_W)
-        lbl = _center_crop_pad(lbl, CROP_H, CROP_W)
+        crop = arr[r0:r0 + CROP_OUT, c0:c0 + CROP_OUT, :]   # (160, 160, 12)
 
-        return torch.from_numpy(img.copy()), torch.from_numpy(lbl.copy())
+        # Target mask: site centre is always at pixel (100, 100) in 200x200 space
+        if s["label"] == 1:
+            cy = max(0, min(CROP_OUT - 1, 100 - r0))
+            cx = max(0, min(CROP_OUT - 1, 100 - c0))
+            mask = _gaussian_mask(CROP_OUT, CROP_OUT, cy, cx, PLUME_SIGMA)
+        else:
+            mask = np.zeros((CROP_OUT, CROP_OUT), dtype=np.float32)
 
+        # Augmentation (train only)
+        if self.augment:
+            if np.random.rand() > 0.5:
+                crop = crop[:, ::-1, :].copy()
+                mask = mask[:, ::-1].copy()
+            if np.random.rand() > 0.5:
+                crop = crop[::-1, :, :].copy()
+                mask = mask[::-1, :].copy()
+            if np.random.rand() > 0.5:
+                crop = np.transpose(crop, (1, 0, 2)).copy()
+                mask = mask.T.copy()
 
-# ── U-Net (matches ch4net_model.py exactly, parametrised by div_factor) ──────
-class DoubleConv(nn.Module):
-    def __init__(self, in_ch, out_ch):
-        super().__init__()
-        self.net = nn.Sequential(
-            nn.Conv2d(in_ch, out_ch, 3, padding=1), nn.BatchNorm2d(out_ch), nn.ReLU(True),
-            nn.Conv2d(out_ch, out_ch, 3, padding=1), nn.BatchNorm2d(out_ch), nn.ReLU(True),
-        )
-    def forward(self, x): return self.net(x)
-
-class Down(nn.Module):
-    def __init__(self, in_ch, out_ch):
-        super().__init__()
-        self.net = nn.Sequential(nn.MaxPool2d(2), DoubleConv(in_ch, out_ch))
-    def forward(self, x): return self.net(x)
-
-class Up(nn.Module):
-    def __init__(self, in_ch, out_ch):
-        super().__init__()
-        self.up   = nn.Upsample(scale_factor=2, mode="bilinear", align_corners=True)
-        self.conv = DoubleConv(in_ch, out_ch)
-    def forward(self, x1, x2):
-        x1 = self.up(x1)
-        dy, dx = x2.size(2)-x1.size(2), x2.size(3)-x1.size(3)
-        x1 = F.pad(x1, [dx//2, dx-dx//2, dy//2, dy-dy//2])
-        return self.conv(torch.cat([x2, x1], dim=1))
-
-class Unet(nn.Module):
-    def __init__(self, in_channels=12, div_factor=8):
-        super().__init__()
-        d = div_factor
-        self.inc   = DoubleConv(in_channels, 64//d)
-        self.down1 = Down(64//d,  128//d)
-        self.down2 = Down(128//d, 256//d)
-        self.down3 = Down(256//d, 512//d)
-        self.down4 = Down(512//d, 512//d)
-        self.up1   = Up(1024//d,  256//d)
-        self.up2   = Up(512//d,   128//d)
-        self.up3   = Up(256//d,    64//d)
-        self.up4   = Up(128//d,   128//d)
-        self.out   = nn.Conv2d(128//d, 1, kernel_size=1)
-    def forward(self, x):
-        x1=self.inc(x); x2=self.down1(x1); x3=self.down2(x2)
-        x4=self.down3(x3); x5=self.down4(x4)
-        x=self.up1(x5,x4); x=self.up2(x,x3); x=self.up3(x,x2); x=self.up4(x,x1)
-        return self.out(x)   # raw logits
-
-# ── Metrics ───────────────────────────────────────────────────────────────────
-def pixel_f1(logits, targets, threshold=0.5):
-    probs = torch.sigmoid(logits)
-    preds = (probs >= threshold).float()
-    tgts  = (targets > 0.5).float()
-    tp = (preds * tgts).sum()
-    fp = (preds * (1-tgts)).sum()
-    fn = ((1-preds) * tgts).sum()
-    return (2*tp / (2*tp + fp + fn + 1e-8)).item()
-
-# ── Main ──────────────────────────────────────────────────────────────────────
-def main():
-    data_dir = os.path.expanduser(args.data_dir)
-    train_dir = os.path.join(data_dir, "train")
-    val_dir   = os.path.join(data_dir, "val")
-
-    for d in [train_dir, val_dir]:
-        if not os.path.isdir(os.path.join(d, "s2")):
-            raise FileNotFoundError(
-                f"Expected {d}/s2/ — check --data_dir points to the downloaded dataset.\n"
-                f"  Contents of {data_dir}: {os.listdir(data_dir)}")
-
-    print("Loading datasets...")
-    train_ds = CH4NetDataset(train_dir)
-    val_ds   = CH4NetDataset(val_dir)
-
-    train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
-                              num_workers=0, pin_memory=False)
-    val_loader   = DataLoader(val_ds,   batch_size=args.batch_size, shuffle=False,
-                              num_workers=0, pin_memory=False)
-
-    model = Unet(in_channels=12, div_factor=args.div_factor).to(device)
-    n_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"\nModel: div_factor={args.div_factor}, params={n_params:,}")
-    print(f"  Broken weights had div_factor=1 → {13_585_281:,} params (8× overfit)")
-    print(f"  This model:      div_factor={args.div_factor} → {n_params:,} params\n")
-
-    # Positive-class weight: dataset is imbalanced (7.3% positive images, even
-    # fewer positive pixels within those images). Sample uniformly across the
-    # full training set rather than just the first N files (which are mostly neg).
-    print("Estimating class balance for loss weighting (sampling 300 uniform examples)...")
-    import random
-    sample_idx = random.sample(range(len(train_ds)), min(300, len(train_ds)))
-    pos_px, total_px = 0, 0
-    for i in sample_idx:
-        _, lbl = train_ds[i]
-        pos_px   += lbl.sum().item()
-        total_px += lbl.numel()
-    pos_frac = pos_px / total_px if total_px > 0 else 0.01
-    # Clamp: don't let pos_weight go above 50 (unstable) or below 1
-    pos_weight_val = min(50.0, max(1.0, (1 - pos_frac) / (pos_frac + 1e-8)))
-    pos_weight = torch.tensor([pos_weight_val]).to(device)
-    print(f"  Positive pixel fraction: {pos_frac:.5f}  →  pos_weight={pos_weight.item():.1f}")
-
-    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight, reduction="mean")
-    optimiser = Adam(model.parameters(), lr=args.lr)
-    scheduler = ReduceLROnPlateau(optimiser, mode="max", factor=0.5, patience=5)
-
-    os.makedirs(os.path.dirname(os.path.abspath(args.out_weights)), exist_ok=True)
-    best_val_f1 = 0.0
-
-    print(f"\n{'Epoch':>6}  {'Train Loss':>12}  {'Val Loss':>10}  "
-          f"{'Val F1@{:.2f}'.format(args.threshold):>12}  {'Saved?':>7}")
-    print("─" * 60)
-
-    for epoch in range(1, args.epochs + 1):
-        # Train
-        model.train()
-        train_loss = 0.0
-        for imgs, lbls in train_loader:
-            imgs, lbls = imgs.to(device), lbls.to(device)
-            optimiser.zero_grad()
-            loss = criterion(model(imgs), lbls)
-            loss.backward()
-            optimiser.step()
-            train_loss += loss.item() * imgs.size(0)
-        train_loss /= len(train_ds)
-
-        # Validate
-        model.eval()
-        val_loss = val_f1 = 0.0
-        with torch.no_grad():
-            for imgs, lbls in val_loader:
-                imgs, lbls = imgs.to(device), lbls.to(device)
-                logits = model(imgs)
-                val_loss += criterion(logits, lbls).item() * imgs.size(0)
-                val_f1   += pixel_f1(logits, lbls, args.threshold) * imgs.size(0)
-        val_loss /= len(val_ds)
-        val_f1   /= len(val_ds)
-
-        scheduler.step(val_f1)
-        is_best = val_f1 > best_val_f1
-        if is_best:
-            best_val_f1 = val_f1
-            torch.save(model.state_dict(), args.out_weights)
-
-        print(f"{epoch:>6}  {train_loss:>12.6f}  {val_loss:>10.6f}  "
-              f"{val_f1:>12.4f}  {'  ✓ saved' if is_best else ''}")
-
-    print(f"\n{'='*60}")
-    print(f"Training complete. Best val F1: {best_val_f1:.4f}")
-    print(f"Weights: {args.out_weights}")
-    print(f"""
-Next steps:
-  1. Update src/detection/ch4net_model.py  →  change div_factor=1 to div_factor={args.div_factor}
-  2. Update scripts/live_pipeline.py       →  weights path to '{args.out_weights}'
-  3. Re-run approach_a_centered_crops.py to check if spatial specificity improves
-  4. Re-run approach_b_rethreshold.py to check if emission/clean ratio flips > 1.0
-""")
+        img = torch.from_numpy(crop.transpose(2, 0, 1))  # (12, H, W)
+        msk = torch.from_numpy(mask).unsqueeze(0)         # ( 1, H, W)
+        return img, msk, s["label"]
 
 
+# ── Model ──────────────────────────────────────────────────────────────────────
+
+def load_model(weights_path, device, prob_output=False):
+    """
+    Load CH4Net with automatic div_factor detection and key remapping.
+    prob_output=False -> raw logits (use for training with BCEWithLogitsLoss).
+    """
+    sd = torch.load(weights_path, map_location=device)
+    if isinstance(sd, dict) and "model_state_dict" in sd:
+        sd = sd["model_state_dict"]
+
+    # Detect div_factor from out.weight shape [1, 128//d, 1, 1]
+    div_factor = 8
+    if "out.weight" in sd:
+        in_ch      = sd["out.weight"].shape[1]
+        div_factor = max(1, 128 // in_ch)
+    log.info("Checkpoint div_factor=%d  (out_channels=%d)", div_factor, 128 // div_factor)
+
+    model = Unet(in_channels=12, out_channels=1,
+                 div_factor=div_factor, prob_output=prob_output)
+
+    # Remap flat-Sequential -> .net-wrapped keys (idempotent for already-new keys)
+    remapped = {}
+    for k, v in sd.items():
+        k = re.sub(r'^inc\.(\d)',           r'inc.net.\1',        k)
+        k = re.sub(r'^(down\d)\.1\.(\d)',   r'\1.net.1.net.\2',   k)
+        k = re.sub(r'^(up\d\.conv)\.(\d)',  r'\1.net.\2',         k)
+        remapped[k] = v
+
+    model.load_state_dict(remapped, strict=True)
+    model.to(device)
+    return model
+
+
+# ── Training ───────────────────────────────────────────────────────────────────
+
+def run_epoch(model, loader, criterion, optimiser, device, train=True):
+    model.train() if train else model.eval()
+    losses, correct, total = [], 0, 0
+    ctx = torch.enable_grad() if train else torch.no_grad()
+    with ctx:
+        for imgs, masks, labels in loader:
+            imgs   = imgs.to(device)
+            masks  = masks.to(device)
+            labels = torch.tensor(labels, dtype=torch.long, device=device)
+
+            logits = model(imgs).permute(0, 3, 1, 2)  # (B,1,H,W)
+            loss   = criterion(logits, masks)
+
+            if train:
+                optimiser.zero_grad()
+                loss.backward()
+                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                optimiser.step()
+
+            losses.append(loss.item())
+
+            # Image-level accuracy: compare mean prob in centre 40x40 vs 0.5
+            probs  = torch.sigmoid(logits)
+            c      = CROP_OUT // 2
+            centre = probs[:, :, c-20:c+20, c-20:c+20].mean(dim=(1, 2, 3))
+            preds  = (centre > 0.5).long()
+            correct += (preds == labels).sum().item()
+            total   += len(labels)
+
+    return float(np.mean(losses)), correct / max(total, 1)
+
+
+def train(args):
+    device = torch.device(
+        "mps"  if torch.backends.mps.is_available() else
+        "cuda" if torch.cuda.is_available() else
+        "cpu"
+    )
+    log.info("Device: %s", device)
+
+    # Data
+    train_ds = MethaneDataset(CROPS_DIR, split="train", augment=True)
+    val_ds   = MethaneDataset(CROPS_DIR, split="val",   augment=False)
+
+    if len(train_ds) == 0:
+        log.error("No training crops found in %s. Run extract_training_crops.py first.", CROPS_DIR)
+        sys.exit(1)
+
+    train_loader = DataLoader(train_ds, batch_size=args.batch_size,
+                              shuffle=True,  num_workers=0, drop_last=False)
+    val_loader   = DataLoader(val_ds,   batch_size=args.batch_size,
+                              shuffle=False, num_workers=0, drop_last=False)
+
+    # Model
+    log.info("Loading base weights: %s", args.weights_in)
+    model = load_model(args.weights_in, device, prob_output=False)
+
+    # Loss and optimiser
+    pos_w     = torch.tensor([POS_WEIGHT], device=device)
+    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_w)
+    optimiser = torch.optim.Adam(model.parameters(), lr=args.lr)
+    scheduler = torch.optim.lr_scheduler.StepLR(
+        optimiser, step_size=LR_STEP, gamma=LR_DECAY)
+
+    epochs         = 1 if args.dry_run else args.epochs
+    best_val_loss  = float("inf")
+    patience_count = 0
+    history        = []
+
+    log.info("=" * 62)
+    log.info("  European fine-tuning — %d train / %d val  |  %d epochs",
+             len(train_ds), len(val_ds), epochs)
+    log.info("=" * 62)
+
+    for epoch in range(1, epochs + 1):
+        t_loss, t_acc = run_epoch(model, train_loader, criterion, optimiser, device, train=True)
+        v_loss, v_acc = run_epoch(model, val_loader,   criterion, optimiser, device, train=False)
+        scheduler.step()
+        lr_now = scheduler.get_last_lr()[0]
+
+        log.info("Ep %3d/%d  train=%.4f (acc=%.0f%%)  val=%.4f (acc=%.0f%%)  lr=%.1e",
+                 epoch, epochs, t_loss, t_acc*100, v_loss, v_acc*100, lr_now)
+        history.append({"epoch": epoch, "train_loss": t_loss, "train_acc": t_acc,
+                         "val_loss": v_loss, "val_acc": v_acc})
+
+        if not args.dry_run:
+            if v_loss < best_val_loss:
+                best_val_loss  = v_loss
+                patience_count = 0
+                torch.save(model.state_dict(), args.weights_out)
+                log.info("  -> Saved best model (val_loss=%.4f)", v_loss)
+            else:
+                patience_count += 1
+                if patience_count >= PATIENCE:
+                    log.info("Early stop — no val improvement for %d epochs.", PATIENCE)
+                    break
+
+    log.info("=" * 62)
+    if args.dry_run:
+        log.info("Dry run complete — no weights saved.")
+    else:
+        log.info("Done. Best val loss: %.4f", best_val_loss)
+        log.info("Weights: %s", args.weights_out)
+        hist_path = "results_analysis/retrain_history.json"
+        with open(hist_path, "w") as f:
+            json.dump({"config": vars(args), "history": history}, f, indent=2)
+        log.info("History: %s", hist_path)
+
+
+# ── CLI ────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    main()
+    p = argparse.ArgumentParser(description="Fine-tune CH4Net on European training data")
+    p.add_argument("--weights-in",  default=WEIGHTS_IN)
+    p.add_argument("--weights-out", default=WEIGHTS_OUT)
+    p.add_argument("--epochs",      type=int,   default=EPOCHS)
+    p.add_argument("--lr",          type=float, default=LR)
+    p.add_argument("--batch-size",  type=int,   default=BATCH_SIZE)
+    p.add_argument("--dry-run",     action="store_true",
+                   help="Run 1 epoch without saving weights (smoke test)")
+    args = p.parse_args()
+
+    if not CROPS_DIR.exists():
+        log.error("No crops directory found: %s", CROPS_DIR)
+        sys.exit(1)
+
+    train(args)

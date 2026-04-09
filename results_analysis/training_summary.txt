@@ -1,0 +1,68 @@
+TRAINING TILE DOWNLOAD SUMMARY
+Generated: 2026-04-09 01:03 UTC
+=================================================================
+  OK (new downloads):      15
+  Cached/shared:           26
+  No S2 product found:      0
+  Errors:                   0
+  Dry-run skipped:          0
+  Total positives:         41
+
+By source type:
+  coal_mine                    9 /   9 tiles ready
+  coal_mine_plant              5 /   5 tiles ready
+  gas_compressor              18 /  18 tiles ready
+  gas_processing               4 /   4 tiles ready
+  gas_storage                  1 /   1 tiles ready
+  gas_terminal                 4 /   4 tiles ready
+
+By country:
+  DE:   11 /  11
+  FR:    1 /   1
+  NL:    5 /   5
+  PL:   14 /  14
+  RO:    6 /   6
+  UK:    4 /   4
+
+Ready tiles for fine-tuning:
+  de_bad_lauchstaedt           ?  +62.6 ppb  T32UQC  gas_compressor
+  nl_ravenstein                2023-02-10  +43.3 ppb  T31UGS  gas_compressor
+  uk_bacton                    2023-01-08  +30.6 ppb  T31UCB  gas_terminal
+  uk_bacton                    2023-02-25  +29.1 ppb  T31UCB  gas_terminal
+  ro_totea                     ?  +24.6 ppb  T35TLK  gas_compressor
+  fr_lacq                      2024-07-03  +24.2 ppb  T30TXN  gas_processing
+  de_bad_lauchstaedt           ?  +22.0 ppb  T32UQC  gas_compressor
+  ro_medias                    2023-03-02  +21.5 ppb  T34TGR  gas_processing
+  silesia_rybnik               ?  +19.7 ppb  T34UCA  coal_mine_plant
+  ro_totea                     2023-02-21  +18.6 ppb  T35TLK  gas_compressor
+  silesia_jastrzebie           2023-03-01  +18.1 ppb  T34UCB  coal_mine
+  silesia_rybnik               ?  +17.4 ppb  T34UCA  coal_mine_plant
+  silesia_pniowek              ?  +17.1 ppb  T34UCB  coal_mine
+  silesia_zofiowka             ?  +16.9 ppb  T34UCB  coal_mine
+  nl_bergermeer                ?  +16.2 ppb  T31UFU  gas_storage
+  de_bad_lauchstaedt           ?  +16.2 ppb  T32UQC  gas_compressor
+  nl_ravenstein                2023-01-19  +16.0 ppb  T31UGS  gas_compressor
+  silesia_zofiowka             2023-01-23  +15.4 ppb  T34UCB  coal_mine
+  nl_ravenstein                2023-01-17  +15.3 ppb  T31UGS  gas_compressor
+  ro_medias                    2023-01-03  +14.8 ppb  T34TGR  gas_processing
+  de_bad_lauchstaedt           ?  +14.0 ppb  T32UQC  gas_compressor
+  silesia_rybnik               ?  +13.9 ppb  T34UCA  coal_mine_plant
+  nl_grijpskerk                ?  +13.9 ppb  T31UGV  gas_compressor
+  de_sayda                     ?  +13.5 ppb  T33UUR  gas_compressor
+  ro_medias                    ?  +13.1 ppb  T34TGR  gas_processing
+  de_sayda                     ?  +13.0 ppb  T33UUR  gas_compressor
+  silesia_rybnik               ?  +12.6 ppb  T34UCA  coal_mine_plant
+  silesia_jastrzebie           2023-01-01  +12.4 ppb  T34UCB  coal_mine
+  uk_bacton                    2023-02-07  +12.3 ppb  T31UCB  gas_terminal
+  de_bad_lauchstaedt           ?  +12.2 ppb  T32UQC  gas_compressor
+  silesia_knurow               ?  +11.8 ppb  T34UCA  coal_mine
+  de_sayda                     ?  +11.8 ppb  T33UUR  gas_compressor
+  de_bad_lauchstaedt           ?  +11.3 ppb  T32UQC  gas_compressor
+  silesia_jastrzebie           2023-03-02  +11.2 ppb  T34UCB  coal_mine
+  uk_bacton                    2024-06-25  +11.1 ppb  T31UCB  gas_terminal
+  silesia_knurow               ?  +11.0 ppb  T34UCA  coal_mine
+  de_sayda                     ?  +10.9 ppb  T33UUR  gas_compressor
+  silesia_rybnik               ?  +10.8 ppb  T34UCA  coal_mine_plant
+  ro_totea                     ?  +10.8 ppb  T35TLK  gas_compressor
+  silesia_zofiowka             ?  +10.7 ppb  T34UCB  coal_mine
+  de_sayda                     ?  +10.6 ppb  T33UUR  gas_compressor

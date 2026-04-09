@@ -1,0 +1,547 @@
+{
+  "silesia_jastrzebie|2023-01-01": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754_label.json",
+    "product_name": "S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.SAFE",
+    "s2_date": "2023-01-02",
+    "tropomi_date": "2023-01-01",
+    "tile_id": "T34UCB",
+    "site": "silesia_jastrzebie",
+    "enhancement_ppb": 12.44,
+    "source_type": "coal_mine",
+    "country": "PL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "silesia_jastrzebie|2023-03-01": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_label.json",
+    "product_name": "S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE",
+    "s2_date": "2023-02-26",
+    "tropomi_date": "2023-03-01",
+    "tile_id": "T34UCB",
+    "site": "silesia_jastrzebie",
+    "enhancement_ppb": 18.15,
+    "source_type": "coal_mine",
+    "country": "PL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "silesia_jastrzebie|2023-03-02": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908_label.json",
+    "product_name": "S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.SAFE",
+    "s2_date": "2023-02-26",
+    "tropomi_date": "2023-03-02",
+    "tile_id": "T34UCB",
+    "site": "silesia_jastrzebie",
+    "enhancement_ppb": 11.16,
+    "source_type": "coal_mine",
+    "country": "PL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "silesia_knurow|2023-02-15": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-02-15",
+    "site": "silesia_knurow",
+    "enhancement_ppb": 11.79,
+    "source_type": "coal_mine",
+    "country": "PL"
+  },
+  "silesia_knurow|2023-03-01": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-03-01",
+    "site": "silesia_knurow",
+    "enhancement_ppb": 11.01,
+    "source_type": "coal_mine",
+    "country": "PL"
+  },
+  "silesia_pniowek|2023-03-01": {
+    "status": "shared",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "tile_id": "T34UCB",
+    "date": "2023-03-01",
+    "site": "silesia_pniowek",
+    "enhancement_ppb": 17.11,
+    "source_type": "coal_mine",
+    "country": "PL"
+  },
+  "silesia_zofiowka|2023-01-01": {
+    "status": "shared",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230102T095319_N0510_R079_T34UCA_20240810T044754.npy",
+    "tile_id": "T34UCB",
+    "date": "2023-01-01",
+    "site": "silesia_zofiowka",
+    "enhancement_ppb": 10.7,
+    "source_type": "coal_mine",
+    "country": "PL"
+  },
+  "silesia_zofiowka|2023-01-23": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413_label.json",
+    "product_name": "S2A_MSIL1C_20230117T095331_N0510_R079_T34UCA_20240813T102413.SAFE",
+    "s2_date": "2023-01-17",
+    "tropomi_date": "2023-01-23",
+    "tile_id": "T34UCB",
+    "site": "silesia_zofiowka",
+    "enhancement_ppb": 15.41,
+    "source_type": "coal_mine",
+    "country": "PL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "silesia_zofiowka|2023-03-01": {
+    "status": "shared",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "tile_id": "T34UCB",
+    "date": "2023-03-01",
+    "site": "silesia_zofiowka",
+    "enhancement_ppb": 16.85,
+    "source_type": "coal_mine",
+    "country": "PL"
+  },
+  "silesia_rybnik|2023-02-10": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-02-10",
+    "site": "silesia_rybnik",
+    "enhancement_ppb": 13.91,
+    "source_type": "coal_mine_plant",
+    "country": "PL"
+  },
+  "silesia_rybnik|2023-02-15": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-02-15",
+    "site": "silesia_rybnik",
+    "enhancement_ppb": 10.85,
+    "source_type": "coal_mine_plant",
+    "country": "PL"
+  },
+  "silesia_rybnik|2023-03-01": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-03-01",
+    "site": "silesia_rybnik",
+    "enhancement_ppb": 17.42,
+    "source_type": "coal_mine_plant",
+    "country": "PL"
+  },
+  "silesia_rybnik|2023-03-02": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+    "tile_id": "T34UCA",
+    "date": "2023-03-02",
+    "site": "silesia_rybnik",
+    "enhancement_ppb": 12.58,
+    "source_type": "coal_mine_plant",
+    "country": "PL"
+  },
+  "silesia_rybnik|2024-06-28": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20240628T095549_N0510_R122_T34UCA_20240628T115919.npy",
+    "tile_id": "T34UCA",
+    "date": "2024-06-28",
+    "site": "silesia_rybnik",
+    "enhancement_ppb": 19.66,
+    "source_type": "coal_mine_plant",
+    "country": "PL"
+  },
+  "nl_grijpskerk|2023-02-08": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.npy",
+    "tile_id": "T31UGV",
+    "date": "2023-02-08",
+    "site": "nl_grijpskerk",
+    "enhancement_ppb": 13.89,
+    "source_type": "gas_compressor",
+    "country": "NL"
+  },
+  "nl_bergermeer|2023-01-26": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.npy",
+    "tile_id": "T31UFU",
+    "date": "2023-01-26",
+    "site": "nl_bergermeer",
+    "enhancement_ppb": 16.19,
+    "source_type": "gas_storage",
+    "country": "NL"
+  },
+  "nl_ravenstein|2023-01-17": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_label.json",
+    "product_name": "S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE",
+    "s2_date": "2023-01-17",
+    "tropomi_date": "2023-01-17",
+    "tile_id": "T31UGS",
+    "site": "nl_ravenstein",
+    "enhancement_ppb": 15.26,
+    "source_type": "gas_compressor",
+    "country": "NL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "nl_ravenstein|2023-01-19": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634_label.json",
+    "product_name": "S2B_MSIL1C_20230117T104259_N0510_R008_T31UGT_20240808T212634.SAFE",
+    "s2_date": "2023-01-17",
+    "tropomi_date": "2023-01-19",
+    "tile_id": "T31UGS",
+    "site": "nl_ravenstein",
+    "enhancement_ppb": 16.0,
+    "source_type": "gas_compressor",
+    "country": "NL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "nl_ravenstein|2023-02-10": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133_label.json",
+    "product_name": "S2A_MSIL1C_20230214T105141_N0510_R051_T31UFT_20240815T185133.SAFE",
+    "s2_date": "2023-02-14",
+    "tropomi_date": "2023-02-10",
+    "tile_id": "T31UGS",
+    "site": "nl_ravenstein",
+    "enhancement_ppb": 43.34,
+    "source_type": "gas_compressor",
+    "country": "NL",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "de_bad_lauchstaedt|2023-01-09": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-01-09",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 12.25,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_bad_lauchstaedt|2023-02-08": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-02-08",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 11.27,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_bad_lauchstaedt|2023-02-10": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-02-10",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 22.01,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_bad_lauchstaedt|2023-02-14": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-02-14",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 13.99,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_bad_lauchstaedt|2023-02-16": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-02-16",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 16.19,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_bad_lauchstaedt|2023-02-19": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230215T102121_N0510_R065_T32UQC_20240820T052614.npy",
+    "tile_id": "T32UQC",
+    "date": "2023-02-19",
+    "site": "de_bad_lauchstaedt",
+    "enhancement_ppb": 62.56,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_sayda|2023-01-19": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230116T102351_N0510_R065_T33UUR_20240811T010933.npy",
+    "tile_id": "T33UUR",
+    "date": "2023-01-19",
+    "site": "de_sayda",
+    "enhancement_ppb": 10.86,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_sayda|2023-02-08": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy",
+    "tile_id": "T33UUR",
+    "date": "2023-02-08",
+    "site": "de_sayda",
+    "enhancement_ppb": 10.6,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_sayda|2023-02-09": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy",
+    "tile_id": "T33UUR",
+    "date": "2023-02-09",
+    "site": "de_sayda",
+    "enhancement_ppb": 12.99,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_sayda|2023-02-10": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T33UUR_20240812T220711.npy",
+    "tile_id": "T33UUR",
+    "date": "2023-02-10",
+    "site": "de_sayda",
+    "enhancement_ppb": 11.75,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "de_sayda|2024-06-29": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20240629T102021_N0510_R065_T33UUR_20240629T135511.npy",
+    "tile_id": "T33UUR",
+    "date": "2024-06-29",
+    "site": "de_sayda",
+    "enhancement_ppb": 13.49,
+    "source_type": "gas_compressor",
+    "country": "DE"
+  },
+  "ro_medias|2023-01-03": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507_label.json",
+    "product_name": "S2A_MSIL1C_20230108T092351_N0510_R093_T34TGR_20240812T025507.SAFE",
+    "s2_date": "2023-01-08",
+    "tropomi_date": "2023-01-03",
+    "tile_id": "T34TGR",
+    "site": "ro_medias",
+    "enhancement_ppb": 14.79,
+    "source_type": "gas_processing",
+    "country": "RO",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "ro_medias|2023-02-17": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T34TGR_20240814T204437.npy",
+    "tile_id": "T34TGR",
+    "date": "2023-02-17",
+    "site": "ro_medias",
+    "enhancement_ppb": 13.1,
+    "source_type": "gas_processing",
+    "country": "RO"
+  },
+  "ro_medias|2023-03-02": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957_label.json",
+    "product_name": "S2B_MSIL1C_20230304T092029_N0510_R093_T34TGR_20240819T061957.SAFE",
+    "s2_date": "2023-03-04",
+    "tropomi_date": "2023-03-02",
+    "tile_id": "T34TGR",
+    "site": "ro_medias",
+    "enhancement_ppb": 21.47,
+    "source_type": "gas_processing",
+    "country": "RO",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "ro_totea|2023-01-01": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20221231T091309_N0510_R050_T35TLK_20240808T133420.npy",
+    "tile_id": "T35TLK",
+    "date": "2023-01-01",
+    "site": "ro_totea",
+    "enhancement_ppb": 24.59,
+    "source_type": "gas_compressor",
+    "country": "RO"
+  },
+  "ro_totea|2023-01-15": {
+    "status": "cached",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230118T092321_N0510_R093_T35TLK_20240811T091545.npy",
+    "tile_id": "T35TLK",
+    "date": "2023-01-15",
+    "site": "ro_totea",
+    "enhancement_ppb": 10.78,
+    "source_type": "gas_compressor",
+    "country": "RO"
+  },
+  "ro_totea|2023-02-21": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437_label.json",
+    "product_name": "S2B_MSIL1C_20230222T092029_N0510_R093_T35TLK_20240814T204437.SAFE",
+    "s2_date": "2023-02-22",
+    "tropomi_date": "2023-02-21",
+    "tile_id": "T35TLK",
+    "site": "ro_totea",
+    "enhancement_ppb": 18.63,
+    "source_type": "gas_compressor",
+    "country": "RO",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "fr_lacq|2024-07-03": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100_label.json",
+    "product_name": "S2B_MSIL1C_20240703T104629_N0510_R051_T30TXN_20240703T125100.SAFE",
+    "s2_date": "2024-07-03",
+    "tropomi_date": "2024-07-03",
+    "tile_id": "T30TXN",
+    "site": "fr_lacq",
+    "enhancement_ppb": 24.19,
+    "source_type": "gas_processing",
+    "country": "FR",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "uk_bacton|2023-01-08": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306_label.json",
+    "product_name": "S2A_MSIL1C_20230108T110431_N0510_R094_T31UDU_20240809T214306.SAFE",
+    "s2_date": "2023-01-08",
+    "tropomi_date": "2023-01-08",
+    "tile_id": "T31UCB",
+    "site": "uk_bacton",
+    "enhancement_ppb": 30.59,
+    "source_type": "gas_terminal",
+    "country": "UK",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "uk_bacton|2023-02-07": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.npy",
+    "label_path": "data/npy_cache/training/S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041_label.json",
+    "product_name": "S2A_MSIL1C_20230207T110221_N0510_R094_T30UYE_20240812T144041.SAFE",
+    "s2_date": "2023-02-07",
+    "tropomi_date": "2023-02-07",
+    "tile_id": "T31UCB",
+    "site": "uk_bacton",
+    "enhancement_ppb": 12.31,
+    "source_type": "gas_terminal",
+    "country": "UK",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "uk_bacton|2023-02-25": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454_label.json",
+    "product_name": "S2B_MSIL1C_20230225T110939_N0510_R137_T30UYE_20240820T064454.SAFE",
+    "s2_date": "2023-02-25",
+    "tropomi_date": "2023-02-25",
+    "tile_id": "T31UCB",
+    "site": "uk_bacton",
+    "enhancement_ppb": 29.08,
+    "source_type": "gas_terminal",
+    "country": "UK",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  },
+  "uk_bacton|2024-06-25": {
+    "status": "ok",
+    "npy_path": "data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.npy",
+    "label_path": "data/npy_cache/training/S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415_label.json",
+    "product_name": "S2B_MSIL1C_20240626T105619_N0510_R094_T31UCU_20240626T133415.SAFE",
+    "s2_date": "2024-06-26",
+    "tropomi_date": "2024-06-25",
+    "tile_id": "T31UCB",
+    "site": "uk_bacton",
+    "enhancement_ppb": 11.13,
+    "source_type": "gas_terminal",
+    "country": "UK",
+    "cloud_cover": null,
+    "shape": [
+      10980,
+      10980,
+      12
+    ]
+  }
+}

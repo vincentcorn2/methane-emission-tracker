@@ -1,0 +1,97 @@
+13:32:00  INFO     Device: mps
+13:32:00  INFO     Dataset split=train  total=16  pos=7  neg=9
+13:32:00  INFO     Dataset split=val    total=5  pos=2  neg=3
+13:32:00  INFO     Loading base weights: weights/best_model.pth
+13:32:00  INFO     Checkpoint div_factor=1  (out_channels=128)
+13:32:02  INFO     ==============================================================
+13:32:02  INFO       European fine-tuning — 16 train / 5 val  |  60 epochs
+13:32:02  INFO     ==============================================================
+/Users/vincentcornelius/Downloads/methane-api/approach_c_retrain.py:219: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels = torch.tensor(labels, dtype=torch.long, device=device)
+13:32:11  INFO     Ep   1/60  train=3.2950 (acc=56%)  val=3.6299 (acc=60%)  lr=1.0e-04
+13:32:11  INFO       -> Saved best model (val_loss=3.6299)
+13:32:15  INFO     Ep   2/60  train=3.0840 (acc=56%)  val=3.6496 (acc=60%)  lr=1.0e-04
+13:32:20  INFO     Ep   3/60  train=2.9220 (acc=56%)  val=3.7867 (acc=60%)  lr=1.0e-04
+13:32:28  INFO     Ep   4/60  train=3.0533 (acc=56%)  val=4.2018 (acc=60%)  lr=1.0e-04
+13:32:37  INFO     Ep   5/60  train=2.8384 (acc=56%)  val=3.4596 (acc=60%)  lr=1.0e-04
+13:32:39  INFO       -> Saved best model (val_loss=3.4596)
+13:32:49  INFO     Ep   6/60  train=2.6340 (acc=56%)  val=2.7239 (acc=60%)  lr=1.0e-04
+13:32:51  INFO       -> Saved best model (val_loss=2.7239)
+13:33:05  INFO     Ep   7/60  train=2.5807 (acc=56%)  val=2.4567 (acc=60%)  lr=1.0e-04
+13:33:08  INFO       -> Saved best model (val_loss=2.4567)
+13:33:23  INFO     Ep   8/60  train=2.4306 (acc=56%)  val=2.3968 (acc=60%)  lr=1.0e-04
+13:33:26  INFO       -> Saved best model (val_loss=2.3968)
+13:33:49  INFO     Ep   9/60  train=2.5514 (acc=56%)  val=2.1816 (acc=60%)  lr=1.0e-04
+13:33:52  INFO       -> Saved best model (val_loss=2.1816)
+13:34:04  INFO     Ep  10/60  train=2.5168 (acc=56%)  val=2.2161 (acc=60%)  lr=9.5e-05
+13:34:14  INFO     Ep  11/60  train=2.2159 (acc=56%)  val=2.1441 (acc=60%)  lr=9.5e-05
+13:34:16  INFO       -> Saved best model (val_loss=2.1441)
+13:34:28  INFO     Ep  12/60  train=2.2681 (acc=56%)  val=1.9556 (acc=60%)  lr=9.5e-05
+13:34:32  INFO       -> Saved best model (val_loss=1.9556)
+13:34:46  INFO     Ep  13/60  train=2.3519 (acc=56%)  val=1.8144 (acc=60%)  lr=9.5e-05
+13:34:48  INFO       -> Saved best model (val_loss=1.8144)
+13:35:00  INFO     Ep  14/60  train=2.2106 (acc=56%)  val=1.9112 (acc=60%)  lr=9.5e-05
+13:35:14  INFO     Ep  15/60  train=2.2530 (acc=56%)  val=2.1392 (acc=60%)  lr=9.5e-05
+13:35:30  INFO     Ep  16/60  train=1.9936 (acc=56%)  val=1.9966 (acc=60%)  lr=9.5e-05
+13:35:42  INFO     Ep  17/60  train=1.7909 (acc=56%)  val=1.9073 (acc=60%)  lr=9.5e-05
+13:35:55  INFO     Ep  18/60  train=1.8001 (acc=56%)  val=1.9451 (acc=60%)  lr=9.5e-05
+13:36:07  INFO     Ep  19/60  train=2.0008 (acc=56%)  val=1.8008 (acc=60%)  lr=9.5e-05
+13:36:10  INFO       -> Saved best model (val_loss=1.8008)
+13:36:25  INFO     Ep  20/60  train=1.9283 (acc=56%)  val=1.6474 (acc=60%)  lr=9.0e-05
+13:36:29  INFO       -> Saved best model (val_loss=1.6474)
+13:36:41  INFO     Ep  21/60  train=1.6032 (acc=56%)  val=1.7011 (acc=60%)  lr=9.0e-05
+13:36:55  INFO     Ep  22/60  train=1.7873 (acc=56%)  val=1.9991 (acc=60%)  lr=9.0e-05
+13:37:08  INFO     Ep  23/60  train=1.5012 (acc=56%)  val=2.3382 (acc=60%)  lr=9.0e-05
+13:37:25  INFO     Ep  24/60  train=1.7541 (acc=44%)  val=2.2376 (acc=60%)  lr=9.0e-05
+13:37:41  INFO     Ep  25/60  train=1.3484 (acc=62%)  val=2.4344 (acc=60%)  lr=9.0e-05
+13:38:00  INFO     Ep  26/60  train=1.9763 (acc=56%)  val=1.9290 (acc=60%)  lr=9.0e-05
+13:38:14  INFO     Ep  27/60  train=1.2008 (acc=56%)  val=1.5447 (acc=60%)  lr=9.0e-05
+13:38:19  INFO       -> Saved best model (val_loss=1.5447)
+13:38:39  INFO     Ep  28/60  train=1.4309 (acc=44%)  val=1.2041 (acc=60%)  lr=9.0e-05
+13:38:43  INFO       -> Saved best model (val_loss=1.2041)
+13:38:57  INFO     Ep  29/60  train=1.1929 (acc=62%)  val=1.3989 (acc=60%)  lr=9.0e-05
+13:39:07  INFO     Ep  30/60  train=1.0792 (acc=62%)  val=1.2770 (acc=60%)  lr=8.6e-05
+13:39:18  INFO     Ep  31/60  train=1.1748 (acc=62%)  val=1.5569 (acc=60%)  lr=8.6e-05
+13:39:28  INFO     Ep  32/60  train=1.3080 (acc=50%)  val=1.6256 (acc=60%)  lr=8.6e-05
+13:39:43  INFO     Ep  33/60  train=1.3257 (acc=69%)  val=1.5511 (acc=60%)  lr=8.6e-05
+13:39:56  INFO     Ep  34/60  train=1.2846 (acc=56%)  val=1.1854 (acc=60%)  lr=8.6e-05
+13:39:59  INFO       -> Saved best model (val_loss=1.1854)
+13:40:15  INFO     Ep  35/60  train=0.9249 (acc=62%)  val=1.0748 (acc=60%)  lr=8.6e-05
+13:40:17  INFO       -> Saved best model (val_loss=1.0748)
+13:40:31  INFO     Ep  36/60  train=1.0921 (acc=69%)  val=1.0263 (acc=80%)  lr=8.6e-05
+13:40:33  INFO       -> Saved best model (val_loss=1.0263)
+13:40:46  INFO     Ep  37/60  train=0.9232 (acc=62%)  val=1.2442 (acc=80%)  lr=8.6e-05
+13:41:03  INFO     Ep  38/60  train=1.0900 (acc=56%)  val=1.3947 (acc=80%)  lr=8.6e-05
+13:41:19  INFO     Ep  39/60  train=0.8365 (acc=62%)  val=1.5015 (acc=80%)  lr=8.6e-05
+13:41:33  INFO     Ep  40/60  train=0.9824 (acc=75%)  val=1.3826 (acc=80%)  lr=8.1e-05
+13:41:46  INFO     Ep  41/60  train=1.2682 (acc=75%)  val=0.9770 (acc=80%)  lr=8.1e-05
+13:41:48  INFO       -> Saved best model (val_loss=0.9770)
+13:41:59  INFO     Ep  42/60  train=0.9792 (acc=62%)  val=1.1018 (acc=80%)  lr=8.1e-05
+13:42:11  INFO     Ep  43/60  train=1.0642 (acc=56%)  val=0.8458 (acc=80%)  lr=8.1e-05
+13:42:12  INFO       -> Saved best model (val_loss=0.8458)
+13:42:24  INFO     Ep  44/60  train=1.2046 (acc=62%)  val=0.8234 (acc=80%)  lr=8.1e-05
+13:42:27  INFO       -> Saved best model (val_loss=0.8234)
+13:42:40  INFO     Ep  45/60  train=1.0770 (acc=75%)  val=0.7926 (acc=80%)  lr=8.1e-05
+13:42:45  INFO       -> Saved best model (val_loss=0.7926)
+13:42:56  INFO     Ep  46/60  train=1.2587 (acc=62%)  val=0.8093 (acc=80%)  lr=8.1e-05
+13:43:07  INFO     Ep  47/60  train=0.8565 (acc=62%)  val=0.9051 (acc=80%)  lr=8.1e-05
+13:43:18  INFO     Ep  48/60  train=0.8156 (acc=62%)  val=0.9957 (acc=80%)  lr=8.1e-05
+13:43:31  INFO     Ep  49/60  train=0.9410 (acc=75%)  val=1.1606 (acc=80%)  lr=8.1e-05
+13:43:45  INFO     Ep  50/60  train=0.9078 (acc=75%)  val=1.2500 (acc=80%)  lr=7.7e-05
+13:44:04  INFO     Ep  51/60  train=0.8408 (acc=62%)  val=1.2120 (acc=80%)  lr=7.7e-05
+13:44:18  INFO     Ep  52/60  train=0.8545 (acc=75%)  val=1.2825 (acc=80%)  lr=7.7e-05
+13:44:30  INFO     Ep  53/60  train=0.7811 (acc=81%)  val=1.1796 (acc=80%)  lr=7.7e-05
+13:44:41  INFO     Ep  54/60  train=0.8679 (acc=69%)  val=1.1992 (acc=80%)  lr=7.7e-05
+13:44:54  INFO     Ep  55/60  train=0.8519 (acc=81%)  val=1.1550 (acc=80%)  lr=7.7e-05
+13:45:05  INFO     Ep  56/60  train=0.7293 (acc=69%)  val=1.3467 (acc=80%)  lr=7.7e-05
+13:45:18  INFO     Ep  57/60  train=0.8794 (acc=62%)  val=1.3575 (acc=80%)  lr=7.7e-05
+13:45:32  INFO     Ep  58/60  train=0.7128 (acc=81%)  val=0.9936 (acc=80%)  lr=7.7e-05
+13:45:48  INFO     Ep  59/60  train=0.7468 (acc=75%)  val=1.0557 (acc=80%)  lr=7.7e-05
+13:46:02  INFO     Ep  60/60  train=0.6134 (acc=69%)  val=1.1676 (acc=80%)  lr=7.4e-05
+13:46:02  INFO     Early stop — no val improvement for 15 epochs.
+13:46:02  INFO     ==============================================================
+13:46:02  INFO     Done. Best val loss: 0.7926
+13:46:02  INFO     Weights: weights/european_model.pth
+13:46:02  INFO     History: results_analysis/retrain_history.json
+s/european_model.pth
+13:46:02  INFO     History: results_analysis/retrain_history.json

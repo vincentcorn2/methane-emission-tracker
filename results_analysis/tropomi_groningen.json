@@ -1,0 +1,16 @@
+{
+  "date": "2024-06-28",
+  "site": "Groningen gas field",
+  "lat": 53.252,
+  "lon": 6.682,
+  "background_ppb": 1908.72,
+  "mean_near_ppb": 1907.73,
+  "max_near_ppb": 1908.58,
+  "enhancement_ppb": -0.99,
+  "n_box_pixels": 104,
+  "n_near_pixels": 2,
+  "near_radius_deg": 0.15,
+  "qa_threshold_used": 0.5,
+  "validated": false,
+  "note": "[Fallback date: 2024-06-25] Enhancement -1.0 ppb \u2014 NOT DETECTED by TROPOMI"
+}
