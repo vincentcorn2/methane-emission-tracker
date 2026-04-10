@@ -1,0 +1,119 @@
+18:16:22  INFO     Device: mps
+18:16:22  INFO     Dataset split=train  total=45  pos=36  neg=9
+18:16:22  INFO     Dataset split=val    total=5  pos=2  neg=3
+18:16:22  INFO     Loading weights: weights/best_model.pth
+18:16:22  INFO     Checkpoint div_factor=1  (out_channels=128)
+18:16:22  INFO     No encoder freezing — full fine-tuning with weight_decay=1e-04
+18:16:24  INFO     ==============================================================
+18:16:24  INFO       European fine-tuning (image-level loss) — 45 train / 5 val  |  120 epochs
+18:16:24  INFO       lr=5.0e-05  weight_decay=1e-04  neg_weight=4.0  patience=25
+18:16:24  INFO       centre_radius=40px → 80x80 window in 160x160 crop
+18:16:24  INFO     ==============================================================
+18:16:43  INFO     Ep   1/120  train=3.6450 (acc=20%)  val=3.4527 (acc=60%)  lr=5.0e-05
+18:16:44  INFO       -> Saved best model (val_loss=3.4527)
+18:16:52  INFO     Ep   2/120  train=3.3681 (acc=20%)  val=3.7444 (acc=60%)  lr=5.0e-05
+18:17:01  INFO     Ep   3/120  train=3.6349 (acc=20%)  val=3.3990 (acc=60%)  lr=5.0e-05
+18:17:01  INFO       -> Saved best model (val_loss=3.3990)
+18:17:14  INFO     Ep   4/120  train=2.8625 (acc=20%)  val=3.5729 (acc=60%)  lr=5.0e-05
+18:17:32  INFO     Ep   5/120  train=2.6788 (acc=20%)  val=3.6594 (acc=60%)  lr=5.0e-05
+18:17:55  INFO     Ep   6/120  train=2.8012 (acc=20%)  val=3.6331 (acc=60%)  lr=5.0e-05
+18:18:18  INFO     Ep   7/120  train=2.5004 (acc=20%)  val=3.7480 (acc=60%)  lr=5.0e-05
+18:18:43  INFO     Ep   8/120  train=2.4571 (acc=20%)  val=3.4918 (acc=60%)  lr=5.0e-05
+18:19:11  INFO     Ep   9/120  train=1.9817 (acc=20%)  val=3.4297 (acc=60%)  lr=5.0e-05
+18:19:46  INFO     Ep  10/120  train=2.1866 (acc=20%)  val=3.4023 (acc=60%)  lr=4.8e-05
+18:20:21  INFO     Ep  11/120  train=1.8283 (acc=20%)  val=3.2894 (acc=60%)  lr=4.8e-05
+18:20:22  INFO       -> Saved best model (val_loss=3.2894)
+18:20:57  INFO     Ep  12/120  train=1.9147 (acc=20%)  val=3.1102 (acc=60%)  lr=4.8e-05
+18:20:57  INFO       -> Saved best model (val_loss=3.1102)
+18:21:32  INFO     Ep  13/120  train=1.8967 (acc=20%)  val=3.2726 (acc=60%)  lr=4.8e-05
+18:22:09  INFO     Ep  14/120  train=1.9573 (acc=20%)  val=3.3742 (acc=60%)  lr=4.8e-05
+18:22:48  INFO     Ep  15/120  train=1.7675 (acc=20%)  val=3.2483 (acc=60%)  lr=4.8e-05
+18:23:24  INFO     Ep  16/120  train=1.5224 (acc=20%)  val=3.0898 (acc=60%)  lr=4.8e-05
+18:23:24  INFO       -> Saved best model (val_loss=3.0898)
+18:23:59  INFO     Ep  17/120  train=1.4693 (acc=20%)  val=3.0869 (acc=60%)  lr=4.8e-05
+18:24:00  INFO       -> Saved best model (val_loss=3.0869)
+18:24:34  INFO     Ep  18/120  train=1.5459 (acc=20%)  val=3.1024 (acc=60%)  lr=4.8e-05
+18:25:11  INFO     Ep  19/120  train=1.5722 (acc=20%)  val=3.0709 (acc=60%)  lr=4.8e-05
+18:25:11  INFO       -> Saved best model (val_loss=3.0709)
+18:25:48  INFO     Ep  20/120  train=1.3348 (acc=24%)  val=2.9792 (acc=60%)  lr=4.5e-05
+18:25:48  INFO       -> Saved best model (val_loss=2.9792)
+18:26:24  INFO     Ep  21/120  train=1.4005 (acc=24%)  val=3.0823 (acc=60%)  lr=4.5e-05
+18:27:01  INFO     Ep  22/120  train=1.3253 (acc=22%)  val=2.6573 (acc=60%)  lr=4.5e-05
+18:27:02  INFO       -> Saved best model (val_loss=2.6573)
+18:27:31  INFO     Ep  23/120  train=1.2735 (acc=27%)  val=1.7910 (acc=60%)  lr=4.5e-05
+18:27:32  INFO       -> Saved best model (val_loss=1.7910)
+18:27:50  INFO     Ep  24/120  train=1.2488 (acc=31%)  val=2.9871 (acc=60%)  lr=4.5e-05
+18:28:08  INFO     Ep  25/120  train=1.3721 (acc=31%)  val=3.0838 (acc=60%)  lr=4.5e-05
+18:28:29  INFO     Ep  26/120  train=1.1426 (acc=40%)  val=3.3174 (acc=60%)  lr=4.5e-05
+18:29:06  INFO     Ep  27/120  train=1.1178 (acc=40%)  val=3.1472 (acc=60%)  lr=4.5e-05
+18:29:45  INFO     Ep  28/120  train=1.1013 (acc=36%)  val=2.4543 (acc=60%)  lr=4.5e-05
+18:30:25  INFO     Ep  29/120  train=1.1767 (acc=29%)  val=2.8539 (acc=40%)  lr=4.5e-05
+18:31:04  INFO     Ep  30/120  train=1.1089 (acc=36%)  val=2.8869 (acc=40%)  lr=4.3e-05
+18:31:40  INFO     Ep  31/120  train=1.2370 (acc=44%)  val=3.1804 (acc=40%)  lr=4.3e-05
+18:32:15  INFO     Ep  32/120  train=1.0451 (acc=49%)  val=3.0908 (acc=40%)  lr=4.3e-05
+18:32:51  INFO     Ep  33/120  train=0.9863 (acc=47%)  val=3.3329 (acc=40%)  lr=4.3e-05
+18:33:25  INFO     Ep  34/120  train=1.1287 (acc=47%)  val=3.4917 (acc=40%)  lr=4.3e-05
+18:34:00  INFO     Ep  35/120  train=1.0383 (acc=47%)  val=3.4410 (acc=40%)  lr=4.3e-05
+18:34:36  INFO     Ep  36/120  train=1.0809 (acc=51%)  val=3.3744 (acc=40%)  lr=4.3e-05
+18:35:12  INFO     Ep  37/120  train=1.0457 (acc=47%)  val=3.5332 (acc=40%)  lr=4.3e-05
+18:35:47  INFO     Ep  38/120  train=0.9209 (acc=51%)  val=3.9886 (acc=40%)  lr=4.3e-05
+18:36:23  INFO     Ep  39/120  train=1.0029 (acc=53%)  val=2.1754 (acc=60%)  lr=4.3e-05
+18:36:51  INFO     Ep  40/120  train=0.9671 (acc=64%)  val=2.1232 (acc=60%)  lr=4.1e-05
+18:37:10  INFO     Ep  41/120  train=0.9594 (acc=64%)  val=3.2488 (acc=40%)  lr=4.1e-05
+18:37:28  INFO     Ep  42/120  train=0.9262 (acc=58%)  val=1.5094 (acc=60%)  lr=4.1e-05
+18:37:29  INFO       -> Saved best model (val_loss=1.5094)
+18:38:03  INFO     Ep  43/120  train=1.0679 (acc=56%)  val=2.2212 (acc=60%)  lr=4.1e-05
+18:38:40  INFO     Ep  44/120  train=0.9864 (acc=58%)  val=2.9999 (acc=40%)  lr=4.1e-05
+18:39:20  INFO     Ep  45/120  train=0.9936 (acc=62%)  val=2.9997 (acc=60%)  lr=4.1e-05
+18:39:57  INFO     Ep  46/120  train=1.2209 (acc=69%)  val=3.4729 (acc=60%)  lr=4.1e-05
+18:40:38  INFO     Ep  47/120  train=1.1091 (acc=62%)  val=1.9300 (acc=60%)  lr=4.1e-05
+18:41:17  INFO     Ep  48/120  train=0.8950 (acc=71%)  val=3.7345 (acc=60%)  lr=4.1e-05
+18:41:56  INFO     Ep  49/120  train=0.9235 (acc=69%)  val=4.4209 (acc=60%)  lr=4.1e-05
+18:42:35  INFO     Ep  50/120  train=0.9292 (acc=71%)  val=2.4558 (acc=60%)  lr=3.9e-05
+18:43:15  INFO     Ep  51/120  train=0.9818 (acc=71%)  val=4.4676 (acc=60%)  lr=3.9e-05
+18:43:54  INFO     Ep  52/120  train=0.8652 (acc=76%)  val=4.4192 (acc=60%)  lr=3.9e-05
+18:44:33  INFO     Ep  53/120  train=0.8127 (acc=80%)  val=4.5659 (acc=60%)  lr=3.9e-05
+18:45:12  INFO     Ep  54/120  train=1.0104 (acc=69%)  val=4.4391 (acc=60%)  lr=3.9e-05
+18:45:52  INFO     Ep  55/120  train=0.8783 (acc=71%)  val=3.4745 (acc=60%)  lr=3.9e-05
+18:46:27  INFO     Ep  56/120  train=0.9613 (acc=73%)  val=3.5233 (acc=40%)  lr=3.9e-05
+18:46:56  INFO     Ep  57/120  train=0.9140 (acc=76%)  val=4.8570 (acc=40%)  lr=3.9e-05
+18:47:24  INFO     Ep  58/120  train=1.0490 (acc=73%)  val=4.7993 (acc=40%)  lr=3.9e-05
+18:47:51  INFO     Ep  59/120  train=0.7753 (acc=82%)  val=4.6872 (acc=40%)  lr=3.9e-05
+18:48:20  INFO     Ep  60/120  train=0.9167 (acc=73%)  val=4.0123 (acc=40%)  lr=3.7e-05
+18:48:59  INFO     Ep  61/120  train=0.8663 (acc=78%)  val=2.9967 (acc=40%)  lr=3.7e-05
+18:49:39  INFO     Ep  62/120  train=0.8004 (acc=78%)  val=4.9230 (acc=40%)  lr=3.7e-05
+18:50:20  INFO     Ep  63/120  train=1.0800 (acc=78%)  val=3.5969 (acc=40%)  lr=3.7e-05
+18:51:11  INFO     Ep  64/120  train=0.9412 (acc=76%)  val=1.3265 (acc=60%)  lr=3.7e-05
+18:51:14  INFO       -> Saved best model (val_loss=1.3265)
+18:51:58  INFO     Ep  65/120  train=1.2071 (acc=80%)  val=2.5879 (acc=60%)  lr=3.7e-05
+18:52:40  INFO     Ep  66/120  train=1.0270 (acc=76%)  val=2.2269 (acc=60%)  lr=3.7e-05
+18:53:32  INFO     Ep  67/120  train=0.8643 (acc=80%)  val=4.8011 (acc=40%)  lr=3.7e-05
+18:54:13  INFO     Ep  68/120  train=1.0308 (acc=78%)  val=4.6771 (acc=40%)  lr=3.7e-05
+18:55:03  INFO     Ep  69/120  train=0.9689 (acc=84%)  val=2.3096 (acc=40%)  lr=3.7e-05
+18:55:57  INFO     Ep  70/120  train=1.6246 (acc=24%)  val=2.6872 (acc=40%)  lr=3.5e-05
+18:56:49  INFO     Ep  71/120  train=1.5190 (acc=20%)  val=3.0613 (acc=40%)  lr=3.5e-05
+18:57:42  INFO     Ep  72/120  train=1.1455 (acc=20%)  val=2.4012 (acc=40%)  lr=3.5e-05
+18:58:14  INFO     Ep  73/120  train=1.2079 (acc=20%)  val=2.1317 (acc=40%)  lr=3.5e-05
+18:58:42  INFO     Ep  74/120  train=1.1096 (acc=20%)  val=2.1782 (acc=40%)  lr=3.5e-05
+18:59:09  INFO     Ep  75/120  train=1.1074 (acc=20%)  val=2.1322 (acc=40%)  lr=3.5e-05
+18:59:42  INFO     Ep  76/120  train=1.1030 (acc=20%)  val=1.9957 (acc=40%)  lr=3.5e-05
+19:00:23  INFO     Ep  77/120  train=1.1994 (acc=20%)  val=2.6159 (acc=40%)  lr=3.5e-05
+19:01:18  INFO     Ep  78/120  train=1.2546 (acc=20%)  val=2.6569 (acc=60%)  lr=3.5e-05
+19:02:31  INFO     Ep  79/120  train=1.3013 (acc=20%)  val=6.2313 (acc=60%)  lr=3.5e-05
+19:03:15  INFO     Ep  80/120  train=1.1032 (acc=20%)  val=4.1593 (acc=40%)  lr=3.3e-05
+19:04:12  INFO     Ep  81/120  train=1.2665 (acc=20%)  val=150.0000 (acc=40%)  lr=3.3e-05
+19:05:06  INFO     Ep  82/120  train=1.1354 (acc=20%)  val=22.7490 (acc=60%)  lr=3.3e-05
+19:06:01  INFO     Ep  83/120  train=1.3090 (acc=20%)  val=62.5000 (acc=60%)  lr=3.3e-05
+19:06:57  INFO     Ep  84/120  train=1.9366 (acc=20%)  val=62.5000 (acc=60%)  lr=3.3e-05
+19:07:50  INFO     Ep  85/120  train=1.6741 (acc=20%)  val=3.5225 (acc=60%)  lr=3.3e-05
+19:08:44  INFO     Ep  86/120  train=1.5498 (acc=20%)  val=150.0000 (acc=40%)  lr=3.3e-05
+19:09:25  INFO     Ep  87/120  train=1.2718 (acc=20%)  val=150.0000 (acc=40%)  lr=3.3e-05
+19:10:18  INFO     Ep  88/120  train=1.2179 (acc=20%)  val=150.0000 (acc=40%)  lr=3.3e-05
+19:10:54  INFO     Ep  89/120  train=1.1053 (acc=20%)  val=21.8341 (acc=40%)  lr=3.3e-05
+19:10:54  INFO     Early stop — no val improvement for 25 epochs.
+19:10:54  INFO     ==============================================================
+19:10:54  INFO     Done. Best val loss: 1.3265
+19:10:54  INFO     Weights: weights/european_model_imagelevel.pth
+19:10:54  INFO     History: results_analysis/retrain_imagelevel_history.json
+odel_imagelevel.pth
+19:10:54  INFO     History: results_analysis/retrain_imagelevel_history.json

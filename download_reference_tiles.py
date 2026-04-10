@@ -95,10 +95,10 @@ Path("results_analysis").mkdir(exist_ok=True)
 SITES = [
     {
         "name": "weisweiler",
-        "tile_id": "T32ULB",
-        "lat": 50.840,
-        "lon": 6.308,
-        "note": "Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive",
+        "tile_id": "T31UGS",
+        "lat": 50.837,
+        "lon": 6.322,
+        "note": "Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive. T31UGS orbit R008 covers western position; T32ULB R108 is zero-padded at this lon.",
     },
     {
         "name": "boxberg",

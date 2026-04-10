@@ -104,3 +104,38 @@
 23:45:57  INFO     Site: GRONINGEN  (tile T31UGV)
 23:45:57  INFO     Note: Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)
 23:45:57  INFO       Already cached: T31UGV_ref_20240122.npy — skipping download
+03:11:19  INFO     Copernicus token refreshed, expires in 1800s
+03:11:19  INFO     ============================================================
+03:11:19  INFO     Site: WEISWEILER  (tile T31UGS)
+03:11:19  INFO     Note: Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive. T31UGS orbit R008 covers western position; T32ULB R108 is zero-padded at this lon.
+03:11:19  INFO       Searching 2023-11-01 – 2024-02-28 (cloud ≤ 25%)...
+03:11:24  INFO     Found 23 products
+03:11:24  INFO       Found 23 products total, 9 for tile T31UGS
+03:11:24  INFO       Best product: S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.SAFE
+03:11:24  INFO       Cloud cover: 0.0%  Date: 2023-12-06
+03:11:24  INFO       Downloading (~500–700 MB)...
+03:11:44  INFO     Downloaded S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.SAFE (162.9 MB)
+03:11:44  INFO       Downloaded: data/downloads/reference/S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.SAFE.zip
+03:11:44  INFO       Converting SAFE archive to .npy (rasterio required)...
+03:11:44  INFO     Unzipping S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.SAFE.zip ...
+03:11:45  INFO     Extracted: S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.SAFE
+03:11:45  INFO     Found 12/12 bands in SAFE archive
+03:11:45  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+03:13:21  INFO     Stacked array shape: (10980, 10980, 12)
+03:13:47  INFO     Saved .npy array: data/npy_cache/S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138.npy (shape: (10980, 10980, 12))
+03:13:48  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL1C_20231206T105339_N0510_R051_T31UGS_20241011T033138_geo.json
+03:13:48  INFO       Renamed → T31UGS_ref_20231206.npy
+03:13:49  INFO       Shape: (10980, 10980, 12)  dtype: uint8  B11 mean: 12.2  B12 mean: 10.1
+03:13:49  INFO       ✓ Reference tile ready: T31UGS_ref_20231206.npy
+03:13:49  INFO     ============================================================
+03:13:49  INFO     Site: BOXBERG  (tile T33UVT)
+03:13:49  INFO     Note: Boxberg/Lausitz (S/C=1.517, marginal above Lausitz background 1.397)
+03:13:49  INFO       Already cached: T33UVT_ref_20240128.npy — skipping download
+03:13:49  INFO     ============================================================
+03:13:49  INFO     Site: RYBNIK  (tile T34UCA)
+03:13:49  INFO     Note: Rybnik (ring profile increases outward — terrain artifact, bi-temporal should suppress)
+03:13:49  INFO       Already cached: T34UCA_ref_20231228.npy — skipping download
+03:13:49  INFO     ============================================================
+03:13:49  INFO     Site: GRONINGEN  (tile T31UGV)
+03:13:49  INFO     Note: Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)
+03:13:49  INFO       Already cached: T31UGV_ref_20240122.npy — skipping download

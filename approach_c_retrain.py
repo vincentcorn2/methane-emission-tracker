@@ -58,17 +58,28 @@ from src.detection.ch4net_model import Unet
 # ── Config ─────────────────────────────────────────────────────────────────────
 CROP_OUT    = 160       # random crop size extracted from 200x200 input
 BATCH_SIZE  = 4
-EPOCHS      = 60
-LR          = 1e-4
+EPOCHS      = 100
+LR          = 5e-5      # lower than v3 (1e-4) — fine-tuning decoder only
 LR_STEP     = 10        # decay LR every N epochs
 LR_DECAY    = 0.95
 PLUME_SIGMA = 30        # Gaussian sigma for positive target mask (pixels in crop space)
-POS_WEIGHT  = 5.0       # BCEWithLogitsLoss pos_weight — upweights plume pixels
-PATIENCE    = 15        # early stopping: epochs without val improvement
+POS_WEIGHT   = 15.0     # BCE pos_weight — v6: raised from 5.0. Plume pixels are ~5% of each
+                        # 200x200 crop, so background dominates gradient. 15x upweight
+                        # forces model to care about getting plume pixels right.
+WEIGHT_DECAY = 1e-4     # L2 regularization — mild pull toward global pretraining weights.
+                        # 1e-3 was too strong (dominated gradient, val loss increasing).
+                        # 1e-4 adds soft regularization without preventing learning.
+PATIENCE    = 20        # more patience — frozen encoder converges more slowly
 CROPS_DIR   = Path("data/crops")
-WEIGHTS_IN  = "weights/best_model.pth"
+WEIGHTS_IN  = "weights/best_model.pth"   # always start from global base, not collapsed v3
 WEIGHTS_OUT = "weights/european_model.pth"
 LOG_FILE    = "results_analysis/retrain.log"
+
+# Encoder blocks in order of depth — freeze the first N to preserve global SWIR features.
+# With 21 training samples and 13.5M params, updating the full encoder causes catastrophic
+# overfitting (v3 result: every site suppressed to near-zero baseline).
+ENCODER_BLOCKS = ["inc", "down1", "down2", "down3"]  # down4 = bottleneck (kept trainable)
+FREEZE_DEPTH   = 0   # 0 = no hard freeze; weight_decay acts as soft regularizer instead
 
 # ── Logging ────────────────────────────────────────────────────────────────────
 Path("results_analysis").mkdir(exist_ok=True)
@@ -123,6 +134,8 @@ class MethaneDataset(Dataset):
                 "npy":   str(npy_path),
                 "label": int(meta["label_value"]),
                 "site":  meta.get("site", "?"),
+                "plume_cy": meta.get("plume_centre_y", 100),  # default 100 for real crops
+                "plume_cx": meta.get("plume_centre_x", 100),  # synthetic crops store actual centre
             })
 
         n_pos = sum(s["label"] for s in self.samples)
@@ -147,10 +160,10 @@ class MethaneDataset(Dataset):
 
         crop = arr[r0:r0 + CROP_OUT, c0:c0 + CROP_OUT, :]   # (160, 160, 12)
 
-        # Target mask: site centre is always at pixel (100, 100) in 200x200 space
+        # Target mask: real crops centred at (100,100); synthetic crops at stored centre
         if s["label"] == 1:
-            cy = max(0, min(CROP_OUT - 1, 100 - r0))
-            cx = max(0, min(CROP_OUT - 1, 100 - c0))
+            cy = max(0, min(CROP_OUT - 1, s["plume_cy"] - r0))
+            cx = max(0, min(CROP_OUT - 1, s["plume_cx"] - c0))
             mask = _gaussian_mask(CROP_OUT, CROP_OUT, cy, cx, PLUME_SIGMA)
         else:
             mask = np.zeros((CROP_OUT, CROP_OUT), dtype=np.float32)
@@ -204,6 +217,26 @@ def load_model(weights_path, device, prob_output=False):
     model.load_state_dict(remapped, strict=True)
     model.to(device)
     return model
+
+
+# ── Loss ───────────────────────────────────────────────────────────────────────
+
+def dice_loss(logits: torch.Tensor, targets: torch.Tensor, smooth: float = 1.0) -> torch.Tensor:
+    """
+    Soft Dice loss for binary segmentation.
+
+    Unlike BCEWithLogitsLoss, Dice loss directly penalises predicting all-zero
+    when the target has a plume: Dice = 1 - 2|A∩B| / (|A|+|B|).
+    When prediction is all-zero and target is non-zero, Dice = 1.0 (max penalty).
+    This breaks the all-zero attractor that BCE gets stuck in on sparse plume masks.
+    """
+    probs = torch.sigmoid(logits)           # (B, 1, H, W) in [0,1]
+    probs_flat  = probs.contiguous().view(-1)
+    targets_flat = targets.contiguous().view(-1)
+    intersection = (probs_flat * targets_flat).sum()
+    return 1.0 - (2.0 * intersection + smooth) / (
+        probs_flat.sum() + targets_flat.sum() + smooth
+    )
 
 
 # ── Training ───────────────────────────────────────────────────────────────────
@@ -265,10 +298,34 @@ def train(args):
     log.info("Loading base weights: %s", args.weights_in)
     model = load_model(args.weights_in, device, prob_output=False)
 
+    # ── Encoder freezing ────────────────────────────────────────────────────────
+    # Freeze the first `freeze_depth` encoder blocks so the global SWIR feature
+    # representations learned from 87k samples are not overwritten by 21 crops.
+    # Only the bottleneck (down4) and all decoder layers (up1–up4, out) update.
+    blocks_to_freeze = ENCODER_BLOCKS[:args.freeze_depth]
+    if blocks_to_freeze:
+        for name, param in model.named_parameters():
+            if any(name.startswith(b + ".") or name.startswith(b + "_") or
+                   name == b for b in blocks_to_freeze):
+                param.requires_grad = False
+
+        frozen_params    = sum(p.numel() for p in model.parameters() if not p.requires_grad)
+        trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        log.info("Encoder freeze depth=%d  blocks=%s",
+                 args.freeze_depth, blocks_to_freeze)
+        log.info("  Frozen params:    %d", frozen_params)
+        log.info("  Trainable params: %d  (%.1f%% of total)",
+                 trainable_params,
+                 100 * trainable_params / (frozen_params + trainable_params))
+    else:
+        log.info("No encoder freezing (freeze_depth=0) — full fine-tuning")
+
     # Loss and optimiser
     pos_w     = torch.tensor([POS_WEIGHT], device=device)
     criterion = nn.BCEWithLogitsLoss(pos_weight=pos_w)
-    optimiser = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimiser = torch.optim.Adam(
+        model.parameters(), lr=args.lr, weight_decay=WEIGHT_DECAY
+    )
     scheduler = torch.optim.lr_scheduler.StepLR(
         optimiser, step_size=LR_STEP, gamma=LR_DECAY)
 
@@ -278,8 +335,10 @@ def train(args):
     history        = []
 
     log.info("=" * 62)
-    log.info("  European fine-tuning — %d train / %d val  |  %d epochs",
+    log.info("  European fine-tuning v4 — %d train / %d val  |  %d epochs",
              len(train_ds), len(val_ds), epochs)
+    log.info("  freeze_depth=%d  lr=%.1e  weight_decay=%.0e  patience=%d",
+             args.freeze_depth, args.lr, WEIGHT_DECAY, PATIENCE)
     log.info("=" * 62)
 
     for epoch in range(1, epochs + 1):
@@ -313,19 +372,27 @@ def train(args):
         log.info("Weights: %s", args.weights_out)
         hist_path = "results_analysis/retrain_history.json"
         with open(hist_path, "w") as f:
-            json.dump({"config": vars(args), "history": history}, f, indent=2)
+            json.dump({
+                "config": vars(args),
+                "frozen_blocks": ENCODER_BLOCKS[:args.freeze_depth],
+                "history": history,
+            }, f, indent=2)
         log.info("History: %s", hist_path)
 
 
 # ── CLI ────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description="Fine-tune CH4Net on European training data")
-    p.add_argument("--weights-in",  default=WEIGHTS_IN)
-    p.add_argument("--weights-out", default=WEIGHTS_OUT)
-    p.add_argument("--epochs",      type=int,   default=EPOCHS)
-    p.add_argument("--lr",          type=float, default=LR)
-    p.add_argument("--batch-size",  type=int,   default=BATCH_SIZE)
-    p.add_argument("--dry-run",     action="store_true",
+    p.add_argument("--weights-in",    default=WEIGHTS_IN)
+    p.add_argument("--weights-out",   default=WEIGHTS_OUT)
+    p.add_argument("--epochs",        type=int,   default=EPOCHS)
+    p.add_argument("--lr",            type=float, default=LR)
+    p.add_argument("--batch-size",    type=int,   default=BATCH_SIZE)
+    p.add_argument("--freeze-depth",  type=int,   default=FREEZE_DEPTH,
+                   help=("Number of encoder blocks to freeze (0-4). "
+                         "0=full fine-tuning, 3=freeze inc+down1+down2 (recommended), "
+                         "4=freeze all encoder blocks"))
+    p.add_argument("--dry-run",       action="store_true",
                    help="Run 1 epoch without saving weights (smoke test)")
     args = p.parse_args()
 
