@@ -146,6 +146,27 @@ SITES = {
                                                # overfitting). Evaluate in baseline mode only.
     "groningen":  dict(lat=53.252, lon=6.682,  tile_id="T31UGV",
                        note="Terrain artefact (TROPOMI: -0.99 ppb on best date)"),
+
+    # ── Priority scale-up sites (biggest EU emitters per JRC-PPDB) ────────────
+    "maasvlakte": dict(lat=51.944, lon=4.067,  tile_id="T31UET",
+                       note="1070 MW hard coal — Rotterdam port; check for false positive (Westland greenhouse FP risk)",
+                       skip_bitemporal=True),   # Industrial port peninsula — minimal seasonal change
+
+    "neurath":    dict(lat=51.038, lon=6.616,  tile_id="T32ULB",
+                       note="1060 MW lignite — Rhineland cluster, adjacent to Weisweiler",
+                       skip_bitemporal=True),   # Industrial lignite plant, like Weisweiler
+
+    "niederaussem": dict(lat=50.971, lon=6.667, tile_id="T32ULB",
+                       note="924 MW lignite — Rhineland cluster, same tile as Neurath",
+                       skip_bitemporal=True),
+
+    "belchatow":  dict(lat=51.266, lon=19.315, tile_id="T34UCB",
+                       note="858 MW lignite — Europe's #1 CO2 emitter (Poland); T34UCB confirmed via catalog discovery",
+                       skip_bitemporal=True),
+
+    "lippendorf": dict(lat=51.178, lon=12.378, tile_id="T33UUS",
+                       note="891 MW lignite x2 — central Germany, near Leipzig (T33UUS, not T33UUT — plant is ~17km south of T33UUT boundary)",
+                       skip_bitemporal=True),
 }
 
 # ── Tile discovery ─────────────────────────────────────────────────────────────
@@ -598,8 +619,10 @@ def evaluate_site(
                      "DETECT" if cfar else "no",
                      cth_r or 0, cv or 0,
                      f"{grad_bt:.5f}" if grad_bt else "—")
-    else:
+    elif not meta.get("skip_bitemporal"):
+        # ref_npy was None and BT was not intentionally skipped — record as missing
         results["bitemporal"] = {"error": "no_reference_tile"}
+    # else: skip_bitemporal=True → {"skipped": True} already set above; don't overwrite
 
     del target  # free memory
     return results
