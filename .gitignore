@@ -32,7 +32,6 @@ Thumbs.db
 
 # --- Methane Project Data & Results ---
 data/
-results/
 *.npy
 *.zip
 *.tif
