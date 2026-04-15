@@ -1,0 +1,56 @@
+{
+  "belchatow": {
+    "tile_id": "T34UCB",
+    "target_npy": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+    "ref_npy": null,
+    "status": "ok",
+    "original": {
+      "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+      "sc_ratio": 27.3032,
+      "sc_cfar": 2.6631,
+      "site_mean": 0.001062,
+      "ctrl_mean": 3.9e-05,
+      "ctrl_mu": 0.000399,
+      "ctrl_sigma": 0.000504,
+      "cv_ctrl": 1.2651,
+      "cfar_thresh_ratio": 4.9453,
+      "cfar_thresh": 0.001972,
+      "cfar_detect": false,
+      "cfar_margin": -2.2821,
+      "ctrl_n": 3,
+      "ring_gradient": null,
+      "sc_error": null
+    },
+    "bitemporal": {
+      "skipped": true,
+      "reason": "skip_bitemporal flag set"
+    }
+  },
+  "lippendorf": {
+    "tile_id": "T33UUS",
+    "target_npy": "S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.npy",
+    "ref_npy": null,
+    "status": "ok",
+    "original": {
+      "tif": "results_bitemporal/lippendorf/original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif",
+      "sc_ratio": 155.3617,
+      "sc_cfar": 16.6898,
+      "site_mean": 0.009509,
+      "ctrl_mean": 6.1e-05,
+      "ctrl_mu": 0.00057,
+      "ctrl_sigma": 0.000335,
+      "cv_ctrl": 0.5881,
+      "cfar_thresh_ratio": 2.9143,
+      "cfar_thresh": 0.00166,
+      "cfar_detect": true,
+      "cfar_margin": 13.7754,
+      "ctrl_n": 4,
+      "ring_gradient": null,
+      "sc_error": null
+    },
+    "bitemporal": {
+      "skipped": true,
+      "reason": "skip_bitemporal flag set"
+    }
+  }
+}

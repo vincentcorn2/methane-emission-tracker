@@ -32,8 +32,27 @@ Thumbs.db
 
 # --- Methane Project Data & Results ---
 data/
+results/
+results_expanded/
+results_survey/
+results_tropomi/
+results_validation/
 *.npy
 *.zip
 *.tif
 *.SAFE/
 .env
+
+# Large output logs (raw run outputs, not experiment records)
+overnight_log.txt
+results_expanded_run.log
+results_multidate.log
+results_multidate2.log
+results_neurath_fix.log
+results_validation_rerun.log
+
+# Generated documents and internal notes
+*.docx
+gemini_briefing.md
+generate_report.js
+generate_report_v2.js

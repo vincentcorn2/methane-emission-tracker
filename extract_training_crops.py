@@ -459,7 +459,7 @@ def extract_positives():
 
         full_label = {
             **label,
-            "split":       get_split(date_compact),
+            "split":       label.get("split") or get_split(date_compact),
             "label_type":  "positive",
             "label_value": 1,
         }

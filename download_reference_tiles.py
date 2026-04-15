@@ -95,10 +95,10 @@ Path("results_analysis").mkdir(exist_ok=True)
 SITES = [
     {
         "name": "weisweiler",
-        "tile_id": "T32ULB",
-        "lat": 50.840,
-        "lon": 6.308,
-        "note": "Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive",
+        "tile_id": "T31UGS",
+        "lat": 50.837,
+        "lon": 6.322,
+        "note": "Weisweiler lignite plant (confirmed S/C=2.091 on two dates) — primary true positive. T31UGS orbit R008 covers western position; T32ULB R108 is zero-padded at this lon.",
     },
     {
         "name": "boxberg",
@@ -119,7 +119,22 @@ SITES = [
         "tile_id": "T31UGV",
         "lat": 53.252,
         "lon": 6.682,
-        "note": "Groningen gas field (TROPOMI confirmed non-detection — terrain artifact)",
+        "note": "Groningen gas field (TROPOMI confirmed non-detection — terrain artifact; BT reference needed for CFAR suppression)",
+    },
+    # ── Scale-up confirmed detections (2026-04-10) — BT reference for confirmation
+    {
+        "name": "belchatow",
+        "tile_id": "T34UCB",
+        "lat": 51.266,
+        "lon": 19.315,
+        "note": "Bełchatów lignite — EMITTER DETECTED v8 S/C=27.303. Winter reference needed to confirm via BT and rule out seasonal artifact.",
+    },
+    {
+        "name": "lippendorf",
+        "tile_id": "T33UUS",
+        "lat": 51.178,
+        "lon": 12.378,
+        "note": "Lippendorf lignite — EMITTER DETECTED v8 S/C=155.362, strongest signal in dataset. BT confirmation important given unusually high S/C.",
     },
 ]
 

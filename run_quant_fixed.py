@@ -3,7 +3,8 @@ run_quant_fixed.py
 ==================
 Re-runs CEMF+IME quantification with the corrected sensitivity coefficient
 (4e-7 per Varon 2021) without needing rasterio or pyproj.
-Uses PIL for GeoTIFF reading and a pure-Python UTM projection for zone 31N.
+Uses PIL for GeoTIFF reading and a pure-Python UTM projection.
+Supports any UTM zone — zone is auto-detected from geo_meta CRS string.
 """
 
 import json, math, warnings
@@ -19,51 +20,62 @@ from src.quantification.cemf import run_cemf
 from src.quantification.ime import CEMFIntegratedMassEnhancement
 
 
-# ── UTM Zone 31N projection (WGS84) ─────────────────────────────────────────
-def latlon_to_utm31n(lat_deg, lon_deg):
+# ── Generic UTM projection (WGS84, any zone) ─────────────────────────────────
+def latlon_to_utm(lat_deg, lon_deg, utm_zone: int):
     """
-    Convert WGS84 lat/lon to UTM Zone 31N (EPSG:32631) easting/northing.
-    Uses the standard transverse Mercator formula.
+    Convert WGS84 lat/lon to UTM easting/northing for any zone.
+    Central meridian = (zone - 1) * 6 - 180 + 3 degrees.
+    Northern hemisphere only (no southern offset needed for Europe).
     """
-    lat = math.radians(lat_deg)
-    lon = math.radians(lon_deg)
-    lon0 = math.radians(3.0)          # Central meridian zone 31
+    lat  = math.radians(lat_deg)
+    lon  = math.radians(lon_deg)
+    lon0 = math.radians((utm_zone - 1) * 6 - 180 + 3)   # central meridian
 
-    a  = 6378137.0                    # WGS84 semi-major
+    a  = 6378137.0
     f  = 1 / 298.257223563
     b  = a * (1 - f)
     e2 = 1 - (b/a)**2
-    e  = math.sqrt(e2)
     k0 = 0.9996
     E0 = 500000.0
 
-    N  = a / math.sqrt(1 - e2 * math.sin(lat)**2)
-    T  = math.tan(lat)**2
-    C  = e2 / (1 - e2) * math.cos(lat)**2
-    A  = math.cos(lat) * (lon - lon0)
-
-    # Meridional arc
+    N   = a / math.sqrt(1 - e2 * math.sin(lat)**2)
+    T   = math.tan(lat)**2
+    C   = e2 / (1 - e2) * math.cos(lat)**2
+    A_  = math.cos(lat) * (lon - lon0)
     e2p = e2 / (1 - e2)
     n   = (a - b) / (a + b)
-    A0  = a * (1 - n + 5/4*(n**2 - n**3) + 81/64*(n**4))
+    A0  = a * (1 - n + 5/4*(n**2 - n**3) + 81/64*n**4)
     B0  = 3*a/2 * (n - n**2 + 7/8*(n**3 - n**4))
     C0  = 15*a/16 * (n**2 - n**3 + 51/32*n**4)
     D0  = 35*a/48 * (n**3 - n**4)
-    M   = (A0*lat - B0*math.sin(2*lat) + C0*math.sin(4*lat) - D0*math.sin(6*lat))
+    M   = A0*lat - B0*math.sin(2*lat) + C0*math.sin(4*lat) - D0*math.sin(6*lat)
 
-    easting  = k0*N*(A + (1-T+C)*A**3/6 + (5-18*T+T**2+72*C-58*e2p)*A**5/120) + E0
-    northing = k0*(M + N*math.tan(lat)*(A**2/2 + (5-T+9*C+4*C**2)*A**4/24 +
-                                         (61-58*T+T**2+600*C-330*e2p)*A**6/720))
+    easting  = k0*N*(A_ + (1-T+C)*A_**3/6 + (5-18*T+T**2+72*C-58*e2p)*A_**5/120) + E0
+    northing = k0*(M + N*math.tan(lat)*(A_**2/2 + (5-T+9*C+4*C**2)*A_**4/24 +
+                                          (61-58*T+T**2+600*C-330*e2p)*A_**6/720))
     return easting, northing
 
 
+def utm_zone_from_crs(crs_str: str) -> int:
+    """Extract UTM zone number from an EPSG CRS string like 'EPSG:32633'."""
+    # EPSG:326ZZ → zone ZZ (northern hemisphere)
+    import re
+    m = re.search(r'326(\d{2})', crs_str)
+    if m:
+        return int(m.group(1))
+    # Fallback: zone 31 (Netherlands tiles)
+    return 31
+
+
 def latlon_to_pixel(lat, lon, geo_meta):
-    t = geo_meta["transform"]          # [a, b, c, d, e, f]
+    """Convert lat/lon to pixel (row, col) using the tile's own UTM projection."""
+    t    = geo_meta["transform"]          # [a, b, c, d, e, f]
     a, b, c = t[0], t[1], t[2]
     d, e, f = t[3], t[4], t[5]
-    x, y    = latlon_to_utm31n(lat, lon)
-    col     = (x - c) / a
-    row     = (y - f) / e
+    zone = utm_zone_from_crs(geo_meta.get("crs", "EPSG:32631"))
+    x, y = latlon_to_utm(lat, lon, zone)
+    col  = (x - c) / a
+    row  = (y - f) / e
     return int(round(row)), int(round(col))
 
 
@@ -99,6 +111,36 @@ SITES = [
         wind_ms=4.5,
         wind_source="ERA5 climatology",
         radius_km=10,
+        note="v8 non-detection (S/C=0.210) — CEMF result is terrain contrast, not methane",
+    ),
+    # ── Confirmed detections from scale-up (2026-04-10) ──────────────────────
+    dict(
+        name="belchatow",
+        lat=51.266, lon=19.315,
+        npy="data/npy_cache/S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+        geo="data/npy_cache/S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611_geo.json",
+        tif="results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+        scene_id="S2B_T34UCB_20240824",
+        timestamp="2024-08-24T09:45:49Z",
+        wind_ms=3.5,           # ERA5 climatological fallback — replace with live ERA5
+        wind_source="climatological_fallback",
+        radius_km=15,          # larger radius: plant+associated gas handling infrastructure
+        note="v8 DETECT: S/C=27.303 (classic, comparable to Weisweiler 23.4). "
+             "Europe's #1 CO2 emitter. UTM Zone 34N (EPSG:32634).",
+    ),
+    dict(
+        name="lippendorf",
+        lat=51.178, lon=12.378,
+        npy="data/npy_cache/S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.npy",
+        geo="data/npy_cache/S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318_geo.json",
+        tif="results_bitemporal/lippendorf/original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif",
+        scene_id="S2B_T33UUS_20240922",
+        timestamp="2024-09-22T10:16:29Z",
+        wind_ms=3.5,           # ERA5 climatological fallback — replace with live ERA5
+        wind_source="climatological_fallback",
+        radius_km=12,
+        note="v8 DETECT: S/C=155.362, CFAR=yes (thresh_ratio=2.914). "
+             "1782 MW lignite x2, strongest signal in dataset. UTM Zone 33N (EPSG:32633).",
     ),
 ]
 

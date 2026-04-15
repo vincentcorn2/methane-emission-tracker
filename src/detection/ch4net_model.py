@@ -147,7 +147,11 @@ class CH4NetDetector:
         device: str = "auto",
     ):
         if device == "auto":
-            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            self.device = torch.device(
+                "cuda" if torch.cuda.is_available()
+                else "mps" if torch.backends.mps.is_available()
+                else "cpu"
+            )
         else:
             self.device = torch.device(device)
 
@@ -268,11 +272,10 @@ class CH4NetDetector:
 
             # Batched Inference
             prob_maps = self.model(tensor)  # output shape: (B, H, W, 1)
-            prob_maps = prob_maps.squeeze(-1).cpu().numpy()  # (B, H, W)
-
-            # Handle edge case where the final batch only has 1 item
-            if len(batch) == 1:
-                prob_maps = np.expand_dims(prob_maps, axis=0)
+            # squeeze(-1): (B, H, W, 1) → (B, H, W)
+            # reshape(-1, H, W): ensures correct shape even when B=1
+            B, H, W, _ = prob_maps.shape
+            prob_maps = prob_maps.squeeze(-1).reshape(B, H, W).cpu().numpy()
 
             all_prob_maps.extend(prob_maps)
 
