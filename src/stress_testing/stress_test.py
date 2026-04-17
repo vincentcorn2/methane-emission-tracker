@@ -151,16 +151,24 @@ class IssuerStressResult:
     terminal_var95_eur: float
     terminal_cvar95_eur: float
 
-    # Credit transmission
+    # Credit transmission (legacy EBITDA-threshold approach — retained for backward compat)
     ebitda_eur_m: Optional[float]
     carbon_cost_to_ebitda_pct: Optional[float]
-    implied_notch_downgrade: int
+    implied_notch_downgrade: int       # Derived from Merton-KMV if available, else EBITDA table
     implied_pd_bps: Optional[float]
     lgd: float
 
     # NPV
     npv_cumulative_mean_eur: float
     npv_cumulative_p95_eur: float
+
+    # Merton-KMV structural credit model (Phase 4)
+    dd_baseline: Optional[float] = None         # Distance-to-Default, pre-shock
+    dd_stressed: Optional[float] = None         # Distance-to-Default, post-shock
+    edf_baseline_pct: Optional[float] = None    # Expected Default Frequency, pre-shock
+    edf_stressed_pct: Optional[float] = None    # Expected Default Frequency, post-shock
+    rating_baseline: Optional[str] = None       # Moody's equivalent, pre-shock
+    rating_stressed: Optional[str] = None       # Moody's equivalent, post-shock
 
     # Per-site detail
     site_results: list[SiteStressResult] = field(default_factory=list)
@@ -515,19 +523,38 @@ class StressTestEngine:
                     ticker_npv_mean += sr.npv_cumulative_mean_eur
                     ticker_npv_p95 += sr.npv_cumulative_p95_eur
 
-                # Credit transmission
-                ebitda = ISSUER_EBITDA_EUR_M.get(ticker)
-                if ebitda is not None:
-                    ebitda_eur = ebitda * 1e6
-                    cost_ratio = ticker_terminal_var95 / ebitda_eur
-                    notch_down = self._carbon_cost_to_notch_downgrade(
-                        ticker_terminal_var95, ebitda_eur
-                    )
-                else:
-                    ebitda_eur = None
-                    cost_ratio = None
-                    notch_down = 0
+                # Credit transmission — Merton-KMV structural model (Phase 4)
+                # Falls back gracefully to EBITDA-threshold table for private issuers.
+                from src.stress_testing.credit_transmission import merton_dd_shift
 
+                try:
+                    merton = merton_dd_shift(
+                        ticker=ticker,
+                        carbon_pv_eur=ticker_npv_mean,
+                        discount_rate=self.discount_rate,
+                    )
+                    notch_down = merton.implied_notch_downgrade
+                    dd_baseline = merton.dd_baseline
+                    dd_stressed = merton.dd_stressed
+                    edf_base = merton.edf_baseline_pct
+                    edf_stress = merton.edf_stressed_pct
+                    rating_base = merton.rating_baseline
+                    rating_stress = merton.rating_stressed
+                except Exception as exc:
+                    logger.debug("Merton-KMV unavailable for %s (%s) — falling back to EBITDA table", ticker, exc)
+                    ebitda_fallback = ISSUER_EBITDA_EUR_M.get(ticker)
+                    if ebitda_fallback is not None:
+                        notch_down = self._carbon_cost_to_notch_downgrade(
+                            ticker_terminal_var95, ebitda_fallback * 1e6
+                        )
+                    else:
+                        notch_down = 0
+                    dd_baseline = dd_stressed = edf_base = edf_stress = None
+                    rating_base = rating_stress = None
+
+                ebitda = ISSUER_EBITDA_EUR_M.get(ticker)
+                ebitda_eur = ebitda * 1e6 if ebitda else None
+                cost_ratio = ticker_terminal_var95 / ebitda_eur if ebitda_eur else None
                 lgd = self._get_lgd(scenario_name)
 
                 op_info = SITE_OPERATOR_MAP.get(sites[0], {})
@@ -549,6 +576,12 @@ class StressTestEngine:
                     npv_cumulative_mean_eur=ticker_npv_mean,
                     npv_cumulative_p95_eur=ticker_npv_p95,
                     site_results=site_results,
+                    dd_baseline=dd_baseline,
+                    dd_stressed=dd_stressed,
+                    edf_baseline_pct=edf_base,
+                    edf_stressed_pct=edf_stress,
+                    rating_baseline=rating_base,
+                    rating_stressed=rating_stress,
                 )
                 issuer_results[scenario_name].append(ir)
 
