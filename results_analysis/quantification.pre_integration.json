@@ -11,9 +11,7 @@
     "plume_pixels": 1980,
     "cemf_valid": true,
     "total_mass_kg": 15.004128456115723,
-    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)",
-    "excluded": true,
-    "exclusion_reason": "cfar_suppressed_false_positive"
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)"
   },
   {
     "site": "maasvlakte",
@@ -27,9 +25,7 @@
     "plume_pixels": 1565,
     "cemf_valid": true,
     "total_mass_kg": 121.36731719970703,
-    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)",
-    "excluded": false,
-    "exclusion_reason": null
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)"
   },
   {
     "site": "belchatow",
@@ -43,9 +39,7 @@
     "plume_pixels": 56374,
     "cemf_valid": true,
     "total_mass_kg": 1095.370849609375,
-    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)",
-    "excluded": false,
-    "exclusion_reason": null
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)"
   },
   {
     "site": "lippendorf",
@@ -59,8 +53,6 @@
     "plume_pixels": 219207,
     "cemf_valid": true,
     "total_mass_kg": 2963.679931640625,
-    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)",
-    "excluded": true,
-    "exclusion_reason": "terrain_artifact"
+    "cemf_sensitivity_coeff": "4e-7 (Varon 2021)"
   }
 ]

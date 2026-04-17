@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "changelog": "Hot-patch: Lippendorf excluded as confirmed terrain artefact; Groningen excluded as CFAR-suppressed false positive. No other sites re-quantified; full re-run pending Phase 2.",
+    "excluded_sites": [
+      "lippendorf",
+      "groningen"
+    ],
+    "exclusion_reasons": {
+      "lippendorf": "terrain_artifact",
+      "groningen": "cfar_suppressed_false_positive"
+    }
+  },
+  "portfolio_npv_mean_eur": {
+    "orderly": 306687083.20666695,
+    "disorderly": 368580310.9579694,
+    "hot_house": 190708992.10757956
+  },
+  "portfolio_terminal_mean_eur": {
+    "orderly": 50838186.80818458,
+    "disorderly": 82511003.98346612,
+    "hot_house": 20677028.808654144
+  },
+  "portfolio_terminal_var95_eur": {
+    "orderly": 111482611.67448977,
+    "disorderly": 200647468.94994926,
+    "hot_house": 44405559.69802019
+  },
+  "portfolio_terminal_cvar95_eur": {
+    "orderly": 144676520.4527785,
+    "disorderly": 275360385.1687002,
+    "hot_house": 57061081.49183686
+  },
+  "scenarios_run": [
+    "orderly",
+    "disorderly",
+    "hot_house"
+  ],
+  "n_paths": 50000,
+  "horizon_years": 10
+}

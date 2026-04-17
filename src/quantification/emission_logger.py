@@ -8,6 +8,8 @@ import os
 from datetime import datetime
 from typing import Optional
 
+from src.quantification.uncertainty import get_uncertainty_pct
+
 
 def log_emission_record(
     scene_id: str,
@@ -42,7 +44,7 @@ def log_emission_record(
         "q_cemf_kg_per_hour": flow_rate_kgh,
         "q_lower_kg_per_hour": flow_rate_lower_kgh,
         "q_upper_kg_per_hour": flow_rate_upper_kgh,
-        "uncertainty_pct": 40,
+        "uncertainty_pct": get_uncertainty_pct(wind_source),
         "ch4net_peak_probability": ch4net_peak_probability,
         "cloud_cover_quality": cloud_cover_quality,
         "wind_speed_ms": wind_speed_ms,

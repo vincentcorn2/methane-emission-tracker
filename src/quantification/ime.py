@@ -23,6 +23,8 @@ from typing import Optional
 
 import numpy as np
 
+from src.quantification.uncertainty import apply_uncertainty, UNCERTAINTY_PCT_ERA5, UNCERTAINTY_PCT_FALLBACK
+
 logger = logging.getLogger(__name__)
 
 
@@ -137,12 +139,13 @@ class IntegratedMassEnhancement:
                 plume_area_m2, plume_length_m, wind_speed_ms
             )
 
-        # Uncertainty: ±50% is typical for IME with Sentinel-2 resolution
-        # (dominated by wind speed uncertainty)
+        # Uncertainty: use SSOT from uncertainty.py.
+        # Geometric-estimate path has no ERA5 wind → fallback budget (±50%).
+        lo, hi, unc_pct = apply_uncertainty(flow_rate_kgh, "climatological_fallback_3.5ms")
         result = QuantificationResult(
             flow_rate_kgh=flow_rate_kgh,
-            flow_rate_lower_kgh=flow_rate_kgh * 0.5,
-            flow_rate_upper_kgh=flow_rate_kgh * 1.5,
+            flow_rate_lower_kgh=lo,
+            flow_rate_upper_kgh=hi,
             methodology="IME",
             wind_speed_ms=wind_speed_ms,
             plume_length_m=plume_length_m,
@@ -232,11 +235,12 @@ class CEMFIntegratedMassEnhancement(IntegratedMassEnhancement):
         flow_rate_kg_s = cemf_result.total_mass_kg / residence_time_s
         flow_rate_kgh = round(flow_rate_kg_s * 3600, 2)
 
-        # Uncertainty: 30-45% for CEMF+IME with Sentinel-2
+        # Uncertainty: SSOT from uncertainty.py (±30% ERA5, ±50% fallback).
+        lo, hi, unc_pct = apply_uncertainty(flow_rate_kgh, wind_source)
         result = QuantificationResult(
             flow_rate_kgh=flow_rate_kgh,
-            flow_rate_lower_kgh=round(flow_rate_kgh * 0.6, 2),
-            flow_rate_upper_kgh=round(flow_rate_kgh * 1.4, 2),
+            flow_rate_lower_kgh=lo,
+            flow_rate_upper_kgh=hi,
             methodology="CEMF+IME",
             wind_speed_ms=wind_speed_ms,
             plume_length_m=plume_length_m,
