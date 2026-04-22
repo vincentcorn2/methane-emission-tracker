@@ -21,6 +21,24 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
+
+class _NumpyEncoder(json.JSONEncoder):
+    """Serialize numpy scalar types that json.dump can't handle natively."""
+    def default(self, obj):
+        try:
+            import numpy as np
+            if isinstance(obj, np.bool_):
+                return bool(obj)
+            if isinstance(obj, np.integer):
+                return int(obj)
+            if isinstance(obj, np.floating):
+                return float(obj)
+            if isinstance(obj, np.ndarray):
+                return obj.tolist()
+        except ImportError:
+            pass
+        return super().default(obj)
+
 SCHEMA_VERSION = "1.0.0"
 DEFAULT_QUANT_PATH = "results_analysis/quantification.json"
 
@@ -131,11 +149,21 @@ def write_quantification_record(
         except (json.JSONDecodeError, ValueError) as exc:
             logger.warning("Could not parse %s (%s) — starting fresh.", p, exc)
 
-    # Upsert
+    # ── Governance: assess input-degradation flags before writing ────────────
+    # Any record produced under fallback/degraded inputs gets flagged and
+    # has its reported uncertainty automatically widened.  This is an SR 11-7
+    # Pillar 2 process-verification control — "conservative response under
+    # input uncertainty" identical to VaR stress-scalar escalation.
     new_dict = record.to_dict()
+    try:
+        from src.quantification.governance import apply_governance_to_record
+        new_dict = apply_governance_to_record(new_dict)
+    except Exception as gov_exc:
+        logger.warning("Governance assessment failed (non-fatal): %s", gov_exc)
+
     replaced = False
     for i, rec in enumerate(existing):
-        if rec.get("site") == record.site:
+        if record.scene_id and rec.get("scene_id") == record.scene_id:
             existing[i] = new_dict
             replaced = True
             break
@@ -144,7 +172,7 @@ def write_quantification_record(
 
     # Write back
     with open(p, "w") as f:
-        json.dump(existing, f, indent=2)
+        json.dump(existing, f, indent=2, cls=_NumpyEncoder)
 
     logger.info(
         "%s record for '%s' to %s (excluded=%s)",
@@ -179,11 +207,15 @@ def load_quantification_records(
             continue
         # Tolerate legacy records missing new fields
         site = item.get("site", "unknown")
+        scene_id = item.get("scene_id", "")
+        # Use (site, scene_id) composite key so multi-date records coexist.
+        # Callers that only care about one record per site can filter by site.
+        key = "{}/{}".format(site, scene_id) if scene_id else site
         try:
             # Build with only fields the dataclass knows about
             known_fields = {f.name for f in QuantificationRecord.__dataclass_fields__.values()}
             filtered = {k: v for k, v in item.items() if k in known_fields}
-            records[site] = QuantificationRecord(**filtered)
+            records[key] = QuantificationRecord(**filtered)
         except TypeError as exc:
             logger.warning("Could not deserialise record for '%s': %s", site, exc)
 

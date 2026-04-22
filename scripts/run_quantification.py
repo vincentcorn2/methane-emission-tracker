@@ -67,14 +67,34 @@ SITE_REGISTRY: dict[str, dict] = {
         },
     },
     "neurath": {
-        "scene_id": "S2A_T31UGS_20240625",
+        "scene_id": "S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035",
         "acquisition_timestamp": "2024-06-25T10:36:31Z",
         "lat": 51.038, "lon": 6.616,
-        "tif_original": "results_validation/neurath/detection_T31UGS_2024-06-25.tif",
+        "tif_original": "results_bitemporal/neurath/original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif",
         "tropomi_confirm": True,
         "ch4net_peak_probability": 0.93,
-        "retrieval_notes": "Dual-sensor confirm: TROPOMI DXCH4=+12.2 ppb; S/C=45.1",
-        # ERA5 to be fetched live for 2024-06-25 12:00 UTC at (51.038, 6.616)
+        "retrieval_notes": "Dual-sensor confirm: TROPOMI DXCH4=+12.2 ppb; S/C=23.04",
+        # ERA5 fetched via run_cemf_neurath_belchatow.py --site neurath
+    },
+    # Neurath second detection: S/C=67.2, CFAR=True — stronger than Jun-25
+    "neurath_20240829": {
+        "scene_id": "S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434",
+        "acquisition_timestamp": "2024-08-29T10:36:29Z",
+        "lat": 51.038, "lon": 6.616,
+        "tif_original": "results_bitemporal/neurath/original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif",
+        "tropomi_confirm": True,   # same facility; TROPOMI confirmed emitter
+        "ch4net_peak_probability": 0.93,
+        "retrieval_notes": "Second detection at Neurath: S/C=67.2, CFAR margin=94.96, cv=0.288",
+    },
+    # Bełchatów strongest detection: S/C=142.9, CFAR=True (Jul-10)
+    "belchatow_20240710": {
+        "scene_id": "S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148",
+        "acquisition_timestamp": "2024-07-10T09:50:31Z",
+        "lat": 51.264, "lon": 19.331,
+        "tif_original": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif",
+        "tropomi_confirm": False,
+        "ch4net_peak_probability": 0.82,
+        "retrieval_notes": "Strongest Belchatow detection: S/C=142.9, CFAR margin=46.2, cv=1.105",
     },
     "weisweiler": {
         "scene_id": "S2A_T31UGS_20240620",
@@ -86,13 +106,20 @@ SITE_REGISTRY: dict[str, dict] = {
         # ERA5 incoming April 20 (WS2 deliverable)
     },
     "rybnik": {
-        "scene_id": "S2B_T34UDA_20240815",
-        "acquisition_timestamp": "2024-08-15T09:46:00Z",
-        "lat": 50.099, "lon": 18.542,
-        "tif_original": "results_validation/rybnik/detection_T34UDA_2024-08-15.tif",
+        # Corrected: T34UCA (not T34UDA), 2024-08-29 (not 2024-08-15)
+        # CH4Net on 2024-08-29: S/C=0.612, sc_cfar=0.61 — single-date non-detection
+        # Earlier "confirmed emitter" note referred to T34UDA 2024-08-15 (not cached)
+        "scene_id": "S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208",
+        "acquisition_timestamp": "2024-08-29T09:50:31Z",
+        "lat": 50.135, "lon": 18.522,
+        "tif_original": (
+            "results_bitemporal/rybnik/"
+            "original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif"
+        ),
         "tropomi_confirm": False,
-        "ch4net_peak_probability": 0.61,
-        # ERA5 incoming April 20
+        "ch4net_peak_probability": None,
+        "excluded": True,
+        "exclusion_reason": "single_date_non_detection",
     },
     "groningen": {
         "scene_id": "S2B_T31UGV_20240817",
@@ -110,6 +137,57 @@ SITE_REGISTRY: dict[str, dict] = {
         "tif_bitemporal": "results_bitemporal/lippendorf/bitemporal_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif",
         "excluded": True,
         "exclusion_reason": "terrain_artifact",
+    },
+    # ── Phase 5: JRC top-10 sites — tiles downloaded 2026-04-17 ─────────────
+    # CH4Net run: apply_bitemporal_diff.py 2026-04-17
+    # All three are excluded in run_quantification.py; canonical provenance
+    # records written by scripts/write_phase5_records.py.
+    "turceni": {
+        # S/C=1.740 classic detect; CFAR adaptive: sc_cfar=1.506 vs thresh=1.625 — no
+        # CEMF deferred: high-background Romanian agricultural terrain (mu_ctrl=0.260)
+        # prevents reliable binary-mask isolation. Needs winter-2023 reference tile.
+        "scene_id": "S2B_MSIL1C_20240927T093029_N0511_R136_T34TFP_20240927T102421",
+        "acquisition_timestamp": "2024-09-27T09:30:29Z",
+        "lat": 44.101, "lon": 23.391,
+        "tif_original": (
+            "results_bitemporal/turceni/"
+            "original_S2B_MSIL1C_20240927T093029_N0511_R136_T34TFP_20240927T102421.tif"
+        ),
+        "tropomi_confirm": False,
+        "ch4net_peak_probability": None,
+        "excluded": True,
+        "exclusion_reason": "cemf_deferred_high_background",
+        # Operator: Oltenia Energy Complex, ~2,200 MW lignite (Romania)
+    },
+    "rovinari": {
+        # S/C=0.715 — single-date non-detection on 2024-09-27 (T34TFQ)
+        "scene_id": "S2B_MSIL1C_20240927T093029_N0511_R136_T34TFQ_20240927T102421",
+        "acquisition_timestamp": "2024-09-27T09:30:29Z",
+        "lat": 44.906, "lon": 23.147,
+        "tif_original": (
+            "results_bitemporal/rovinari/"
+            "original_S2B_MSIL1C_20240927T093029_N0511_R136_T34TFQ_20240927T102421.tif"
+        ),
+        "tropomi_confirm": False,
+        "ch4net_peak_probability": None,
+        "excluded": True,
+        "exclusion_reason": "single_date_non_detection",
+        # Operator: Oltenia Energy Complex, ~1,320 MW lignite (Romania)
+    },
+    "maritsa_east_2": {
+        # S/C=0.862 — single-date non-detection on 2024-09-28 (T35TMG)
+        "scene_id": "S2B_MSIL1C_20240928T085649_N0511_R007_T35TMG_20240928T113459",
+        "acquisition_timestamp": "2024-09-28T08:56:49Z",
+        "lat": 42.271, "lon": 26.068,
+        "tif_original": (
+            "results_bitemporal/maritsa_east_2/"
+            "original_S2B_MSIL1C_20240928T085649_N0511_R007_T35TMG_20240928T113459.tif"
+        ),
+        "tropomi_confirm": False,
+        "ch4net_peak_probability": None,
+        "excluded": True,
+        "exclusion_reason": "single_date_non_detection",
+        # Operator: AES-NEK / ContourGlobal, ~1,600 MW lignite (Bulgaria)
     },
 }
 

@@ -31,6 +31,11 @@ class ERA5Client:
             year  = date_str[:4]
             month = date_str[5:7]
             day   = date_str[8:10]
+            # ERA5 is hourly — round HH:MM to nearest whole hour
+            h, m = int(hour[:2]), int(hour[3:5]) if len(hour) > 2 else 0
+            if m >= 30:
+                h = (h + 1) % 24
+            era5_hour = "{:02d}:00".format(h)
             c = cdsapi.Client(quiet=True)
             out_file = "/tmp/era5_wind_temp.nc"
             c.retrieve(
@@ -42,7 +47,7 @@ class ERA5Client:
                         "10m_v_component_of_wind",
                     ],
                     "year": year, "month": month, "day": day,
-                    "time": hour,
+                    "time": era5_hour,
                     "data_format": "netcdf",
                     "download_format": "unarchived",
                     "area": [lat+0.25, lon-0.25, lat-0.25, lon+0.25],

@@ -227,10 +227,17 @@ def read_and_resample_bands(
     CH4Net was trained on all bands resampled to 10m.
     We use bilinear resampling (matching the paper).
 
+    Memory-efficient implementation: bands are read, normalized, and written
+    to the output array one at a time. Peak memory is ~one float32 band
+    (~250MB) rather than all 12 bands simultaneously (~8GB).
+
     Returns:
-      - stacked array of shape (H, W, 12) with values in [0, 65535] range
+      - stacked array of shape (H, W, 12) in uint8 [0, 255] range
+        (already normalized — skips the separate normalize_to_ch4net_range call)
       - metadata dict with CRS, transform, dimensions from the 10m reference
     """
+    import gc
+
     if not HAS_RASTERIO:
         raise RuntimeError("rasterio required for band reading. Install with: conda install rasterio")
 
@@ -255,27 +262,33 @@ def read_and_resample_bands(
         ref_width, ref_height, target_resolution, ref_crs,
     )
 
-    # Read and resample each band
-    band_arrays = []
-    for band_info in BAND_CONFIG:
+    # Pre-allocate the final uint8 output — one allocation, no accumulation
+    # Shape: (H, W, 12) uint8 ≈ ~120MB for a full 10980×10980 scene
+    n_bands = len(BAND_CONFIG)
+    out = np.zeros((ref_height, ref_width, n_bands), dtype=np.uint8)
+
+    # Temporary float32 buffer reused for each band (avoids re-allocation per band)
+    band_buf = np.empty((ref_height, ref_width), dtype=np.float32)
+
+    # Read, resample, normalize, and write each band directly into out[:, :, i]
+    for i, band_info in enumerate(BAND_CONFIG):
         band_name = band_info["name"]
 
         if band_name not in band_files:
             # Missing band — fill with zeros (only B01/B09 might be missing)
             logger.warning("Band %s missing, filling with zeros", band_name)
-            band_arrays.append(np.zeros((ref_height, ref_width), dtype=np.float32))
+            out[:, :, i] = 0
             continue
 
         with rasterio.open(band_files[band_name]) as src:
             if src.height == ref_height and src.width == ref_width:
-                # Same resolution — read directly
-                data = src.read(1).astype(np.float32)
+                # Same resolution — read directly into buffer
+                src.read(1, out=band_buf)
             else:
                 # Different resolution — resample to 10m grid
-                data = np.empty((ref_height, ref_width), dtype=np.float32)
                 reproject(
                     source=rasterio.band(src, 1),
-                    destination=data,
+                    destination=band_buf,
                     src_transform=src.transform,
                     src_crs=src.crs,
                     dst_transform=ref_transform,
@@ -288,10 +301,18 @@ def read_and_resample_bands(
                     band_name, src.height, src.width, ref_height, ref_width,
                 )
 
-        band_arrays.append(data)
+        # Normalize in-place: L1C reflectance [0, 10000] → uint8 [0, 255]
+        # Equivalent to normalize_to_ch4net_range but without an extra copy
+        np.clip(band_buf * (255.0 / 10000.0), 0, 255, out=band_buf)
+        out[:, :, i] = band_buf  # uint8 cast happens here
 
-    # Stack into (H, W, 12) — matching CH4Net's expected format
-    stacked = np.stack(band_arrays, axis=-1)  # (H, W, 12)
+        logger.debug("Band %s (%d/%d) written", band_name, i + 1, n_bands)
+
+        # Explicitly free any rasterio-internal buffers and prompt GC
+        gc.collect()
+
+    del band_buf
+    gc.collect()
 
     metadata = {
         "crs": str(ref_crs),
@@ -300,8 +321,8 @@ def read_and_resample_bands(
         "height": ref_height,
     }
 
-    logger.info("Stacked array shape: %s", stacked.shape)
-    return stacked, metadata
+    logger.info("Stacked array shape: %s, dtype: %s", out.shape, out.dtype)
+    return out, metadata
 
 
 # ─────────────────────────────────────────────────────────────
@@ -493,11 +514,9 @@ def safe_to_npy(
     # Step 2: Find band files
     band_files = find_band_files(safe_dir)
 
-    # Step 3: Read and resample to 10m common grid
-    stacked, metadata = read_and_resample_bands(band_files)
-
-    # Step 4: Normalize to CH4Net's [0, 255] range
-    normalized = normalize_to_ch4net_range(stacked)
+    # Step 3: Read, resample to 10m grid, and normalize to [0, 255] uint8
+    # (read_and_resample_bands now returns uint8 directly — no separate normalize step)
+    normalized, metadata = read_and_resample_bands(band_files)
 
     # Step 5: Save .npy
     product_name = os.path.basename(safe_dir).replace(".SAFE", "")

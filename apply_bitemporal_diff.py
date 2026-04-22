@@ -167,6 +167,35 @@ SITES = {
     "lippendorf": dict(lat=51.178, lon=12.378, tile_id="T33UUS",
                        note="891 MW lignite x2 — central Germany, near Leipzig (T33UUS, not T33UUT — plant is ~17km south of T33UUT boundary)",
                        skip_bitemporal=True),
+
+    # ── New sites: completing top-10 EU CO2 emitter list ─────────────────────
+    # tile_id=None → apply_bitemporal_diff will skip (no .npy yet).
+    # Run download_eval_tiles.py --site jaenschwalde etc. first.
+    "jaenschwalde":   dict(lat=51.838, lon=14.456, tile_id="T33UUT",
+                           note="3000 MW lignite, Brandenburg (LEAG) — EU #2 CO2 emitter ~22 Mt/yr",
+                           skip_bitemporal=True),
+
+    "schwarze_pumpe": dict(lat=51.536, lon=14.353, tile_id="T33UUT",
+                           note="1600 MW lignite, Brandenburg (LEAG) — ~13 Mt CO2/yr",
+                           skip_bitemporal=True),
+
+    "turow":          dict(lat=50.946, lon=14.915, tile_id="T33UUT",
+                           note="1938 MW lignite, SW Poland (PGE) — ~10 Mt CO2/yr, adjacent to DE/CZ border",
+                           skip_bitemporal=True),
+
+    # ── Phase 5: Romanian / Bulgarian JRC top-10 sites ───────────────────────
+    # Tiles confirmed via catalog discovery (download_eval_tiles.py, April 2026)
+    "turceni":        dict(lat=44.670, lon=23.408, tile_id="T34TFP",
+                           note="~2,200 MW lignite, Romania (Oltenia Energy Complex) — T34TFP confirmed",
+                           skip_bitemporal=True),
+
+    "rovinari":       dict(lat=44.906, lon=23.147, tile_id="T34TFQ",
+                           note="~1,320 MW lignite, Romania (Oltenia Energy Complex) — T34TFQ confirmed",
+                           skip_bitemporal=True),
+
+    "maritsa_east_2": dict(lat=42.271, lon=26.068, tile_id="T35TMG",
+                           note="~1,600 MW lignite, Bulgaria (AES-NEK/ContourGlobal) — T35TMG confirmed",
+                           skip_bitemporal=True),
 }
 
 # ── Tile discovery ─────────────────────────────────────────────────────────────
@@ -469,6 +498,7 @@ def evaluate_site(
     meta: dict,
     detector: CH4NetDetector,
     run_baseline: bool,
+    force_bt: bool = False,
 ) -> dict:
     """
     Full evaluation for one site: original + bi-temporal.
@@ -557,12 +587,16 @@ def evaluate_site(
                  f"{grad_orig:.5f}" if grad_orig else "—")
 
     # ── Bi-temporal mode ────────────────────────────────────────────────────
-    if meta.get("skip_bitemporal"):
+    effectively_skip_bt = meta.get("skip_bitemporal") and not force_bt
+    if effectively_skip_bt:
         log.info("  [bitemporal] Skipped — skip_bitemporal=True for this site")
         log.info("               (BT suppresses signal here; use baseline S/C instead)")
+        log.info("               Pass --force-bt to override for one-off confirmation.")
         results["bitemporal"] = {"skipped": True, "reason": "skip_bitemporal flag set"}
+    elif meta.get("skip_bitemporal") and force_bt:
+        log.info("  [bitemporal] skip_bitemporal overridden by --force-bt (confirmation run)")
 
-    if ref_npy is not None and not meta.get("skip_bitemporal"):
+    if ref_npy is not None and not effectively_skip_bt:
         out_tif_bitemp = site_dir / f"bitemporal_{target_npy.stem}.tif"
 
         if out_tif_bitemp.exists():
@@ -619,10 +653,10 @@ def evaluate_site(
                      "DETECT" if cfar else "no",
                      cth_r or 0, cv or 0,
                      f"{grad_bt:.5f}" if grad_bt else "—")
-    elif not meta.get("skip_bitemporal"):
+    elif not effectively_skip_bt:
         # ref_npy was None and BT was not intentionally skipped — record as missing
         results["bitemporal"] = {"error": "no_reference_tile"}
-    # else: skip_bitemporal=True → {"skipped": True} already set above; don't overwrite
+    # else: effectively_skip_bt=True → {"skipped": True} already set above; don't overwrite
 
     del target  # free memory
     return results
@@ -724,6 +758,11 @@ def main():
                         help="Sites to evaluate (default: all)")
     parser.add_argument("--no-baseline", action="store_true",
                         help="Skip original single-date inference (only run bi-temporal)")
+    parser.add_argument("--force-bt", action="store_true",
+                        help="Force bi-temporal mode even for skip_bitemporal=True sites. "
+                             "Use for one-off BT confirmation of newly confirmed emitters "
+                             "(e.g. belchatow, lippendorf) to verify the high S/C is real "
+                             "emission and not a seasonal SWIR artifact.")
     parser.add_argument("--weights", default=WEIGHTS,
                         help=f"Path to CH4Net weights (default: {WEIGHTS})")
     parser.add_argument("--output-dir", default=None,
@@ -731,6 +770,7 @@ def main():
     args = parser.parse_args()
 
     run_baseline = not args.no_baseline
+    force_bt     = args.force_bt
     if args.output_dir:
         global OUT_DIR
         OUT_DIR = Path(args.output_dir)
@@ -786,6 +826,7 @@ def main():
                 SITES[site_name],
                 detector,
                 run_baseline=run_baseline,
+                force_bt=force_bt,
             )
             all_results[site_name] = result
         except Exception as e:
