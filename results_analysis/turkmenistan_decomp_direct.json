@@ -1,0 +1,33 @@
+{
+  "label": "Turkmenistan 2021-01-01 (L2A, pipeline validation)",
+  "site": "turkmenistan",
+  "wind_ms": 1.58,
+  "wind_source": "ERA5_reanalysis",
+  "reported_flow_kgh": 225.0,
+  "cemf_base_flow_kgh": 0.0,
+  "uncertainty": {
+    "wind": {
+      "sigma_pct": 20.0,
+      "method": "literature_prior"
+    },
+    "coeff": {
+      "sigma_pct": 15.0,
+      "method": "literature_prior"
+    },
+    "mask": {
+      "sigma_pct": NaN,
+      "n_valid": 0
+    },
+    "background": {
+      "sigma_pct": 0.0
+    },
+    "combined_mc": {
+      "sigma_pct_mc": 25.3,
+      "sigma_pct_quadrature": 25.0,
+      "p5_kgh": 137.61806273841484,
+      "p95_kgh": 325.0392279145023,
+      "n_samples": 10000
+    }
+  },
+  "status": "ok"
+}

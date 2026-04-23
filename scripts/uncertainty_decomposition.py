@@ -159,6 +159,20 @@ DETECTIONS = [
         "wind_source":      "ERA5_reanalysis",
         "reported_flow_kgh": 426.0,
     },
+    {
+        "site":           "turkmenistan",
+        "label":          "Turkmenistan 2021-01-01 (L2A, pipeline validation)",
+        "scene_id":       "S2B_T40SBE_20210101_Turkmenistan",
+        "acquisition_ts": "2021-01-01T07:43:00Z",
+        "lat": 35.173, "lon": 54.754,
+        "site_row": 5240, "site_col": 4774,
+        "prob_thresh": 0.001,
+        "tif": "results_bitemporal/turkmenistan/original_S2B_T40SBE_20210101_Turkmenistan.tif",
+        "npy": "data/npy_cache/S2B_T40SBE_20210101_Turkmenistan.npy",
+        "wind_ms":           1.58,
+        "wind_source":       "ERA5_reanalysis",
+        "reported_flow_kgh": 225.0,
+    },
 ]
 
 
@@ -196,6 +210,10 @@ def load_site_crop(det: dict) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     else:
         raise ImportError("Need either Pillow or rasterio to read TIF files")
 
+    # Normalize prob map to [0, 1] regardless of saved dtype
+    # PIL may return uint16 (0-65535) or uint8 (0-255) or float32 (0-1)
+    if prob_10m.max() > 1.0:
+        prob_10m = prob_10m / prob_10m.max()
     log.info("  Prob crop: %s  range=[%.6f, %.6f]",
              prob_10m.shape, prob_10m.min(), prob_10m.max())
     return b11_10m, b12_10m, prob_10m
