@@ -1,0 +1,363 @@
+{
+  "2024-09-18": {
+    "orbit": "S5P_OFFL_L2__CH4____20240918T112133_20240918T130302_35924_03_020701_20240920T032059.nc",
+    "site_xch4": 1907.29,
+    "bg_xch4": 1915.0,
+    "enhancement": -7.71,
+    "qa_at_site": 1.0,
+    "n_bg_pixels": 486,
+    "dist_to_site_deg": 0.0604
+  },
+  "2024-09-17": {
+    "orbit": "S5P_OFFL_L2__CH4____20240917T114040_20240917T132210_35910_03_020701_20240919T063955.nc",
+    "error": "site not in swath (nearest valid: 0.435\u00b0)"
+  },
+  "2024-09-19": {
+    "orbit": "S5P_OFFL_L2__CH4____20240919T110225_20240919T124355_35938_03_020701_20240921T030529.nc",
+    "error": "site not in swath (nearest valid: 0.205\u00b0)"
+  },
+  "2024-09-16": {
+    "orbit": "S5P_OFFL_L2__CH4____20240916T115948_20240916T134117_35896_03_020701_20240918T074150.nc",
+    "error": "site not in swath (nearest valid: 2.544\u00b0)"
+  },
+  "2024-09-20": {
+    "orbit": "S5P_OFFL_L2__CH4____20240920T122447_20240920T140617_35953_03_020701_20240922T041950.nc",
+    "error": "site not in swath (nearest valid: 0.933\u00b0)"
+  },
+  "2024-09-15": {
+    "status": "skipped_limit"
+  },
+  "2024-09-21": {
+    "status": "skipped_limit"
+  },
+  "2024-09-22": {
+    "status": "skipped_limit"
+  },
+  "2024-09-13": {
+    "status": "skipped_limit"
+  },
+  "2024-09-23": {
+    "status": "skipped_limit"
+  },
+  "2024-09-12": {
+    "status": "skipped_limit"
+  },
+  "2024-09-24": {
+    "status": "skipped_limit"
+  },
+  "2024-09-11": {
+    "status": "skipped_limit"
+  },
+  "2024-09-25": {
+    "status": "skipped_limit"
+  },
+  "2024-09-10": {
+    "status": "skipped_limit"
+  },
+  "2024-09-26": {
+    "status": "skipped_limit"
+  },
+  "2024-09-09": {
+    "status": "skipped_limit"
+  },
+  "2024-09-27": {
+    "status": "skipped_limit"
+  },
+  "2024-09-08": {
+    "status": "skipped_limit"
+  },
+  "2024-09-28": {
+    "status": "skipped_limit"
+  },
+  "2024-09-07": {
+    "status": "skipped_limit"
+  },
+  "2024-09-29": {
+    "status": "skipped_limit"
+  },
+  "2024-09-06": {
+    "status": "skipped_limit"
+  },
+  "2024-09-05": {
+    "status": "skipped_limit"
+  },
+  "2024-09-04": {
+    "status": "skipped_limit"
+  },
+  "2024-09-03": {
+    "status": "skipped_limit"
+  },
+  "2024-09-02": {
+    "status": "skipped_limit"
+  },
+  "2024-09-01": {
+    "status": "skipped_limit"
+  },
+  "2024-08-31": {
+    "status": "skipped_limit"
+  },
+  "2024-08-30": {
+    "status": "skipped_limit"
+  },
+  "2024-08-28": {
+    "status": "skipped_limit"
+  },
+  "2024-08-27": {
+    "status": "skipped_limit"
+  },
+  "2024-08-26": {
+    "status": "skipped_limit"
+  },
+  "2024-08-25": {
+    "status": "skipped_limit"
+  },
+  "2024-08-24": {
+    "status": "skipped_limit"
+  },
+  "2024-08-23": {
+    "status": "skipped_limit"
+  },
+  "2024-08-22": {
+    "status": "skipped_limit"
+  },
+  "2024-08-21": {
+    "status": "skipped_limit"
+  },
+  "2024-08-20": {
+    "status": "skipped_limit"
+  },
+  "2024-08-19": {
+    "status": "skipped_limit"
+  },
+  "2024-08-18": {
+    "status": "skipped_limit"
+  },
+  "2024-08-17": {
+    "status": "skipped_limit"
+  },
+  "2024-08-16": {
+    "status": "skipped_limit"
+  },
+  "2024-08-15": {
+    "status": "skipped_limit"
+  },
+  "2024-08-14": {
+    "status": "skipped_limit"
+  },
+  "2024-08-12": {
+    "status": "skipped_limit"
+  },
+  "2024-08-11": {
+    "status": "skipped_limit"
+  },
+  "2024-08-10": {
+    "status": "skipped_limit"
+  },
+  "2024-08-09": {
+    "status": "skipped_limit"
+  },
+  "2024-08-08": {
+    "status": "skipped_limit"
+  },
+  "2024-08-07": {
+    "status": "skipped_limit"
+  },
+  "2024-08-06": {
+    "status": "skipped_limit"
+  },
+  "2024-08-05": {
+    "status": "skipped_limit"
+  },
+  "2024-08-04": {
+    "status": "skipped_limit"
+  },
+  "2024-08-03": {
+    "status": "skipped_limit"
+  },
+  "2024-08-02": {
+    "status": "skipped_limit"
+  },
+  "2024-08-01": {
+    "status": "skipped_limit"
+  },
+  "2024-07-31": {
+    "status": "skipped_limit"
+  },
+  "2024-07-29": {
+    "status": "skipped_limit"
+  },
+  "2024-07-28": {
+    "status": "skipped_limit"
+  },
+  "2024-07-27": {
+    "status": "skipped_limit"
+  },
+  "2024-07-26": {
+    "status": "skipped_limit"
+  },
+  "2024-07-25": {
+    "status": "skipped_limit"
+  },
+  "2024-07-24": {
+    "status": "skipped_limit"
+  },
+  "2024-07-23": {
+    "status": "skipped_limit"
+  },
+  "2024-07-22": {
+    "status": "skipped_limit"
+  },
+  "2024-07-21": {
+    "status": "skipped_limit"
+  },
+  "2024-07-20": {
+    "status": "skipped_limit"
+  },
+  "2024-07-19": {
+    "status": "skipped_limit"
+  },
+  "2024-07-18": {
+    "status": "skipped_limit"
+  },
+  "2024-07-17": {
+    "status": "skipped_limit"
+  },
+  "2024-07-16": {
+    "status": "skipped_limit"
+  },
+  "2024-07-15": {
+    "status": "skipped_limit"
+  },
+  "2024-07-14": {
+    "status": "skipped_limit"
+  },
+  "2024-07-13": {
+    "status": "skipped_limit"
+  },
+  "2024-07-12": {
+    "status": "skipped_limit"
+  },
+  "2024-07-11": {
+    "status": "skipped_limit"
+  },
+  "2024-07-10": {
+    "status": "skipped_limit"
+  },
+  "2024-07-09": {
+    "status": "skipped_limit"
+  },
+  "2024-07-08": {
+    "status": "skipped_limit"
+  },
+  "2024-07-07": {
+    "status": "skipped_limit"
+  },
+  "2024-07-06": {
+    "status": "skipped_limit"
+  },
+  "2024-07-05": {
+    "status": "skipped_limit"
+  },
+  "2024-07-04": {
+    "status": "skipped_limit"
+  },
+  "2024-07-03": {
+    "status": "skipped_limit"
+  },
+  "2024-07-02": {
+    "status": "skipped_limit"
+  },
+  "2024-07-01": {
+    "status": "skipped_limit"
+  },
+  "2024-06-30": {
+    "status": "skipped_limit"
+  },
+  "2024-06-29": {
+    "status": "skipped_limit"
+  },
+  "2024-06-28": {
+    "status": "skipped_limit"
+  },
+  "2024-06-27": {
+    "status": "skipped_limit"
+  },
+  "2024-06-26": {
+    "status": "skipped_limit"
+  },
+  "2024-06-25": {
+    "status": "skipped_limit"
+  },
+  "2024-06-24": {
+    "status": "skipped_limit"
+  },
+  "2024-06-23": {
+    "status": "skipped_limit"
+  },
+  "2024-06-22": {
+    "status": "skipped_limit"
+  },
+  "2024-06-21": {
+    "status": "skipped_limit"
+  },
+  "2024-06-20": {
+    "status": "skipped_limit"
+  },
+  "2024-06-19": {
+    "status": "skipped_limit"
+  },
+  "2024-06-18": {
+    "status": "skipped_limit"
+  },
+  "2024-06-17": {
+    "status": "skipped_limit"
+  },
+  "2024-06-16": {
+    "status": "skipped_limit"
+  },
+  "2024-06-15": {
+    "status": "skipped_limit"
+  },
+  "2024-06-14": {
+    "status": "skipped_limit"
+  },
+  "2024-06-13": {
+    "status": "skipped_limit"
+  },
+  "2024-06-12": {
+    "status": "skipped_limit"
+  },
+  "2024-06-11": {
+    "status": "skipped_limit"
+  },
+  "2024-06-10": {
+    "status": "skipped_limit"
+  },
+  "2024-06-09": {
+    "status": "skipped_limit"
+  },
+  "2024-06-08": {
+    "status": "skipped_limit"
+  },
+  "2024-06-07": {
+    "status": "skipped_limit"
+  },
+  "2024-06-06": {
+    "status": "skipped_limit"
+  },
+  "2024-06-05": {
+    "status": "skipped_limit"
+  },
+  "2024-06-04": {
+    "status": "skipped_limit"
+  },
+  "2024-06-03": {
+    "status": "skipped_limit"
+  },
+  "2024-06-02": {
+    "status": "skipped_limit"
+  },
+  "2024-06-01": {
+    "status": "skipped_limit"
+  }
+}

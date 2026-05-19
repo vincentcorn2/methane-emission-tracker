@@ -1,0 +1,388 @@
+23:59:45  INFO     Existing calibration set: 29 scored sites
+23:59:47  INFO     Loading CH4Net v8 weights from european_model_v8.pth ...
+23:59:48  INFO     Model ready.
+23:59:48  INFO     >>> Phase 1: .npy-only inference (4 candidate sites)
+23:59:48  INFO     =================================================================
+23:59:48  INFO     ── Phase 1  nonemit_006 : Westerwald, Germany — mixed forest (Continental) ──
+23:59:48  INFO        .npy  ← nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+23:59:48  INFO         geo.json  ← S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+23:59:48  INFO         Loading .npy  (nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy) ...
+23:59:48  INFO         Scene shape: 10980×10980×12
+23:59:48  INFO         Tiling into 100×100 patches ...
+23:59:48  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+23:59:48  INFO         Running batched inference on 11881 tiles ...
+00:03:32  INFO         Stitching 11881 predictions ...
+00:04:29  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_006/original_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.tif
+00:04:29  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.tif
+00:04:30  INFO        Computing S/C ratio ...
+00:04:39  INFO        sc_cfar = 7.1161  (status=ok)
+00:04:39  INFO     =================================================================
+00:04:39  INFO     ── Phase 1  nonemit_009 : Erzgebirge foothills, Germany — upland pasture (Continental) ──
+00:04:39  INFO        .npy  ← nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy
+00:04:39  INFO         geo.json  ← T33UUS_ref_20231212_geo.json
+00:04:39  INFO         Loading .npy  (nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy) ...
+00:04:39  ERROR       Inference failed on nonemit_009
+Traceback (most recent call last):
+  File "/Users/vincentcornelius/Downloads/methane-api/scripts/run_mac_inference.py", line 564, in run_phase1
+    ok = run_inference_on_npy(npy_path, detector, geo_json, out_tif)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vincentcornelius/Downloads/methane-api/scripts/run_mac_inference.py", line 399, in run_inference_on_npy
+    scene = np.load(npy_path, mmap_mode="r")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vincentcornelius/miniconda/envs/methane/lib/python3.12/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy'
+00:04:39  INFO     =================================================================
+00:04:39  INFO     ── Phase 1  nonemit_012 : Slovak Highlands — broadleaved forest (Pannonian) ──
+00:04:39  INFO        .npy  ← nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy
+00:04:39  INFO         geo.json  ← S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007_geo.json
+00:04:39  INFO         Loading .npy  (nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy) ...
+00:04:39  INFO         Scene shape: 10980×10980×12
+00:04:39  INFO         Tiling into 100×100 patches ...
+00:04:39  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+00:04:39  INFO         Running batched inference on 11881 tiles ...
+00:08:54  INFO         Stitching 11881 predictions ...
+00:09:53  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_012/original_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.tif
+00:09:53  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.tif
+00:09:54  INFO        Computing S/C ratio ...
+00:10:02  INFO        sc_cfar = 0.5908  (status=ok)
+00:10:02  INFO     =================================================================
+00:10:02  INFO     ── Phase 1  nonemit_018 : Tuscany coastal lowland, Italy — coastal wetland (Mediterranean) ──
+00:10:02  INFO        .npy  ← nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy
+00:10:02  INFO         geo.json  ← S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+00:10:02  INFO         Loading .npy  (nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy) ...
+00:10:02  INFO         Scene shape: 10980×10980×12
+00:10:02  INFO         Tiling into 100×100 patches ...
+00:10:03  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+00:10:03  INFO         Running batched inference on 11881 tiles ...
+00:15:19  INFO         Stitching 11881 predictions ...
+00:16:19  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_018/original_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.tif
+00:16:19  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.tif
+00:16:19  INFO        Computing S/C ratio ...
+00:16:32  INFO        sc_cfar = 1.4088  (status=ok)
+00:16:32  INFO        Saved (total records: 32)
+00:16:32  INFO        Saved (total records: 33)
+00:16:32  INFO        Saved (total records: 34)
+00:16:32  INFO        Saved (total records: 35)
+00:16:32  INFO     Recomputing conformal threshold ...
+00:16:40  INFO     Done. Results: /Users/vincentcornelius/Downloads/methane-api/results_analysis/nonemitter_sc_scores.json
+08:19:23  INFO     Existing calibration set: 33 scored sites
+08:19:25  INFO     Loading CH4Net v8 weights from european_model_v8.pth ...
+08:19:25  INFO     Model ready.
+08:19:25  INFO     CDSE credentials not set in environment — prompting.
+08:19:47  INFO     >>> Phase 2: CDSE retry (3 candidate sites)
+08:19:47  INFO        nonemit_009 already scored — skipping.
+08:19:47  INFO     =================================================================
+08:19:47  INFO     ── Phase 2  nonemit_024 : Bohemian farmland, Czech Republic (Continental) ──
+08:19:47  INFO        lat=50.0500  lon=14.9500  clc=arable_land
+08:19:48  INFO     Copernicus token refreshed, expires in 1800s
+08:19:59  INFO     Found 15 products
+08:19:59  INFO         Downloading S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE (cloud n/a) ...
+08:21:15  INFO     Downloaded S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE (419.0 MB)
+08:21:15  INFO         Converting to .npy ...
+08:21:15  INFO     Unzipping S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE.zip ...
+08:21:18  ERROR       Download/convert failed: [Errno 28] No space left on device
+08:21:18  INFO     =================================================================
+08:21:18  INFO     ── Phase 2  nonemit_025 : Mazovian forest, Poland (Continental) ──
+08:21:18  INFO        lat=53.1000  lon=20.5000  clc=broadleaved_forest
+08:21:23  INFO     Found 18 products
+08:21:23  INFO         Downloading S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE (cloud n/a) ...
+08:23:39  ERROR    Download failed for S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE: [Errno 28] No space left on device
+08:23:39  ERROR        download_product returned None
+08:23:39  INFO        Saved (total records: 36)
+08:23:39  INFO        Saved (total records: 37)
+08:23:39  INFO     Recomputing conformal threshold ...
+08:23:41  INFO     Done. Results: /Users/vincentcornelius/Downloads/methane-api/results_analysis/nonemitter_sc_scores.json
+08:38:27  INFO     Existing calibration set: 33 scored sites
+08:38:29  INFO     Loading CH4Net v8 weights from european_model_v8.pth ...
+08:38:29  INFO     Model ready.
+08:38:29  INFO     CDSE credentials not set in environment — prompting.
+08:38:56  INFO     Existing calibration set: 33 scored sites
+08:38:58  INFO     Loading CH4Net v8 weights from european_model_v8.pth ...
+08:38:58  INFO     Model ready.
+08:38:58  INFO     CDSE credentials not set in environment — prompting.
+08:39:12  INFO     >>> Phase 2: CDSE retry (3 candidate sites)
+08:39:12  INFO        nonemit_009 already scored — skipping.
+08:39:12  INFO     =================================================================
+08:39:12  INFO     ── Phase 2  nonemit_024 : Bohemian farmland, Czech Republic (Continental) ──
+08:39:12  INFO        lat=50.0500  lon=14.9500  clc=arable_land
+08:39:13  INFO     Copernicus token refreshed, expires in 1800s
+08:39:24  INFO     Found 15 products
+08:39:24  INFO         Downloading S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE (cloud n/a) ...
+08:42:49  INFO     Downloaded S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE (419.0 MB)
+08:42:49  INFO         Converting to .npy ...
+08:42:49  INFO     Unzipping S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE.zip ...
+08:42:49  INFO     Extracted: S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.SAFE
+08:42:49  INFO     Found 12/12 bands in SAFE archive
+08:42:50  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+08:43:36  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+08:43:37  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.npy (shape: (10980, 10980, 12))
+08:43:37  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358_geo.json
+08:43:37  INFO         geo.json  ← S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358_geo.json
+08:43:37  INFO         Loading .npy  (nonemit_024_S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.npy) ...
+08:43:37  INFO         Scene shape: 10980×10980×12
+08:43:37  INFO         Tiling into 100×100 patches ...
+08:43:37  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+08:43:37  INFO         Running batched inference on 11881 tiles ...
+08:46:41  INFO         Stitching 11881 predictions ...
+08:47:16  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_024/original_S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.tif
+08:47:16  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358.tif
+08:47:16  INFO        Deleting .npy (1.4 GB freed)
+08:47:16  INFO        Computing S/C ratio ...
+08:47:21  WARNING     S/C error: site_out_of_bounds
+08:47:21  INFO     =================================================================
+08:47:21  INFO     ── Phase 2  nonemit_025 : Mazovian forest, Poland (Continental) ──
+08:47:21  INFO        lat=53.1000  lon=20.5000  clc=broadleaved_forest
+08:47:27  INFO     Found 18 products
+08:47:27  INFO         Downloading S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE (cloud n/a) ...
+08:49:28  INFO     Downloaded S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE (823.8 MB)
+08:49:28  INFO         Converting to .npy ...
+08:49:28  INFO     Unzipping S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE.zip ...
+08:49:29  INFO     Extracted: S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.SAFE
+08:49:29  INFO     Found 12/12 bands in SAFE archive
+08:49:29  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+08:51:20  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+08:51:20  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.npy (shape: (10980, 10980, 12))
+08:51:20  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208_geo.json
+08:51:20  INFO         geo.json  ← S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208_geo.json
+08:51:20  INFO         Loading .npy  (nonemit_025_S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.npy) ...
+08:51:20  INFO         Scene shape: 10980×10980×12
+08:51:20  INFO         Tiling into 100×100 patches ...
+08:51:21  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+08:51:21  INFO         Running batched inference on 11881 tiles ...
+08:58:42  INFO         Stitching 11881 predictions ...
+08:59:50  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_025/original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.tif
+08:59:50  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UDD_20240829T115208.tif
+08:59:50  INFO        Deleting .npy (1.4 GB freed)
+08:59:50  INFO        Computing S/C ratio ...
+08:59:59  WARNING     *** EXCLUDED — denominator artifact (sc_cfar=240.99, ctrl_mu=0.000047)
+08:59:59  INFO        Saved (total records: 38)
+08:59:59  INFO        Saved (total records: 39)
+08:59:59  INFO     Recomputing conformal threshold ...
+09:00:05  INFO     Done. Results: /Users/vincentcornelius/Downloads/methane-api/results_analysis/nonemitter_sc_scores.json
+09:00:44  INFO     Existing calibration set: 35 scored sites
+09:00:48  INFO     Loading CH4Net v8 weights from european_model_v8.pth ...
+09:00:48  INFO     Model ready.
+09:00:48  INFO     CDSE credentials not set in environment — prompting.
+09:01:21  INFO     >>> Phase 3: new candidate sites (8 candidates)
+09:01:21  INFO     =================================================================
+09:01:21  INFO     ── Phase 3  nonemit_037 : Mälaren valley farmland, Sweden — arable (Boreal) ──
+09:01:21  INFO        lat=59.5000  lon=17.0000  clc=arable_land
+09:01:22  INFO     Copernicus token refreshed, expires in 1800s
+09:01:26  INFO     Found 28 products
+09:01:26  INFO         Downloading S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.SAFE (cloud n/a) ...
+09:03:09  INFO     Downloaded S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.SAFE (802.8 MB)
+09:03:09  INFO         Converting to .npy ...
+09:03:09  INFO     Unzipping S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.SAFE.zip ...
+09:03:10  INFO     Extracted: S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.SAFE
+09:03:10  INFO     Found 12/12 bands in SAFE archive
+09:03:10  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+09:04:19  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:04:19  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.npy (shape: (10980, 10980, 12))
+09:04:19  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551_geo.json
+09:04:20  INFO         geo.json  ← S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551_geo.json
+09:04:20  INFO         Loading .npy  (nonemit_037_S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.npy) ...
+09:04:20  INFO         Scene shape: 10980×10980×12
+09:04:20  INFO         Tiling into 100×100 patches ...
+09:04:20  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:04:20  INFO         Running batched inference on 11881 tiles ...
+09:14:40  INFO         Stitching 11881 predictions ...
+09:15:16  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_037/original_S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.tif
+09:15:16  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240820T100559_N0511_R022_T33VXG_20240820T123551.tif
+09:15:17  INFO        Deleting .npy (1.4 GB freed)
+09:15:17  INFO        Computing S/C ratio ...
+09:15:22  INFO        sc_cfar = 2.4901  (status=ok)
+09:15:22  INFO     =================================================================
+09:15:22  INFO     ── Phase 3  nonemit_038 : Ostrobothnia plains, Finland — arable (Boreal) ──
+09:15:22  INFO        lat=63.0000  lon=25.0000  clc=arable_land
+09:15:28  INFO     Found 63 products
+09:15:28  INFO         Downloading S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.SAFE (cloud n/a) ...
+09:18:17  INFO     Downloaded S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.SAFE (601.7 MB)
+09:18:17  INFO         Converting to .npy ...
+09:18:17  INFO     Unzipping S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.SAFE.zip ...
+09:18:18  INFO     Extracted: S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.SAFE
+09:18:18  INFO     Found 12/12 bands in SAFE archive
+09:18:18  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+09:18:56  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:18:56  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.npy (shape: (10980, 10980, 12))
+09:18:56  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306_geo.json
+09:18:57  INFO         geo.json  ← S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306_geo.json
+09:18:57  INFO         Loading .npy  (nonemit_038_S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.npy) ...
+09:18:57  INFO         Scene shape: 10980×10980×12
+09:18:57  INFO         Tiling into 100×100 patches ...
+09:18:57  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:18:57  INFO         Running batched inference on 11881 tiles ...
+09:21:52  INFO         Stitching 11881 predictions ...
+09:22:26  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_038/original_S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.tif
+09:22:26  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306.tif
+09:22:26  INFO        Deleting .npy (1.4 GB freed)
+09:22:26  INFO        Computing S/C ratio ...
+09:22:32  WARNING     S/C error: site_out_of_bounds
+09:22:32  INFO     =================================================================
+09:22:32  INFO     ── Phase 3  nonemit_039 : Hedmark agricultural plain, Norway — arable (Boreal) ──
+09:22:32  INFO        lat=60.4000  lon=11.3000  clc=arable_land
+09:22:40  INFO     Found 16 products
+09:22:40  INFO         Downloading S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.SAFE (cloud n/a) ...
+09:27:08  INFO     Downloaded S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.SAFE (807.5 MB)
+09:27:08  INFO         Converting to .npy ...
+09:27:08  INFO     Unzipping S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.SAFE.zip ...
+09:27:09  INFO     Extracted: S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.SAFE
+09:27:09  INFO     Found 12/12 bands in SAFE archive
+09:27:09  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+09:27:51  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:27:51  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.npy (shape: (10980, 10980, 12))
+09:27:51  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650_geo.json
+09:27:51  INFO         geo.json  ← S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650_geo.json
+09:27:51  INFO         Loading .npy  (nonemit_039_S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.npy) ...
+09:27:51  INFO         Scene shape: 10980×10980×12
+09:27:51  INFO         Tiling into 100×100 patches ...
+09:27:51  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:27:51  INFO         Running batched inference on 11881 tiles ...
+09:31:19  INFO         Stitching 11881 predictions ...
+09:31:49  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_039/original_S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.tif
+09:31:49  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240819T103629_N0511_R008_T32VPM_20240819T130650.tif
+09:31:49  INFO        Deleting .npy (1.4 GB freed)
+09:31:49  INFO        Computing S/C ratio ...
+09:31:54  INFO        sc_cfar = 0.0192  (status=ok)
+09:31:54  INFO     =================================================================
+09:31:54  INFO     ── Phase 3  nonemit_044 : Fläming heath farmland, Brandenburg, Germany — arable (Continental) ──
+09:31:54  INFO        lat=52.1000  lon=12.5000  clc=arable_land
+09:31:55  INFO     Copernicus token refreshed, expires in 1800s
+09:32:00  INFO     Found 31 products
+09:32:00  INFO         Downloading S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.SAFE (cloud n/a) ...
+09:33:29  INFO     Downloaded S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.SAFE (807.7 MB)
+09:33:29  INFO         Converting to .npy ...
+09:33:29  INFO     Unzipping S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.SAFE.zip ...
+09:33:29  INFO     Extracted: S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.SAFE
+09:33:29  INFO     Found 12/12 bands in SAFE archive
+09:33:29  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+09:34:10  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:34:11  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.npy (shape: (10980, 10980, 12))
+09:34:11  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205_geo.json
+09:34:11  INFO         geo.json  ← S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205_geo.json
+09:34:11  INFO         Loading .npy  (nonemit_044_S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.npy) ...
+09:34:11  INFO         Scene shape: 10980×10980×12
+09:34:11  INFO         Tiling into 100×100 patches ...
+09:34:11  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:34:11  INFO         Running batched inference on 11881 tiles ...
+09:37:33  INFO         Stitching 11881 predictions ...
+09:38:03  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_044/original_S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.tif
+09:38:03  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240828T102021_N0511_R065_T33UUT_20240828T130205.tif
+09:38:03  INFO        Deleting .npy (1.4 GB freed)
+09:38:03  INFO        Computing S/C ratio ...
+09:38:08  INFO        sc_cfar = 0.2419  (status=ok)
+09:38:08  INFO     =================================================================
+09:38:08  INFO     ── Phase 3  nonemit_040 : Normandy plains, France — arable (Atlantic) ──
+09:38:08  INFO        lat=49.1000  lon=0.5000  clc=arable_land
+09:38:12  INFO     Found 12 products
+09:38:12  INFO         Downloading S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.SAFE (cloud n/a) ...
+09:40:07  INFO     Downloaded S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.SAFE (839.2 MB)
+09:40:07  INFO         Converting to .npy ...
+09:40:07  INFO     Unzipping S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.SAFE.zip ...
+09:40:08  INFO     Extracted: S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.SAFE
+09:40:08  INFO     Found 12/12 bands in SAFE archive
+09:40:08  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+09:40:49  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:40:50  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.npy (shape: (10980, 10980, 12))
+09:40:50  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124_geo.json
+09:40:50  INFO         geo.json  ← S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124_geo.json
+09:40:50  INFO         Loading .npy  (nonemit_040_S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.npy) ...
+09:40:50  INFO         Scene shape: 10980×10980×12
+09:40:50  INFO         Tiling into 100×100 patches ...
+09:40:50  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:40:50  INFO         Running batched inference on 11881 tiles ...
+09:43:27  INFO         Stitching 11881 predictions ...
+09:43:58  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_040/original_S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.tif
+09:43:58  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124.tif
+09:43:59  INFO        Deleting .npy (1.4 GB freed)
+09:43:59  INFO        Computing S/C ratio ...
+09:44:04  WARNING     *** EXCLUDED — terrain confound (sc_cfar=7.83, cv_ctrl=1.6230)
+09:44:04  INFO     =================================================================
+09:44:04  INFO     ── Phase 3  nonemit_041 : Suffolk flatlands, UK — arable (Atlantic) ──
+09:44:04  INFO        lat=52.5000  lon=1.1000  clc=arable_land
+09:44:13  INFO     Found 20 products
+09:44:13  INFO         Downloading S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.SAFE (cloud n/a) ...
+09:47:22  INFO     Downloaded S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.SAFE (787.8 MB)
+09:47:22  INFO         Converting to .npy ...
+09:47:22  INFO     Unzipping S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.SAFE.zip ...
+09:47:23  INFO     Extracted: S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.SAFE
+09:47:23  INFO     Found 12/12 bands in SAFE archive
+09:47:23  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+09:48:05  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:48:05  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.npy (shape: (10980, 10980, 12))
+09:48:05  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043_geo.json
+09:48:06  INFO         geo.json  ← S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043_geo.json
+09:48:06  INFO         Loading .npy  (nonemit_041_S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.npy) ...
+09:48:06  INFO         Scene shape: 10980×10980×12
+09:48:06  INFO         Tiling into 100×100 patches ...
+09:48:06  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:48:06  INFO         Running batched inference on 11881 tiles ...
+09:49:56  INFO         Stitching 11881 predictions ...
+09:50:23  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_041/original_S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.tif
+09:50:23  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240825T105619_N0511_R094_T30UYD_20240825T130043.tif
+09:50:24  INFO        Deleting .npy (1.4 GB freed)
+09:50:24  INFO        Computing S/C ratio ...
+09:50:28  INFO        sc_cfar = 0.5410  (status=ok)
+09:50:28  INFO     =================================================================
+09:50:28  INFO     ── Phase 3  nonemit_042 : Bács-Kiskun plain, Hungary — arable (Pannonian) ──
+09:50:28  INFO        lat=46.5000  lon=19.5000  clc=arable_land
+09:50:33  INFO     Found 14 products
+09:50:33  INFO         Downloading S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.SAFE (cloud n/a) ...
+09:53:26  INFO     Downloaded S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.SAFE (833.3 MB)
+09:53:26  INFO         Converting to .npy ...
+09:53:26  INFO     Unzipping S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.SAFE.zip ...
+09:53:27  INFO     Extracted: S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.SAFE
+09:53:27  INFO     Found 12/12 bands in SAFE archive
+09:53:27  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+09:54:07  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+09:54:07  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.npy (shape: (10980, 10980, 12))
+09:54:07  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212_geo.json
+09:54:07  INFO         geo.json  ← S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212_geo.json
+09:54:08  INFO         Loading .npy  (nonemit_042_S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.npy) ...
+09:54:08  INFO         Scene shape: 10980×10980×12
+09:54:08  INFO         Tiling into 100×100 patches ...
+09:54:08  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:54:08  INFO         Running batched inference on 11881 tiles ...
+09:55:47  INFO         Stitching 11881 predictions ...
+09:56:09  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_042/original_S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.tif
+09:56:09  INFO         Saved GeoTIFF → original_S2B_MSIL1C_20240831T093549_N0511_R036_T34TCS_20240831T114212.tif
+09:56:09  INFO        Deleting .npy (1.4 GB freed)
+09:56:09  INFO        Computing S/C ratio ...
+09:56:14  INFO        sc_cfar = 3.5796  (status=ok)
+09:56:14  INFO     =================================================================
+09:56:14  INFO     ── Phase 3  nonemit_043 : Ebro valley, Spain — arable (Mediterranean) ──
+09:56:14  INFO        lat=41.6000  lon=-0.8000  clc=arable_land
+09:56:21  INFO     Found 50 products
+09:56:21  INFO         Downloading S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.SAFE (cloud n/a) ...
+10:02:23  INFO     Downloaded S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.SAFE (703.8 MB)
+10:02:23  INFO         Converting to .npy ...
+10:02:23  INFO     Unzipping S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.SAFE.zip ...
+10:02:23  INFO     Extracted: S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.SAFE
+10:02:23  INFO     Found 12/12 bands in SAFE archive
+10:02:23  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32630)
+10:03:05  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+10:03:05  INFO     Saved .npy array: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.npy (shape: (10980, 10980, 12))
+10:03:05  INFO     Saved geo metadata: /Users/vincentcornelius/Downloads/methane-api/data/nonemitter_tiles/S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431_geo.json
+10:03:05  INFO         geo.json  ← S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431_geo.json
+10:03:05  INFO         Loading .npy  (nonemit_043_S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.npy) ...
+10:03:05  INFO         Scene shape: 10980×10980×12
+10:03:05  INFO         Tiling into 100×100 patches ...
+10:03:05  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+10:03:05  INFO         Running batched inference on 11881 tiles ...
+10:04:31  INFO         Stitching 11881 predictions ...
+10:04:52  INFO     Saved georeferenced prediction to /Users/vincentcornelius/Downloads/methane-api/results_nonemitter/nonemit_043/original_S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.tif
+10:04:52  INFO         Saved GeoTIFF → original_S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431.tif
+10:04:52  INFO        Deleting .npy (1.4 GB freed)
+10:04:52  INFO        Computing S/C ratio ...
+10:04:57  INFO        sc_cfar = 0.0153  (status=ok)
+10:04:57  INFO        Saved (total records: 40)
+10:04:57  INFO        Saved (total records: 41)
+10:04:57  INFO        Saved (total records: 42)
+10:04:57  INFO        Saved (total records: 43)
+10:04:57  INFO        Saved (total records: 44)
+10:04:57  INFO        Saved (total records: 45)
+10:04:57  INFO        Saved (total records: 46)
+10:04:57  INFO        Saved (total records: 47)
+10:04:57  INFO     Recomputing conformal threshold ...
+10:05:00  INFO     Done. Results: /Users/vincentcornelius/Downloads/methane-api/results_analysis/nonemitter_sc_scores.json

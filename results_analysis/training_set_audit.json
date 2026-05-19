@@ -1,0 +1,127 @@
+{
+  "counts": {
+    "real_positive_crops": 14,
+    "real_negative_crops": 22,
+    "synthetic_positive_crops": 51
+  },
+  "positive_sites": {
+    "de_bad_lauchstaedt": [
+      "de_bad_lauchstaedt_T32UQC_20230109_enh12",
+      "de_bad_lauchstaedt_T32UQC_20230208_enh11",
+      "de_bad_lauchstaedt_T32UQC_20230216_enh16"
+    ],
+    "de_weisweiler": [
+      "de_weisweiler_T31UGS_20240918_enh18"
+    ],
+    "nl_bergermeer": [
+      "nl_bergermeer_T31UFU_20230126_enh16"
+    ],
+    "nl_grijpskerk": [
+      "nl_grijpskerk_T31UGV_20230208_enh13"
+    ],
+    "ro_totea": [
+      "ro_totea_T35TLK_20230101_enh24",
+      "ro_totea_T35TLK_20230115_enh10",
+      "ro_totea_T35TLK_20230221_enh18"
+    ],
+    "silesia_knurow": [
+      "silesia_knurow_T34UCA_20230215_enh11"
+    ],
+    "silesia_pniowek": [
+      "silesia_pniowek_T34UCB_20230301_enh17"
+    ],
+    "silesia_rybnik": [
+      "silesia_rybnik_T34UCA_20240628_enh19"
+    ],
+    "silesia_zofiowka": [
+      "silesia_zofiowka_T34UCB_20230101_enh10",
+      "silesia_zofiowka_T34UCB_20230301_enh16"
+    ]
+  },
+  "negative_sites": {
+    "belchatow": [
+      "belchatow_T34UCB_20240824"
+    ],
+    "ctrl_dk_jutland": [
+      "ctrl_dk_jutland_T32VNH_20240831"
+    ],
+    "ctrl_nl_flevoland": [
+      "ctrl_nl_flevoland_T31UFU_20240819"
+    ],
+    "ctrl_ro_wallachia": [
+      "ctrl_ro_wallachia_T35TLK_20240825"
+    ],
+    "dunkerque": [
+      "dunkerque_T31UDS_20240827"
+    ],
+    "groningen_gas_field": [
+      "groningen_gas_field_T31UGV_20240628",
+      "groningen_gas_field_T31UGV_20240817"
+    ],
+    "groningen_polder_E": [
+      "groningen_polder_E_T31UGV_20240628",
+      "groningen_polder_E_T31UGV_20240817"
+    ],
+    "groningen_polder_NW": [
+      "groningen_polder_NW_T31UGV_20240628"
+    ],
+    "groningen_polder_N": [
+      "groningen_polder_N_T31UGV_20240628",
+      "groningen_polder_N_T31UGV_20240817"
+    ],
+    "groningen_polder_SE": [
+      "groningen_polder_SE_T31UGV_20240628"
+    ],
+    "groningen_polder_SW": [
+      "groningen_polder_SW_T31UGV_20240628",
+      "groningen_polder_SW_T31UGV_20240817"
+    ],
+    "janschwalde": [
+      "janschwalde_T33UVT_20240827"
+    ],
+    "larobla": [
+      "larobla_T29TQH_20240828"
+    ],
+    "maritsa_east2": [
+      "maritsa_east2_T35TMG_20240827"
+    ],
+    "neurath": [
+      "neurath_T32ULB_20240920"
+    ],
+    "philippsburg": [
+      "philippsburg_T32UMV_20240828"
+    ],
+    "rovinari": [
+      "rovinari_T34TFQ_20240825"
+    ],
+    "tusimice": [
+      "tusimice_T33UUR_20240828"
+    ]
+  },
+  "synthetic_sources": {
+    "belchatow": 3,
+    "ctrl_dk_jutland": 3,
+    "ctrl_nl_flevoland": 3,
+    "ctrl_ro_wallachia": 3,
+    "dunkerque": 3,
+    "groningen_gas_field": 6,
+    "groningen_polder_E": 6,
+    "groningen_polder_NW": 3,
+    "groningen_polder_N": 6,
+    "groningen_polder_SW": 3,
+    "larobla": 3,
+    "maritsa_east2": 3,
+    "rovinari": 3,
+    "tusimice": 3
+  },
+  "candidate_classification": {
+    "belchatow": "training_negative_and_synthetic_substrate",
+    "rybnik": "training_positive",
+    "weisweiler": "training_positive",
+    "lippendorf": "held_out",
+    "neurath": "training_negative",
+    "boxberg": "held_out",
+    "groningen": "training_negative_and_synthetic_substrate",
+    "maasvlakte": "held_out"
+  }
+}

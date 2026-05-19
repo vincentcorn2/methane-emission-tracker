@@ -1,13 +1,8 @@
 {
-  "belchatow": {
-    "status": "cached",
-    "file": "data/npy_cache/S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
-    "tile_id": "T34UCB"
-  },
-  "lippendorf": {
+  "maritsa_east_2": {
     "status": "ok",
-    "tile_id": "T33UUS",
-    "npy": "data/npy_cache/S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.npy",
-    "meta": "data/npy_cache/S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318_geo.json"
+    "tile_id": "T35TMG",
+    "npy": "data/npy_cache/S2B_MSIL1C_20240928T085649_N0511_R007_T35TMG_20240928T113459.npy",
+    "meta": "data/npy_cache/S2B_MSIL1C_20240928T085649_N0511_R007_T35TMG_20240928T113459_geo.json"
   }
 }

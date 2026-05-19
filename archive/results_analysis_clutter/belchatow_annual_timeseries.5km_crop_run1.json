@@ -1,0 +1,452 @@
+{
+  "year": 2024,
+  "site": "belchatow",
+  "records": [
+    {
+      "month": "2024-01",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-01-29T09:42:41.024000Z"
+      }
+    },
+    {
+      "month": "2024-02",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-02-16T09:50:29.024000Z"
+      }
+    },
+    {
+      "month": "2024-03",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-03-09T09:40:31.024000Z"
+      }
+    },
+    {
+      "month": "2024-04",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-04-11T09:50:31.024000Z"
+      }
+    },
+    {
+      "month": "2024-05",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-05-26T09:45:49.024000Z"
+      }
+    },
+    {
+      "month": "2024-06",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-06-17T09:40:41.024000Z"
+      }
+    },
+    {
+      "month": "2024-07",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-07-30T09:50:31.024000Z"
+      }
+    },
+    {
+      "month": "2024-08",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-08-24T09:45:49.024000Z"
+      }
+    },
+    {
+      "month": "2024-09",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-09-25T09:40:31.024000Z"
+      }
+    },
+    {
+      "month": "2024-10",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-10-28T09:51:21.024000Z"
+      }
+    },
+    {
+      "month": "2024-11",
+      "search": {
+        "status": "would_download",
+        "product_name": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-11-27T09:53:41.024000Z"
+      }
+    },
+    {
+      "month": "2024-12",
+      "search": {
+        "status": "search_failed",
+        "error": "HTTPSConnectionPool(host='catalogue.dataspace.copernicus.eu', port=443): Read timed out. (read timeout=60)"
+      }
+    },
+    {
+      "month": "2024-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-01-29T09:42:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.8031,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.530049,
+        "ctrl_sigma": 0.147569,
+        "cv_ctrl": 0.2784,
+        "cfar_thresh_ratio": 1.9852,
+        "cfar_detect": false,
+        "cfar_margin": -1.1821
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2024-01",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-01-29T09:42:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.8031,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.530049,
+        "ctrl_sigma": 0.147569,
+        "cv_ctrl": 0.2784,
+        "cfar_thresh_ratio": 1.9852,
+        "cfar_detect": false,
+        "cfar_margin": -1.1821
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2024-02",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-02-16T09:50:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.tif",
+        "sc_ratio": 1.7692,
+        "sc_cfar": 1.5888,
+        "site_mean": 0.152548,
+        "ctrl_mean": 0.086225,
+        "ctrl_mu": 0.096014,
+        "ctrl_sigma": 0.036914,
+        "cv_ctrl": 0.3845,
+        "cfar_thresh_ratio": 2.3034,
+        "cfar_detect": false,
+        "cfar_margin": -0.7146
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.7692,
+        "flow_rate_kgh": 4388.51,
+        "flow_rate_lower_kgh": 3071.96,
+        "flow_rate_upper_kgh": 5705.06,
+        "wind_speed_ms": 4.7939,
+        "wind_dir_deg": 174.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 38443.3476,
+        "n_plume_pixels": 3133677,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-03",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-03-09T09:40:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.1873,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.358533,
+        "ctrl_sigma": 0.094991,
+        "cv_ctrl": 0.2649,
+        "cfar_thresh_ratio": 1.9448,
+        "cfar_detect": false,
+        "cfar_margin": -0.7575
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2024-04",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-04-11T09:50:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+        "sc_ratio": 10.9319,
+        "sc_cfar": 10.4231,
+        "site_mean": 0.067508,
+        "ctrl_mean": 0.006175,
+        "ctrl_mu": 0.006477,
+        "ctrl_sigma": 0.004387,
+        "cv_ctrl": 0.6774,
+        "cfar_thresh_ratio": 3.1821,
+        "cfar_detect": true,
+        "cfar_margin": 7.241
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 10.9319,
+        "flow_rate_kgh": 25043.81,
+        "flow_rate_lower_kgh": 17530.67,
+        "flow_rate_upper_kgh": 32556.95,
+        "wind_speed_ms": 1.2647,
+        "wind_dir_deg": 263.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 219383.7756,
+        "n_plume_pixels": 6203771,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-05-26T09:45:49.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+        "sc_ratio": 187.0703,
+        "sc_cfar": 126.8366,
+        "site_mean": 0.044552,
+        "ctrl_mean": 0.000238,
+        "ctrl_mu": 0.000351,
+        "ctrl_sigma": 0.00032,
+        "cv_ctrl": 0.9105,
+        "cfar_thresh_ratio": 3.8815,
+        "cfar_detect": true,
+        "cfar_margin": 122.9551
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 187.0703,
+        "flow_rate_kgh": 1485.43,
+        "flow_rate_lower_kgh": 1039.8,
+        "flow_rate_upper_kgh": 1931.06,
+        "wind_speed_ms": 1.7997,
+        "wind_dir_deg": 99.5,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 13012.3668,
+        "n_plume_pixels": 252944,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-06",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-06-17T09:40:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4999,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.28382,
+        "ctrl_sigma": 0.200651,
+        "cv_ctrl": 0.707,
+        "cfar_thresh_ratio": 3.2709,
+        "cfar_detect": false,
+        "cfar_margin": -1.771
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2024-07",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-07-30T09:50:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+        "sc_ratio": 1007.2355,
+        "sc_cfar": 224.4077,
+        "site_mean": 0.077059,
+        "ctrl_mean": 7.7e-05,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000394,
+        "cv_ctrl": 1.1465,
+        "cfar_thresh_ratio": 4.5895,
+        "cfar_detect": true,
+        "cfar_margin": 219.8182
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1007.2355,
+        "flow_rate_kgh": 2742.05,
+        "flow_rate_lower_kgh": 1919.44,
+        "flow_rate_upper_kgh": 3564.67,
+        "wind_speed_ms": 3.542,
+        "wind_dir_deg": 295.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 24020.358,
+        "n_plume_pixels": 508080,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-08",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-08-24T09:45:49.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+        "sc_ratio": 27.3032,
+        "sc_cfar": 2.6631,
+        "site_mean": 0.001062,
+        "ctrl_mean": 3.9e-05,
+        "ctrl_mu": 0.000399,
+        "ctrl_sigma": 0.000504,
+        "cv_ctrl": 1.2651,
+        "cfar_thresh_ratio": 4.9453,
+        "cfar_detect": false,
+        "cfar_margin": -2.2821
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 27.3032,
+        "flow_rate_kgh": 35.34,
+        "flow_rate_lower_kgh": 24.74,
+        "flow_rate_upper_kgh": 45.94,
+        "wind_speed_ms": 1.3816,
+        "wind_dir_deg": 184.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 309.5784,
+        "n_plume_pixels": 40944,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-09",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.SAFE"
+      }
+    },
+    {
+      "month": "2024-10",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.SAFE"
+      }
+    },
+    {
+      "month": "2024-11",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.SAFE"
+      }
+    },
+    {
+      "month": "2024-12",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.SAFE"
+      }
+    }
+  ],
+  "summary": {
+    "year": 2024,
+    "site": "belchatow",
+    "acquisitions_processed": 9,
+    "detections_above_threshold": 5,
+    "detections_above_tau": 4,
+    "detections_cfar_pass": 3,
+    "detection_rate": 0.2,
+    "mean_flow_kg_h": 6739.028,
+    "median_flow_kg_h": 2742.05,
+    "min_flow_kg_h": 35.34,
+    "max_flow_kg_h": 25043.81,
+    "annualised_t_per_yr": 59033.88528,
+    "annualised_t_per_yr_detection_weighted": 11806.777056
+  }
+}

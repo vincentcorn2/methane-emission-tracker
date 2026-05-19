@@ -1,0 +1,432 @@
+{
+  "belchatow": {
+    "lat": 51.266,
+    "lon": 19.315,
+    "operator": "PGE",
+    "country": "PL",
+    "mw": 4830,
+    "fuel": "lignite",
+    "label": "\u2713 confirmed",
+    "p_detect": 1.0,
+    "p_detect_lo_95": 0.896,
+    "p_detect_hi_95": 1.0,
+    "n_valid_dates": 33,
+    "n_detections": 33,
+    "mean_sc_detected": 441.343,
+    "dates": {
+      "20210402": {
+        "sc_ratio": 5.8046,
+        "site_mean": 0.463927,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 8.00\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210401T120031_20210401T134201_17963_01_010400_20210403T054632.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20210427": {
+        "sc_ratio": 8.7846,
+        "site_mean": 0.744702,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 15.48\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210426T123449_20210426T141619_18318_01_010400_20210428T055831.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20210621": {
+        "sc_ratio": 305.5926,
+        "site_mean": 0.022458,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 14.83\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210620T120523_20210620T134652_19098_01_010400_20210622T054333.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20210711": {
+        "sc_ratio": 25.0416,
+        "site_mean": 0.175702,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 14.24\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210710T123024_20210710T141153_19382_02_020200_20210712T190932.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20210815": {
+        "sc_ratio": 1.3023,
+        "site_mean": 0.06486,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 26.20\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210814T131243_20210814T145412_19879_02_020200_20210816T062635.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20210909": {
+        "sc_ratio": 414.1344,
+        "site_mean": 0.02732,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "site_xch4": 1880.46,
+          "bg_xch4": 1867.72,
+          "enhancement": 12.74,
+          "qa_at_site": 1.0,
+          "n_bg_pixels": 150,
+          "dist_to_site_deg": 0.1141
+        },
+        "trop_detect": true,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20210910T112220_20210910T130350_20261_02_020200_20210912T045430.nc",
+        "assessment": "\u2713\u2713 DUAL-SENSOR CONFIRM"
+      },
+      "20211029": {
+        "sc_ratio": 3.87,
+        "site_mean": 0.126101,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 21.28\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20211030T122031_20211030T140201_20971_02_020200_20211101T043840.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20211203": {
+        "sc_ratio": 1.1604,
+        "site_mean": 0.338243,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 15.01\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20211202T115910_20211202T134040_21439_02_020301_20211204T041902.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20220611": {
+        "sc_ratio": 1.5512,
+        "site_mean": 0.500727,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 9.23\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20220612T121159_20220612T135329_24163_02_020301_20220614T041608.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20220626": {
+        "sc_ratio": 507.3061,
+        "site_mean": 0.040214,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 24.87\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20220625T130913_20220625T145043_24348_02_020301_20220627T051102.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20220701": {
+        "sc_ratio": 226.6399,
+        "site_mean": 0.012663,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 25.90\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20220630T131531_20220630T145701_24419_02_020301_20220702T051248.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20220825": {
+        "sc_ratio": 7047.7156,
+        "site_mean": 0.245151,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: inf\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20220822T113725_20220822T131854_25170_03_020400_20220825T175718.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20221014": {
+        "sc_ratio": 1.4302,
+        "site_mean": 0.323635,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 24.35\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20221015T130012_20221015T144142_25937_03_020400_20221017T051441.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230422": {
+        "sc_ratio": 101.7683,
+        "site_mean": 0.005547,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 19.10\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230421T124335_20230421T142505_28604_03_020500_20230423T045247.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230512": {
+        "sc_ratio": 309.4584,
+        "site_mean": 0.053658,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 24.81\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230511T131103_20230511T145233_28888_03_020500_20230513T052839.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230527": {
+        "sc_ratio": 411.0314,
+        "site_mean": 0.131845,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 0.69\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230528T111122_20230528T125252_29128_03_020500_20230530T032325.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230611": {
+        "sc_ratio": 356.3333,
+        "site_mean": 0.074852,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 9.07\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230610T120841_20230610T135011_29313_03_020500_20230612T043808.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230815": {
+        "sc_ratio": 1033.4831,
+        "site_mean": 0.058571,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: inf\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230816T110717_20230816T124846_30263_03_020500_20230818T085748.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230820": {
+        "sc_ratio": 135.8363,
+        "site_mean": 0.006748,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: inf\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230821T111300_20230821T125429_30334_03_020500_20230823T033010.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20230929": {
+        "sc_ratio": 182.956,
+        "site_mean": 0.013322,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 17.23\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20230928T123752_20230928T141922_30874_03_020500_20230930T045542.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20231218": {
+        "sc_ratio": 1.9915,
+        "site_mean": 0.912614,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 19.54\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20231217T123021_20231217T141151_32009_03_020600_20231219T050451.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240216": {
+        "sc_ratio": 1.7692,
+        "site_mean": 0.152548,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 16.10\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240214T122653_20240214T140823_32846_03_020600_20240216T045214.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240411": {
+        "sc_ratio": 10.9319,
+        "site_mean": 0.067508,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 1.67\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240412T110512_20240412T124642_33668_03_020600_20240415T160916.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240516": {
+        "sc_ratio": 126.6698,
+        "site_mean": 0.051828,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 18.27\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240515T123023_20240515T141153_34137_03_020600_20240517T044440.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240526": {
+        "sc_ratio": 187.0703,
+        "site_mean": 0.044552,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 18.11\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240525T124325_20240525T142454_34279_03_020600_20240527T045711.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240605": {
+        "sc_ratio": 9.4837,
+        "site_mean": 0.178941,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 11.59\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240606T121810_20240606T135940_34449_03_020600_20240611T174142.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240617": {
+        "sc_ratio": 1.0,
+        "site_mean": 0.425702,
+        "is_bad_scene": true,
+        "s2_detect": false,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 15.13\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240616T123110_20240616T141239_34591_03_020600_20240618T045433.nc",
+        "assessment": "\u2014 bad S2 scene"
+      },
+      "20240710": {
+        "sc_ratio": 142.9783,
+        "site_mean": 0.025282,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 3.06\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240711T112111_20240711T130240_34945_03_020600_20240713T065246.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240730": {
+        "sc_ratio": 1007.2355,
+        "site_mean": 0.077059,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 0.43\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240801T112621_20240801T130751_35243_03_020600_20240808T044638.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240814": {
+        "sc_ratio": 773.9999,
+        "site_mean": 0.027071,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 18.02\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240813T124127_20240813T142256_35414_03_020600_20240816T000202.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240824": {
+        "sc_ratio": 27.3032,
+        "site_mean": 0.001062,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 13.10\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240825T121446_20240825T135615_35584_03_020600_20240827T041940.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20240918": {
+        "sc_ratio": 546.3116,
+        "site_mean": 0.04352,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 0.94\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20240919T110225_20240919T124355_35938_03_020701_20240921T030529.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20241018": {
+        "sc_ratio": 630.7583,
+        "site_mean": 0.086242,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 19.63\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20241017T121525_20241017T135654_36336_03_020701_20241019T070547.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      },
+      "20241028": {
+        "sc_ratio": 16.6146,
+        "site_mean": 0.390775,
+        "is_bad_scene": false,
+        "s2_detect": true,
+        "tropomi": {
+          "error": "site not in orbit swath (nearest valid pixel: 15.65\u00b0)"
+        },
+        "trop_detect": false,
+        "nc_file": "data/downloads/tropomi/S5P_OFFL_L2__CH4____20241027T122652_20241027T140821_36478_03_020701_20241029T044131.nc",
+        "assessment": "\u2713  S2-only (plume below TROPOMI sensitivity or no orbit)"
+      }
+    }
+  }
+}

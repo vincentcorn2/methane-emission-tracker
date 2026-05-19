@@ -1,40 +1,121 @@
 {
   "meta": {
-    "changelog": "Hot-patch: Lippendorf excluded as confirmed terrain artefact; Groningen excluded as CFAR-suppressed false positive. No other sites re-quantified; full re-run pending Phase 2.",
-    "excluded_sites": [
-      "lippendorf",
-      "groningen"
+    "pipeline": "run_pipeline.py",
+    "portfolio": [
+      "RWE.DE",
+      "PGE.WA",
+      "SHEL.L",
+      "UN01.DE"
     ],
-    "exclusion_reasons": {
-      "lippendorf": "terrain_artifact",
-      "groningen": "cfar_suppressed_false_positive"
+    "cemf_sites": [
+      "neurath",
+      "belchatow"
+    ]
+  },
+  "site_risk_summary": {
+    "weisweiler": {
+      "tier": "HIGH",
+      "carbon_liability_eur": 8098460.0,
+      "p_detect": 1.0,
+      "flow_rate_kgh": 561.5,
+      "flow_source": null
+    },
+    "neurath": {
+      "tier": "HIGH",
+      "carbon_liability_eur": 5141636.0,
+      "p_detect": 0.6667,
+      "flow_rate_kgh": 534.71,
+      "flow_source": null
+    },
+    "niederaussem": {
+      "tier": "UNDETECTED",
+      "carbon_liability_eur": null,
+      "p_detect": 0.0,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "lippendorf": {
+      "tier": "EXCLUDED",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "boxberg": {
+      "tier": "MEDIUM",
+      "carbon_liability_eur": 144434764.0,
+      "p_detect": 0.3333,
+      "flow_rate_kgh": 30045.8,
+      "flow_source": null
+    },
+    "jaenschwalde": {
+      "tier": "NO_DATA",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "schwarze_pumpe": {
+      "tier": "NO_DATA",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "belchatow": {
+      "tier": "HIGH",
+      "carbon_liability_eur": 6150216.0,
+      "p_detect": 1.0,
+      "flow_rate_kgh": 426.42,
+      "flow_source": null
+    },
+    "rybnik": {
+      "tier": "NO_DATA",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "turow": {
+      "tier": "NO_DATA",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
+    },
+    "maasvlakte": {
+      "tier": "NO_DATA",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": 426.5,
+      "flow_source": null
+    },
+    "groningen": {
+      "tier": "EXCLUDED",
+      "carbon_liability_eur": null,
+      "p_detect": null,
+      "flow_rate_kgh": null,
+      "flow_source": null
     }
   },
-  "portfolio_npv_mean_eur": {
-    "orderly": 306687083.20666695,
-    "disorderly": 368580310.9579694,
-    "hot_house": 190708992.10757956
-  },
-  "portfolio_terminal_mean_eur": {
-    "orderly": 50838186.80818458,
-    "disorderly": 82511003.98346612,
-    "hot_house": 20677028.808654144
-  },
-  "portfolio_terminal_var95_eur": {
-    "orderly": 111482611.67448977,
-    "disorderly": 200647468.94994926,
-    "hot_house": 44405559.69802019
-  },
-  "portfolio_terminal_cvar95_eur": {
-    "orderly": 144676520.4527785,
-    "disorderly": 275360385.1687002,
-    "hot_house": 57061081.49183686
-  },
-  "scenarios_run": [
-    "orderly",
-    "disorderly",
-    "hot_house"
-  ],
-  "n_paths": 50000,
-  "horizon_years": 10
+  "portfolio_scenarios": {
+    "orderly": {
+      "npv_mean_eur": 229108238.0824853,
+      "terminal_mean_eur": 37988557.453381084,
+      "terminal_var95_eur": 67678390.64224637,
+      "terminal_cvar95_eur": 80478023.41543716
+    },
+    "disorderly": {
+      "npv_mean_eur": 275486582.85247403,
+      "terminal_mean_eur": 61685913.09285429,
+      "terminal_var95_eur": 130223328.48829138,
+      "terminal_cvar95_eur": 165801774.9545721
+    },
+    "hot_house": {
+      "npv_mean_eur": 142319197.25452507,
+      "terminal_mean_eur": 15435575.78274126,
+      "terminal_var95_eur": 26681875.574171893,
+      "terminal_cvar95_eur": 31302367.251257136
+    }
+  }
 }

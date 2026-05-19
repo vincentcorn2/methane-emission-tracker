@@ -1,0 +1,852 @@
+{
+  "years": [
+    2024
+  ],
+  "site": "belchatow",
+  "records": [
+    {
+      "month": "2021-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-01-04T09:44:11.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 0.9802,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.434298,
+          "ctrl_sigma": 0.012156,
+          "cv_ctrl": 0.028,
+          "cfar_thresh_ratio": 1.234,
+          "cfar_detect": false,
+          "cfar_margin": -0.2538
+        }
+      }
+    },
+    {
+      "month": "2021-02",
+      "search": {
+        "status": "download_failed",
+        "error": "[Errno 28] No space left on device",
+        "product_name": "S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.SAFE"
+      }
+    },
+    {
+      "month": "2021-03",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2B_MSIL1C_20210330T094029_N0500_R036_T34UCB_20230528T184205.SAFE"
+      }
+    },
+    {
+      "month": "2021-04",
+      "search": {
+        "status": "download_failed",
+        "error": "[Errno 28] No space left on device",
+        "product_name": "S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.SAFE"
+      }
+    },
+    {
+      "month": "2021-05",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2B_MSIL1C_20210512T095029_N0500_R079_T34UCB_20230331T132610.SAFE"
+      }
+    },
+    {
+      "month": "2021-06",
+      "search": {
+        "status": "download_failed",
+        "error": "[Errno 28] No space left on device",
+        "product_name": "S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.SAFE"
+      }
+    },
+    {
+      "month": "2021-07",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20210713T094031_N0500_R036_T34UCB_20230206T034246.SAFE",
+        "product_name": "S2A_MSIL1C_20210713T094031_N0500_R036_T34UCB_20230206T034246.SAFE"
+      }
+    },
+    {
+      "month": "2021-08",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20210815T095031_N0500_R079_T34UCB_20230213T012951.SAFE",
+        "product_name": "S2A_MSIL1C_20210815T095031_N0500_R079_T34UCB_20230213T012951.SAFE"
+      }
+    },
+    {
+      "month": "2021-09",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20210921T094031_N0500_R036_T34UCB_20230121T063456.SAFE",
+        "product_name": "S2A_MSIL1C_20210921T094031_N0500_R036_T34UCB_20230121T063456.SAFE"
+      }
+    },
+    {
+      "month": "2021-10",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20211031T094141_N0500_R036_T34UCB_20230115T233621.SAFE",
+        "product_name": "S2A_MSIL1C_20211031T094141_N0500_R036_T34UCB_20230115T233621.SAFE"
+      }
+    },
+    {
+      "month": "2021-11",
+      "search": {
+        "status": "download_failed",
+        "error": "1446724800 requested and 0 written",
+        "product_name": "S2B_MSIL1C_20211125T094229_N0500_R036_T34UCB_20230105T165518.SAFE"
+      }
+    },
+    {
+      "month": "2021-12",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20211203T095401_N0500_R079_T34UCB_20221223T093200.SAFE",
+        "product_name": "S2A_MSIL1C_20211203T095401_N0500_R079_T34UCB_20221223T093200.SAFE"
+      }
+    },
+    {
+      "month": "2022-01",
+      "search": {
+        "status": "download_failed",
+        "error": "[Errno 28] No space left on device",
+        "product_name": "S2A_MSIL1C_20220109T094401_N0510_R036_T34UCB_20240426T053926.SAFE"
+      }
+    },
+    {
+      "month": "2022-02",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220228T094031_N0510_R036_T34UCB_20240524T042405.SAFE",
+        "product_name": "S2A_MSIL1C_20220228T094031_N0510_R036_T34UCB_20240524T042405.SAFE"
+      }
+    },
+    {
+      "month": "2022-03",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20220328T095029_N0510_R079_T34UCB_20240525T204713.SAFE",
+        "product_name": "S2B_MSIL1C_20220328T095029_N0510_R079_T34UCB_20240525T204713.SAFE"
+      }
+    },
+    {
+      "month": "2022-04",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220412T095031_N0510_R079_T34UCB_20240528T085241.SAFE",
+        "product_name": "S2A_MSIL1C_20220412T095031_N0510_R079_T34UCB_20240528T085241.SAFE"
+      }
+    },
+    {
+      "month": "2022-05",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220509T094041_N0510_R036_T34UCB_20240617T104913.SAFE",
+        "product_name": "S2A_MSIL1C_20220509T094041_N0510_R036_T34UCB_20240617T104913.SAFE"
+      }
+    },
+    {
+      "month": "2022-06",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.SAFE",
+        "product_name": "S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.SAFE"
+      }
+    },
+    {
+      "month": "2022-07",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220728T094041_N0510_R036_T34UCB_20240717T072649.SAFE",
+        "product_name": "S2A_MSIL1C_20220728T094041_N0510_R036_T34UCB_20240717T072649.SAFE"
+      }
+    },
+    {
+      "month": "2022-08",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220827T093601_N0510_R036_T34UCB_20240717T103157.SAFE",
+        "product_name": "S2A_MSIL1C_20220827T093601_N0510_R036_T34UCB_20240717T103157.SAFE"
+      }
+    },
+    {
+      "month": "2022-09",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20220906T093601_N0510_R036_T34UCB_20240727T145423.SAFE",
+        "product_name": "S2A_MSIL1C_20220906T093601_N0510_R036_T34UCB_20240727T145423.SAFE"
+      }
+    },
+    {
+      "month": "2022-10",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20221031T094039_N0510_R036_T34UCB_20240722T151115.SAFE",
+        "product_name": "S2B_MSIL1C_20221031T094039_N0510_R036_T34UCB_20240722T151115.SAFE"
+      }
+    },
+    {
+      "month": "2022-11",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20221120T094219_N0510_R036_T34UCB_20240804T031237.SAFE",
+        "product_name": "S2B_MSIL1C_20221120T094219_N0510_R036_T34UCB_20240804T031237.SAFE"
+      }
+    },
+    {
+      "month": "2022-12",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20221225T094411_N0510_R036_T34UCB_20240809T140420.SAFE",
+        "product_name": "S2A_MSIL1C_20221225T094411_N0510_R036_T34UCB_20240809T140420.SAFE"
+      }
+    },
+    {
+      "month": "2023-01",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230112T095249_N0510_R079_T34UCB_20240810T185544.SAFE",
+        "product_name": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCB_20240810T185544.SAFE"
+      }
+    },
+    {
+      "month": "2023-02",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230228T094029_N0510_R036_T34UCB_20240821T090105.SAFE",
+        "product_name": "S2B_MSIL1C_20230228T094029_N0510_R036_T34UCB_20240821T090105.SAFE"
+      }
+    },
+    {
+      "month": "2023-03",
+      "search": {
+        "status": "no_products",
+        "month": "2023-03"
+      }
+    },
+    {
+      "month": "2023-04",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.SAFE",
+        "product_name": "S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.SAFE"
+      }
+    },
+    {
+      "month": "2023-05",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.SAFE",
+        "product_name": "S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.SAFE"
+      }
+    },
+    {
+      "month": "2023-06",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.SAFE",
+        "product_name": "S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.SAFE"
+      }
+    },
+    {
+      "month": "2023-07",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230718T093549_N0509_R036_T34UCB_20230718T102940.SAFE",
+        "product_name": "S2B_MSIL1C_20230718T093549_N0509_R036_T34UCB_20230718T102940.SAFE"
+      }
+    },
+    {
+      "month": "2023-08",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20230822T094041_N0510_R036_T34UCB_20241018T224539.SAFE",
+        "product_name": "S2A_MSIL1C_20230822T094041_N0510_R036_T34UCB_20241018T224539.SAFE"
+      }
+    },
+    {
+      "month": "2023-09",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.SAFE",
+        "product_name": "S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.SAFE"
+      }
+    },
+    {
+      "month": "2023-10",
+      "search": {
+        "status": "no_products",
+        "month": "2023-10"
+      }
+    },
+    {
+      "month": "2023-11",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20231108T095129_N0510_R079_T34UCB_20241106T214931.SAFE",
+        "product_name": "S2B_MSIL1C_20231108T095129_N0510_R079_T34UCB_20241106T214931.SAFE"
+      }
+    },
+    {
+      "month": "2023-12",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2B_MSIL1C_20231218T095329_N0510_R079_T34UCB_20231218T104146.SAFE",
+        "product_name": "S2B_MSIL1C_20231218T095329_N0510_R079_T34UCB_20231218T104146.SAFE"
+      }
+    },
+    {
+      "month": "2024-01",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-01-29T09:42:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 0.8031,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.530049,
+          "ctrl_sigma": 0.147569,
+          "cv_ctrl": 0.2784,
+          "cfar_thresh_ratio": 1.9852,
+          "cfar_detect": false,
+          "cfar_margin": -1.1821
+        }
+      }
+    },
+    {
+      "month": "2024-02",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-02-16T09:50:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.tif",
+        "sc_ratio": 1.7692,
+        "sc_cfar": 1.5888,
+        "site_mean": 0.152548,
+        "ctrl_mean": 0.086225,
+        "ctrl_mu": 0.096014,
+        "ctrl_sigma": 0.036914,
+        "cv_ctrl": 0.3845,
+        "cfar_thresh_ratio": 2.3034,
+        "cfar_detect": false,
+        "cfar_margin": -0.7146
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.7692,
+        "flow_rate_kgh": 1592.91,
+        "flow_rate_lower_kgh": 1115.04,
+        "flow_rate_upper_kgh": 2070.78,
+        "wind_speed_ms": 4.7939,
+        "wind_dir_deg": 174.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 13953.8916,
+        "n_plume_pixels": 40288,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-03",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-03-09T09:40:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 1.1873,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.358533,
+          "ctrl_sigma": 0.094991,
+          "cv_ctrl": 0.2649,
+          "cfar_thresh_ratio": 1.9448,
+          "cfar_detect": false,
+          "cfar_margin": -0.7575
+        }
+      }
+    },
+    {
+      "month": "2024-04",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-04-11T09:50:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+        "sc_ratio": 10.9319,
+        "sc_cfar": 10.4231,
+        "site_mean": 0.067508,
+        "ctrl_mean": 0.006175,
+        "ctrl_mu": 0.006477,
+        "ctrl_sigma": 0.004387,
+        "cv_ctrl": 0.6774,
+        "cfar_thresh_ratio": 3.1821,
+        "cfar_detect": true,
+        "cfar_margin": 7.241
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 10.9319,
+        "flow_rate_kgh": 1852.94,
+        "flow_rate_lower_kgh": 1297.06,
+        "flow_rate_upper_kgh": 2408.82,
+        "wind_speed_ms": 1.2647,
+        "wind_dir_deg": 263.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 16231.7544,
+        "n_plume_pixels": 23888,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-05",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-05-26T09:45:49.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+        "sc_ratio": 187.0703,
+        "sc_cfar": 126.8366,
+        "site_mean": 0.044552,
+        "ctrl_mean": 0.000238,
+        "ctrl_mu": 0.000351,
+        "ctrl_sigma": 0.00032,
+        "cv_ctrl": 0.9105,
+        "cfar_thresh_ratio": 3.8815,
+        "cfar_detect": true,
+        "cfar_margin": 122.9551
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 187.0703,
+        "flow_rate_kgh": 189.79,
+        "flow_rate_lower_kgh": 132.85,
+        "flow_rate_upper_kgh": 246.73,
+        "wind_speed_ms": 1.7997,
+        "wind_dir_deg": 99.5,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 1662.5604,
+        "n_plume_pixels": 5365,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-06",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-06-17T09:40:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 1.4999,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.28382,
+          "ctrl_sigma": 0.200651,
+          "cv_ctrl": 0.707,
+          "cfar_thresh_ratio": 3.2709,
+          "cfar_detect": false,
+          "cfar_margin": -1.771
+        }
+      }
+    },
+    {
+      "month": "2024-07",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-07-30T09:50:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+        "sc_ratio": 1007.2355,
+        "sc_cfar": 224.4077,
+        "site_mean": 0.077059,
+        "ctrl_mean": 7.7e-05,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000394,
+        "cv_ctrl": 1.1465,
+        "cfar_thresh_ratio": 4.5895,
+        "cfar_detect": true,
+        "cfar_margin": 219.8182
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1007.2355,
+        "flow_rate_kgh": 505.07,
+        "flow_rate_lower_kgh": 353.55,
+        "flow_rate_upper_kgh": 656.59,
+        "wind_speed_ms": 3.542,
+        "wind_dir_deg": 295.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 4424.4132,
+        "n_plume_pixels": 5510,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-08",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-08-24T09:45:49.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+        "sc_ratio": 27.3032,
+        "sc_cfar": 2.6631,
+        "site_mean": 0.001062,
+        "ctrl_mean": 3.9e-05,
+        "ctrl_mu": 0.000399,
+        "ctrl_sigma": 0.000504,
+        "cv_ctrl": 1.2651,
+        "cfar_thresh_ratio": 4.9453,
+        "cfar_detect": false,
+        "cfar_margin": -2.2821
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 27.3032,
+        "flow_rate_kgh": 148.46,
+        "flow_rate_lower_kgh": 103.92,
+        "flow_rate_upper_kgh": 193.0,
+        "wind_speed_ms": 1.3816,
+        "wind_dir_deg": 184.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 1300.5096,
+        "n_plume_pixels": 4427,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-09",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-09-25T09:40:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 1.4978,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.284222,
+          "ctrl_sigma": 0.200082,
+          "cv_ctrl": 0.704,
+          "cfar_thresh_ratio": 3.2619,
+          "cfar_detect": false,
+          "cfar_margin": -1.7641
+        }
+      }
+    },
+    {
+      "month": "2024-10",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-10-28T09:51:21.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+        "sc_ratio": 16.6146,
+        "sc_cfar": 5.3435,
+        "site_mean": 0.390775,
+        "ctrl_mean": 0.02352,
+        "ctrl_mu": 0.07313,
+        "ctrl_sigma": 0.03592,
+        "cv_ctrl": 0.4912,
+        "cfar_thresh_ratio": 2.6235,
+        "cfar_detect": true,
+        "cfar_margin": 2.72
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 16.6146,
+        "flow_rate_kgh": 4029.91,
+        "flow_rate_lower_kgh": 2820.94,
+        "flow_rate_upper_kgh": 5238.88,
+        "wind_speed_ms": 2.6671,
+        "wind_dir_deg": 245.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 35302.0116,
+        "n_plume_pixels": 47269,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-11",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-11-27T09:53:41.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.tif",
+        "sc_ratio": 0.8355,
+        "sc_cfar": 0.8437,
+        "site_mean": 0.338208,
+        "ctrl_mean": 0.404816,
+        "ctrl_mu": 0.400885,
+        "ctrl_sigma": 0.041659,
+        "cv_ctrl": 0.1039,
+        "cfar_thresh_ratio": 1.4618,
+        "cfar_detect": false,
+        "cfar_margin": -0.6181
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.8355
+      }
+    },
+    {
+      "month": "2024-12",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-12-29T09:43:19.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.npy",
+      "detection": {
+        "status": "no_coverage",
+        "reason": "partial_swath_fingerprint",
+        "original": {
+          "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.tif",
+          "sc_ratio": 1.0,
+          "sc_cfar": 0.8947,
+          "site_mean": 0.425702,
+          "ctrl_mean": 0.425702,
+          "ctrl_mu": 0.475823,
+          "ctrl_sigma": 0.070882,
+          "cv_ctrl": 0.149,
+          "cfar_thresh_ratio": 1.5969,
+          "cfar_detect": false,
+          "cfar_margin": -0.7022
+        }
+      }
+    },
+    {
+      "acq_key": "2021-01-04/S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325",
+      "month": "2021-01",
+      "product_name": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.SAFE",
+      "search": {
+        "status": "cached",
+        "cloud_cover": null,
+        "acquisition_date": "2021-01-04T09:44:11.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.9802,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.434298,
+        "ctrl_sigma": 0.012156,
+        "cv_ctrl": 0.028,
+        "cfar_thresh_ratio": 1.234,
+        "cfar_detect": false,
+        "cfar_margin": -0.2538
+      }
+    },
+    {
+      "acq_key": "2021-02-26/S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243",
+      "month": "2021-02",
+      "product_name": "S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.SAFE",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2021-02-26T09:50:31.024000Z"
+      },
+      "npy": "S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.tif",
+        "sc_ratio": 1.1311,
+        "sc_cfar": 0.9852,
+        "site_mean": 0.204327,
+        "ctrl_mean": 0.180646,
+        "ctrl_mu": 0.207405,
+        "ctrl_sigma": 0.174743,
+        "cv_ctrl": 0.8425,
+        "cfar_thresh_ratio": 3.6776,
+        "cfar_detect": false,
+        "cfar_margin": -2.6924
+      }
+    },
+    {
+      "acq_key": "2021-02-21/S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254",
+      "month": "2021-02",
+      "product_name": "S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.SAFE",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2021-02-21T09:50:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.tif",
+        "sc_ratio": 0.6928,
+        "sc_cfar": 0.9065,
+        "site_mean": 0.566372,
+        "ctrl_mean": 0.817541,
+        "ctrl_mu": 0.624818,
+        "ctrl_sigma": 0.261324,
+        "cv_ctrl": 0.4182,
+        "cfar_thresh_ratio": 2.4047,
+        "cfar_detect": false,
+        "cfar_margin": -1.4983
+      }
+    },
+    {
+      "acq_key": "2021-03-30/S2B_MSIL1C_20210330T094029_N0500_R036_T34UCB_20230528T184205",
+      "month": "2021-03",
+      "product_name": "S2B_MSIL1C_20210330T094029_N0500_R036_T34UCB_20230528T184205.SAFE",
+      "search": {
+        "status": "cached",
+        "cloud_cover": null,
+        "acquisition_date": "2021-03-30T09:40:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20210330T094029_N0500_R036_T34UCB_20230528T184205.npy",
+      "detection": {
+        "status": "no_geo_meta"
+      }
+    },
+    {
+      "acq_key": "2021-03-10/S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236",
+      "month": "2021-03",
+      "product_name": "S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.SAFE",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2021-03-10T09:40:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.8621,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.493787,
+        "ctrl_sigma": 0.096287,
+        "cv_ctrl": 0.195,
+        "cfar_thresh_ratio": 1.735,
+        "cfar_detect": false,
+        "cfar_margin": -0.8729
+      }
+    },
+    {
+      "acq_key": "2021-03-03/S2B_MSIL1C_20210303T095029_N0500_R079_T34UCB_20230607T193428",
+      "month": "2021-03",
+      "product_name": "S2B_MSIL1C_20210303T095029_N0500_R079_T34UCB_20230607T193428.SAFE",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2021-03-03T09:50:29.024000Z"
+      },
+      "npy": "S2B_MSIL1C_20210303T095029_N0500_R079_T34UCB_20230607T193428.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210303T095029_N0500_R079_T34UCB_20230607T193428.tif",
+        "sc_ratio": 0.3639,
+        "sc_cfar": 0.6755,
+        "site_mean": 0.075034,
+        "ctrl_mean": 0.206214,
+        "ctrl_mu": 0.111078,
+        "ctrl_sigma": 0.083707,
+        "cv_ctrl": 0.7536,
+        "cfar_thresh_ratio": 3.4108,
+        "cfar_detect": false,
+        "cfar_margin": -2.7353
+      }
+    }
+  ],
+  "summary": {
+    "valid_acquisitions": 7,
+    "no_coverage_records": 6,
+    "detections_S_C_gt_1_15": 6,
+    "detections_above_tau": 5,
+    "detections_CFAR_confirmed": 4,
+    "mean_flow_kg_h": 1386.5,
+    "median_flow_kg_h": 1049.0,
+    "range_kg_h": [
+      148.5,
+      4029.9
+    ],
+    "annualised_continuous_t": 12146.0,
+    "annualised_continuous_t_lower": 8502.0,
+    "annualised_continuous_t_upper": 15790.0,
+    "annualised_det_weighted_t": 10411.0,
+    "climate_trace_2024_t": 29636,
+    "recovery_pct": 41.0,
+    "recovery_pct_lower": 28.7,
+    "recovery_pct_upper": 53.3
+  }
+}

@@ -1,0 +1,401 @@
+"""
+scripts/loo_detection_stability.py
+===================================
+Leave-one-out (LOO) stability analysis on the Bełchatów above-threshold
+detection record.
+
+Addresses Reviewer 2: "whether performance is dominated by a few scenes."
+
+Two LOO passes are run:
+
+  Pass A — scene-level LOO (N = all cfar_detect=True records, including
+            duplicate tiles covering the same month).  Treats each
+            independently-acquired scene as its own observation.
+
+  Pass B — month-level LOO (N = unique calendar months with ≥1 detection).
+            More conservative: counts a month as "detected" if any tile
+            over it fired.
+
+For each held-out positive, we recompute:
+  • detection_rate  = n_pos_remaining / n_usable_remaining
+  • mean_sc_cfar    of remaining positives
+  • median_sc_cfar
+  • Cook-D analog   = |metric_full − metric_loo| / metric_full  (relative influence)
+
+Outputs
+-------
+  results_analysis/loo_detection_stability.json   — full per-scene table
+  results_analysis/loo_detection_stability.png    — influence plot
+  (stdout)                                        — formatted table
+
+Usage
+-----
+    conda activate methane
+    python scripts/loo_detection_stability.py
+    python scripts/loo_detection_stability.py --pass b --plot
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import statistics
+from pathlib import Path
+
+import numpy as np
+
+ROOT         = Path(__file__).resolve().parent.parent
+TIMESERIES   = ROOT / "results_analysis" / "belchatow_annual_timeseries.json"
+OUT_JSON     = ROOT / "results_analysis" / "loo_detection_stability.json"
+OUT_PNG      = ROOT / "results_analysis" / "loo_detection_stability.png"
+
+# ── Load & parse ───────────────────────────────────────────────────────────────
+
+def load_records(path: Path) -> list[dict]:
+    raw = json.loads(path.read_text())
+    return raw["records"] if isinstance(raw, dict) else raw
+
+
+def extract_scenes(records: list[dict]) -> tuple[list[dict], list[dict]]:
+    """
+    Returns (positives, all_usable) where:
+      positives    — cfar_detect=True records (one entry per tile-scene)
+      all_usable   — records with a valid sc_cfar (positive + negative)
+    """
+    positives, all_usable = [], []
+    for r in records:
+        d = r.get("detection", {})
+        # skip nested partial-swath sub-dict
+        if "original" in d:
+            continue
+        sc = d.get("sc_cfar")
+        if sc is None:
+            continue
+        rec = {
+            "month":         r.get("month", ""),
+            "sc_cfar":       sc,
+            "cfar_detect":   bool(d.get("cfar_detect", False)),
+            "cfar_thresh":   d.get("cfar_thresh_ratio"),
+            "cfar_margin":   d.get("cfar_margin"),
+            "tif":           d.get("tif", ""),
+            "flow_kgh":      r.get("quantification", {}).get("flow_rate_kgh"),
+            "product":       r.get("search", {}).get("product_name", "")[:50],
+        }
+        all_usable.append(rec)
+        if rec["cfar_detect"]:
+            positives.append(rec)
+    return positives, all_usable
+
+
+def group_by_month(scenes: list[dict]) -> dict[str, list[dict]]:
+    out: dict[str, list] = {}
+    for s in scenes:
+        out.setdefault(s["month"], []).append(s)
+    return out
+
+# ── Metrics ────────────────────────────────────────────────────────────────────
+
+def compute_metrics(positives: list[dict], n_usable: int) -> dict:
+    if not positives:
+        return {"n_pos": 0, "n_usable": n_usable,
+                "detection_rate": 0.0,
+                "mean_sc_cfar": None, "median_sc_cfar": None,
+                "max_sc_cfar": None, "min_sc_cfar": None}
+    scs = [p["sc_cfar"] for p in positives]
+    return {
+        "n_pos":            len(positives),
+        "n_usable":         n_usable,
+        "detection_rate":   len(positives) / n_usable,
+        "mean_sc_cfar":     statistics.mean(scs),
+        "median_sc_cfar":   statistics.median(scs),
+        "max_sc_cfar":      max(scs),
+        "min_sc_cfar":      min(scs),
+    }
+
+
+def relative_influence(full_val: float | None, loo_val: float | None) -> float | None:
+    if full_val is None or loo_val is None or full_val == 0:
+        return None
+    return abs(full_val - loo_val) / abs(full_val)
+
+# ── LOO pass A — scene-level ───────────────────────────────────────────────────
+
+def loo_scene_pass(positives: list[dict], all_usable: list[dict]) -> list[dict]:
+    baseline = compute_metrics(positives, len(all_usable))
+    results  = []
+    for i, held_out in enumerate(positives):
+        remaining_pos = [p for j, p in enumerate(positives) if j != i]
+        remaining_use = [u for u in all_usable if u is not held_out]
+        loo_m         = compute_metrics(remaining_pos, len(remaining_use))
+
+        dr_full   = baseline["detection_rate"]
+        dr_loo    = loo_m["detection_rate"]
+        mean_full = baseline["mean_sc_cfar"]
+        mean_loo  = loo_m["mean_sc_cfar"]
+
+        results.append({
+            "held_out_month":    held_out["month"],
+            "held_out_sc_cfar":  held_out["sc_cfar"],
+            "held_out_product":  held_out["product"],
+            "loo_detection_rate":  dr_loo,
+            "delta_detect_rate":   dr_loo - dr_full,
+            "loo_mean_sc_cfar":    mean_loo,
+            "loo_median_sc_cfar":  loo_m["median_sc_cfar"],
+            "influence_detect_rate": relative_influence(dr_full, dr_loo),
+            "influence_mean_sc":     relative_influence(mean_full, mean_loo),
+        })
+    return results
+
+# ── LOO pass B — month-level ───────────────────────────────────────────────────
+
+def loo_month_pass(positives: list[dict], all_usable: list[dict]) -> list[dict]:
+    """
+    Month is 'detected' if any scene in that month fired.
+    LOO removes ALL scenes from the held-out month.
+    """
+    pos_by_month = group_by_month(positives)
+    use_by_month = group_by_month(all_usable)
+    unique_months = sorted(pos_by_month.keys())
+
+    # Baseline: 1 observation per month (detected if any scene fired)
+    n_pos_months   = len(unique_months)
+    n_total_months = len(use_by_month)
+    baseline_rate  = n_pos_months / n_total_months
+
+    # Baseline sc_cfar: max per month (the 'clearest' signal)
+    month_sc = {m: max(s["sc_cfar"] for s in ss) for m, ss in pos_by_month.items()}
+    baseline_mean   = statistics.mean(month_sc.values())
+    baseline_median = statistics.median(month_sc.values())
+
+    results = []
+    for held_month in unique_months:
+        rem_pos_months   = n_pos_months - 1
+        rem_total_months = n_total_months - 1
+        loo_rate         = rem_pos_months / rem_total_months if rem_total_months else 0.0
+
+        rem_sc           = {m: v for m, v in month_sc.items() if m != held_month}
+        loo_mean         = statistics.mean(rem_sc.values()) if rem_sc else None
+        loo_median       = statistics.median(rem_sc.values()) if rem_sc else None
+
+        results.append({
+            "held_out_month":        held_month,
+            "held_out_max_sc_cfar":  month_sc[held_month],
+            "n_scenes_in_month":     len(pos_by_month[held_month]),
+            "loo_detection_rate":    loo_rate,
+            "delta_detect_rate":     loo_rate - baseline_rate,
+            "loo_mean_sc_cfar":      loo_mean,
+            "loo_median_sc_cfar":    loo_median,
+            "influence_detect_rate": relative_influence(baseline_rate, loo_rate),
+            "influence_mean_sc":     relative_influence(baseline_mean, loo_mean),
+        })
+    return results
+
+# ── Formatting ─────────────────────────────────────────────────────────────────
+
+def print_pass_a(results: list[dict], baseline: dict) -> None:
+    print()
+    print("=" * 80)
+    print("LOO PASS A — SCENE-LEVEL")
+    print(f"  Baseline: n_pos={baseline['n_pos']}, n_usable={baseline['n_usable']}, "
+          f"detect_rate={baseline['detection_rate']:.4f}, "
+          f"mean_sc={baseline['mean_sc_cfar']:.2f}, "
+          f"median_sc={baseline['median_sc_cfar']:.2f}")
+    print("=" * 80)
+    header = (f"{'Month':<10} {'sc_cfar':>10} {'LOO_rate':>9} "
+              f"{'Δrate':>8} {'LOO_mean':>10} {'infl_rate':>10} {'infl_mean':>10}")
+    print(header)
+    print("-" * 80)
+    for r in sorted(results, key=lambda x: -x["held_out_sc_cfar"]):
+        infl_r = r["influence_detect_rate"]
+        infl_m = r["influence_mean_sc"]
+        print(f"{r['held_out_month']:<10} "
+              f"{r['held_out_sc_cfar']:>10.2f} "
+              f"{r['loo_detection_rate']:>9.4f} "
+              f"{r['delta_detect_rate']:>+8.4f} "
+              f"{r['loo_mean_sc_cfar']:>10.2f} "
+              f"{infl_r:>10.4f} "
+              f"{infl_m:>10.4f}")
+    max_infl = max(results, key=lambda x: x["influence_detect_rate"] or 0)
+    print()
+    print(f"  Most influential scene: {max_infl['held_out_month']} "
+          f"(sc_cfar={max_infl['held_out_sc_cfar']:.2f}, "
+          f"detect_rate influence={max_infl['influence_detect_rate']:.4f})")
+    rates = [r["loo_detection_rate"] for r in results]
+    print(f"  LOO detection rate range: [{min(rates):.4f}, {max(rates):.4f}] "
+          f"(baseline={baseline['detection_rate']:.4f})")
+    print(f"  Max Δrate: {max(abs(r['delta_detect_rate']) for r in results):.4f}")
+
+
+def print_pass_b(results: list[dict], n_pos: int, n_total: int) -> None:
+    baseline_rate = n_pos / n_total
+    print()
+    print("=" * 80)
+    print("LOO PASS B — MONTH-LEVEL  (month detected = any scene fired)")
+    print(f"  Baseline: n_months_detected={n_pos}/{n_total}, "
+          f"rate={baseline_rate:.4f}")
+    print("=" * 80)
+    header = (f"{'Month':<10} {'max_sc':>10} {'n_scenes':>9} "
+              f"{'LOO_rate':>9} {'Δrate':>8} {'infl_rate':>10}")
+    print(header)
+    print("-" * 80)
+    for r in sorted(results, key=lambda x: -x["held_out_max_sc_cfar"]):
+        print(f"{r['held_out_month']:<10} "
+              f"{r['held_out_max_sc_cfar']:>10.2f} "
+              f"{r['n_scenes_in_month']:>9d} "
+              f"{r['loo_detection_rate']:>9.4f} "
+              f"{r['delta_detect_rate']:>+8.4f} "
+              f"{r['influence_detect_rate']:>10.4f}")
+    rates = [r["loo_detection_rate"] for r in results]
+    print()
+    print(f"  LOO detection rate range: [{min(rates):.4f}, {max(rates):.4f}] "
+          f"(baseline={baseline_rate:.4f})")
+
+# ── Plot ───────────────────────────────────────────────────────────────────────
+
+def make_plot(pass_a: list[dict], pass_b: list[dict],
+              baseline_a: dict, n_pos_b: int, n_total_b: int) -> None:
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import matplotlib.gridspec as gridspec
+    except ImportError:
+        print("[plot] matplotlib not available — skipping plot.")
+        return
+
+    fig = plt.figure(figsize=(14, 10))
+    gs  = gridspec.GridSpec(2, 2, figure=fig, hspace=0.45, wspace=0.35)
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax2 = fig.add_subplot(gs[0, 1])
+    ax3 = fig.add_subplot(gs[1, :])
+
+    base_rate_a = baseline_a["detection_rate"]
+    base_rate_b = n_pos_b / n_total_b
+
+    # ── A: LOO detection rate (scene-level) ───────────────────────────────────
+    scs_a   = [r["held_out_sc_cfar"] for r in pass_a]
+    rates_a = [r["loo_detection_rate"] for r in pass_a]
+    ax1.scatter(scs_a, rates_a, c="steelblue", s=60, zorder=3)
+    ax1.axhline(base_rate_a, color="red", ls="--", lw=1.5, label=f"Baseline {base_rate_a:.4f}")
+    ax1.set_xscale("log")
+    ax1.set_xlabel("Held-out sc_cfar (log scale)")
+    ax1.set_ylabel("LOO detection rate")
+    ax1.set_title("Pass A — Scene-level LOO\nDetection rate stability")
+    ax1.legend(fontsize=8)
+    ax1.grid(True, alpha=0.3)
+
+    # ── B: LOO detection rate (month-level) ───────────────────────────────────
+    scs_b   = [r["held_out_max_sc_cfar"] for r in pass_b]
+    rates_b = [r["loo_detection_rate"] for r in pass_b]
+    ax2.scatter(scs_b, rates_b, c="darkorange", s=60, zorder=3)
+    ax2.axhline(base_rate_b, color="red", ls="--", lw=1.5, label=f"Baseline {base_rate_b:.4f}")
+    ax2.set_xscale("log")
+    ax2.set_xlabel("Held-out max sc_cfar (log scale)")
+    ax2.set_ylabel("LOO detection rate")
+    ax2.set_title("Pass B — Month-level LOO\nDetection rate stability")
+    ax2.legend(fontsize=8)
+    ax2.grid(True, alpha=0.3)
+
+    # ── C: sc_cfar distribution of all positives (sorted) ────────────────────
+    all_sc = sorted([r["held_out_sc_cfar"] for r in pass_a])
+    colors = ["#e74c3c" if sc == max(all_sc) else "#3498db" for sc in all_sc]
+    ax3.bar(range(len(all_sc)), all_sc, color=colors, edgecolor="white", linewidth=0.5)
+    ax3.set_yscale("log")
+    ax3.set_xlabel("Scene index (sorted by sc_cfar)")
+    ax3.set_ylabel("sc_cfar (log scale)")
+    ax3.set_title("sc_cfar distribution across all cfar_detect=True scenes\n"
+                  "(red = most influential; note log scale — distribution is right-skewed)")
+    ax3.axhline(baseline_a["median_sc_cfar"], color="green", ls="--",
+                lw=1.5, label=f"Median {baseline_a['median_sc_cfar']:.1f}")
+    ax3.legend(fontsize=8)
+    ax3.grid(True, alpha=0.3, axis="y")
+
+    fig.suptitle("Leave-One-Out Detection Stability — Bełchatów 2021–2024",
+                 fontsize=13, fontweight="bold", y=0.98)
+
+    OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(OUT_PNG, dpi=150, bbox_inches="tight")
+    print(f"\n[plot] Saved → {OUT_PNG}")
+    plt.close(fig)
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="LOO detection stability analysis for Bełchatów timeseries."
+    )
+    parser.add_argument("--pass", dest="loo_pass", choices=["a", "b", "both"],
+                        default="both",
+                        help="Run pass A (scene), B (month), or both (default).")
+    parser.add_argument("--plot", action="store_true",
+                        help="Generate matplotlib influence plot.")
+    parser.add_argument("--input", default=str(TIMESERIES),
+                        help=f"Path to timeseries JSON (default: {TIMESERIES})")
+    args = parser.parse_args()
+
+    records                = load_records(Path(args.input))
+    positives, all_usable  = extract_scenes(records)
+
+    print(f"\nLoaded {len(records)} total records.")
+    print(f"  Usable (have sc_cfar): {len(all_usable)}")
+    print(f"  cfar_detect=True (positives): {len(positives)}")
+
+    unique_pos_months  = len(set(p["month"] for p in positives))
+    unique_all_months  = len(set(u["month"] for u in all_usable))
+    print(f"  Unique detected months: {unique_pos_months} / {unique_all_months} total")
+
+    baseline_a = compute_metrics(positives, len(all_usable))
+    pass_a_results, pass_b_results = [], []
+
+    if args.loo_pass in ("a", "both"):
+        pass_a_results = loo_scene_pass(positives, all_usable)
+        print_pass_a(pass_a_results, baseline_a)
+
+    if args.loo_pass in ("b", "both"):
+        pass_b_results = loo_month_pass(positives, all_usable)
+        print_pass_b(pass_b_results, unique_pos_months, unique_all_months)
+
+    # ── Stability verdict ──────────────────────────────────────────────────────
+    print()
+    print("=" * 80)
+    print("STABILITY VERDICT")
+    print("=" * 80)
+    if pass_a_results:
+        max_delta_a = max(abs(r["delta_detect_rate"]) for r in pass_a_results)
+        max_infl_scene = max(pass_a_results, key=lambda x: x["influence_detect_rate"] or 0)
+        print(f"  Scene-level: max |Δdetection_rate| = {max_delta_a:.4f}  "
+              f"({max_delta_a / baseline_a['detection_rate'] * 100:.1f}% of baseline)")
+        print(f"  Most influential scene: {max_infl_scene['held_out_month']} "
+              f"sc_cfar={max_infl_scene['held_out_sc_cfar']:.1f} "
+              f"(influence={max_infl_scene['influence_detect_rate']:.4f})")
+
+        if max_delta_a < 0.02:
+            verdict = "STABLE — no single scene drives detection rate (max Δ < 2 pp)"
+        elif max_delta_a < 0.05:
+            verdict = "MOSTLY STABLE — minor sensitivity (max Δ < 5 pp); disclose top scene"
+        else:
+            verdict = "SENSITIVE — one scene has outsized influence; disclose explicitly"
+        print(f"\n  >>> {verdict}")
+
+    # ── Save JSON ──────────────────────────────────────────────────────────────
+    out = {
+        "baseline": baseline_a,
+        "baseline_month_level": {
+            "n_detected_months": unique_pos_months,
+            "n_total_months":    unique_all_months,
+            "detection_rate":    unique_pos_months / unique_all_months,
+        },
+        "pass_a_scene_level": pass_a_results,
+        "pass_b_month_level": pass_b_results,
+    }
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    OUT_JSON.write_text(json.dumps(out, indent=2))
+    print(f"\nResults saved → {OUT_JSON}")
+
+    if args.plot:
+        make_plot(pass_a_results, pass_b_results,
+                  baseline_a, unique_pos_months, unique_all_months)
+
+
+if __name__ == "__main__":
+    main()

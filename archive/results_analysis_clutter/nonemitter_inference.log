@@ -1,0 +1,524 @@
+01:12:59  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+01:12:59  INFO     Model loaded.
+01:12:59  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor) ──
+01:12:59  INFO       Loading nonemit_001_S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy ...
+01:12:59  INFO       Scene shape: 10980×10980×12
+01:12:59  INFO       Tiling 10980×10980 into 100×100 patches...
+01:13:00  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:13:00  INFO       Running batched inference on 11881 tiles...
+01:20:08  INFO       Stitching predictions...
+01:20:10  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+01:20:10  INFO       Saved probability map → nonemit_001_prob.tif
+01:20:10  WARNING    TIF missing — computing S/C from raw prob_map array
+01:20:10  WARNING    S/C error: no_geotiff_fallback
+01:20:10  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest) ──
+01:20:10  INFO       Loading nonemit_002_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy ...
+01:20:10  INFO       Scene shape: 10980×10980×12
+01:20:10  INFO       Tiling 10980×10980 into 100×100 patches...
+01:20:10  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:20:10  INFO       Running batched inference on 11881 tiles...
+01:27:38  INFO       Stitching predictions...
+01:27:41  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+01:27:41  INFO       Saved probability map → nonemit_002_prob.tif
+01:27:41  WARNING    TIF missing — computing S/C from raw prob_map array
+01:27:41  WARNING    S/C error: no_geotiff_fallback
+01:27:41  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+01:27:41  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+01:27:41  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+01:27:41  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+01:27:41  INFO     ── nonemit_007  (Bohemian Forest — coniferous) ──
+01:27:41  INFO       Loading nonemit_007_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy ...
+01:27:41  INFO       Scene shape: 10980×10980×12
+01:27:41  INFO       Tiling 10980×10980 into 100×100 patches...
+01:27:41  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:27:41  INFO       Running batched inference on 11881 tiles...
+01:36:15  INFO       Stitching predictions...
+01:36:19  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+01:36:19  INFO       Saved probability map → nonemit_007_prob.tif
+01:36:19  WARNING    TIF missing — computing S/C from raw prob_map array
+01:36:19  WARNING    S/C error: no_geotiff_fallback
+01:36:19  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+01:36:19  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+01:36:19  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+01:36:19  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+01:36:19  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest) ──
+01:36:19  INFO       Loading nonemit_012_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy ...
+01:36:19  INFO       Scene shape: 10980×10980×12
+01:36:19  INFO       Tiling 10980×10980 into 100×100 patches...
+01:36:19  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:36:19  INFO       Running batched inference on 11881 tiles...
+01:44:34  INFO       Stitching predictions...
+01:44:38  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+01:44:38  INFO       Saved probability map → nonemit_012_prob.tif
+01:44:38  WARNING    TIF missing — computing S/C from raw prob_map array
+01:44:38  WARNING    S/C error: no_geotiff_fallback
+01:44:38  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+01:44:38  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+01:44:38  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest) ──
+01:44:38  INFO       Loading nonemit_015_S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy ...
+01:44:38  INFO       Scene shape: 10980×10980×12
+01:44:38  INFO       Tiling 10980×10980 into 100×100 patches...
+01:44:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:44:38  INFO       Running batched inference on 11881 tiles...
+01:52:44  INFO       Stitching predictions...
+01:52:47  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+01:52:47  INFO       Saved probability map → nonemit_015_prob.tif
+01:52:47  WARNING    TIF missing — computing S/C from raw prob_map array
+01:52:47  WARNING    S/C error: no_geotiff_fallback
+01:52:47  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland) ──
+01:52:47  INFO       Loading nonemit_016_S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy ...
+01:52:47  INFO       Scene shape: 10980×10980×12
+01:52:47  INFO       Tiling 10980×10980 into 100×100 patches...
+01:52:48  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+01:52:48  INFO       Running batched inference on 11881 tiles...
+02:03:28  INFO       Stitching predictions...
+02:03:32  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+02:03:32  INFO       Saved probability map → nonemit_016_prob.tif
+02:03:32  WARNING    TIF missing — computing S/C from raw prob_map array
+02:03:32  WARNING    S/C error: no_geotiff_fallback
+02:03:33  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+02:03:33  INFO       Loading nonemit_017_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy ...
+02:03:33  INFO       Scene shape: 10980×10980×12
+02:03:33  INFO       Tiling 10980×10980 into 100×100 patches...
+02:03:33  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+02:03:33  INFO       Running batched inference on 11881 tiles...
+02:14:00  INFO       Stitching predictions...
+02:14:03  WARNING    No geo metadata — saving raw .npy instead of GeoTIFF
+02:14:03  INFO       Saved probability map → nonemit_017_prob.tif
+02:14:03  WARNING    TIF missing — computing S/C from raw prob_map array
+02:14:03  WARNING    S/C error: no_geotiff_fallback
+02:14:03  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+02:14:03  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+10:43:43  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+10:43:43  INFO     Model loaded.
+10:43:43  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor) ──
+10:43:43  INFO       Found cached prob_map at nonemit_001_prob_prob.npy — converting to GeoTIFF
+10:43:43  INFO       Loading nonemit_001_S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy ...
+10:43:43  INFO       Scene shape: 10980×10980×12
+10:43:43  INFO       Geo metadata loaded from S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412_geo.json
+10:43:43  INFO       Re-using cached prob_map from nonemit_001_prob_prob.npy (skipping inference)
+10:43:52  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_001/nonemit_001_prob.tif
+10:43:52  INFO       Saved GeoTIFF → nonemit_001_prob.tif
+10:43:54  WARNING    S/C error: site_out_of_bounds
+10:43:54  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest) ──
+10:43:54  INFO       Found cached prob_map at nonemit_002_prob_prob.npy — converting to GeoTIFF
+10:43:54  INFO       Loading nonemit_002_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy ...
+10:43:54  INFO       Scene shape: 10980×10980×12
+10:43:54  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+10:43:54  INFO       Re-using cached prob_map from nonemit_002_prob_prob.npy (skipping inference)
+10:44:03  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_002/nonemit_002_prob.tif
+10:44:03  INFO       Saved GeoTIFF → nonemit_002_prob.tif
+10:44:05  WARNING    S/C error: site_out_of_bounds
+10:44:05  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+10:44:05  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+10:44:05  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+10:44:05  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+10:44:05  INFO     ── nonemit_007  (Bohemian Forest — coniferous) ──
+10:44:05  INFO       Found cached prob_map at nonemit_007_prob_prob.npy — converting to GeoTIFF
+10:44:05  INFO       Loading nonemit_007_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy ...
+10:44:05  INFO       Scene shape: 10980×10980×12
+10:44:05  INFO       Geo metadata loaded from S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133_geo.json
+10:44:05  INFO       Re-using cached prob_map from nonemit_007_prob_prob.npy (skipping inference)
+10:44:13  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_007/nonemit_007_prob.tif
+10:44:13  INFO       Saved GeoTIFF → nonemit_007_prob.tif
+10:44:16  WARNING    S/C error: site_out_of_bounds
+10:44:16  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+10:44:16  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+10:44:16  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+10:44:16  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+10:44:16  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest) ──
+10:44:16  INFO       Found cached prob_map at nonemit_012_prob_prob.npy — converting to GeoTIFF
+10:44:16  INFO       Loading nonemit_012_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy ...
+10:44:16  INFO       Scene shape: 10980×10980×12
+10:44:16  INFO       Geo metadata loaded from S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033_geo.json
+10:44:16  INFO       Re-using cached prob_map from nonemit_012_prob_prob.npy (skipping inference)
+10:44:24  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_012/nonemit_012_prob.tif
+10:44:24  INFO       Saved GeoTIFF → nonemit_012_prob.tif
+10:44:27  WARNING    S/C error: site_out_of_bounds
+10:44:27  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+10:44:27  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+10:44:27  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest) ──
+10:44:27  INFO       Found cached prob_map at nonemit_015_prob_prob.npy — converting to GeoTIFF
+10:44:27  INFO       Loading nonemit_015_S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy ...
+10:44:27  INFO       Scene shape: 10980×10980×12
+10:44:27  INFO       Geo metadata loaded from S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950_geo.json
+10:44:27  INFO       Re-using cached prob_map from nonemit_015_prob_prob.npy (skipping inference)
+10:44:35  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_015/nonemit_015_prob.tif
+10:44:35  INFO       Saved GeoTIFF → nonemit_015_prob.tif
+10:44:38  WARNING    S/C error: site_out_of_bounds
+10:44:38  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland) ──
+10:44:38  INFO       Found cached prob_map at nonemit_016_prob_prob.npy — converting to GeoTIFF
+10:44:38  INFO       Loading nonemit_016_S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy ...
+10:44:38  INFO       Scene shape: 10980×10980×12
+10:44:38  INFO       Geo metadata loaded from S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959_geo.json
+10:44:38  INFO       Re-using cached prob_map from nonemit_016_prob_prob.npy (skipping inference)
+10:44:46  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_016/nonemit_016_prob.tif
+10:44:46  INFO       Saved GeoTIFF → nonemit_016_prob.tif
+10:44:48  WARNING    S/C error: site_out_of_bounds
+10:44:48  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+10:44:48  INFO       Found cached prob_map at nonemit_017_prob_prob.npy — converting to GeoTIFF
+10:44:48  INFO       Loading nonemit_017_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy ...
+10:44:48  INFO       Scene shape: 10980×10980×12
+10:44:48  INFO       Geo metadata loaded from S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+10:44:48  INFO       Re-using cached prob_map from nonemit_017_prob_prob.npy (skipping inference)
+10:44:56  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_017/nonemit_017_prob.tif
+10:44:56  INFO       Saved GeoTIFF → nonemit_017_prob.tif
+10:44:58  WARNING    S/C error: site_out_of_bounds
+10:44:58  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+10:44:58  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+11:03:37  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+11:03:37  INFO     Model loaded.
+11:03:37  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor) ──
+11:03:37  INFO       TIF already exists — reusing, computing S/C only
+11:03:40  WARNING    S/C error: site_out_of_bounds
+11:03:40  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest) ──
+11:03:40  INFO       TIF already exists — reusing, computing S/C only
+11:03:43  INFO       S/C=1.3212  cv_ctrl=0.118  cfar_detect=False  [Atlantic / mixed_forest]
+11:03:43  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+11:03:43  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+11:03:43  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+11:03:43  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+11:03:43  INFO     ── nonemit_007  (Bohemian Forest — coniferous) ──
+11:03:43  INFO       TIF already exists — reusing, computing S/C only
+11:03:46  INFO       S/C=1.3547  cv_ctrl=0.471  cfar_detect=False  [Continental / coniferous_forest]
+11:03:46  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+11:03:46  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+11:03:46  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+11:03:46  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+11:03:46  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest) ──
+11:03:46  INFO       TIF already exists — reusing, computing S/C only
+11:03:48  INFO       S/C=1.5587  cv_ctrl=0.572  cfar_detect=False  [Pannonian / broadleaved_forest]
+11:03:48  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+11:03:48  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+11:03:48  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest) ──
+11:03:48  INFO       TIF already exists — reusing, computing S/C only
+11:03:51  WARNING    S/C error: site_out_of_bounds
+11:03:51  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland) ──
+11:03:51  INFO       TIF already exists — reusing, computing S/C only
+11:03:54  WARNING    S/C error: site_out_of_bounds
+11:03:54  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+11:03:54  INFO       TIF already exists — reusing, computing S/C only
+11:03:56  INFO       S/C=0.0020  cv_ctrl=0.986  cfar_detect=False  [Mediterranean / mixed_forest]
+11:03:56  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+11:03:56  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+11:10:55  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+11:10:56  INFO     Model loaded.
+11:10:56  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor) ──
+11:10:56  INFO       TIF already exists — reusing, computing S/C only
+11:10:59  INFO       S/C=1.2465  cv_ctrl=0.371  cfar_detect=False  [Atlantic / pasture]
+11:10:59  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest) ──
+11:10:59  INFO       TIF already exists — reusing, computing S/C only
+11:11:01  INFO       S/C=1.3212  cv_ctrl=0.118  cfar_detect=False  [Atlantic / mixed_forest]
+11:11:02  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+11:11:02  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+11:11:02  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+11:11:02  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+11:11:02  INFO     ── nonemit_007  (Bohemian Forest — coniferous) ──
+11:11:02  INFO       TIF already exists — reusing, computing S/C only
+11:11:04  INFO       S/C=1.3547  cv_ctrl=0.471  cfar_detect=False  [Continental / coniferous_forest]
+11:11:04  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+11:11:04  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+11:11:04  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+11:11:04  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+11:11:04  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest) ──
+11:11:04  INFO       TIF already exists — reusing, computing S/C only
+11:11:07  INFO       S/C=1.5587  cv_ctrl=0.572  cfar_detect=False  [Pannonian / broadleaved_forest]
+11:11:07  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+11:11:07  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+11:11:07  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest) ──
+11:11:07  INFO       TIF already exists — reusing, computing S/C only
+11:11:10  INFO       S/C=1.3317  cv_ctrl=0.667  cfar_detect=False  [Boreal / mixed_forest]
+11:11:10  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland) ──
+11:11:10  INFO       TIF already exists — reusing, computing S/C only
+11:11:13  INFO       S/C=1.2984  cv_ctrl=0.669  cfar_detect=False  [Boreal / coastal_wetland]
+11:11:13  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+11:11:13  INFO       TIF already exists — reusing, computing S/C only
+11:11:16  INFO       S/C=0.0020  cv_ctrl=0.986  cfar_detect=False  [Mediterranean / mixed_forest]
+11:11:16  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+11:11:16  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+11:29:04  INFO     Resuming: 7 locations already scored
+11:29:04  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+11:29:05  INFO     Model loaded.
+11:29:05  INFO       nonemit_001: already scored (S/C=1.2465) — skip
+11:29:05  INFO       nonemit_002: already scored (S/C=1.3212) — skip
+11:29:05  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+11:29:05  INFO       nonemit_007: already scored (S/C=1.3547) — skip
+11:29:05  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+11:29:05  INFO       nonemit_012: already scored (S/C=1.5587) — skip
+11:29:05  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+11:29:05  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+11:29:05  INFO       nonemit_015: already scored (S/C=1.3317) — skip
+11:29:05  INFO       nonemit_016: already scored (S/C=1.2984) — skip
+11:29:05  INFO       nonemit_017: already scored (S/C=0.0020) — skip
+11:29:05  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+11:29:05  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+12:05:33  INFO     --force-rescore: re-scoring ['nonemit_017']
+12:05:33  INFO     Resuming: 6 locations already scored
+12:05:33  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+12:05:34  INFO     Model loaded.
+12:05:34  INFO       nonemit_001: already scored (S/C=1.2465) — skip
+12:05:34  INFO       nonemit_002: already scored (S/C=1.3212) — skip
+12:05:34  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+12:05:34  INFO       nonemit_007: already scored (S/C=1.3547) — skip
+12:05:34  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+12:05:34  INFO       nonemit_012: already scored (S/C=1.5587) — skip
+12:05:34  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+12:05:34  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+12:05:34  INFO       nonemit_015: already scored (S/C=1.3317) — skip
+12:05:34  INFO       nonemit_016: already scored (S/C=1.2984) — skip
+12:05:34  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+12:05:34  INFO       TIF already exists — reusing, computing S/C only
+12:05:36  INFO       S/C=0.0020  cv_ctrl=0.986  cfar_detect=False  [Mediterranean / mixed_forest]
+12:05:36  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+12:05:36  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+12:09:56  INFO     --force-rescore: re-scoring ['nonemit_017']
+12:09:56  INFO     Resuming: 6 locations already scored
+12:09:56  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+12:09:57  INFO     Model loaded.
+12:09:57  INFO       nonemit_001: already scored (S/C=1.2465) — skip
+12:09:57  INFO       nonemit_002: already scored (S/C=1.3212) — skip
+12:09:57  WARNING    nonemit_003: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_004: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_005: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_006: no downloaded tile (status=not_found) — skipping
+12:09:57  INFO       nonemit_007: already scored (S/C=1.3547) — skip
+12:09:57  WARNING    nonemit_008: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_009: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_010: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_011: no downloaded tile (status=not_found) — skipping
+12:09:57  INFO       nonemit_012: already scored (S/C=1.5587) — skip
+12:09:57  WARNING    nonemit_013: no downloaded tile (status=not_found) — skipping
+12:09:57  WARNING    nonemit_014: no downloaded tile (status=not_found) — skipping
+12:09:57  INFO       nonemit_015: already scored (S/C=1.3317) — skip
+12:09:57  INFO       nonemit_016: already scored (S/C=1.2984) — skip
+12:09:57  INFO     ── nonemit_017  (Apennines, Italy — mixed forest) ──
+12:09:57  INFO       TIF already exists — reusing, computing S/C only
+12:09:59  INFO       S/C=0.0020  cv_ctrl=0.986  cfar_detect=False  [Mediterranean / mixed_forest]
+12:09:59  WARNING    nonemit_018: no downloaded tile (status=not_found) — skipping
+12:09:59  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+09:29:59  INFO     Resuming: 7 locations already scored
+09:29:59  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+09:30:01  INFO     Model loaded.
+09:30:01  INFO       nonemit_001: already scored (S/C=1.2465) — skip
+09:30:01  INFO       nonemit_002: already scored (S/C=1.3212) — skip
+09:30:01  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyard) ──
+09:30:01  INFO       Loading nonemit_003_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy ...
+09:30:01  INFO       Scene shape: 10980×10980×12
+09:30:01  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+09:30:01  INFO       Tiling 10980×10980 into 100×100 patches...
+09:30:01  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:30:01  INFO       Running batched inference on 11881 tiles...
+09:31:20  INFO       Stitching predictions...
+09:31:35  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_003/nonemit_003_prob.tif
+09:31:35  INFO       Saved GeoTIFF → nonemit_003_prob.tif
+09:31:39  INFO       S/C=4.1052  cv_ctrl=1.655  cfar_detect=False  [Continental / arable_land]
+09:31:39  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable) ──
+09:31:39  INFO       Loading nonemit_004_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy ...
+09:31:39  INFO       Scene shape: 10980×10980×12
+09:31:39  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035_geo.json
+09:31:39  INFO       Tiling 10980×10980 into 100×100 patches...
+09:31:39  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:31:39  INFO       Running batched inference on 11881 tiles...
+09:32:52  INFO       Stitching predictions...
+09:33:01  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_004/nonemit_004_prob.tif
+09:33:01  INFO       Saved GeoTIFF → nonemit_004_prob.tif
+09:33:03  INFO       S/C=1.3331  cv_ctrl=0.577  cfar_detect=False  [Atlantic / arable_land]
+09:33:04  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — conifero) ──
+09:33:04  INFO       Loading nonemit_005_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy ...
+09:33:04  INFO       Scene shape: 10980×10980×12
+09:33:04  INFO       Geo metadata loaded from S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133_geo.json
+09:33:04  INFO       Tiling 10980×10980 into 100×100 patches...
+09:33:04  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:33:04  INFO       Running batched inference on 11881 tiles...
+09:34:14  INFO       Stitching predictions...
+09:34:23  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_005/nonemit_005_prob.tif
+09:34:23  INFO       Saved GeoTIFF → nonemit_005_prob.tif
+09:34:25  INFO       S/C=2.1172  cv_ctrl=0.952  cfar_detect=False  [Continental / coniferous_forest]
+09:34:25  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest) ──
+09:34:25  INFO       Loading nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy ...
+09:34:25  INFO       Scene shape: 10980×10980×12
+09:34:25  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+09:34:25  INFO       Tiling 10980×10980 into 100×100 patches...
+09:34:25  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:34:25  INFO       Running batched inference on 11881 tiles...
+09:35:35  INFO       Stitching predictions...
+09:35:44  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_006/nonemit_006_prob.tif
+09:35:44  INFO       Saved GeoTIFF → nonemit_006_prob.tif
+09:35:47  WARNING    S/C error: site_out_of_bounds
+09:35:47  INFO       nonemit_007: already scored (S/C=1.3547) — skip
+09:35:47  INFO     ── nonemit_008  (Franconian Highland, Germany — complex cultiv) ──
+09:35:47  INFO       Loading nonemit_008_S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.npy ...
+09:35:47  INFO       Scene shape: 10980×10980×12
+09:35:47  INFO       Geo metadata loaded from S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024_geo.json
+09:35:47  INFO       Tiling 10980×10980 into 100×100 patches...
+09:35:47  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:35:47  INFO       Running batched inference on 11881 tiles...
+09:36:59  INFO       Stitching predictions...
+09:37:09  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_008/nonemit_008_prob.tif
+09:37:09  INFO       Saved GeoTIFF → nonemit_008_prob.tif
+09:37:11  INFO       S/C=2.7397  cv_ctrl=1.120  cfar_detect=False  [Continental / complex_cultivation]
+09:37:11  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland pastur) ──
+09:37:11  INFO       Loading nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy ...
+09:37:11  INFO       Scene shape: 10980×10980×12
+09:37:11  INFO       Geo metadata loaded from S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850_geo.json
+09:37:11  INFO       Tiling 10980×10980 into 100×100 patches...
+09:37:11  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:37:11  INFO       Running batched inference on 11881 tiles...
+09:38:25  INFO       Stitching predictions...
+09:38:34  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_009/nonemit_009_prob.tif
+09:38:34  INFO       Saved GeoTIFF → nonemit_009_prob.tif
+09:38:37  WARNING    S/C error: site_out_of_bounds
+09:38:37  INFO     ── nonemit_010  (NE Slovakia lowlands — arable) ──
+09:38:37  INFO       Loading nonemit_010_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy ...
+09:38:37  INFO       Scene shape: 10980×10980×12
+09:38:37  INFO       Geo metadata loaded from S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033_geo.json
+09:38:37  INFO       Tiling 10980×10980 into 100×100 patches...
+09:38:37  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:38:37  INFO       Running batched inference on 11881 tiles...
+09:39:47  INFO       Stitching predictions...
+09:39:57  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_010/nonemit_010_prob.tif
+09:39:57  INFO       Saved GeoTIFF → nonemit_010_prob.tif
+09:40:00  INFO       S/C=1.1302  cv_ctrl=0.168  cfar_detect=False  [Pannonian / arable_land]
+09:40:00  INFO     ── nonemit_011  (Łódź region, central Poland — arable) ──
+09:40:00  INFO       Loading nonemit_011_S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.npy ...
+09:40:00  INFO       Scene shape: 10980×10980×12
+09:40:00  INFO       Geo metadata loaded from S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033_geo.json
+09:40:00  INFO       Tiling 10980×10980 into 100×100 patches...
+09:40:00  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:40:00  INFO       Running batched inference on 11881 tiles...
+09:41:15  INFO       Stitching predictions...
+09:41:25  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_011/nonemit_011_prob.tif
+09:41:25  INFO       Saved GeoTIFF → nonemit_011_prob.tif
+09:41:28  INFO       S/C=1.8626  cv_ctrl=0.470  cfar_detect=False  [Continental / arable_land]
+09:41:28  INFO       nonemit_012: already scored (S/C=1.5587) — skip
+09:41:28  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved forest) ──
+09:41:28  INFO       Loading nonemit_013_S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.npy ...
+09:41:28  INFO       Scene shape: 10980×10980×12
+09:41:28  INFO       Geo metadata loaded from S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912_geo.json
+09:41:28  INFO       Tiling 10980×10980 into 100×100 patches...
+09:41:28  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:41:28  INFO       Running batched inference on 11881 tiles...
+09:42:44  INFO       Stitching predictions...
+09:42:55  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_013/nonemit_013_prob.tif
+09:42:55  INFO       Saved GeoTIFF → nonemit_013_prob.tif
+09:42:58  INFO       S/C=2.5653  cv_ctrl=0.209  cfar_detect=True  [Continental / broadleaved_forest]
+09:42:58  WARNING    ⚠ CFAR triggered on non-emitter site nonemit_013 — potential FP
+09:42:58  INFO     ── nonemit_014  (Schleswig-Holstein coastal plain — pasture) ──
+09:42:58  INFO       Loading nonemit_014_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy ...
+09:42:58  INFO       Scene shape: 10980×10980×12
+09:42:58  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035_geo.json
+09:42:58  INFO       Tiling 10980×10980 into 100×100 patches...
+09:42:58  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:42:58  INFO       Running batched inference on 11881 tiles...
+09:44:14  INFO       Stitching predictions...
+09:44:24  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_014/nonemit_014_prob.tif
+09:44:24  INFO       Saved GeoTIFF → nonemit_014_prob.tif
+09:44:27  INFO       S/C=0.9984  cv_ctrl=0.002  cfar_detect=False  [Atlantic / pasture]
+09:44:27  INFO       nonemit_015: already scored (S/C=1.3317) — skip
+09:44:27  INFO       nonemit_016: already scored (S/C=1.2984) — skip
+09:44:27  INFO       nonemit_017: already scored (S/C=0.0020) — skip
+09:44:27  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal wetl) ──
+09:44:27  INFO       Loading nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy ...
+09:44:27  INFO       Scene shape: 10980×10980×12
+09:44:27  INFO       Geo metadata loaded from S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+09:44:27  INFO       Tiling 10980×10980 into 100×100 patches...
+09:44:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+09:44:27  INFO       Running batched inference on 11881 tiles...
+09:45:59  INFO       Stitching predictions...
+09:46:15  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_018/nonemit_018_prob.tif
+09:46:15  INFO       Saved GeoTIFF → nonemit_018_prob.tif
+09:46:18  WARNING    S/C error: site_out_of_bounds
+09:46:18  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+09:56:49  INFO     --force-rescore: re-scoring ['nonemit_006', 'nonemit_009', 'nonemit_018']
+09:56:49  INFO     Resuming: 15 locations already scored
+09:56:49  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+09:56:51  INFO     Model loaded.
+09:56:51  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest) ──
+09:56:51  INFO       TIF already exists — reusing, computing S/C only
+09:56:53  WARNING    S/C error: site_out_of_bounds
+09:56:53  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland pastur) ──
+09:56:53  INFO       TIF already exists — reusing, computing S/C only
+09:56:56  WARNING    S/C error: site_out_of_bounds
+09:56:56  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal wetl) ──
+09:56:56  INFO       TIF already exists — reusing, computing S/C only
+09:56:58  WARNING    S/C error: site_out_of_bounds
+09:56:58  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+09:58:51  INFO     --force-rescore: re-scoring ['nonemit_006', 'nonemit_009', 'nonemit_018']
+09:58:51  INFO     Resuming: 15 locations already scored
+09:58:51  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+09:58:52  INFO     Model loaded.
+09:58:52  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest) ──
+09:58:52  INFO       TIF already exists — reusing, computing S/C only
+09:58:54  WARNING    S/C error: site_out_of_bounds
+09:58:54  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland pastur) ──
+09:58:54  INFO       TIF already exists — reusing, computing S/C only
+09:58:57  WARNING    S/C error: site_out_of_bounds
+09:58:57  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal wetl) ──
+09:58:57  INFO       TIF already exists — reusing, computing S/C only
+09:58:59  WARNING    S/C error: site_out_of_bounds
+09:58:59  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+10:00:37  INFO     --force-rescore: re-scoring ['nonemit_006', 'nonemit_009', 'nonemit_018']
+10:00:37  INFO     Resuming: 15 locations already scored
+10:00:37  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+10:00:38  INFO     Model loaded.
+10:00:38  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest) ──
+10:00:38  INFO       Loading nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy ...
+10:00:38  INFO       Scene shape: 10980×10980×12
+10:00:38  INFO       Geo metadata loaded from S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+10:00:38  INFO       Tiling 10980×10980 into 100×100 patches...
+10:00:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+10:00:38  INFO       Running batched inference on 11881 tiles...
+10:01:59  INFO       Stitching predictions...
+10:02:13  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_006/nonemit_006_prob.tif
+10:02:13  INFO       Saved GeoTIFF → nonemit_006_prob.tif
+10:02:16  WARNING    S/C error: site_out_of_bounds
+10:02:16  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland pastur) ──
+10:02:16  INFO       Loading nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy ...
+10:02:16  INFO       Scene shape: 10980×10980×12
+10:02:16  INFO       Geo metadata loaded from S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850_geo.json
+10:02:16  INFO       Tiling 10980×10980 into 100×100 patches...
+10:02:16  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+10:02:16  INFO       Running batched inference on 11881 tiles...
+10:03:50  INFO       Stitching predictions...
+10:04:02  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_009/nonemit_009_prob.tif
+10:04:02  INFO       Saved GeoTIFF → nonemit_009_prob.tif
+10:04:06  WARNING    S/C error: site_out_of_bounds
+10:04:06  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal wetl) ──
+10:04:06  INFO       Loading nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy ...
+10:04:06  INFO       Scene shape: 10980×10980×12
+10:04:06  INFO       Geo metadata loaded from S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+10:04:06  INFO       Tiling 10980×10980 into 100×100 patches...
+10:04:06  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+10:04:06  INFO       Running batched inference on 11881 tiles...
+10:05:58  INFO       Stitching predictions...
+10:06:19  INFO     Saved georeferenced prediction to results_nonemitter/nonemit_018/nonemit_018_prob.tif
+10:06:19  INFO       Saved GeoTIFF → nonemit_018_prob.tif
+10:06:23  WARNING    S/C error: site_out_of_bounds
+10:06:23  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json
+10:10:28  INFO     --force-rescore: re-scoring ['nonemit_006', 'nonemit_009', 'nonemit_018']
+10:10:28  INFO     Resuming: 15 locations already scored
+10:10:28  INFO     Loading CH4Net v8 weights from weights/european_model_v8.pth
+10:10:29  INFO     Model loaded.
+10:10:29  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest) ──
+10:10:29  INFO       TIF already exists — reusing, computing S/C only
+10:10:32  INFO       S/C=7.1161  cv_ctrl=1.699  cfar_detect=True  [Continental / mixed_forest]
+10:10:32  WARNING    ⚠ CFAR triggered on non-emitter site nonemit_006 — potential FP
+10:10:32  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland pastur) ──
+10:10:32  INFO       TIF already exists — reusing, computing S/C only
+10:10:35  INFO       S/C=0.0796  cv_ctrl=0.994  cfar_detect=False  [Continental / pasture]
+10:10:35  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal wetl) ──
+10:10:35  INFO       TIF already exists — reusing, computing S/C only
+10:10:37  INFO       S/C=1.3332  cv_ctrl=0.577  cfar_detect=False  [Mediterranean / coastal_wetland]
+10:10:37  INFO     S/C scores written → results_analysis/nonemitter_sc_scores.json

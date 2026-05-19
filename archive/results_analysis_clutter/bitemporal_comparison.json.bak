@@ -1,0 +1,42 @@
+{
+  "rybnik_cm": {
+    "tile_id": "T34UCA",
+    "target_npy": "S2B_MSIL1C_20250322T095029_N0511_R079_T34UCA_20250322T114604.npy",
+    "ref_npy": "T34UCA_ref_20231228.npy",
+    "status": "ok",
+    "original": {
+      "tif": "results_bitemporal/rybnik_cm/original_S2B_MSIL1C_20250322T095029_N0511_R079_T34UCA_20250322T114604.tif",
+      "sc_ratio": 5.4817,
+      "sc_cfar": 0.4201,
+      "site_mean": 0.026681,
+      "ctrl_mean": 0.004867,
+      "ctrl_mu": 0.063517,
+      "ctrl_sigma": 0.062115,
+      "cv_ctrl": 0.9779,
+      "cfar_thresh_ratio": 4.0838,
+      "cfar_thresh": 0.259388,
+      "cfar_detect": false,
+      "cfar_margin": -3.6637,
+      "ctrl_n": 4,
+      "ring_gradient": null,
+      "sc_error": null
+    },
+    "bitemporal": {
+      "tif": "results_bitemporal/rybnik_cm/bitemporal_S2B_MSIL1C_20250322T095029_N0511_R079_T34UCA_20250322T114604.tif",
+      "sc_ratio": 0.6765,
+      "sc_cfar": 0.7483,
+      "site_mean": 1e-06,
+      "ctrl_mean": 2e-06,
+      "ctrl_mu": 2e-06,
+      "ctrl_sigma": 0.0,
+      "cv_ctrl": 0.153,
+      "cfar_thresh_ratio": 1.609,
+      "cfar_thresh": 3e-06,
+      "cfar_detect": false,
+      "cfar_margin": -0.8607,
+      "ctrl_n": 4,
+      "ring_gradient": null,
+      "sc_error": null
+    }
+  }
+}

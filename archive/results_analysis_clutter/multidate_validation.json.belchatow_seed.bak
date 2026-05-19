@@ -1,0 +1,342 @@
+{
+  "weisweiler": {
+    "status": "ok",
+    "tile_id": "T31UGS",
+    "label": "\u2713 confirmed",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240608": {
+        "tif": "results_bitemporal/weisweiler/original_S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "classic_detect": false
+      },
+      "20240831": {
+        "tif": "results_bitemporal/weisweiler/original_S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "classic_detect": false
+      },
+      "20240920": {
+        "tif": "results_bitemporal/weisweiler/original_S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "classic_detect": false
+      },
+      "20240918": {
+        "tif": "results_bitemporal/weisweiler/original_S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.tif",
+        "sc_ratio": 23.4606,
+        "sc_cfar": 2.083,
+        "site_mean": 0.010992,
+        "ctrl_mean": 0.000469,
+        "ctrl_mu": 0.005277,
+        "cv_ctrl": 1.6075,
+        "cfar_thresh_ratio": 5.9725,
+        "cfar_detect": false,
+        "cfar_margin": -3.8896,
+        "classic_detect": true
+      }
+    }
+  },
+  "belchatow": {
+    "status": "ok",
+    "tile_id": "T34UCB",
+    "label": "\u2713 confirmed",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240617": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4999,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.28382,
+        "cv_ctrl": 0.707,
+        "cfar_thresh_ratio": 3.2709,
+        "cfar_detect": false,
+        "cfar_margin": -1.771,
+        "classic_detect": false
+      },
+      "20240710": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif",
+        "sc_ratio": 142.9783,
+        "sc_cfar": 50.6924,
+        "site_mean": 0.025282,
+        "ctrl_mean": 0.000177,
+        "ctrl_mu": 0.000499,
+        "cv_ctrl": 1.1052,
+        "cfar_thresh_ratio": 4.4655,
+        "cfar_detect": true,
+        "cfar_margin": 46.2269,
+        "classic_detect": true
+      },
+      "20240605": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.tif",
+        "sc_ratio": 9.4837,
+        "sc_cfar": 1.1306,
+        "site_mean": 0.178941,
+        "ctrl_mean": 0.018868,
+        "ctrl_mu": 0.158274,
+        "cv_ctrl": 0.6514,
+        "cfar_thresh_ratio": 3.1041,
+        "cfar_detect": false,
+        "cfar_margin": -1.9735,
+        "classic_detect": true
+      },
+      "20240824": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+        "sc_ratio": 27.3032,
+        "sc_cfar": 2.6631,
+        "site_mean": 0.001062,
+        "ctrl_mean": 3.9e-05,
+        "ctrl_mu": 0.000399,
+        "cv_ctrl": 1.2651,
+        "cfar_thresh_ratio": 4.9453,
+        "cfar_detect": false,
+        "cfar_margin": -2.2821,
+        "classic_detect": true
+      }
+    }
+  },
+  "lippendorf": {
+    "status": "ok",
+    "tile_id": "T33UUS",
+    "label": "\u2713 confirmed",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240626": {
+        "tif": "results_bitemporal/lippendorf/original_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.tif",
+        "sc_ratio": 315.9831,
+        "sc_cfar": 0.4762,
+        "site_mean": 0.015672,
+        "ctrl_mean": 5e-05,
+        "ctrl_mu": 0.032912,
+        "cv_ctrl": 1.3641,
+        "cfar_thresh_ratio": 5.2422,
+        "cfar_detect": false,
+        "cfar_margin": -4.766,
+        "classic_detect": true
+      },
+      "20240629": {
+        "error": "Read failed. See previous exception for details."
+      },
+      "20240709": {
+        "tif": "results_bitemporal/lippendorf/original_S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.tif",
+        "sc_ratio": 0.1255,
+        "sc_cfar": 0.0836,
+        "site_mean": 0.003248,
+        "ctrl_mean": 0.025894,
+        "ctrl_mu": 0.038864,
+        "cv_ctrl": 0.7815,
+        "cfar_thresh_ratio": 3.4946,
+        "cfar_detect": false,
+        "cfar_margin": -3.4111,
+        "classic_detect": false
+      },
+      "20240922": {
+        "tif": "results_bitemporal/lippendorf/original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif",
+        "sc_ratio": 155.3617,
+        "sc_cfar": 16.6898,
+        "site_mean": 0.009509,
+        "ctrl_mean": 6.1e-05,
+        "ctrl_mu": 0.00057,
+        "cv_ctrl": 0.5881,
+        "cfar_thresh_ratio": 2.9143,
+        "cfar_detect": true,
+        "cfar_margin": 13.7754,
+        "classic_detect": true
+      }
+    }
+  },
+  "boxberg": {
+    "status": "ok",
+    "tile_id": "T33UVT",
+    "label": "~ marginal",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240626": {
+        "error": "no_geo_meta"
+      },
+      "20240706": {
+        "tif": "results_bitemporal/boxberg/original_S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.tif",
+        "sc_ratio": 0.8428,
+        "sc_cfar": 0.5262,
+        "site_mean": 4.2e-05,
+        "ctrl_mean": 5e-05,
+        "ctrl_mu": 7.9e-05,
+        "cv_ctrl": 0.5548,
+        "cfar_thresh_ratio": 2.8144,
+        "cfar_detect": false,
+        "cfar_margin": -2.2882,
+        "classic_detect": false
+      },
+      "20240721": {
+        "tif": "results_bitemporal/boxberg/original_S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.tif",
+        "sc_ratio": 1202.8317,
+        "sc_cfar": 0.5651,
+        "site_mean": 0.058145,
+        "ctrl_mean": 4.8e-05,
+        "ctrl_mu": 0.102886,
+        "cv_ctrl": 1.0519,
+        "cfar_thresh_ratio": 4.3057,
+        "cfar_detect": false,
+        "cfar_margin": -3.7405,
+        "classic_detect": true
+      },
+      "20240827": {
+        "tif": "results_bitemporal/boxberg/original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif",
+        "sc_ratio": 0.007,
+        "sc_cfar": 0.0105,
+        "site_mean": 0.002968,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283845,
+        "cv_ctrl": 0.7068,
+        "cfar_thresh_ratio": 3.2703,
+        "cfar_detect": false,
+        "cfar_margin": -3.2599,
+        "classic_detect": false
+      }
+    }
+  },
+  "neurath": {
+    "status": "ok",
+    "tile_id": "T32ULB",
+    "label": "? retest",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240625": {
+        "tif": "results_bitemporal/neurath/original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif",
+        "sc_ratio": 23.0392,
+        "sc_cfar": 15.26,
+        "site_mean": 0.121191,
+        "ctrl_mean": 0.00526,
+        "ctrl_mu": 0.007942,
+        "cv_ctrl": 0.9924,
+        "cfar_thresh_ratio": 4.1272,
+        "cfar_detect": true,
+        "cfar_margin": 11.1328,
+        "classic_detect": true
+      },
+      "20240715": {
+        "tif": "results_bitemporal/neurath/original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif",
+        "sc_ratio": 1.1235,
+        "sc_cfar": 0.4362,
+        "site_mean": 0.029968,
+        "ctrl_mean": 0.026675,
+        "ctrl_mu": 0.068699,
+        "cv_ctrl": 0.4711,
+        "cfar_thresh_ratio": 2.5634,
+        "cfar_detect": false,
+        "cfar_margin": -2.1272,
+        "classic_detect": false
+      },
+      "20240920": {
+        "tif": "results_bitemporal/neurath/original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.9077,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.469012,
+        "cv_ctrl": 0.1599,
+        "cfar_thresh_ratio": 1.6298,
+        "cfar_detect": false,
+        "cfar_margin": -0.7222,
+        "classic_detect": false
+      },
+      "20240829": {
+        "tif": "results_bitemporal/neurath/original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif",
+        "sc_ratio": 67.2048,
+        "sc_cfar": 96.9771,
+        "site_mean": 0.014405,
+        "ctrl_mean": 0.000214,
+        "ctrl_mu": 0.000149,
+        "cv_ctrl": 0.2879,
+        "cfar_thresh_ratio": 2.0137,
+        "cfar_detect": true,
+        "cfar_margin": 94.9635,
+        "classic_detect": true
+      }
+    }
+  },
+  "niederaussem": {
+    "status": "ok",
+    "tile_id": "T32ULB",
+    "label": "? retest",
+    "skip_bitemporal": true,
+    "dates": {
+      "20240625": {
+        "tif": "results_bitemporal/niederaussem/original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif",
+        "sc_ratio": 0.0427,
+        "sc_cfar": 0.1006,
+        "site_mean": 0.001428,
+        "ctrl_mean": 0.033421,
+        "ctrl_mu": 0.014192,
+        "cv_ctrl": 0.9584,
+        "cfar_thresh_ratio": 4.0251,
+        "cfar_detect": false,
+        "cfar_margin": -3.9244,
+        "classic_detect": false
+      },
+      "20240715": {
+        "tif": "results_bitemporal/niederaussem/original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif",
+        "sc_ratio": 0.7988,
+        "sc_cfar": 0.6174,
+        "site_mean": 0.028511,
+        "ctrl_mean": 0.035692,
+        "ctrl_mu": 0.046183,
+        "cv_ctrl": 0.7069,
+        "cfar_thresh_ratio": 3.2706,
+        "cfar_detect": false,
+        "cfar_margin": -2.6533,
+        "classic_detect": false
+      },
+      "20240920": {
+        "tif": "results_bitemporal/niederaussem/original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.333,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.319368,
+        "cv_ctrl": 0.5767,
+        "cfar_thresh_ratio": 2.8801,
+        "cfar_detect": false,
+        "cfar_margin": -1.5471,
+        "classic_detect": false
+      },
+      "20240829": {
+        "tif": "results_bitemporal/niederaussem/original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif",
+        "sc_ratio": 0.2822,
+        "sc_cfar": 1.0282,
+        "site_mean": 0.000848,
+        "ctrl_mean": 0.003004,
+        "ctrl_mu": 0.000825,
+        "cv_ctrl": 1.5265,
+        "cfar_thresh_ratio": 5.7295,
+        "cfar_detect": false,
+        "cfar_margin": -4.7013,
+        "classic_detect": false
+      }
+    }
+  }
+}

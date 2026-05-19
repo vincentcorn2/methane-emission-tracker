@@ -1,0 +1,473 @@
+15:20:18  INFO     Copernicus token refreshed, expires in 1800s
+15:20:18  INFO     =================================================================
+15:20:18  INFO     Tile: T31UGS  (weisweiler)  —  3 already cached
+15:20:18  INFO       Need 1 more date(s). Searching catalog...
+15:20:25  INFO     Found 51 products
+15:20:25  INFO       Found 16 L1C products for T31UGS (cloud ≤ 15%)
+15:20:25  INFO       → S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.SAFE  cloud=0.0%  date=2024-06-08
+15:20:25  INFO         Downloading S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.SAFE ...
+15:23:25  INFO     Downloaded S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.SAFE (172.5 MB)
+15:23:25  INFO     Unzipping S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.SAFE.zip ...
+15:23:26  INFO     Extracted: S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.SAFE
+15:23:26  INFO     Found 12/12 bands in SAFE archive
+15:23:26  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+15:24:35  INFO     Stacked array shape: (10980, 10980, 12)
+15:25:06  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.npy (shape: (10980, 10980, 12))
+15:25:06  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027_geo.json
+15:25:07  INFO         Saved: S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.npy
+15:25:07  INFO     =================================================================
+15:25:07  INFO     Tile: T34UCB  (belchatow)  —  1 already cached
+15:25:07  INFO       Need 3 more date(s). Searching catalog...
+15:25:13  INFO     Found 134 products
+15:25:13  INFO       Found 14 L1C products for T34UCB (cloud ≤ 15%)
+15:25:13  INFO       → S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.SAFE  cloud=0.0%  date=2024-06-05
+15:25:13  INFO         Downloading S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.SAFE ...
+15:29:56  INFO     Downloaded S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.SAFE (848.9 MB)
+15:29:56  INFO     Unzipping S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.SAFE.zip ...
+15:29:58  INFO     Extracted: S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.SAFE
+15:29:58  INFO     Found 12/12 bands in SAFE archive
+15:29:58  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+15:33:14  INFO     Stacked array shape: (10980, 10980, 12)
+15:37:28  INFO     Saved .npy array: data/npy_cache/S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.npy (shape: (10980, 10980, 12))
+15:37:28  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156_geo.json
+15:37:29  INFO         Saved: S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.npy
+15:37:30  INFO       → S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE  cloud=0.0%  date=2024-06-17
+15:37:30  INFO         Downloading S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE ...
+15:37:54  INFO     Downloaded S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE (218.3 MB)
+15:37:54  INFO     Unzipping S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE.zip ...
+15:37:55  INFO     Extracted: S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE
+15:37:55  INFO     Found 12/12 bands in SAFE archive
+15:37:55  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+15:39:02  INFO     Stacked array shape: (10980, 10980, 12)
+15:39:54  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy (shape: (10980, 10980, 12))
+15:39:54  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131_geo.json
+15:39:54  INFO         Saved: S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy
+15:39:54  INFO       → S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.SAFE  cloud=0.0%  date=2024-07-10
+15:39:54  INFO         Downloading S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.SAFE ...
+15:41:25  INFO     Downloaded S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.SAFE (826.9 MB)
+15:41:25  INFO     Unzipping S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.SAFE.zip ...
+15:41:27  INFO     Extracted: S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.SAFE
+15:41:27  INFO     Found 12/12 bands in SAFE archive
+15:41:27  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+15:43:52  INFO     Stacked array shape: (10980, 10980, 12)
+15:45:36  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.npy (shape: (10980, 10980, 12))
+15:45:36  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148_geo.json
+15:45:36  INFO         Saved: S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.npy
+15:45:36  INFO     =================================================================
+15:45:36  INFO     Tile: T33UUS  (lippendorf)  —  1 already cached
+15:45:36  INFO       Need 3 more date(s). Searching catalog...
+15:45:44  INFO     Found 96 products
+15:45:44  INFO       Found 12 L1C products for T33UUS (cloud ≤ 15%)
+15:45:44  INFO       → S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE  cloud=0.0%  date=2024-06-26
+15:45:44  INFO         Downloading S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE ...
+15:48:15  INFO     Downloaded S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE (833.7 MB)
+15:48:15  INFO     Unzipping S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE.zip ...
+15:48:16  INFO     Extracted: S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE
+15:48:16  INFO     Found 12/12 bands in SAFE archive
+15:48:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+15:51:19  INFO     Stacked array shape: (10980, 10980, 12)
+15:53:23  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy (shape: (10980, 10980, 12))
+15:53:23  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850_geo.json
+15:53:23  INFO         Saved: S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy
+15:53:23  INFO       → S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.SAFE  cloud=0.0%  date=2024-06-29
+15:53:23  INFO         Downloading S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.SAFE ...
+15:53:24  INFO     Copernicus token refreshed, expires in 1800s
+15:54:52  INFO     Downloaded S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.SAFE (774.6 MB)
+15:54:52  INFO     Unzipping S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.SAFE.zip ...
+15:54:53  INFO     Extracted: S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.SAFE
+15:54:53  INFO     Found 12/12 bands in SAFE archive
+15:54:53  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+15:57:15  INFO     Stacked array shape: (10980, 10980, 12)
+15:59:10  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.npy (shape: (10980, 10980, 12))
+15:59:10  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511_geo.json
+15:59:10  INFO         Saved: S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.npy
+15:59:11  INFO       → S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.SAFE  cloud=0.0%  date=2024-07-09
+15:59:11  INFO         Downloading S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.SAFE ...
+16:00:42  INFO     Downloaded S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.SAFE (811.7 MB)
+16:00:42  INFO     Unzipping S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.SAFE.zip ...
+16:00:46  INFO     Extracted: S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.SAFE
+16:00:46  INFO     Found 12/12 bands in SAFE archive
+16:00:46  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+16:05:32  INFO     Stacked array shape: (10980, 10980, 12)
+16:09:30  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.npy (shape: (10980, 10980, 12))
+16:09:30  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027_geo.json
+16:09:30  INFO         Saved: S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.npy
+16:09:31  INFO     =================================================================
+16:09:31  INFO     Tile: T33UVT  (boxberg)  —  1 already cached
+16:09:31  INFO       Need 3 more date(s). Searching catalog...
+16:09:39  INFO     Found 45 products
+16:09:39  INFO       Found 12 L1C products for T33UVT (cloud ≤ 15%)
+16:09:39  INFO       → S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.SAFE  cloud=0.0%  date=2024-06-26
+16:09:39  INFO         Downloading S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.SAFE ...
+16:11:14  INFO     Downloaded S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.SAFE (811.7 MB)
+16:11:14  INFO     Unzipping S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.SAFE.zip ...
+16:11:19  INFO     Extracted: S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.SAFE
+16:11:19  INFO     Found 12/12 bands in SAFE archive
+16:11:19  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+16:15:20  INFO     Stacked array shape: (10980, 10980, 12)
+16:20:36  ERROR        Conversion failed: 1446724800 requested and 0 written
+16:20:40  INFO       → S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.SAFE  cloud=0.0%  date=2024-07-06
+16:20:40  INFO         Downloading S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.SAFE ...
+16:24:12  INFO     Downloaded S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.SAFE (819.9 MB)
+16:24:12  INFO     Unzipping S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.SAFE.zip ...
+16:24:15  INFO     Extracted: S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.SAFE
+16:24:15  INFO     Found 12/12 bands in SAFE archive
+16:24:16  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+16:28:05  INFO     Stacked array shape: (10980, 10980, 12)
+16:31:59  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.npy (shape: (10980, 10980, 12))
+16:31:59  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953_geo.json
+16:32:00  INFO         Saved: S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.npy
+16:32:01  INFO       → S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.SAFE  cloud=0.0%  date=2024-07-21
+16:32:01  INFO         Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.SAFE ...
+16:32:02  INFO     Copernicus token refreshed, expires in 1800s
+16:33:43  INFO     Downloaded S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.SAFE (811.2 MB)
+16:33:43  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.SAFE.zip ...
+16:33:44  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.SAFE
+16:33:44  INFO     Found 12/12 bands in SAFE archive
+16:33:44  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+16:35:20  INFO     Stacked array shape: (10980, 10980, 12)
+16:36:27  INFO     Saved .npy array: data/npy_cache/S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.npy (shape: (10980, 10980, 12))
+16:36:27  INFO     Saved geo metadata: data/npy_cache/S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133_geo.json
+16:36:27  INFO         Saved: S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.npy
+16:36:27  INFO     =================================================================
+16:36:27  INFO     Tile: T32ULB  (neurath, niederaussem)  —  2 already cached
+16:36:27  INFO       Need 2 more date(s). Searching catalog...
+16:36:34  INFO     Found 81 products
+16:36:34  INFO       Found 13 L1C products for T32ULB (cloud ≤ 15%)
+16:36:34  INFO       → S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.SAFE  cloud=0.0%  date=2024-06-25
+16:36:34  INFO         Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.SAFE ...
+16:38:07  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.SAFE (854.4 MB)
+16:38:07  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.SAFE.zip ...
+16:38:08  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.SAFE
+16:38:08  INFO     Found 12/12 bands in SAFE archive
+16:38:08  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+16:39:44  INFO     Stacked array shape: (10980, 10980, 12)
+16:40:58  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.npy (shape: (10980, 10980, 12))
+16:40:58  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035_geo.json
+16:40:59  INFO         Saved: S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.npy
+16:40:59  INFO       → S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.SAFE  cloud=0.0%  date=2024-07-15
+16:40:59  INFO         Downloading S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.SAFE ...
+16:46:03  INFO     Downloaded S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.SAFE (842.8 MB)
+16:46:03  INFO     Unzipping S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.SAFE.zip ...
+16:46:05  INFO     Extracted: S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.SAFE
+16:46:05  INFO     Found 12/12 bands in SAFE archive
+16:46:05  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+16:47:19  INFO     Stacked array shape: (10980, 10980, 12)
+16:48:16  INFO     Saved .npy array: data/npy_cache/S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.npy (shape: (10980, 10980, 12))
+16:48:16  INFO     Saved geo metadata: data/npy_cache/S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048_geo.json
+16:48:16  INFO         Saved: S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.npy
+16:48:16  INFO     
+Loading CH4Net v2 weights from weights/european_model_v8.pth ...
+16:48:17  INFO       Model loaded OK
+16:48:17  INFO     
+=================================================================
+16:48:17  INFO     Site: WEISWEILER       tile: T31UGS  (✓ confirmed)
+16:48:17  INFO     Note: 1060 MW lignite, Rhineland — S/C=2.091 on two dates
+16:48:17  INFO       Found 4 cached date(s) for tile T31UGS
+16:48:17  INFO       Date 20240608:
+16:48:17  INFO         Loading array (may take ~30s)...
+16:48:18  INFO         Shape: (10980, 10980, 12)  Running inference...
+16:48:18  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:16:48  INFO     
+Loading CH4Net v2 weights from weights/european_model_v8.pth ...
+17:16:48  INFO       Model loaded OK
+17:16:48  INFO     
+=================================================================
+17:16:48  INFO     Site: WEISWEILER       tile: T31UGS  (✓ confirmed)
+17:16:48  INFO     Note: 1060 MW lignite, Rhineland — S/C=2.091 on two dates
+17:16:48  INFO       Found 4 cached date(s) for tile T31UGS
+17:16:48  INFO       Date 20240608:
+17:16:48  INFO         Loading array (may take ~30s)...
+17:16:50  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:16:50  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:16:51  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:16:51  INFO         Running batched inference on 11881 tiles...
+17:17:58  INFO         Stitching predictions...
+17:19:52  INFO     
+Loading CH4Net v2 weights from weights/european_model_v8.pth ...
+17:19:53  INFO       Model loaded OK
+17:19:53  INFO     
+=================================================================
+17:19:53  INFO     Site: WEISWEILER       tile: T31UGS  (✓ confirmed)
+17:19:53  INFO     Note: 1060 MW lignite, Rhineland — S/C=2.091 on two dates
+17:19:53  INFO       Found 4 cached date(s) for tile T31UGS
+17:19:53  INFO       Date 20240608:
+17:19:53  INFO         Loading array (may take ~30s)...
+17:19:55  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:19:55  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:19:55  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:19:55  INFO         Running batched inference on 11881 tiles...
+17:21:01  INFO         Stitching predictions...
+17:21:10  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.tif
+17:21:12  INFO         S/C=1.000  CFAR=no  (thresh=1.150, CV=0.000)  site_mean=0.425702
+17:21:12  INFO       Date 20240831:
+17:21:12  INFO         Loading array (may take ~30s)...
+17:21:13  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:21:13  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:21:13  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:21:13  INFO         Running batched inference on 11881 tiles...
+17:22:43  INFO         Stitching predictions...
+17:23:01  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.tif
+17:23:05  INFO         S/C=1.000  CFAR=no  (thresh=1.150, CV=0.000)  site_mean=0.425702
+17:23:05  INFO       Date 20240920:
+17:23:05  INFO         Loading array (may take ~30s)...
+17:23:06  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:23:06  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:23:06  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:23:06  INFO         Running batched inference on 11881 tiles...
+17:25:19  INFO         Stitching predictions...
+17:25:43  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.tif
+17:25:47  INFO         S/C=1.000  CFAR=no  (thresh=1.150, CV=0.000)  site_mean=0.425702
+17:25:47  INFO       Date 20240918:
+17:25:47  INFO         [cached TIF] original_S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.tif
+17:25:52  INFO         S/C=23.461  CFAR=no  (thresh=5.973, CV=1.607)  site_mean=0.010992
+17:25:52  INFO     
+=================================================================
+17:25:52  INFO     Site: BELCHATOW        tile: T34UCB  (✓ confirmed)
+17:25:52  INFO     Note: 858 MW lignite, Poland — S/C=27.303 on 2024-08-24
+17:25:52  INFO       Found 4 cached date(s) for tile T34UCB
+17:25:52  INFO       Date 20240617:
+17:25:52  INFO         Loading array (may take ~30s)...
+17:25:56  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:25:56  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:25:56  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:25:56  INFO         Running batched inference on 11881 tiles...
+17:28:54  INFO         Stitching predictions...
+17:29:21  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif
+17:29:26  INFO         S/C=1.000  CFAR=no  (thresh=3.271, CV=0.707)  site_mean=0.425702
+17:29:26  INFO       Date 20240710:
+17:29:26  INFO         Loading array (may take ~30s)...
+17:29:27  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:29:27  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:29:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:29:27  INFO         Running batched inference on 11881 tiles...
+17:32:38  INFO         Stitching predictions...
+17:33:17  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif
+17:33:22  INFO         S/C=142.978  CFAR=DETECT  (thresh=4.465, CV=1.105)  site_mean=0.025282
+17:33:22  INFO       Date 20240605:
+17:33:22  INFO         Loading array (may take ~30s)...
+17:33:24  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:33:24  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:33:24  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:33:24  INFO         Running batched inference on 11881 tiles...
+17:36:31  INFO         Stitching predictions...
+17:37:12  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.tif
+17:37:17  INFO         S/C=9.484  CFAR=no  (thresh=3.104, CV=0.651)  site_mean=0.178941
+17:37:17  INFO       Date 20240824:
+17:37:17  INFO         [cached TIF] original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif
+17:37:21  INFO         S/C=27.303  CFAR=no  (thresh=4.945, CV=1.265)  site_mean=0.001062
+17:37:21  INFO     
+=================================================================
+17:37:21  INFO     Site: LIPPENDORF       tile: T33UUS  (✓ confirmed)
+17:37:21  INFO     Note: 891 MW lignite x2, Saxony — S/C=155.362 on 2024-09-22
+17:37:21  INFO       Found 4 cached date(s) for tile T33UUS
+17:37:21  INFO       Date 20240626:
+17:37:21  INFO         Loading array (may take ~30s)...
+17:37:23  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:37:23  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:37:23  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:37:23  INFO         Running batched inference on 11881 tiles...
+17:40:25  INFO         Stitching predictions...
+17:41:22  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.tif
+17:41:30  INFO         S/C=315.983  CFAR=no  (thresh=5.242, CV=1.364)  site_mean=0.015672
+17:41:30  INFO       Date 20240629:
+17:41:30  INFO         Loading array (may take ~30s)...
+17:41:33  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:41:33  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:41:34  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:41:34  INFO         Running batched inference on 11881 tiles...
+17:46:40  INFO         Stitching predictions...
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 3818'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4011'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4204'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4397'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4590'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4783'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 4976'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 5169'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 5362'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 5555'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 5748'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 5941'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 6134'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 6327'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 6520'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 6713'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 6906'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 7099'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 7292'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 7485'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 7678'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 7871'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 8064'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 8257'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 8450'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 8643'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 8836'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9029'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9222'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9415'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9608'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9801'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 9994'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 10187'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 10380'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 10573'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 10766'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='TIFFAppendToStrip:Write error at scanline 10959'
+17:47:34  INFO     GDAL signalled an error: err_no=1, msg='_tiffWriteProc:No space left on device'
+17:47:34  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif
+17:47:38  INFO     GDAL signalled an error: err_no=1, msg='results_bitemporal/lippendorf/original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif:Using code not yet in table'
+17:47:38  INFO     GDAL signalled an error: err_no=1, msg='TIFFReadEncodedStrip() failed.'
+17:47:38  INFO     GDAL signalled an error: err_no=1, msg='results_bitemporal/lippendorf/original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif, band 1: IReadBlock failed at X offset 0, Y offset 3816: TIFFReadEncodedStrip() failed.'
+17:47:38  WARNING      S/C error: Read failed. See previous exception for details.
+17:47:38  INFO       Date 20240709:
+17:47:38  INFO         Loading array (may take ~30s)...
+17:47:40  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:47:40  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:47:40  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:47:40  INFO         Running batched inference on 11881 tiles...
+17:52:53  INFO         Stitching predictions...
+17:53:56  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.tif
+17:54:04  INFO         S/C=0.126  CFAR=no  (thresh=3.495, CV=0.781)  site_mean=0.003248
+17:54:04  INFO       Date 20240922:
+17:54:04  INFO         [cached TIF] original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif
+17:54:12  INFO         S/C=155.362  CFAR=DETECT  (thresh=2.914, CV=0.588)  site_mean=0.009509
+17:54:12  INFO     
+=================================================================
+17:54:12  INFO     Site: BOXBERG          tile: T33UVT  (~ marginal)
+17:54:12  INFO     Note: S/C=1.517 on single date; Lausitz bg=1.397
+17:54:12  INFO       Found 4 cached date(s) for tile T33UVT
+17:54:12  INFO       Date 20240626:
+17:54:12  WARNING      No geo metadata for S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy — skipping
+17:54:12  INFO       Date 20240706:
+17:54:12  INFO         Loading array (may take ~30s)...
+17:54:15  INFO         Shape: (10980, 10980, 12)  Running inference...
+17:54:15  INFO         Tiling 10980×10980 scene → 100×100 patches...
+17:54:15  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:54:15  INFO         Running batched inference on 11881 tiles...
+17:59:19  INFO         Stitching predictions...
+18:00:01  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.tif
+18:00:10  INFO         S/C=0.843  CFAR=no  (thresh=2.814, CV=0.555)  site_mean=0.000042
+18:00:10  INFO       Date 20240721:
+18:00:10  INFO         Loading array (may take ~30s)...
+18:00:12  INFO         Shape: (10980, 10980, 12)  Running inference...
+18:00:12  INFO         Tiling 10980×10980 scene → 100×100 patches...
+18:00:12  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:00:12  INFO         Running batched inference on 11881 tiles...
+18:36:24  INFO         Stitching predictions...
+18:39:38  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.tif
+18:40:16  INFO         S/C=1202.832  CFAR=no  (thresh=4.306, CV=1.052)  site_mean=0.058145
+18:40:16  INFO       Date 20240827:
+18:40:16  INFO         [cached TIF] original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+18:40:45  INFO         S/C=0.007  CFAR=no  (thresh=3.270, CV=0.707)  site_mean=0.002968
+18:40:45  INFO     
+=================================================================
+18:40:45  INFO     Site: NEURATH          tile: T32ULB  (? retest)
+18:40:45  INFO     Note: 1060 MW lignite, Rhineland — S/C=1.000 on 2024-09-20 (bad scene)
+18:40:45  INFO       Found 4 cached date(s) for tile T32ULB
+18:40:45  INFO       Date 20240625:
+18:40:45  INFO         Loading array (may take ~30s)...
+18:41:00  INFO         Shape: (10980, 10980, 12)  Running inference...
+18:41:00  INFO         Tiling 10980×10980 scene → 100×100 patches...
+18:41:00  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:41:00  INFO         Running batched inference on 11881 tiles...
+19:46:22  INFO         Stitching predictions...
+19:46:57  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif
+19:47:17  INFO         S/C=23.039  CFAR=DETECT  (thresh=4.127, CV=0.992)  site_mean=0.121191
+19:47:17  INFO       Date 20240715:
+19:47:17  INFO         Loading array (may take ~30s)...
+19:47:23  INFO         Shape: (10980, 10980, 12)  Running inference...
+19:47:23  INFO         Tiling 10980×10980 scene → 100×100 patches...
+19:47:23  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:47:23  INFO         Running batched inference on 11881 tiles...
+20:04:35  INFO         Stitching predictions...
+20:04:54  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif
+20:04:58  INFO         S/C=1.123  CFAR=no  (thresh=2.563, CV=0.471)  site_mean=0.029968
+20:04:58  INFO       Date 20240920:
+20:04:58  INFO         [cached TIF] original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+20:05:00  INFO         S/C=1.000  CFAR=no  (thresh=1.630, CV=0.160)  site_mean=0.425702
+20:05:00  INFO       Date 20240829:
+20:05:01  INFO         Loading array (may take ~30s)...
+20:05:02  INFO         Shape: (10980, 10980, 12)  Running inference...
+20:05:02  INFO         Tiling 10980×10980 scene → 100×100 patches...
+20:05:02  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:05:02  INFO         Running batched inference on 11881 tiles...
+20:06:25  INFO         Stitching predictions...
+20:06:35  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif
+20:06:38  INFO         S/C=67.205  CFAR=DETECT  (thresh=2.014, CV=0.288)  site_mean=0.014405
+20:06:38  INFO     
+=================================================================
+20:06:38  INFO     Site: NIEDERAUSSEM     tile: T32ULB  (? retest)
+20:06:38  INFO     Note: 924 MW lignite, Rhineland — S/C=1.000 on same bad scene
+20:06:38  INFO       Found 4 cached date(s) for tile T32ULB
+20:06:38  INFO       Date 20240625:
+20:06:38  INFO         Loading array (may take ~30s)...
+20:06:39  INFO         Shape: (10980, 10980, 12)  Running inference...
+20:06:39  INFO         Tiling 10980×10980 scene → 100×100 patches...
+20:06:39  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:06:39  INFO         Running batched inference on 11881 tiles...
+20:08:45  INFO         Stitching predictions...
+20:09:02  INFO     Saved georeferenced prediction to results_bitemporal/niederaussem/original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif
+20:09:07  INFO         S/C=0.043  CFAR=no  (thresh=4.025, CV=0.958)  site_mean=0.001428
+20:09:07  INFO       Date 20240715:
+20:09:07  INFO         Loading array (may take ~30s)...
+20:09:09  INFO         Shape: (10980, 10980, 12)  Running inference...
+20:09:09  INFO         Tiling 10980×10980 scene → 100×100 patches...
+20:09:09  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:09:09  INFO         Running batched inference on 11881 tiles...
+20:11:13  INFO         Stitching predictions...
+20:11:48  INFO     Saved georeferenced prediction to results_bitemporal/niederaussem/original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif
+20:11:55  INFO         S/C=0.799  CFAR=no  (thresh=3.271, CV=0.707)  site_mean=0.028511
+20:11:55  INFO       Date 20240920:
+20:11:55  INFO         [cached TIF] original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+20:12:00  INFO         S/C=1.000  CFAR=no  (thresh=2.880, CV=0.577)  site_mean=0.425702
+20:12:00  INFO       Date 20240829:
+20:12:00  INFO         Loading array (may take ~30s)...
+20:12:03  INFO         Shape: (10980, 10980, 12)  Running inference...
+20:12:03  INFO         Tiling 10980×10980 scene → 100×100 patches...
+20:12:03  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:12:03  INFO         Running batched inference on 11881 tiles...
+20:15:13  INFO         Stitching predictions...
+20:15:49  INFO     Saved georeferenced prediction to results_bitemporal/niederaussem/original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif
+20:15:54  INFO         S/C=0.282  CFAR=no  (thresh=5.729, CV=1.526)  site_mean=0.000848
+20:15:54  INFO     
+Results saved → results_analysis/multidate_validation.json

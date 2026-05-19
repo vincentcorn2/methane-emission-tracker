@@ -1,0 +1,192 @@
+"""
+scripts/tropomi_colocate_belchatow.py
+=======================================
+Aggressively co-locate every Belchatow Sentinel-2 acquisition in the max-data
+time series against TROPOMI Sentinel-5P L2 CH4 column data.
+
+Why aggressive
+--------------
+The original validate_tropomi.py run reported "no TROPOMI coverage on
+Belchatow acquisition dates." That was against the small initial date set.
+The expanded 2021–2024 time series has ~100+ acquisition dates, and TROPOMI's
+swath geometry varies day-to-day — many of those dates will have usable
+TROPOMI coverage. A ±3-day search window doubles the chance of finding a
+co-incident or near-co-incident overpass.
+
+What it does
+------------
+1. Reads results_analysis/belchatow_annual_timeseries.json
+2. Extracts every acquisition date with status != partial-swath
+3. Seeds results_analysis/multidate_validation.json with these dates in
+   the schema validate_tropomi.py expects (backs up the existing file first)
+4. Calls validate_tropomi.py --sites belchatow --date-window 3
+5. The TROPOMI engine downloads orbits, extracts XCH4 at Belchatow coords,
+   computes ΔXCH4 against background, writes results_analysis/tropomi_validation.json
+
+Output
+------
+  results_analysis/tropomi_validation.json
+  results_analysis/multidate_validation.json.belchatow_seed.bak (backup)
+
+Usage
+-----
+  python scripts/tropomi_colocate_belchatow.py --dry-run
+  caffeinate -i python scripts/tropomi_colocate_belchatow.py
+"""
+import argparse
+import json
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+TIMESERIES_JSON = ROOT / "results_analysis" / "belchatow_annual_timeseries.json"
+MULTIDATE_JSON = ROOT / "results_analysis" / "multidate_validation.json"
+TROPOMI_SCRIPT = ROOT / "validate_tropomi.py"
+
+ACQ_DATE_RE = re.compile(r"(\d{8})T\d{6}")
+
+
+def extract_yyyymmdd(record):
+    """Return a YYYYMMDD string for the acquisition date of a record."""
+    # Try multiple fields
+    for key in ("acquisition_date", "scene_id", "npy"):
+        v = record.get(key)
+        if not v:
+            continue
+        m = ACQ_DATE_RE.search(str(v))
+        if m:
+            return m.group(1)
+    # Fallback: month field "YYYY-MM" → "YYYYMM01" (not great, but better than nothing)
+    return None
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Show what would be seeded; do not call TROPOMI script")
+    parser.add_argument("--include-nondetections", action="store_true",
+                        help="Also seed dates where CH4Net did NOT detect (for FPR check)")
+    parser.add_argument("--date-window", type=int, default=3,
+                        help="±days for TROPOMI co-location (default 3)")
+    args = parser.parse_args()
+
+    if not TIMESERIES_JSON.exists():
+        print(f"ERROR: {TIMESERIES_JSON} not found"); sys.exit(1)
+    if not TROPOMI_SCRIPT.exists():
+        print(f"ERROR: {TROPOMI_SCRIPT} not found"); sys.exit(1)
+
+    store = json.loads(TIMESERIES_JSON.read_text())
+    records = store.get("records", []) if isinstance(store, dict) else store
+
+    # Build the multidate-format payload for Belchatow
+    dates_payload = {}
+    skipped_partial_swath = 0
+    skipped_no_date = 0
+    detection_dates = []
+    non_detection_dates = []
+
+    for r in records:
+        det = r.get("detection") or {}
+        # Skip partial-swath fingerprints (S/C exactly 1.0 with cv_ctrl == 0)
+        sc = det.get("sc_ratio")
+        cv = det.get("cv_ctrl")
+        if sc is None:
+            continue
+        if abs(sc - 1.0) < 1e-6 and (cv is None or abs(cv) < 1e-6):
+            skipped_partial_swath += 1
+            continue
+
+        date_str = extract_yyyymmdd(r)
+        if not date_str:
+            skipped_no_date += 1
+            continue
+
+        is_detection = sc > 1.15
+
+        # Only seed detection dates unless user asks for both
+        if not is_detection and not args.include_nondetections:
+            non_detection_dates.append(date_str)
+            continue
+
+        if is_detection:
+            detection_dates.append(date_str)
+        else:
+            non_detection_dates.append(date_str)
+
+        # Build a minimal record matching the multidate_validation.json schema
+        dates_payload[date_str] = {
+            "sc_ratio":   sc,
+            "site_mean":  det.get("site_mean"),
+            "ctrl_mean":  det.get("ctrl_mean"),
+            "cfar_detect": det.get("cfar_detect"),
+            "cv_ctrl":    cv,
+            "tif":        (r.get("quantification") or {}).get("mask_file"),
+        }
+
+    print("=" * 78)
+    print("TROPOMI co-location seed plan")
+    print("=" * 78)
+    print(f"Total time series records:    {len(records)}")
+    print(f"Skipped partial-swath:        {skipped_partial_swath}")
+    print(f"Skipped (no date parseable):  {skipped_no_date}")
+    print(f"Detection dates to seed:      {len(detection_dates)}")
+    print(f"Non-detection dates to seed:  {len(non_detection_dates) if args.include_nondetections else 0}")
+    print(f"Total dates in payload:       {len(dates_payload)}")
+    print(f"TROPOMI search window:        ±{args.date_window} days")
+    print()
+
+    if not dates_payload:
+        print("No usable dates to co-locate. Exit.")
+        return
+
+    if args.dry_run:
+        print("DRY RUN — sample of dates that would be seeded:")
+        for d in sorted(dates_payload)[:15]:
+            print(f"  {d}  S/C={dates_payload[d]['sc_ratio']}  "
+                  f"CFAR={dates_payload[d]['cfar_detect']}")
+        if len(dates_payload) > 15:
+            print(f"  ... and {len(dates_payload) - 15} more")
+        print(f"\nWould write to: {MULTIDATE_JSON}")
+        print(f"Would invoke:   {TROPOMI_SCRIPT} --sites belchatow --date-window {args.date_window}")
+        return
+
+    # Load existing multidate_validation.json so we don't blow away other sites' entries
+    existing = {}
+    if MULTIDATE_JSON.exists():
+        try:
+            existing = json.loads(MULTIDATE_JSON.read_text())
+            bak = MULTIDATE_JSON.with_suffix(".json.belchatow_seed.bak")
+            bak.write_text(json.dumps(existing, indent=2))
+            print(f"Backup of existing multidate_validation.json: {bak}")
+        except Exception as e:
+            print(f"WARNING: could not load existing multidate_validation.json ({e}); starting fresh")
+            existing = {}
+
+    # Merge: keep other sites, replace belchatow block with our payload
+    if "belchatow" in existing:
+        existing_bel_dates = existing["belchatow"].get("dates", {})
+        # Merge — our payload takes precedence
+        existing_bel_dates.update(dates_payload)
+        existing["belchatow"]["dates"] = existing_bel_dates
+    else:
+        existing["belchatow"] = {"dates": dates_payload, "source": "max_data_timeseries"}
+
+    MULTIDATE_JSON.write_text(json.dumps(existing, indent=2))
+    print(f"Seeded {len(dates_payload)} Belchatow dates into {MULTIDATE_JSON.name}")
+    print()
+
+    cmd = [
+        sys.executable, str(TROPOMI_SCRIPT),
+        "--sites", "belchatow",
+        "--date-window", str(args.date_window),
+    ]
+    print(f"$ {' '.join(cmd)}")
+    print()
+    proc = subprocess.run(cmd, cwd=str(ROOT))
+    sys.exit(proc.returncode)
+
+
+if __name__ == "__main__":
+    main()

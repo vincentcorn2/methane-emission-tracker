@@ -1,0 +1,56 @@
+{
+  "2020-06-01": {
+    "label": "2020-06-01",
+    "npy": "S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.npy",
+    "ref_npy": "T34UCB_ref_20231218.npy",
+    "status": "ok",
+    "baseline_sc_from_backfill": 849.08,
+    "baseline_cfar_from_backfill": true,
+    "baseline": {
+      "tif": "results_bitemporal/belchatow_historical/original_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif",
+      "sc_ratio": 849.0822,
+      "cfar_detect": true,
+      "cfar_thresh_ratio": 3.2844,
+      "cv_ctrl": 0.7115,
+      "site_mean": 0.139464,
+      "ctrl_mu": 0.000232
+    },
+    "bitemporal": {
+      "tif": "results_bitemporal/belchatow_historical/bitemporal_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif",
+      "sc_ratio": 1.7281,
+      "cfar_detect": false,
+      "cfar_thresh_ratio": 4.9004,
+      "cv_ctrl": 1.2501,
+      "site_mean": 2e-06,
+      "ctrl_mu": 2.8e-05
+    },
+    "delta_sc": -847.3541
+  },
+  "2021-06-06": {
+    "label": "2021-06-06",
+    "npy": "S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.npy",
+    "ref_npy": "T34UCB_ref_20231218.npy",
+    "status": "ok",
+    "baseline_sc_from_backfill": 18.53,
+    "baseline_cfar_from_backfill": true,
+    "baseline": {
+      "tif": "results_bitemporal/belchatow_historical/original_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif",
+      "sc_ratio": 18.5255,
+      "cfar_detect": true,
+      "cfar_thresh_ratio": 4.1589,
+      "cv_ctrl": 1.003,
+      "site_mean": 0.581352,
+      "ctrl_mu": 0.051643
+    },
+    "bitemporal": {
+      "tif": "results_bitemporal/belchatow_historical/bitemporal_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif",
+      "sc_ratio": 12696.472,
+      "cfar_detect": true,
+      "cfar_thresh_ratio": 5.2903,
+      "cv_ctrl": 1.3801,
+      "site_mean": 0.015773,
+      "ctrl_mu": 0.001417
+    },
+    "delta_sc": 12677.9465
+  }
+}

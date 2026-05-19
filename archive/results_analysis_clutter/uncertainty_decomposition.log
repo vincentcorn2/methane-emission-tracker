@@ -1,0 +1,154 @@
+17:22:18  INFO     ============================================================
+17:22:18  INFO     Processing: Neurath 2024-08-29
+17:22:18  INFO       Loading probability map from TIF...
+17:22:26  INFO       Loading spectral bands from NPY...
+17:27:32  INFO     ============================================================
+17:27:32  INFO     Processing: Neurath 2024-08-29
+17:27:32  INFO       Wind: 2.6612 m/s  source=ERA5_reanalysis
+17:27:32  INFO       Loading 500×500 px crops from npy + TIF...
+17:27:32  INFO       B11 crop: (500, 500)  range=[0.1333, 0.6471]
+17:27:32  INFO       B12 crop: (500, 500)  range=[0.1216, 0.5098]
+17:27:55  INFO       Prob crop: (500, 500)  range=[0.000000, 0.646884]
+17:27:55  INFO       Canonical CEMF: 101.4 kg/h  (n_px=3848, thresh=0.0007)
+17:27:55  INFO       Reported flow:  85.0 kg/h
+17:27:55  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:27:55  INFO         Mask bootstrap: n=50  mean=87.8  std=35.9  σ=40.9%
+17:27:55  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:27:55  INFO         BG jackknife (drop N): 101.4 kg/h
+17:27:55  INFO         BG jackknife (drop S): 101.4 kg/h
+17:27:55  INFO         BG jackknife (drop W): 101.4 kg/h
+17:27:55  INFO         BG jackknife (drop E): 101.4 kg/h
+17:27:55  INFO         BG jackknife: n=4  mean=101.4  std=0.0  σ=0.0%
+17:27:55  INFO       Monte Carlo combination (10000 samples)...
+17:27:55  INFO     ============================================================
+17:27:55  INFO     Processing: Bełchatów 2024-07-10
+17:27:55  INFO       Wind: 3.3183 m/s  source=ERA5_reanalysis
+17:27:55  INFO       Loading 500×500 px crops from npy + TIF...
+17:27:56  INFO       B11 crop: (500, 500)  range=[0.1098, 0.9843]
+17:27:56  INFO       B12 crop: (500, 500)  range=[0.1059, 0.7765]
+17:28:17  INFO       Prob crop: (500, 500)  range=[0.000000, 0.999490]
+17:28:17  INFO       Canonical CEMF: 1071.2 kg/h  (n_px=8533, thresh=0.002)
+17:28:17  INFO       Reported flow:  1071.0 kg/h
+17:28:17  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:28:17  INFO         Mask bootstrap: n=50  mean=1042.3  std=49.1  σ=4.7%
+17:28:17  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:28:17  INFO         BG jackknife (drop N): 1071.2 kg/h
+17:28:17  INFO         BG jackknife (drop S): 1071.2 kg/h
+17:28:17  INFO         BG jackknife (drop W): 1071.2 kg/h
+17:28:17  INFO         BG jackknife (drop E): 1071.2 kg/h
+17:28:17  INFO         BG jackknife: n=4  mean=1071.2  std=0.0  σ=0.0%
+17:28:17  INFO       Monte Carlo combination (10000 samples)...
+17:28:17  INFO     ============================================================
+17:28:17  INFO     Processing: Neurath 2024-06-25
+17:28:17  INFO       Fetching ERA5 wind for neurath 2024-06-25...
+17:28:17  INFO       Wind: 3.5000 m/s  source=ERA5_reanalysis
+17:28:17  INFO       Loading 500×500 px crops from npy + TIF...
+17:28:18  INFO       B11 crop: (500, 500)  range=[0.1098, 1.0000]
+17:28:18  INFO       B12 crop: (500, 500)  range=[0.1020, 1.0000]
+17:28:36  INFO       Prob crop: (500, 500)  range=[0.000000, 0.964200]
+17:28:36  INFO       Canonical CEMF: 534.7 kg/h  (n_px=14614, thresh=0.016)
+17:28:36  INFO       Reported flow:  338.0 kg/h
+17:28:36  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:28:36  INFO         Mask bootstrap: n=50  mean=485.6  std=93.3  σ=19.2%
+17:28:36  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:28:36  INFO         BG jackknife (drop N): 534.7 kg/h
+17:28:36  INFO         BG jackknife (drop S): 534.7 kg/h
+17:28:36  INFO         BG jackknife (drop W): 534.7 kg/h
+17:28:36  INFO         BG jackknife (drop E): 534.7 kg/h
+17:28:36  INFO         BG jackknife: n=4  mean=534.7  std=0.0  σ=0.0%
+17:28:36  INFO       Monte Carlo combination (10000 samples)...
+17:28:36  INFO     ============================================================
+17:28:36  INFO     Processing: Bełchatów 2024-08-24
+17:28:36  INFO       Wind: 2.1900 m/s  source=ERA5_reanalysis
+17:28:36  INFO       Loading 500×500 px crops from npy + TIF...
+17:28:37  INFO       B11 crop: (500, 500)  range=[0.1098, 0.7176]
+17:28:37  INFO       B12 crop: (500, 500)  range=[0.1020, 0.5765]
+17:28:53  INFO       Prob crop: (500, 500)  range=[0.000000, 0.996520]
+17:28:53  INFO       Canonical CEMF: 426.4 kg/h  (n_px=5714, thresh=0.0002)
+17:28:53  INFO       Reported flow:  426.0 kg/h
+17:28:53  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:28:54  INFO         Mask bootstrap: n=50  mean=414.6  std=28.5  σ=6.9%
+17:28:54  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:28:54  INFO         BG jackknife (drop N): 426.4 kg/h
+17:28:54  INFO         BG jackknife (drop S): 426.4 kg/h
+17:28:54  INFO         BG jackknife (drop W): 426.4 kg/h
+17:28:54  INFO         BG jackknife (drop E): 426.4 kg/h
+17:28:54  INFO         BG jackknife: n=4  mean=426.4  std=0.0  σ=0.0%
+17:28:54  INFO       Monte Carlo combination (10000 samples)...
+17:28:54  INFO     Saved → results_analysis/uncertainty_decomposition.json
+17:29:34  INFO     ============================================================
+17:29:34  INFO     Processing: Neurath 2024-08-29
+17:29:34  INFO       Wind: 2.6612 m/s  source=ERA5_reanalysis
+17:29:34  INFO       Loading 500×500 px crops from npy + TIF...
+17:29:35  INFO       B11 crop: (500, 500)  range=[0.1333, 0.6471]
+17:29:35  INFO       B12 crop: (500, 500)  range=[0.1216, 0.5098]
+17:29:52  INFO       Prob crop: (500, 500)  range=[0.000000, 0.646884]
+17:29:52  INFO       Canonical CEMF: 101.4 kg/h  (n_px=3848, thresh=0.0007)
+17:29:52  INFO       Reported flow:  85.0 kg/h
+17:29:52  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:29:52  INFO         Mask bootstrap: n=50  mean=87.8  std=35.9  σ=40.9%
+17:29:52  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:29:52  INFO         BG jackknife (drop N): 101.4 kg/h
+17:29:52  INFO         BG jackknife (drop S): 101.4 kg/h
+17:29:53  INFO         BG jackknife (drop W): 101.4 kg/h
+17:29:53  INFO         BG jackknife (drop E): 101.4 kg/h
+17:29:53  INFO         BG jackknife: n=4  mean=101.4  std=0.0  σ=0.0%
+17:29:53  INFO       Monte Carlo combination (10000 samples)...
+17:29:53  INFO     ============================================================
+17:29:53  INFO     Processing: Bełchatów 2024-07-10
+17:29:53  INFO       Wind: 3.3183 m/s  source=ERA5_reanalysis
+17:29:53  INFO       Loading 500×500 px crops from npy + TIF...
+17:29:53  INFO       B11 crop: (500, 500)  range=[0.1098, 0.9843]
+17:29:53  INFO       B12 crop: (500, 500)  range=[0.1059, 0.7765]
+17:30:08  INFO       Prob crop: (500, 500)  range=[0.000000, 0.999490]
+17:30:08  INFO       Canonical CEMF: 1071.2 kg/h  (n_px=8533, thresh=0.002)
+17:30:08  INFO       Reported flow:  1071.0 kg/h
+17:30:08  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:30:08  INFO         Mask bootstrap: n=50  mean=1042.3  std=49.1  σ=4.7%
+17:30:08  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:30:08  INFO         BG jackknife (drop N): 1071.2 kg/h
+17:30:08  INFO         BG jackknife (drop S): 1071.2 kg/h
+17:30:08  INFO         BG jackknife (drop W): 1071.2 kg/h
+17:30:08  INFO         BG jackknife (drop E): 1071.2 kg/h
+17:30:08  INFO         BG jackknife: n=4  mean=1071.2  std=0.0  σ=0.0%
+17:30:08  INFO       Monte Carlo combination (10000 samples)...
+17:30:08  INFO     ============================================================
+17:30:08  INFO     Processing: Neurath 2024-06-25
+17:30:08  INFO       Fetching ERA5 wind for neurath 2024-06-25...
+17:30:08  WARNING      ERA5 returned fallback wind 3.5 m/s
+17:30:08  INFO       Wind: 3.5000 m/s  source=climatological_fallback_3.5ms
+17:30:08  INFO       Loading 500×500 px crops from npy + TIF...
+17:30:09  INFO       B11 crop: (500, 500)  range=[0.1098, 1.0000]
+17:30:09  INFO       B12 crop: (500, 500)  range=[0.1020, 1.0000]
+17:30:26  INFO       Prob crop: (500, 500)  range=[0.000000, 0.964200]
+17:30:27  INFO       Canonical CEMF: 534.7 kg/h  (n_px=14614, thresh=0.016)
+17:30:27  INFO       Reported flow:  338.0 kg/h
+17:30:27  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:30:27  INFO         Mask bootstrap: n=50  mean=485.6  std=93.3  σ=19.2%
+17:30:27  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:30:27  INFO         BG jackknife (drop N): 534.7 kg/h
+17:30:27  INFO         BG jackknife (drop S): 534.7 kg/h
+17:30:27  INFO         BG jackknife (drop W): 534.7 kg/h
+17:30:27  INFO         BG jackknife (drop E): 534.7 kg/h
+17:30:27  INFO         BG jackknife: n=4  mean=534.7  std=0.0  σ=0.0%
+17:30:27  INFO       Monte Carlo combination (10000 samples)...
+17:30:27  INFO     ============================================================
+17:30:27  INFO     Processing: Bełchatów 2024-08-24
+17:30:27  INFO       Wind: 2.1900 m/s  source=ERA5_reanalysis
+17:30:27  INFO       Loading 500×500 px crops from npy + TIF...
+17:30:27  INFO       B11 crop: (500, 500)  range=[0.1098, 0.7176]
+17:30:27  INFO       B12 crop: (500, 500)  range=[0.1020, 0.5765]
+17:30:43  INFO       Prob crop: (500, 500)  range=[0.000000, 0.996520]
+17:30:43  INFO       Canonical CEMF: 426.4 kg/h  (n_px=5714, thresh=0.0002)
+17:30:43  INFO       Reported flow:  426.0 kg/h
+17:30:43  INFO       [3/4] Mask threshold bootstrap (50 log-spaced thresholds)...
+17:30:43  INFO         Mask bootstrap: n=50  mean=414.6  std=28.5  σ=6.9%
+17:30:43  INFO       [4/4] Background annulus jackknife (N/S/E/W)...
+17:30:43  INFO         BG jackknife (drop N): 426.4 kg/h
+17:30:43  INFO         BG jackknife (drop S): 426.4 kg/h
+17:30:43  INFO         BG jackknife (drop W): 426.4 kg/h
+17:30:43  INFO         BG jackknife (drop E): 426.4 kg/h
+17:30:43  INFO         BG jackknife: n=4  mean=426.4  std=0.0  σ=0.0%
+17:30:43  INFO       Monte Carlo combination (10000 samples)...
+17:30:43  INFO     Saved → results_analysis/uncertainty_decomposition.json
+17:30:43  INFO     quantification.json: wrote uncertainty_decomposition to 2 records

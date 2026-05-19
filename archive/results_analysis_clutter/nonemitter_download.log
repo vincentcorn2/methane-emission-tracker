@@ -1,0 +1,1110 @@
+00:48:10  INFO     Copernicus token refreshed, expires in 1800s
+00:48:10  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+00:48:14  INFO     Found 24 products
+00:48:14  INFO       Found 6 L1C scenes for nonemit_001 (tile 32UNE, cloud ≤ 10%)
+00:48:14  INFO       Best candidate: S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE  cloud=0.0%
+00:48:14  INFO       Downloading S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE ...
+00:49:57  INFO     Downloaded S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE (569.8 MB)
+00:49:57  INFO       Converting to .npy ...
+00:49:57  INFO     Unzipping S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE.zip ...
+00:49:58  INFO     Extracted: S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE
+00:49:58  INFO     Found 12/12 bands in SAFE archive
+00:49:58  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+00:51:10  INFO     Stacked array shape: (10980, 10980, 12)
+00:51:49  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy (shape: (10980, 10980, 12))
+00:51:49  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412_geo.json
+00:51:49  INFO       Saved: nonemit_001_S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy
+00:51:50  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+00:51:54  INFO     Found 17 products
+00:51:54  INFO       Found 6 L1C scenes for nonemit_002 (tile 31UGR, cloud ≤ 10%)
+00:51:54  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+00:51:54  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+00:53:36  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE (832.2 MB)
+00:53:36  INFO       Converting to .npy ...
+00:53:36  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+00:53:37  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+00:53:37  INFO     Found 12/12 bands in SAFE archive
+00:53:38  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+00:55:00  INFO     Stacked array shape: (10980, 10980, 12)
+00:55:58  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy (shape: (10980, 10980, 12))
+00:55:58  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+00:55:58  INFO       Saved: nonemit_002_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+00:55:58  INFO     ── nonemit_003  (Loire Valley — arable/vineyards)  31TDK ──
+00:56:01  INFO     Found 22 products
+00:56:01  INFO       Found 0 L1C scenes for nonemit_003 (tile 31TDK, cloud ≤ 10%)
+00:56:01  WARNING    No products at 10% — retrying at 25%
+00:56:07  INFO     Found 34 products
+00:56:07  INFO       Found 0 L1C scenes for nonemit_003 (tile 31TDK, cloud ≤ 25%)
+00:56:07  WARNING    No scenes found for 31TDK in ±30 days of 2024-07
+00:56:07  INFO     ── nonemit_004  (Danish lowlands — arable)  32VMJ ──
+00:56:10  INFO     Found 19 products
+00:56:10  INFO       Found 0 L1C scenes for nonemit_004 (tile 32VMJ, cloud ≤ 10%)
+00:56:10  WARNING    No products at 10% — retrying at 25%
+00:56:13  INFO     Found 22 products
+00:56:13  INFO       Found 0 L1C scenes for nonemit_004 (tile 32VMJ, cloud ≤ 25%)
+00:56:13  WARNING    No scenes found for 32VMJ in ±30 days of 2024-06
+00:56:13  INFO     ── nonemit_005  (Black Forest — coniferous forest)  32TNT ──
+00:56:17  INFO     Found 10 products
+00:56:17  INFO       Found 0 L1C scenes for nonemit_005 (tile 32TNT, cloud ≤ 10%)
+00:56:17  WARNING    No products at 10% — retrying at 25%
+00:56:21  INFO     Found 20 products
+00:56:21  INFO       Found 0 L1C scenes for nonemit_005 (tile 32TNT, cloud ≤ 25%)
+00:56:21  WARNING    No scenes found for 32TNT in ±30 days of 2024-07
+00:56:21  INFO     ── nonemit_006  (Vosges Mountains — mixed forest)  32TLT ──
+00:56:23  INFO     Found 7 products
+00:56:23  INFO       Found 0 L1C scenes for nonemit_006 (tile 32TLT, cloud ≤ 10%)
+00:56:23  WARNING    No products at 10% — retrying at 25%
+00:56:26  INFO     Found 11 products
+00:56:26  INFO       Found 0 L1C scenes for nonemit_006 (tile 32TLT, cloud ≤ 25%)
+00:56:26  WARNING    No scenes found for 32TLT in ±30 days of 2024-07
+00:56:26  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+00:56:29  INFO     Found 18 products
+00:56:29  INFO       Found 5 L1C scenes for nonemit_007 (tile 33UUQ, cloud ≤ 10%)
+00:56:29  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+00:56:29  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+00:58:04  INFO     Downloaded S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE (832.7 MB)
+00:58:04  INFO       Converting to .npy ...
+00:58:04  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+00:58:05  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+00:58:05  INFO     Found 12/12 bands in SAFE archive
+00:58:05  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+00:59:02  INFO     Stacked array shape: (10980, 10980, 12)
+00:59:48  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy (shape: (10980, 10980, 12))
+00:59:48  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133_geo.json
+00:59:48  INFO       Saved: nonemit_007_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy
+00:59:48  INFO     ── nonemit_008  (Bavarian Plateau — complex cultivation)  32UNB ──
+00:59:51  INFO     Found 12 products
+00:59:51  INFO       Found 0 L1C scenes for nonemit_008 (tile 32UNB, cloud ≤ 10%)
+00:59:51  WARNING    No products at 10% — retrying at 25%
+00:59:54  INFO     Found 31 products
+00:59:54  INFO       Found 0 L1C scenes for nonemit_008 (tile 32UNB, cloud ≤ 25%)
+00:59:54  WARNING    No scenes found for 32UNB in ±30 days of 2024-06
+00:59:54  INFO     ── nonemit_009  (Massif Central — grassland)  31TGL ──
+00:59:57  INFO     Found 48 products
+00:59:57  INFO       Found 0 L1C scenes for nonemit_009 (tile 31TGL, cloud ≤ 10%)
+00:59:57  WARNING    No products at 10% — retrying at 25%
+00:59:59  INFO     Found 76 products
+00:59:59  INFO       Found 0 L1C scenes for nonemit_009 (tile 31TGL, cloud ≤ 25%)
+00:59:59  WARNING    No scenes found for 31TGL in ±30 days of 2024-07
+00:59:59  INFO     ── nonemit_010  (Danube plain, Hungary — arable)  34TBT ──
+01:00:02  INFO     Found 29 products
+01:00:02  INFO       Found 0 L1C scenes for nonemit_010 (tile 34TBT, cloud ≤ 10%)
+01:00:02  WARNING    No products at 10% — retrying at 25%
+01:00:05  INFO     Found 57 products
+01:00:05  INFO       Found 0 L1C scenes for nonemit_010 (tile 34TBT, cloud ≤ 25%)
+01:00:05  WARNING    No scenes found for 34TBT in ±30 days of 2024-07
+01:00:05  INFO     ── nonemit_011  (Dobruja plateau, Romania — steppe/arable)  35TLF ──
+01:00:09  INFO     Found 94 products
+01:00:09  INFO       Found 0 L1C scenes for nonemit_011 (tile 35TLF, cloud ≤ 10%)
+01:00:09  WARNING    No products at 10% — retrying at 25%
+01:00:12  INFO     Found 113 products
+01:00:12  INFO       Found 0 L1C scenes for nonemit_011 (tile 35TLF, cloud ≤ 25%)
+01:00:12  WARNING    No scenes found for 35TLF in ±30 days of 2024-08
+01:00:12  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+01:00:16  INFO     Found 41 products
+01:00:16  INFO       Found 7 L1C scenes for nonemit_012 (tile 34UCU, cloud ≤ 10%)
+01:00:16  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+01:00:16  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE ...
+01:03:50  INFO     Downloaded S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE (814.1 MB)
+01:03:50  INFO       Converting to .npy ...
+01:03:50  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE.zip ...
+01:03:51  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+01:03:51  INFO     Found 12/12 bands in SAFE archive
+01:03:51  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+01:04:45  INFO     Stacked array shape: (10980, 10980, 12)
+01:05:31  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy (shape: (10980, 10980, 12))
+01:05:31  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033_geo.json
+01:05:31  INFO       Saved: nonemit_012_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy
+01:05:32  INFO     ── nonemit_013  (Białowieża Forest, Poland — primary fore)  34UEB ──
+01:05:34  INFO     Found 30 products
+01:05:34  INFO       Found 0 L1C scenes for nonemit_013 (tile 34UEB, cloud ≤ 10%)
+01:05:34  WARNING    No products at 10% — retrying at 25%
+01:05:38  INFO     Found 45 products
+01:05:38  INFO       Found 0 L1C scenes for nonemit_013 (tile 34UEB, cloud ≤ 25%)
+01:05:38  WARNING    No scenes found for 34UEB in ±30 days of 2024-07
+01:05:38  INFO     ── nonemit_014  (Northern Poland plains — arable)  33UVV ──
+01:05:42  INFO     Found 4 products
+01:05:42  INFO       Found 0 L1C scenes for nonemit_014 (tile 33UVV, cloud ≤ 10%)
+01:05:42  WARNING    No products at 10% — retrying at 25%
+01:05:47  INFO     Found 7 products
+01:05:47  INFO       Found 0 L1C scenes for nonemit_014 (tile 33UVV, cloud ≤ 25%)
+01:05:47  WARNING    No scenes found for 33UVV in ±30 days of 2024-07
+01:05:47  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+01:05:51  INFO     Found 11 products
+01:05:51  INFO       Found 3 L1C scenes for nonemit_015 (tile 33UUB, cloud ≤ 10%)
+01:05:51  INFO       Best candidate: S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE  cloud=0.0%
+01:05:51  INFO       Downloading S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE ...
+01:07:25  INFO     Downloaded S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE (717.7 MB)
+01:07:25  INFO       Converting to .npy ...
+01:07:25  INFO     Unzipping S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE.zip ...
+01:07:26  INFO     Extracted: S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE
+01:07:26  INFO     Found 12/12 bands in SAFE archive
+01:07:26  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+01:08:16  INFO     Stacked array shape: (10980, 10980, 12)
+01:09:02  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy (shape: (10980, 10980, 12))
+01:09:02  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950_geo.json
+01:09:02  INFO       Saved: nonemit_015_S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy
+01:09:02  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+01:09:08  INFO     Found 55 products
+01:09:08  INFO       Found 6 L1C scenes for nonemit_016 (tile 35VLC, cloud ≤ 10%)
+01:09:08  INFO       Best candidate: S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE  cloud=0.0%
+01:09:08  INFO       Downloading S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE ...
+01:09:45  INFO     Downloaded S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE (273.8 MB)
+01:09:45  INFO       Converting to .npy ...
+01:09:45  INFO     Unzipping S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE.zip ...
+01:09:45  INFO     Extracted: S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE
+01:09:45  INFO     Found 12/12 bands in SAFE archive
+01:09:45  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+01:10:25  INFO     Stacked array shape: (10980, 10980, 12)
+01:10:48  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy (shape: (10980, 10980, 12))
+01:10:48  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959_geo.json
+01:10:48  INFO       Saved: nonemit_016_S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy
+01:10:48  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+01:10:55  INFO     Found 40 products
+01:10:55  INFO       Found 13 L1C scenes for nonemit_017 (tile 32TPQ, cloud ≤ 10%)
+01:10:55  INFO       Best candidate: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE  cloud=0.0%
+01:10:55  INFO       Downloading S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE ...
+01:11:42  INFO     Downloaded S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE (385.6 MB)
+01:11:42  INFO       Converting to .npy ...
+01:11:42  INFO     Unzipping S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE.zip ...
+01:11:43  INFO     Extracted: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE
+01:11:43  INFO     Found 12/12 bands in SAFE archive
+01:11:43  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:12:26  INFO     Stacked array shape: (10980, 10980, 12)
+01:12:48  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy (shape: (10980, 10980, 12))
+01:12:48  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+01:12:49  INFO       Saved: nonemit_017_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy
+01:12:49  INFO     ── nonemit_018  (Pyrenean foothills, Spain — shrubland/fo)  30TXN ──
+01:12:53  INFO     Found 24 products
+01:12:53  INFO       Found 0 L1C scenes for nonemit_018 (tile 30TXN, cloud ≤ 10%)
+01:12:53  WARNING    No products at 10% — retrying at 25%
+01:12:56  INFO     Found 27 products
+01:12:56  INFO       Found 0 L1C scenes for nonemit_018 (tile 30TXN, cloud ≤ 25%)
+01:12:56  WARNING    No scenes found for 30TXN in ±30 days of 2024-08
+01:12:56  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+11:13:18  INFO     Copernicus token refreshed, expires in 1800s
+11:13:18  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+11:13:22  INFO     Found 24 products
+11:13:22  INFO       Found 13 L1C scenes for nonemit_001 (tile 32UNE, cloud ≤ 50%)
+11:13:22  INFO       Best candidate: S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE  cloud=0.0%
+11:13:22  INFO       Downloading S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE ...
+11:13:22  INFO     Already downloaded: S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE
+11:13:22  INFO       Converting to .npy ...
+11:13:22  INFO     Unzipping S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE.zip ...
+11:13:23  INFO     Extracted: S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.SAFE
+11:13:23  INFO     Found 12/12 bands in SAFE archive
+11:13:23  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+11:14:35  INFO     Stacked array shape: (10980, 10980, 12)
+11:15:19  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy (shape: (10980, 10980, 12))
+11:15:19  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412_geo.json
+11:15:19  INFO       Saved: nonemit_001_S2B_MSIL1C_20240720T103629_N0510_R008_T32UNE_20240720T113412.npy
+11:15:19  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+11:15:23  INFO     Found 30 products
+11:15:23  INFO       Found 8 L1C scenes for nonemit_002 (tile 31UGR, cloud ≤ 50%)
+11:15:23  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+11:15:23  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+11:15:23  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+11:15:23  INFO       Converting to .npy ...
+11:15:23  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+11:15:24  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+11:15:24  INFO     Found 12/12 bands in SAFE archive
+11:15:24  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+11:16:37  INFO     Stacked array shape: (10980, 10980, 12)
+11:17:55  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy (shape: (10980, 10980, 12))
+11:17:55  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+11:17:56  INFO       Saved: nonemit_002_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+11:17:56  INFO     ── nonemit_003  (Loire Valley — arable/vineyards)  31TDK ──
+11:18:00  INFO     Found 73 products
+11:18:00  INFO       Found 0 L1C scenes for nonemit_003 (tile 31TDK, cloud ≤ 50%)
+11:18:00  WARNING    No scenes found for 31TDK in ±30 days of 2024-07
+11:18:00  INFO     ── nonemit_004  (Danish lowlands — arable)  32VMJ ──
+11:18:04  INFO     Found 37 products
+11:18:04  INFO       Found 0 L1C scenes for nonemit_004 (tile 32VMJ, cloud ≤ 50%)
+11:18:04  WARNING    No scenes found for 32VMJ in ±30 days of 2024-06
+11:18:04  INFO     ── nonemit_005  (Black Forest — coniferous forest)  32TNT ──
+11:18:09  INFO     Found 38 products
+11:18:09  INFO       Found 0 L1C scenes for nonemit_005 (tile 32TNT, cloud ≤ 50%)
+11:18:09  WARNING    No scenes found for 32TNT in ±30 days of 2024-07
+11:18:09  INFO     ── nonemit_006  (Vosges Mountains — mixed forest)  32TLT ──
+11:18:12  INFO     Found 32 products
+11:18:12  INFO       Found 0 L1C scenes for nonemit_006 (tile 32TLT, cloud ≤ 50%)
+11:18:12  WARNING    No scenes found for 32TLT in ±30 days of 2024-07
+11:18:12  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+11:18:17  INFO     Found 38 products
+11:18:17  INFO       Found 9 L1C scenes for nonemit_007 (tile 33UUQ, cloud ≤ 50%)
+11:18:17  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+11:18:17  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+11:18:17  INFO     Already downloaded: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+11:18:17  INFO       Converting to .npy ...
+11:18:17  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+11:18:19  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+11:18:19  INFO     Found 12/12 bands in SAFE archive
+11:18:19  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+11:19:12  INFO     Stacked array shape: (10980, 10980, 12)
+11:19:50  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy (shape: (10980, 10980, 12))
+11:19:50  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133_geo.json
+11:19:50  INFO       Saved: nonemit_007_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy
+11:19:50  INFO     ── nonemit_008  (Bavarian Plateau — complex cultivation)  32UNB ──
+11:19:54  INFO     Found 68 products
+11:19:54  INFO       Found 0 L1C scenes for nonemit_008 (tile 32UNB, cloud ≤ 50%)
+11:19:54  WARNING    No scenes found for 32UNB in ±30 days of 2024-06
+11:19:54  INFO     ── nonemit_009  (Massif Central — grassland)  31TGL ──
+11:19:57  INFO     Found 113 products
+11:19:57  INFO       Found 0 L1C scenes for nonemit_009 (tile 31TGL, cloud ≤ 50%)
+11:19:57  WARNING    No scenes found for 31TGL in ±30 days of 2024-07
+11:19:57  INFO     ── nonemit_010  (Danube plain, Hungary — arable)  34TBT ──
+11:20:06  INFO     Found 68 products
+11:20:06  INFO       Found 0 L1C scenes for nonemit_010 (tile 34TBT, cloud ≤ 50%)
+11:20:06  WARNING    No scenes found for 34TBT in ±30 days of 2024-07
+11:20:06  INFO     ── nonemit_011  (Dobruja plateau, Romania — steppe/arable)  35TLF ──
+11:20:11  INFO     Found 137 products
+11:20:11  INFO       Found 0 L1C scenes for nonemit_011 (tile 35TLF, cloud ≤ 50%)
+11:20:11  WARNING    No scenes found for 35TLF in ±30 days of 2024-08
+11:20:11  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+11:20:21  INFO     Found 118 products
+11:20:21  INFO       Found 15 L1C scenes for nonemit_012 (tile 34UCU, cloud ≤ 50%)
+11:20:21  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+11:20:21  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE ...
+11:20:21  INFO     Already downloaded: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+11:20:21  INFO       Converting to .npy ...
+11:20:21  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE.zip ...
+11:20:22  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+11:20:22  INFO     Found 12/12 bands in SAFE archive
+11:20:22  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+11:21:15  INFO     Stacked array shape: (10980, 10980, 12)
+11:22:02  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy (shape: (10980, 10980, 12))
+11:22:02  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033_geo.json
+11:22:02  INFO       Saved: nonemit_012_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy
+11:22:02  INFO     ── nonemit_013  (Białowieża Forest, Poland — primary fore)  34UEB ──
+11:22:08  INFO     Found 61 products
+11:22:08  INFO       Found 0 L1C scenes for nonemit_013 (tile 34UEB, cloud ≤ 50%)
+11:22:08  WARNING    No scenes found for 34UEB in ±30 days of 2024-07
+11:22:08  INFO     ── nonemit_014  (Northern Poland plains — arable)  33UVV ──
+11:22:12  INFO     Found 18 products
+11:22:12  INFO       Found 0 L1C scenes for nonemit_014 (tile 33UVV, cloud ≤ 50%)
+11:22:12  WARNING    No scenes found for 33UVV in ±30 days of 2024-07
+11:22:12  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+11:22:22  INFO     Found 17 products
+11:22:22  INFO       Found 9 L1C scenes for nonemit_015 (tile 33UUB, cloud ≤ 50%)
+11:22:22  INFO       Best candidate: S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE  cloud=0.0%
+11:22:22  INFO       Downloading S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE ...
+11:22:22  INFO     Already downloaded: S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE
+11:22:22  INFO       Converting to .npy ...
+11:22:22  INFO     Unzipping S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE.zip ...
+11:22:23  INFO     Extracted: S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.SAFE
+11:22:23  INFO     Found 12/12 bands in SAFE archive
+11:22:23  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+11:23:26  INFO     Stacked array shape: (10980, 10980, 12)
+11:24:12  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy (shape: (10980, 10980, 12))
+11:24:12  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950_geo.json
+11:24:12  INFO       Saved: nonemit_015_S2B_MSIL1C_20240518T102559_N0510_R108_T33UUB_20240518T122950.npy
+11:24:12  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+11:24:25  INFO     Found 82 products
+11:24:25  INFO       Found 22 L1C scenes for nonemit_016 (tile 35VLC, cloud ≤ 50%)
+11:24:25  INFO       Best candidate: S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE  cloud=0.0%
+11:24:25  INFO       Downloading S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE ...
+11:24:25  INFO     Already downloaded: S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE
+11:24:25  INFO       Converting to .npy ...
+11:24:25  INFO     Unzipping S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE.zip ...
+11:24:26  INFO     Extracted: S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.SAFE
+11:24:26  INFO     Found 12/12 bands in SAFE archive
+11:24:26  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+11:25:10  INFO     Stacked array shape: (10980, 10980, 12)
+11:25:29  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy (shape: (10980, 10980, 12))
+11:25:29  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959_geo.json
+11:25:30  INFO       Saved: nonemit_016_S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959.npy
+11:25:30  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+11:25:34  INFO     Found 74 products
+11:25:34  INFO       Found 19 L1C scenes for nonemit_017 (tile 32TPQ, cloud ≤ 50%)
+11:25:34  INFO       Best candidate: S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.SAFE  cloud=0.0%
+11:25:34  INFO       Downloading S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.SAFE ...
+11:27:04  INFO     Downloaded S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.SAFE (866.2 MB)
+11:27:04  INFO       Converting to .npy ...
+11:27:04  INFO     Unzipping S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.SAFE.zip ...
+11:27:05  INFO     Extracted: S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.SAFE
+11:27:05  INFO     Found 12/12 bands in SAFE archive
+11:27:05  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+11:28:02  INFO     Stacked array shape: (10980, 10980, 12)
+11:28:56  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.npy (shape: (10980, 10980, 12))
+11:28:57  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010_geo.json
+11:28:57  INFO       Saved: nonemit_017_S2A_MSIL1C_20240616T100601_N0510_R022_T32TPQ_20240616T135010.npy
+11:28:57  INFO     ── nonemit_018  (Pyrenean foothills, Spain — shrubland/fo)  30TXN ──
+11:29:00  INFO     Found 29 products
+11:29:00  INFO       Found 0 L1C scenes for nonemit_018 (tile 30TXN, cloud ≤ 50%)
+11:29:00  WARNING    No scenes found for 30TXN in ±30 days of 2024-08
+11:29:00  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+11:35:00  INFO     Copernicus token refreshed, expires in 1800s
+11:35:00  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+11:35:11  INFO     Found 60 products
+11:35:11  INFO       Found 33 L1C scenes (of 60 total) for nonemit_001 (tile 32UNE, cloud ≤ 50%, window ±90d of 2024-08)
+11:35:11  INFO       Best candidate: S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.SAFE  cloud=0.0%
+11:35:11  INFO       Downloading S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.SAFE ...
+11:39:02  INFO     Downloaded S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.SAFE (836.0 MB)
+11:39:02  INFO       Converting to .npy ...
+11:39:02  INFO     Unzipping S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.SAFE.zip ...
+11:39:03  INFO     Extracted: S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.SAFE
+11:39:03  INFO     Found 12/12 bands in SAFE archive
+11:39:03  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+11:40:23  INFO     Stacked array shape: (10980, 10980, 12)
+11:41:32  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy (shape: (10980, 10980, 12))
+11:41:32  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950_geo.json
+11:41:32  INFO       Saved: nonemit_001_S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy
+11:41:32  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+11:41:41  INFO     Found 83 products
+11:41:41  INFO       Found 21 L1C scenes (of 83 total) for nonemit_002 (tile 31UGR, cloud ≤ 50%, window ±90d of 2024-07)
+11:41:41  INFO       Best candidate: S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.SAFE  cloud=0.0%
+11:41:41  INFO       Downloading S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.SAFE ...
+11:41:45  INFO     Downloaded S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.SAFE (24.5 MB)
+11:41:45  INFO       Converting to .npy ...
+11:41:45  INFO     Unzipping S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.SAFE.zip ...
+11:41:45  INFO     Extracted: S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.SAFE
+11:41:45  INFO     Found 12/12 bands in SAFE archive
+11:41:45  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+11:42:30  INFO     Stacked array shape: (10980, 10980, 12)
+11:42:50  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy (shape: (10980, 10980, 12))
+11:42:50  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022_geo.json
+11:42:50  INFO       Saved: nonemit_002_S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy
+11:42:50  INFO     ── nonemit_003  (Loire Valley — arable/vineyards)  31TDK ──
+11:43:00  INFO     Found 178 products
+11:43:00  INFO       Found 0 L1C scenes (of 178 total) for nonemit_003 (tile 31TDK, cloud ≤ 50%, window ±90d of 2024-07)
+11:43:00  WARNING    No L1C found in 2024-07 (±90d window)
+11:43:12  INFO     Found 245 products
+11:43:12  INFO       Found 0 L1C scenes (of 245 total) for nonemit_003 (tile 31TDK, cloud ≤ 50%, window ±90d of 2023-07)
+11:43:12  WARNING    No L1C found in 2023-07 (±90d window)
+11:43:21  INFO     Found 312 products
+11:43:21  INFO       Found 0 L1C scenes (of 312 total) for nonemit_003 (tile 31TDK, cloud ≤ 50%, window ±90d of 2022-07)
+11:43:21  WARNING    No L1C found in 2022-07 (±90d window)
+11:43:21  WARNING    No scenes found for 31TDK after trying years: ['2024', '2023', '2022']
+11:43:21  INFO     ── nonemit_004  (Danish lowlands — arable)  32VMJ ──
+11:43:29  INFO     Found 98 products
+11:43:29  INFO       Found 0 L1C scenes (of 98 total) for nonemit_004 (tile 32VMJ, cloud ≤ 50%, window ±90d of 2024-06)
+11:43:29  WARNING    No L1C found in 2024-06 (±90d window)
+11:43:39  INFO     Found 133 products
+11:43:39  INFO       Found 0 L1C scenes (of 133 total) for nonemit_004 (tile 32VMJ, cloud ≤ 50%, window ±90d of 2023-06)
+11:43:39  WARNING    No L1C found in 2023-06 (±90d window)
+11:43:47  INFO     Found 156 products
+11:43:47  INFO       Found 0 L1C scenes (of 156 total) for nonemit_004 (tile 32VMJ, cloud ≤ 50%, window ±90d of 2022-06)
+11:43:47  WARNING    No L1C found in 2022-06 (±90d window)
+11:43:47  WARNING    No scenes found for 32VMJ after trying years: ['2024', '2023', '2022']
+11:43:47  INFO     ── nonemit_005  (Black Forest — coniferous forest)  32TNT ──
+11:43:56  INFO     Found 92 products
+11:43:56  INFO       Found 0 L1C scenes (of 92 total) for nonemit_005 (tile 32TNT, cloud ≤ 50%, window ±90d of 2024-07)
+11:43:56  WARNING    No L1C found in 2024-07 (±90d window)
+11:44:00  INFO     Found 127 products
+11:44:00  INFO       Found 0 L1C scenes (of 127 total) for nonemit_005 (tile 32TNT, cloud ≤ 50%, window ±90d of 2023-07)
+11:44:00  WARNING    No L1C found in 2023-07 (±90d window)
+11:44:07  INFO     Found 147 products
+11:44:07  INFO       Found 0 L1C scenes (of 147 total) for nonemit_005 (tile 32TNT, cloud ≤ 50%, window ±90d of 2022-07)
+11:44:07  WARNING    No L1C found in 2022-07 (±90d window)
+11:44:07  WARNING    No scenes found for 32TNT after trying years: ['2024', '2023', '2022']
+11:44:07  INFO     ── nonemit_006  (Vosges Mountains — mixed forest)  32TLT ──
+11:44:15  INFO     Found 104 products
+11:44:15  INFO       Found 0 L1C scenes (of 104 total) for nonemit_006 (tile 32TLT, cloud ≤ 50%, window ±90d of 2024-07)
+11:44:15  WARNING    No L1C found in 2024-07 (±90d window)
+11:44:23  INFO     Found 134 products
+11:44:23  INFO       Found 0 L1C scenes (of 134 total) for nonemit_006 (tile 32TLT, cloud ≤ 50%, window ±90d of 2023-07)
+11:44:23  WARNING    No L1C found in 2023-07 (±90d window)
+11:44:28  INFO     Found 142 products
+11:44:28  INFO       Found 0 L1C scenes (of 142 total) for nonemit_006 (tile 32TLT, cloud ≤ 50%, window ±90d of 2022-07)
+11:44:28  WARNING    No L1C found in 2022-07 (±90d window)
+11:44:28  WARNING    No scenes found for 32TLT after trying years: ['2024', '2023', '2022']
+11:44:28  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+11:44:40  INFO     Found 87 products
+11:44:40  INFO       Found 22 L1C scenes (of 87 total) for nonemit_007 (tile 33UUQ, cloud ≤ 50%, window ±90d of 2024-08)
+11:44:40  INFO       Best candidate: S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.SAFE  cloud=0.0%
+11:44:40  INFO       Downloading S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.SAFE ...
+11:45:10  INFO     Downloaded S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.SAFE (101.1 MB)
+11:45:10  INFO       Converting to .npy ...
+11:45:10  INFO     Unzipping S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.SAFE.zip ...
+11:45:11  INFO     Extracted: S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.SAFE
+11:45:11  INFO     Found 12/12 bands in SAFE archive
+11:45:11  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+11:45:56  INFO     Stacked array shape: (10980, 10980, 12)
+11:46:20  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy (shape: (10980, 10980, 12))
+11:46:20  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005_geo.json
+11:46:20  INFO       Saved: nonemit_007_S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy
+11:46:20  INFO     ── nonemit_008  (Bavarian Plateau — complex cultivation)  32UNB ──
+11:46:33  INFO     Found 213 products
+11:46:33  INFO       Found 0 L1C scenes (of 213 total) for nonemit_008 (tile 32UNB, cloud ≤ 50%, window ±90d of 2024-06)
+11:46:33  WARNING    No L1C found in 2024-06 (±90d window)
+11:46:43  INFO     Found 254 products
+11:46:43  INFO       Found 0 L1C scenes (of 254 total) for nonemit_008 (tile 32UNB, cloud ≤ 50%, window ±90d of 2023-06)
+11:46:43  WARNING    No L1C found in 2023-06 (±90d window)
+11:46:51  INFO     Found 356 products
+11:46:51  INFO       Found 0 L1C scenes (of 356 total) for nonemit_008 (tile 32UNB, cloud ≤ 50%, window ±90d of 2022-06)
+11:46:51  WARNING    No L1C found in 2022-06 (±90d window)
+11:46:51  WARNING    No scenes found for 32UNB after trying years: ['2024', '2023', '2022']
+11:46:51  INFO     ── nonemit_009  (Massif Central — grassland)  31TGL ──
+11:47:01  INFO     Found 257 products
+11:47:01  INFO       Found 0 L1C scenes (of 257 total) for nonemit_009 (tile 31TGL, cloud ≤ 50%, window ±90d of 2024-07)
+11:47:01  WARNING    No L1C found in 2024-07 (±90d window)
+11:47:08  INFO     Found 303 products
+11:47:08  INFO       Found 0 L1C scenes (of 303 total) for nonemit_009 (tile 31TGL, cloud ≤ 50%, window ±90d of 2023-07)
+11:47:08  WARNING    No L1C found in 2023-07 (±90d window)
+11:47:22  INFO     Found 366 products
+11:47:22  INFO       Found 0 L1C scenes (of 366 total) for nonemit_009 (tile 31TGL, cloud ≤ 50%, window ±90d of 2022-07)
+11:47:22  WARNING    No L1C found in 2022-07 (±90d window)
+11:47:22  WARNING    No scenes found for 31TGL after trying years: ['2024', '2023', '2022']
+11:47:22  INFO     ── nonemit_010  (Danube plain, Hungary — arable)  34TBT ──
+11:47:37  INFO     Found 150 products
+11:47:37  INFO       Found 0 L1C scenes (of 150 total) for nonemit_010 (tile 34TBT, cloud ≤ 50%, window ±90d of 2024-07)
+11:47:37  WARNING    No L1C found in 2024-07 (±90d window)
+11:47:46  INFO     Found 159 products
+11:47:46  INFO       Found 0 L1C scenes (of 159 total) for nonemit_010 (tile 34TBT, cloud ≤ 50%, window ±90d of 2023-07)
+11:47:46  WARNING    No L1C found in 2023-07 (±90d window)
+11:47:55  INFO     Found 165 products
+11:47:55  INFO       Found 0 L1C scenes (of 165 total) for nonemit_010 (tile 34TBT, cloud ≤ 50%, window ±90d of 2022-07)
+11:47:55  WARNING    No L1C found in 2022-07 (±90d window)
+11:47:55  WARNING    No scenes found for 34TBT after trying years: ['2024', '2023', '2022']
+11:47:55  INFO     ── nonemit_011  (Dobruja plateau, Romania — steppe/arable)  35TLF ──
+11:48:09  INFO     Found 426 products
+11:48:09  INFO       Found 0 L1C scenes (of 426 total) for nonemit_011 (tile 35TLF, cloud ≤ 50%, window ±90d of 2024-08)
+11:48:09  WARNING    No L1C found in 2024-08 (±90d window)
+11:48:20  INFO     Found 398 products
+11:48:20  INFO       Found 0 L1C scenes (of 398 total) for nonemit_011 (tile 35TLF, cloud ≤ 50%, window ±90d of 2023-08)
+11:48:20  WARNING    No L1C found in 2023-08 (±90d window)
+11:48:29  INFO     Found 404 products
+11:48:29  INFO       Found 0 L1C scenes (of 404 total) for nonemit_011 (tile 35TLF, cloud ≤ 50%, window ±90d of 2022-08)
+11:48:29  WARNING    No L1C found in 2022-08 (±90d window)
+11:48:29  WARNING    No scenes found for 35TLF after trying years: ['2024', '2023', '2022']
+11:48:29  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+11:48:35  INFO     Found 263 products
+11:48:35  INFO       Found 35 L1C scenes (of 263 total) for nonemit_012 (tile 34UCU, cloud ≤ 50%, window ±90d of 2024-07)
+11:48:35  INFO       Best candidate: S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.SAFE  cloud=0.0%
+11:48:35  INFO       Downloading S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.SAFE ...
+11:51:30  INFO     Downloaded S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.SAFE (827.6 MB)
+11:51:30  INFO       Converting to .npy ...
+11:51:30  INFO     Unzipping S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.SAFE.zip ...
+11:51:31  INFO     Extracted: S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.SAFE
+11:51:31  INFO     Found 12/12 bands in SAFE archive
+11:51:31  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+11:52:46  INFO     Stacked array shape: (10980, 10980, 12)
+11:53:49  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy (shape: (10980, 10980, 12))
+11:53:49  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007_geo.json
+11:53:49  INFO       Saved: nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy
+11:53:49  INFO     ── nonemit_013  (Białowieża Forest, Poland — primary fore)  34UEB ──
+11:53:55  INFO     Found 202 products
+11:53:55  INFO       Found 0 L1C scenes (of 202 total) for nonemit_013 (tile 34UEB, cloud ≤ 50%, window ±90d of 2024-07)
+11:53:55  WARNING    No L1C found in 2024-07 (±90d window)
+11:54:08  INFO     Found 281 products
+11:54:08  INFO       Found 0 L1C scenes (of 281 total) for nonemit_013 (tile 34UEB, cloud ≤ 50%, window ±90d of 2023-07)
+11:54:08  WARNING    No L1C found in 2023-07 (±90d window)
+11:54:19  INFO     Found 209 products
+11:54:19  INFO       Found 0 L1C scenes (of 209 total) for nonemit_013 (tile 34UEB, cloud ≤ 50%, window ±90d of 2022-07)
+11:54:19  WARNING    No L1C found in 2022-07 (±90d window)
+11:54:19  WARNING    No scenes found for 34UEB after trying years: ['2024', '2023', '2022']
+11:54:19  INFO     ── nonemit_014  (Northern Poland plains — arable)  33UVV ──
+11:54:23  INFO     Found 56 products
+11:54:23  INFO       Found 0 L1C scenes (of 56 total) for nonemit_014 (tile 33UVV, cloud ≤ 50%, window ±90d of 2024-07)
+11:54:23  WARNING    No L1C found in 2024-07 (±90d window)
+11:54:29  INFO     Found 72 products
+11:54:29  INFO       Found 0 L1C scenes (of 72 total) for nonemit_014 (tile 33UVV, cloud ≤ 50%, window ±90d of 2023-07)
+11:54:29  WARNING    No L1C found in 2023-07 (±90d window)
+11:54:37  INFO     Found 61 products
+11:54:37  INFO       Found 0 L1C scenes (of 61 total) for nonemit_014 (tile 33UVV, cloud ≤ 50%, window ±90d of 2022-07)
+11:54:37  WARNING    No L1C found in 2022-07 (±90d window)
+11:54:37  WARNING    No scenes found for 33UVV after trying years: ['2024', '2023', '2022']
+11:54:37  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+11:54:44  INFO     Found 57 products
+11:54:44  INFO       Found 29 L1C scenes (of 57 total) for nonemit_015 (tile 33UUB, cloud ≤ 50%, window ±90d of 2024-06)
+11:54:44  INFO       Best candidate: S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.SAFE  cloud=0.0%
+11:54:44  INFO       Downloading S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.SAFE ...
+11:56:02  INFO     Downloaded S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.SAFE (699.2 MB)
+11:56:02  INFO       Converting to .npy ...
+11:56:02  INFO     Unzipping S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.SAFE.zip ...
+11:56:03  INFO     Extracted: S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.SAFE
+11:56:03  INFO     Found 12/12 bands in SAFE archive
+11:56:03  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+11:57:01  INFO     Stacked array shape: (10980, 10980, 12)
+11:57:47  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy (shape: (10980, 10980, 12))
+11:57:47  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832_geo.json
+11:57:47  INFO       Saved: nonemit_015_S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy
+11:57:47  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+11:57:52  INFO     Found 201 products
+11:57:52  INFO       Found 49 L1C scenes (of 201 total) for nonemit_016 (tile 35VLC, cloud ≤ 50%, window ±90d of 2024-06)
+11:57:52  INFO       Best candidate: S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.SAFE  cloud=0.0%
+11:57:52  INFO       Downloading S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.SAFE ...
+11:58:59  INFO     Downloaded S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.SAFE (615.1 MB)
+11:58:59  INFO       Converting to .npy ...
+11:58:59  INFO     Unzipping S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.SAFE.zip ...
+11:59:00  INFO     Extracted: S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.SAFE
+11:59:00  INFO     Found 12/12 bands in SAFE archive
+11:59:00  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32635)
+12:00:05  INFO     Stacked array shape: (10980, 10980, 12)
+12:00:59  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy (shape: (10980, 10980, 12))
+12:00:59  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231_geo.json
+12:01:00  INFO       Saved: nonemit_016_S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy
+12:01:00  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+12:01:41  INFO     Found 145 products
+12:01:41  INFO       Found 37 L1C scenes (of 145 total) for nonemit_017 (tile 32TPQ, cloud ≤ 50%, window ±90d of 2024-07)
+12:01:41  INFO       Best candidate: S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.SAFE  cloud=0.0%
+12:01:41  INFO       Downloading S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.SAFE ...
+12:03:11  INFO     Downloaded S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.SAFE (834.7 MB)
+12:03:11  INFO       Converting to .npy ...
+12:03:11  INFO     Unzipping S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.SAFE.zip ...
+12:03:12  INFO     Extracted: S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.SAFE
+12:03:12  INFO     Found 12/12 bands in SAFE archive
+12:03:12  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+12:04:10  INFO     Stacked array shape: (10980, 10980, 12)
+12:05:02  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy (shape: (10980, 10980, 12))
+12:05:02  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055_geo.json
+12:05:03  INFO       Saved: nonemit_017_S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy
+12:05:03  INFO     ── nonemit_018  (Pyrenean foothills, Spain — shrubland/fo)  30TXN ──
+12:05:04  INFO     Copernicus token refreshed, expires in 1800s
+12:05:14  INFO     Found 74 products
+12:05:14  INFO       Found 0 L1C scenes (of 74 total) for nonemit_018 (tile 30TXN, cloud ≤ 50%, window ±90d of 2024-08)
+12:05:14  WARNING    No L1C found in 2024-08 (±90d window)
+12:05:22  INFO     Found 87 products
+12:05:22  INFO       Found 0 L1C scenes (of 87 total) for nonemit_018 (tile 30TXN, cloud ≤ 50%, window ±90d of 2023-08)
+12:05:22  WARNING    No L1C found in 2023-08 (±90d window)
+12:05:30  INFO     Found 103 products
+12:05:30  INFO       Found 0 L1C scenes (of 103 total) for nonemit_018 (tile 30TXN, cloud ≤ 50%, window ±90d of 2022-08)
+12:05:30  WARNING    No L1C found in 2022-08 (±90d window)
+12:05:30  WARNING    No scenes found for 30TXN after trying years: ['2024', '2023', '2022']
+12:05:30  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+23:26:06  INFO     Copernicus token refreshed, expires in 1800s
+23:26:06  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+23:26:09  INFO     Found 29 products
+23:26:09  INFO       Found 4 L1C scenes (tile 31UGR, of 29 total) for nonemit_003 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:09  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+23:26:09  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+23:26:13  INFO     Found 16 products
+23:26:13  INFO       Found 7 L1C scenes (tile 32UNE, of 16 total) for nonemit_004 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:13  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+23:26:13  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+23:26:17  INFO     Found 18 products
+23:26:17  INFO       Found 3 L1C scenes (tile 33UUQ, of 18 total) for nonemit_005 (cloud ≤ 10%, window ±30d of 2024-08)
+23:26:17  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+23:26:17  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest)  31UGR ──
+23:26:21  INFO     Found 46 products
+23:26:21  INFO       Found 4 L1C scenes (tile 31UGR, of 46 total) for nonemit_006 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:21  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+23:26:21  INFO     ── nonemit_008  (Franconian Highland, Germany — complex c)  33UUQ ──
+23:26:24  INFO     Found 4 products
+23:26:24  INFO       Found 2 L1C scenes (fallback tiles ['T32UPA'] — 33UUQ has no online L1C) for nonemit_008 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:24  INFO       Best candidate: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE  cloud=0.0%
+23:26:24  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland p)  33UUS ──
+23:26:27  INFO     Found 31 products
+23:26:27  INFO       Found 5 L1C scenes (tile 33UUS, of 31 total) for nonemit_009 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:27  INFO       Best candidate: S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE  cloud=0.0%
+23:26:27  INFO     ── nonemit_010  (NE Slovakia lowlands — arable)  34UCU ──
+23:26:30  INFO     Found 41 products
+23:26:30  INFO       Found 7 L1C scenes (tile 34UCU, of 41 total) for nonemit_010 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:30  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+23:26:30  INFO     ── nonemit_011  (Łódź region, central Poland — arable)  34UCB ──
+23:26:33  INFO     Found 9 products
+23:26:33  INFO       Found 5 L1C scenes (fallback tiles ['T34UCC', 'T34UDC'] — 34UCB has no online L1C) for nonemit_011 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:33  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE  cloud=0.0%
+23:26:33  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved f)  34UCB ──
+23:26:36  INFO     Found 4 products
+23:26:36  INFO       Found 2 L1C scenes (fallback tiles ['T34UDC'] — 34UCB has no online L1C) for nonemit_013 (cloud ≤ 10%, window ±30d of 2024-08)
+23:26:36  INFO       Best candidate: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE  cloud=0.0%
+23:26:36  INFO     ── nonemit_014  (Schleswig-Holstein coastal plain — pastu)  32UNE ──
+23:26:40  INFO     Found 28 products
+23:26:40  INFO       Found 6 L1C scenes (tile 32UNE, of 28 total) for nonemit_014 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:40  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+23:26:40  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal)  32TPQ ──
+23:26:42  INFO     Found 85 products
+23:26:42  INFO       Found 12 L1C scenes (tile 32TPQ, of 85 total) for nonemit_018 (cloud ≤ 10%, window ±30d of 2024-07)
+23:26:42  INFO       Best candidate: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE  cloud=0.0%
+23:26:42  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+23:28:07  INFO     Copernicus token refreshed, expires in 1800s
+23:28:07  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+23:28:14  INFO     Found 29 products
+23:28:14  INFO       Found 4 L1C scenes (tile 31UGR, of 29 total) for nonemit_003 (cloud ≤ 10%, window ±30d of 2024-07)
+23:28:14  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+23:28:14  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+23:28:14  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+23:28:14  INFO       Converting to .npy ...
+23:28:14  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+23:28:16  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+23:28:16  INFO     Found 12/12 bands in SAFE archive
+23:28:16  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:31:12  INFO     Stacked array shape: (10980, 10980, 12)
+23:32:14  ERROR      Download failed: 1446724800 requested and 0 written
+23:32:14  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+23:32:19  INFO     Found 16 products
+23:32:19  INFO       Found 7 L1C scenes (tile 32UNE, of 16 total) for nonemit_004 (cloud ≤ 10%, window ±30d of 2024-07)
+23:32:19  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+23:32:19  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+23:34:57  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE (604.8 MB)
+23:34:57  INFO       Converting to .npy ...
+23:34:57  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+23:34:58  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+23:34:58  INFO     Found 12/12 bands in SAFE archive
+23:40:22  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:41:18  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:42:07  INFO     Copernicus token refreshed, expires in 1800s
+23:42:07  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+23:42:11  INFO     Found 18 products
+23:42:11  INFO       Found 3 L1C scenes (tile 33UUQ, of 18 total) for nonemit_005 (cloud ≤ 10%, window ±30d of 2024-08)
+23:42:11  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+23:42:11  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+23:42:11  INFO     Already downloaded: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+23:42:11  INFO       Converting to .npy ...
+23:42:11  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+23:42:14  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+23:42:14  INFO     Found 12/12 bands in SAFE archive
+23:42:14  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+23:44:24  INFO     Stacked array shape: (10980, 10980, 12)
+23:50:49  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:51:02  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:51:16  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:51:31  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:51:45  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:51:59  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:52:13  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:52:27  ERROR    Token refresh failed: 401 Client Error: Unauthorized for url: https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token
+23:52:39  INFO     Copernicus token refreshed, expires in 1800s
+23:52:39  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+23:52:42  INFO     Found 29 products
+23:52:42  INFO       Found 4 L1C scenes (tile 31UGR, of 29 total) for nonemit_003 (cloud ≤ 10%, window ±30d of 2024-07)
+23:52:42  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+23:52:42  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+23:52:42  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+23:52:42  INFO       Converting to .npy ...
+23:52:42  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+23:52:44  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+23:52:44  INFO     Found 12/12 bands in SAFE archive
+23:52:44  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+23:54:28  INFO     Stacked array shape: (10980, 10980, 12)
+23:56:12  INFO     Copernicus token refreshed, expires in 1800s
+23:56:12  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+23:56:15  INFO     Found 16 products
+23:56:15  INFO       Found 7 L1C scenes (tile 32UNE, of 16 total) for nonemit_004 (cloud ≤ 10%, window ±30d of 2024-07)
+23:56:15  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+23:56:15  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+23:56:15  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+23:56:15  INFO       Converting to .npy ...
+23:56:15  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+23:56:17  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+23:56:17  INFO     Found 12/12 bands in SAFE archive
+23:56:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+23:57:48  INFO     Stacked array shape: (10980, 10980, 12)
+23:58:28  ERROR      Download failed: 1446724800 requested and 0 written
+23:58:28  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+23:58:43  INFO     Copernicus token refreshed, expires in 1800s
+23:58:43  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+23:58:47  INFO     Found 18 products
+23:58:47  INFO       Found 3 L1C scenes (tile 33UUQ, of 18 total) for nonemit_005 (cloud ≤ 10%, window ±30d of 2024-08)
+23:58:47  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+23:58:47  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+23:58:47  INFO     Already downloaded: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+23:58:47  INFO       Converting to .npy ...
+23:58:47  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+23:58:48  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+23:58:48  INFO     Found 12/12 bands in SAFE archive
+23:58:48  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+00:00:26  INFO     Stacked array shape: (10980, 10980, 12)
+00:01:42  INFO     Copernicus token refreshed, expires in 1800s
+00:01:42  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest)  31UGR ──
+00:01:45  INFO     Found 46 products
+00:01:45  INFO       Found 4 L1C scenes (tile 31UGR, of 46 total) for nonemit_006 (cloud ≤ 10%, window ±30d of 2024-07)
+00:01:45  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+00:01:45  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+00:01:45  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+00:01:45  INFO       Converting to .npy ...
+00:01:45  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+00:01:47  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+00:01:47  INFO     Found 12/12 bands in SAFE archive
+00:01:47  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+00:03:27  INFO     Stacked array shape: (10980, 10980, 12)
+00:04:32  INFO     Copernicus token refreshed, expires in 1800s
+00:04:32  INFO     ── nonemit_008  (Franconian Highland, Germany — complex c)  33UUQ ──
+00:04:36  INFO     Found 4 products
+00:04:36  INFO       Found 2 L1C scenes (fallback tiles ['T32UPA'] — 33UUQ has no online L1C) for nonemit_008 (cloud ≤ 10%, window ±30d of 2024-07)
+00:04:36  INFO       Best candidate: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE  cloud=0.0%
+00:04:36  INFO       Downloading S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE ...
+00:09:09  INFO     Downloaded S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE (848.7 MB)
+00:09:09  INFO       Converting to .npy ...
+00:09:09  INFO     Unzipping S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE.zip ...
+00:09:14  INFO     Extracted: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE
+00:09:14  INFO     Found 12/12 bands in SAFE archive
+00:09:15  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+00:10:43  INFO     Stacked array shape: (10980, 10980, 12)
+00:11:38  INFO     Copernicus token refreshed, expires in 1800s
+00:11:38  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland p)  33UUS ──
+00:11:42  INFO     Found 31 products
+00:11:42  INFO       Found 5 L1C scenes (tile 33UUS, of 31 total) for nonemit_009 (cloud ≤ 10%, window ±30d of 2024-07)
+00:11:42  INFO       Best candidate: S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.SAFE  cloud=0.0%
+00:11:42  INFO       Already in npy_cache: S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy — symlinking
+00:11:42  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+00:11:56  INFO     Copernicus token refreshed, expires in 1800s
+00:11:56  INFO     ── nonemit_010  (NE Slovakia lowlands — arable)  34UCU ──
+00:12:00  INFO     Found 41 products
+00:12:00  INFO       Found 7 L1C scenes (tile 34UCU, of 41 total) for nonemit_010 (cloud ≤ 10%, window ±30d of 2024-07)
+00:12:00  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+00:12:00  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE ...
+00:12:00  INFO     Already downloaded: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+00:12:00  INFO       Converting to .npy ...
+00:12:00  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE.zip ...
+00:12:05  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+00:12:05  INFO     Found 12/12 bands in SAFE archive
+00:12:05  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+00:13:32  INFO     Stacked array shape: (10980, 10980, 12)
+00:14:16  INFO     Copernicus token refreshed, expires in 1800s
+00:14:16  INFO     ── nonemit_011  (Łódź region, central Poland — arable)  34UCB ──
+00:14:19  INFO     Found 9 products
+00:14:19  INFO       Found 5 L1C scenes (fallback tiles ['T34UCC', 'T34UDC'] — 34UCB has no online L1C) for nonemit_011 (cloud ≤ 10%, window ±30d of 2024-07)
+00:14:19  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE  cloud=0.0%
+00:14:19  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE ...
+00:15:44  INFO     Downloaded S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE (843.9 MB)
+00:15:44  INFO       Converting to .npy ...
+00:15:44  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE.zip ...
+00:15:55  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE
+00:15:55  INFO     Found 12/12 bands in SAFE archive
+00:15:55  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+00:17:36  INFO     Stacked array shape: (10980, 10980, 12)
+00:18:09  INFO     Copernicus token refreshed, expires in 1800s
+00:18:09  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved f)  34UCB ──
+00:18:13  INFO     Found 4 products
+00:18:13  INFO       Found 2 L1C scenes (fallback tiles ['T34UDC'] — 34UCB has no online L1C) for nonemit_013 (cloud ≤ 10%, window ±30d of 2024-08)
+00:18:13  INFO       Best candidate: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE  cloud=0.0%
+00:18:13  INFO       Downloading S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE ...
+01:08:47  INFO     Copernicus token refreshed, expires in 1800s
+01:08:47  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+01:08:47  INFO       Already downloaded: nonemit_001_S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy
+01:08:47  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+01:08:47  INFO       Already downloaded: nonemit_002_S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy
+01:08:47  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+01:08:52  INFO     Found 29 products
+01:08:52  INFO       Found 4 L1C scenes (tile 31UGR, of 29 total) for nonemit_003 (cloud ≤ 10%, window ±30d of 2024-07)
+01:08:52  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+01:08:52  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+01:08:52  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+01:08:52  INFO       Converting to .npy ...
+01:08:52  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+01:08:53  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+01:08:53  INFO     Found 12/12 bands in SAFE archive
+01:08:54  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+01:09:53  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:09:55  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy (shape: (10980, 10980, 12))
+01:09:55  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+01:09:55  INFO       Saved: nonemit_003_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+01:09:55  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+01:09:58  INFO     Found 16 products
+01:09:58  INFO       Found 7 L1C scenes (tile 32UNE, of 16 total) for nonemit_004 (cloud ≤ 10%, window ±30d of 2024-07)
+01:09:58  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+01:09:58  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+01:09:58  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+01:09:58  INFO       Converting to .npy ...
+01:09:58  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+01:10:00  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+01:10:00  INFO     Found 12/12 bands in SAFE archive
+01:10:00  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:10:53  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:11:00  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy (shape: (10980, 10980, 12))
+01:11:00  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035_geo.json
+01:11:00  INFO       Saved: nonemit_004_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy
+01:11:01  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+01:11:04  INFO     Found 18 products
+01:11:04  INFO       Found 3 L1C scenes (tile 33UUQ, of 18 total) for nonemit_005 (cloud ≤ 10%, window ±30d of 2024-08)
+01:11:04  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+01:11:04  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+01:11:04  INFO     Already downloaded: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+01:11:04  INFO       Converting to .npy ...
+01:11:04  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+01:11:10  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+01:11:10  INFO     Found 12/12 bands in SAFE archive
+01:11:10  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+01:12:07  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:12:09  ERROR      Download failed: 1446724800 requested and 0 written
+01:12:09  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest)  31UGR ──
+01:12:12  INFO     Found 46 products
+01:12:12  INFO       Found 4 L1C scenes (tile 31UGR, of 46 total) for nonemit_006 (cloud ≤ 10%, window ±30d of 2024-07)
+01:12:12  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+01:12:12  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+01:12:12  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+01:12:12  INFO       Converting to .npy ...
+01:12:12  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+01:12:17  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+01:12:17  INFO     Found 12/12 bands in SAFE archive
+01:12:17  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+01:13:14  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:13:16  ERROR      Download failed: 1446724800 requested and 0 written
+01:13:16  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+01:13:16  INFO       Already downloaded: nonemit_007_S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy
+01:13:16  INFO     ── nonemit_008  (Franconian Highland, Germany — complex c)  33UUQ ──
+01:13:19  INFO     Found 4 products
+01:13:19  INFO       Found 2 L1C scenes (fallback tiles ['T32UPA'] — 33UUQ has no online L1C) for nonemit_008 (cloud ≤ 10%, window ±30d of 2024-07)
+01:13:19  INFO       Best candidate: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE  cloud=0.0%
+01:13:19  INFO       Downloading S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE ...
+01:13:19  INFO     Already downloaded: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE
+01:13:19  INFO       Converting to .npy ...
+01:13:19  INFO     Unzipping S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE.zip ...
+01:13:24  INFO     Extracted: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE
+01:13:24  INFO     Found 12/12 bands in SAFE archive
+01:13:24  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:14:21  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:14:23  ERROR      Download failed: 1446724800 requested and 0 written
+01:14:23  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland p)  33UUS ──
+01:14:23  INFO       Already downloaded: nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy
+01:14:23  INFO     ── nonemit_010  (NE Slovakia lowlands — arable)  34UCU ──
+01:14:27  INFO     Found 41 products
+01:14:27  INFO       Found 7 L1C scenes (tile 34UCU, of 41 total) for nonemit_010 (cloud ≤ 10%, window ±30d of 2024-07)
+01:14:27  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+01:14:27  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE ...
+01:14:27  INFO     Already downloaded: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+01:14:27  INFO       Converting to .npy ...
+01:14:27  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE.zip ...
+01:14:32  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+01:14:32  INFO     Found 12/12 bands in SAFE archive
+01:14:32  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+01:15:29  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:15:30  ERROR      Download failed: 1446724800 requested and 0 written
+01:15:30  INFO     ── nonemit_011  (Łódź region, central Poland — arable)  34UCB ──
+01:15:33  INFO     Found 9 products
+01:15:33  INFO       Found 5 L1C scenes (fallback tiles ['T34UCC', 'T34UDC'] — 34UCB has no online L1C) for nonemit_011 (cloud ≤ 10%, window ±30d of 2024-07)
+01:15:33  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE  cloud=0.0%
+01:15:33  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE ...
+01:15:33  INFO     Already downloaded: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE
+01:15:33  INFO       Converting to .npy ...
+01:15:33  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE.zip ...
+01:15:38  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE
+01:15:38  INFO     Found 12/12 bands in SAFE archive
+01:15:38  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+01:16:36  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:16:37  ERROR      Download failed: 1446724800 requested and 0 written
+01:16:37  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+01:16:37  INFO       Already downloaded: nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy
+01:16:37  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved f)  34UCB ──
+01:16:41  INFO     Found 4 products
+01:16:41  INFO       Found 2 L1C scenes (fallback tiles ['T34UDC'] — 34UCB has no online L1C) for nonemit_013 (cloud ≤ 10%, window ±30d of 2024-08)
+01:16:41  INFO       Best candidate: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE  cloud=0.0%
+01:16:41  INFO       Downloading S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE ...
+01:16:41  INFO     Already downloaded: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE
+01:16:41  INFO       Converting to .npy ...
+01:16:41  INFO     Unzipping S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE.zip ...
+01:16:41  ERROR      Download failed: File is not a zip file
+01:16:41  INFO     ── nonemit_014  (Schleswig-Holstein coastal plain — pastu)  32UNE ──
+01:16:44  INFO     Found 28 products
+01:16:44  INFO       Found 6 L1C scenes (tile 32UNE, of 28 total) for nonemit_014 (cloud ≤ 10%, window ±30d of 2024-07)
+01:16:44  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+01:16:44  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+01:16:44  INFO     Already downloaded: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+01:16:44  INFO       Converting to .npy ...
+01:16:44  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+01:16:47  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+01:16:47  INFO     Found 12/12 bands in SAFE archive
+01:16:47  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:17:41  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:17:41  ERROR      Download failed: 1446724800 requested and 0 written
+01:17:41  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+01:17:41  INFO       Already downloaded: nonemit_015_S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy
+01:17:41  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+01:17:41  INFO       Already downloaded: nonemit_016_S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy
+01:17:41  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+01:17:41  INFO       Already downloaded: nonemit_017_S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy
+01:17:41  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal)  32TPQ ──
+01:17:44  INFO     Found 85 products
+01:17:44  INFO       Found 12 L1C scenes (tile 32TPQ, of 85 total) for nonemit_018 (cloud ≤ 10%, window ±30d of 2024-07)
+01:17:44  INFO       Best candidate: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE  cloud=0.0%
+01:17:44  INFO       Downloading S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE ...
+01:17:44  INFO     Already downloaded: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE
+01:17:44  INFO       Converting to .npy ...
+01:17:44  INFO     Unzipping S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE.zip ...
+01:17:45  INFO     Extracted: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE
+01:17:45  INFO     Found 12/12 bands in SAFE archive
+01:17:45  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:18:27  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:18:27  ERROR      Download failed: 1446724800 requested and 0 written
+01:18:27  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+01:24:58  INFO     Copernicus token refreshed, expires in 1800s
+01:24:58  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+01:24:58  INFO       Already downloaded: nonemit_001_S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy
+01:24:58  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+01:24:58  INFO       Already downloaded: nonemit_002_S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy
+01:24:58  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+01:24:58  INFO       Already downloaded: nonemit_003_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+01:24:58  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+01:24:58  INFO       Already downloaded: nonemit_004_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy
+01:24:58  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+01:25:02  INFO     Found 18 products
+01:25:02  INFO       Found 3 L1C scenes (tile 33UUQ, of 18 total) for nonemit_005 (cloud ≤ 10%, window ±30d of 2024-08)
+01:25:02  INFO       Best candidate: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE  cloud=0.0%
+01:25:02  INFO       Downloading S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE ...
+01:27:10  INFO     Downloaded S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE (832.7 MB)
+01:27:10  INFO       Converting to .npy ...
+01:27:10  INFO     Unzipping S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE.zip ...
+01:27:11  INFO     Extracted: S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.SAFE
+01:27:11  INFO     Found 12/12 bands in SAFE archive
+01:27:12  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32633)
+01:27:56  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:27:57  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy (shape: (10980, 10980, 12))
+01:27:57  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133_geo.json
+01:27:57  INFO       Saved: nonemit_005_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy
+01:27:57  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest)  31UGR ──
+01:27:59  INFO     Found 46 products
+01:27:59  INFO       Found 4 L1C scenes (tile 31UGR, of 46 total) for nonemit_006 (cloud ≤ 10%, window ±30d of 2024-07)
+01:27:59  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE  cloud=0.0%
+01:27:59  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE ...
+01:29:53  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE (832.2 MB)
+01:29:53  INFO       Converting to .npy ...
+01:29:53  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE.zip ...
+01:29:55  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.SAFE
+01:29:55  INFO     Found 12/12 bands in SAFE archive
+01:29:55  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32631)
+01:30:39  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:30:40  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy (shape: (10980, 10980, 12))
+01:30:40  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035_geo.json
+01:30:40  INFO       Saved: nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+01:30:40  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+01:30:40  INFO       Already downloaded: nonemit_007_S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy
+01:30:40  INFO     ── nonemit_008  (Franconian Highland, Germany — complex c)  33UUQ ──
+01:30:43  INFO     Found 4 products
+01:30:43  INFO       Found 2 L1C scenes (fallback tiles ['T32UPA'] — 33UUQ has no online L1C) for nonemit_008 (cloud ≤ 10%, window ±30d of 2024-07)
+01:30:43  INFO       Best candidate: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE  cloud=0.0%
+01:30:43  INFO       Downloading S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE ...
+01:32:41  INFO     Downloaded S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE (848.7 MB)
+01:32:41  INFO       Converting to .npy ...
+01:32:41  INFO     Unzipping S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE.zip ...
+01:32:42  INFO     Extracted: S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.SAFE
+01:32:42  INFO     Found 12/12 bands in SAFE archive
+01:32:42  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+01:33:21  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:33:22  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.npy (shape: (10980, 10980, 12))
+01:33:22  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024_geo.json
+01:33:22  INFO       Saved: nonemit_008_S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.npy
+01:33:22  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland p)  33UUS ──
+01:33:22  INFO       Already downloaded: nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy
+01:33:22  INFO     ── nonemit_010  (NE Slovakia lowlands — arable)  34UCU ──
+01:33:27  INFO     Found 41 products
+01:33:27  INFO       Found 7 L1C scenes (tile 34UCU, of 41 total) for nonemit_010 (cloud ≤ 10%, window ±30d of 2024-07)
+01:33:27  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE  cloud=0.0%
+01:33:27  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE ...
+01:35:21  INFO     Downloaded S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE (814.1 MB)
+01:35:21  INFO       Converting to .npy ...
+01:35:21  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE.zip ...
+01:35:22  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.SAFE
+01:35:22  INFO     Found 12/12 bands in SAFE archive
+01:35:22  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+01:36:01  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:36:01  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy (shape: (10980, 10980, 12))
+01:36:01  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033_geo.json
+01:36:01  INFO       Saved: nonemit_010_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy
+01:36:01  INFO     ── nonemit_011  (Łódź region, central Poland — arable)  34UCB ──
+01:36:06  INFO     Found 9 products
+01:36:06  INFO       Found 5 L1C scenes (fallback tiles ['T34UCC', 'T34UDC'] — 34UCB has no online L1C) for nonemit_011 (cloud ≤ 10%, window ±30d of 2024-07)
+01:36:06  INFO       Best candidate: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE  cloud=0.0%
+01:36:06  INFO       Downloading S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE ...
+01:37:35  INFO     Downloaded S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE (843.9 MB)
+01:37:35  INFO       Converting to .npy ...
+01:37:35  INFO     Unzipping S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE.zip ...
+01:37:37  INFO     Extracted: S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.SAFE
+01:37:37  INFO     Found 12/12 bands in SAFE archive
+01:37:37  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+01:38:18  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+01:38:19  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.npy (shape: (10980, 10980, 12))
+01:38:19  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033_geo.json
+01:38:19  INFO       Saved: nonemit_011_S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.npy
+01:38:20  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+01:38:20  INFO       Already downloaded: nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy
+01:38:20  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved f)  34UCB ──
+01:38:23  INFO     Found 4 products
+01:38:23  INFO       Found 2 L1C scenes (fallback tiles ['T34UDC'] — 34UCB has no online L1C) for nonemit_013 (cloud ≤ 10%, window ±30d of 2024-08)
+01:38:23  INFO       Best candidate: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE  cloud=0.0%
+01:38:23  INFO       Downloading S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE ...
+01:39:51  INFO     Downloaded S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE (853.0 MB)
+01:39:51  INFO       Converting to .npy ...
+01:39:51  INFO     Unzipping S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE.zip ...
+01:40:02  ERROR      Download failed: [Errno 28] No space left on device
+01:40:02  INFO     ── nonemit_014  (Schleswig-Holstein coastal plain — pastu)  32UNE ──
+01:40:05  INFO     Found 28 products
+01:40:05  INFO       Found 6 L1C scenes (tile 32UNE, of 28 total) for nonemit_014 (cloud ≤ 10%, window ±30d of 2024-07)
+01:40:05  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+01:40:05  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+01:41:12  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE (604.8 MB)
+01:41:12  INFO       Converting to .npy ...
+01:41:12  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+01:41:15  ERROR      Download failed: [Errno 28] No space left on device
+01:41:15  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+01:41:15  INFO       Already downloaded: nonemit_015_S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy
+01:41:15  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+01:41:15  INFO       Already downloaded: nonemit_016_S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy
+01:41:15  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+01:41:15  INFO       Already downloaded: nonemit_017_S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy
+01:41:15  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal)  32TPQ ──
+01:41:18  INFO     Found 85 products
+01:41:18  INFO       Found 12 L1C scenes (tile 32TPQ, of 85 total) for nonemit_018 (cloud ≤ 10%, window ±30d of 2024-07)
+01:41:18  INFO       Best candidate: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE  cloud=0.0%
+01:41:18  INFO       Downloading S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE ...
+01:41:39  ERROR    Download failed for S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE: [Errno 28] No space left on device
+01:41:40  ERROR      Download failed: Download returned None for S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE
+01:41:40  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json
+07:33:33  INFO     Copernicus token refreshed, expires in 1800s
+07:33:33  INFO     ── nonemit_001  (Lüneburg Heath — heathland/moor)  32UNE ──
+07:33:33  INFO       Already downloaded: nonemit_001_S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy
+07:33:33  INFO     ── nonemit_002  (Belgian Ardennes — mixed forest)  31UGR ──
+07:33:33  INFO       Already downloaded: nonemit_002_S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy
+07:33:33  INFO     ── nonemit_003  (Moselle Valley, Germany — arable/vineyar)  31UGR ──
+07:33:33  INFO       Already downloaded: nonemit_003_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+07:33:33  INFO     ── nonemit_004  (Hamburg rural lowlands, Germany — arable)  32UNE ──
+07:33:33  INFO       Already downloaded: nonemit_004_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy
+07:33:33  INFO     ── nonemit_005  (Šumava NP interior, Czech Republic — con)  33UUQ ──
+07:33:33  INFO       Already downloaded: nonemit_005_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy
+07:33:33  INFO     ── nonemit_006  (Westerwald, Germany — mixed forest)  31UGR ──
+07:33:33  INFO       Already downloaded: nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy
+07:33:33  INFO     ── nonemit_007  (Bohemian Forest — coniferous)  33UUQ ──
+07:33:33  INFO       Already downloaded: nonemit_007_S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy
+07:33:33  INFO     ── nonemit_008  (Franconian Highland, Germany — complex c)  33UUQ ──
+07:33:33  INFO       Already downloaded: nonemit_008_S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.npy
+07:33:33  INFO     ── nonemit_009  (Erzgebirge foothills, Germany — upland p)  33UUS ──
+07:33:33  INFO       Already downloaded: nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy
+07:33:33  INFO     ── nonemit_010  (NE Slovakia lowlands — arable)  34UCU ──
+07:33:33  INFO       Already downloaded: nonemit_010_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy
+07:33:33  INFO     ── nonemit_011  (Łódź region, central Poland — arable)  34UCB ──
+07:33:33  INFO       Already downloaded: nonemit_011_S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.npy
+07:33:33  INFO     ── nonemit_012  (Slovak Highlands — broadleaved forest)  34UCU ──
+07:33:33  INFO       Already downloaded: nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy
+07:33:33  INFO     ── nonemit_013  (Mazovian lowland, Poland — broadleaved f)  34UCB ──
+07:33:37  INFO     Found 4 products
+07:33:37  INFO       Found 2 L1C scenes (fallback tiles ['T34UDC'] — 34UCB has no online L1C) for nonemit_013 (cloud ≤ 10%, window ±30d of 2024-08)
+07:33:37  INFO       Best candidate: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE  cloud=0.0%
+07:33:37  INFO       Downloading S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE ...
+07:35:24  INFO     Downloaded S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE (853.0 MB)
+07:35:24  INFO       Converting to .npy ...
+07:35:24  INFO     Unzipping S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE.zip ...
+07:35:26  INFO     Extracted: S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE
+07:35:26  INFO     Found 12/12 bands in SAFE archive
+07:35:26  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32634)
+07:36:24  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+07:36:25  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.npy (shape: (10980, 10980, 12))
+07:36:25  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912_geo.json
+07:36:25  INFO       Saved: nonemit_013_S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.npy
+07:36:25  INFO     ── nonemit_014  (Schleswig-Holstein coastal plain — pastu)  32UNE ──
+07:36:29  INFO     Found 28 products
+07:36:29  INFO       Found 6 L1C scenes (tile 32UNE, of 28 total) for nonemit_014 (cloud ≤ 10%, window ±30d of 2024-07)
+07:36:29  INFO       Best candidate: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE  cloud=0.0%
+07:36:29  INFO       Downloading S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE ...
+07:37:32  INFO     Downloaded S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE (604.8 MB)
+07:37:32  INFO       Converting to .npy ...
+07:37:32  INFO     Unzipping S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE.zip ...
+07:37:33  INFO     Extracted: S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE
+07:37:33  INFO     Found 12/12 bands in SAFE archive
+07:37:33  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+07:38:27  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+07:38:28  INFO     Saved .npy array: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy (shape: (10980, 10980, 12))
+07:38:28  INFO     Saved geo metadata: data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035_geo.json
+07:38:28  INFO       Saved: nonemit_014_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy
+07:38:28  INFO     ── nonemit_015  (Swedish coastal plain — mixed forest)  33UUB ──
+07:38:28  INFO       Already downloaded: nonemit_015_S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy
+07:38:28  INFO     ── nonemit_016  (Baltic coast, Latvia — coastal grassland)  35VLC ──
+07:38:28  INFO       Already downloaded: nonemit_016_S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy
+07:38:28  INFO     ── nonemit_017  (Apennines, Italy — mixed forest)  32TPQ ──
+07:38:28  INFO       Already downloaded: nonemit_017_S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy
+07:38:28  INFO     ── nonemit_018  (Tuscany coastal lowland, Italy — coastal)  32TPQ ──
+07:38:32  INFO     Found 85 products
+07:38:32  INFO       Found 12 L1C scenes (tile 32TPQ, of 85 total) for nonemit_018 (cloud ≤ 10%, window ±30d of 2024-07)
+07:38:32  INFO       Best candidate: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE  cloud=0.0%
+07:38:32  INFO       Downloading S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE ...
+07:39:12  INFO     Downloaded S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE (385.6 MB)
+07:39:12  INFO       Converting to .npy ...
+07:39:12  INFO     Unzipping S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE.zip ...
+07:39:13  INFO     Extracted: S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE
+07:39:13  INFO     Found 12/12 bands in SAFE archive
+07:39:13  INFO     Reference grid: 10980x10980 pixels at 10m resolution (CRS: EPSG:32632)
+07:40:04  INFO     Stacked array shape: (10980, 10980, 12), dtype: uint8
+07:40:04  INFO     Saved .npy array: data/nonemitter_tiles/S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy (shape: (10980, 10980, 12))
+07:40:04  INFO     Saved geo metadata: data/nonemitter_tiles/S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json
+07:40:04  INFO       Saved: nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy
+07:40:04  INFO     Download manifest saved → results_analysis/nonemitter_download_manifest.json

@@ -1,0 +1,1025 @@
+{
+  "crops_attempted": [
+    750,
+    500,
+    250
+  ],
+  "n_records": 26,
+  "bias_factors": {},
+  "entries": [
+    {
+      "scene_id": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+      "month": "2024-04",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+        "sc_ratio": 10.9319,
+        "sc_cfar": 10.4231,
+        "site_mean": 0.067508,
+        "ctrl_mean": 0.006175,
+        "ctrl_mu": 0.006477,
+        "ctrl_sigma": 0.004387,
+        "cv_ctrl": 0.6774,
+        "cfar_thresh_ratio": 3.1821,
+        "cfar_detect": true,
+        "cfar_margin": 7.241
+      },
+      "previous_quant_status": "quantified",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+      "month": "2024-05",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+        "sc_ratio": 187.0703,
+        "sc_cfar": 126.8366,
+        "site_mean": 0.044552,
+        "ctrl_mean": 0.000238,
+        "ctrl_mu": 0.000351,
+        "ctrl_sigma": 0.00032,
+        "cv_ctrl": 0.9105,
+        "cfar_thresh_ratio": 3.8815,
+        "cfar_detect": true,
+        "cfar_margin": 122.9551
+      },
+      "previous_quant_status": "quantified",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+      "month": "2024-07",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+        "sc_ratio": 1007.2355,
+        "sc_cfar": 224.4077,
+        "site_mean": 0.077059,
+        "ctrl_mean": 7.7e-05,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000394,
+        "cv_ctrl": 1.1465,
+        "cfar_thresh_ratio": 4.5895,
+        "cfar_detect": true,
+        "cfar_margin": 219.8182
+      },
+      "previous_quant_status": "quantified",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+      "month": "2024-10",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+        "sc_ratio": 16.6146,
+        "sc_cfar": 5.3435,
+        "site_mean": 0.390775,
+        "ctrl_mean": 0.02352,
+        "ctrl_mu": 0.07313,
+        "ctrl_sigma": 0.03592,
+        "cv_ctrl": 0.4912,
+        "cfar_thresh_ratio": 2.6235,
+        "cfar_detect": true,
+        "cfar_margin": 2.72
+      },
+      "previous_quant_status": "quantified",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.tif",
+      "month": "2021-04",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.tif",
+        "sc_ratio": 8.7846,
+        "sc_cfar": 8.4943,
+        "site_mean": 0.744702,
+        "ctrl_mean": 0.084774,
+        "ctrl_mu": 0.08767,
+        "ctrl_sigma": 0.07138,
+        "cv_ctrl": 0.8142,
+        "cfar_thresh_ratio": 3.5925,
+        "cfar_detect": true,
+        "cfar_margin": 4.9018
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20210402T095029_N0500_R079_T34UCB_20230510T121045",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20210402T095029_N0500_R079_T34UCB_20230510T121045.tif",
+      "month": "2021-04",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210402T095029_N0500_R079_T34UCB_20230510T121045.tif",
+        "sc_ratio": 5.8046,
+        "sc_cfar": 9.0006,
+        "site_mean": 0.463927,
+        "ctrl_mean": 0.079924,
+        "ctrl_mu": 0.051544,
+        "ctrl_sigma": 0.035295,
+        "cv_ctrl": 0.6847,
+        "cfar_thresh_ratio": 3.2042,
+        "cfar_detect": true,
+        "cfar_margin": 5.7963
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.tif",
+      "month": "2021-06",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.tif",
+        "sc_ratio": 305.5926,
+        "sc_cfar": 57.3596,
+        "site_mean": 0.022458,
+        "ctrl_mean": 7.3e-05,
+        "ctrl_mu": 0.000392,
+        "ctrl_sigma": 0.000252,
+        "cv_ctrl": 0.643,
+        "cfar_thresh_ratio": 3.0791,
+        "cfar_detect": true,
+        "cfar_margin": 54.2805
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20210711T095029_N0500_R079_T34UCB_20230205T032359",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20210711T095029_N0500_R079_T34UCB_20230205T032359.tif",
+      "month": "2021-07",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210711T095029_N0500_R079_T34UCB_20230205T032359.tif",
+        "sc_ratio": 25.0416,
+        "sc_cfar": 25.56,
+        "site_mean": 0.175702,
+        "ctrl_mean": 0.007016,
+        "ctrl_mu": 0.006874,
+        "ctrl_sigma": 0.005145,
+        "cv_ctrl": 0.7484,
+        "cfar_thresh_ratio": 3.3953,
+        "cfar_detect": true,
+        "cfar_margin": 22.1647
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20210909T095029_N0500_R079_T34UCB_20230117T015854",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20210909T095029_N0500_R079_T34UCB_20230117T015854.tif",
+      "month": "2021-09",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210909T095029_N0500_R079_T34UCB_20230117T015854.tif",
+        "sc_ratio": 414.1344,
+        "sc_cfar": 23.102,
+        "site_mean": 0.02732,
+        "ctrl_mean": 6.6e-05,
+        "ctrl_mu": 0.001183,
+        "ctrl_sigma": 0.000881,
+        "cv_ctrl": 0.7451,
+        "cfar_thresh_ratio": 3.3852,
+        "cfar_detect": true,
+        "cfar_margin": 19.7168
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.tif",
+      "month": "2022-06",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.tif",
+        "sc_ratio": 507.3061,
+        "sc_cfar": 169.399,
+        "site_mean": 0.040214,
+        "ctrl_mean": 7.9e-05,
+        "ctrl_mu": 0.000237,
+        "ctrl_sigma": 0.000213,
+        "cv_ctrl": 0.8976,
+        "cfar_thresh_ratio": 3.8429,
+        "cfar_detect": true,
+        "cfar_margin": 165.5561
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20220701T095041_N0510_R079_T34UCB_20240702T075832",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20220701T095041_N0510_R079_T34UCB_20240702T075832.tif",
+      "month": "2022-07",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220701T095041_N0510_R079_T34UCB_20240702T075832.tif",
+        "sc_ratio": 226.6399,
+        "sc_cfar": 33.167,
+        "site_mean": 0.012663,
+        "ctrl_mean": 5.6e-05,
+        "ctrl_mu": 0.000382,
+        "ctrl_sigma": 0.00046,
+        "cv_ctrl": 1.2057,
+        "cfar_thresh_ratio": 4.7671,
+        "cfar_detect": true,
+        "cfar_margin": 28.3999
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20220825T094549_N0510_R079_T34UCB_20240704T201134",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20220825T094549_N0510_R079_T34UCB_20240704T201134.tif",
+      "month": "2022-08",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20220825T094549_N0510_R079_T34UCB_20240704T201134.tif",
+        "sc_ratio": 7047.7156,
+        "sc_cfar": 515.0106,
+        "site_mean": 0.245151,
+        "ctrl_mean": 3.5e-05,
+        "ctrl_mu": 0.000476,
+        "ctrl_sigma": 0.000617,
+        "cv_ctrl": 1.2959,
+        "cfar_thresh_ratio": 5.0376,
+        "cfar_detect": true,
+        "cfar_margin": 509.9729
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.tif",
+      "month": "2023-04",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.tif",
+        "sc_ratio": 101.7683,
+        "sc_cfar": 7.2525,
+        "site_mean": 0.005547,
+        "ctrl_mean": 5.5e-05,
+        "ctrl_mu": 0.000765,
+        "ctrl_sigma": 0.000602,
+        "cv_ctrl": 0.7874,
+        "cfar_thresh_ratio": 3.5122,
+        "cfar_detect": true,
+        "cfar_margin": 3.7404
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.tif",
+      "month": "2023-05",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.tif",
+        "sc_ratio": 411.0314,
+        "sc_cfar": 208.0514,
+        "site_mean": 0.131845,
+        "ctrl_mean": 0.000321,
+        "ctrl_mu": 0.000634,
+        "ctrl_sigma": 0.000221,
+        "cv_ctrl": 0.3492,
+        "cfar_thresh_ratio": 2.1976,
+        "cfar_detect": true,
+        "cfar_margin": 205.8538
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20230512T094549_N0510_R079_T34UCB_20240908T075210",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20230512T094549_N0510_R079_T34UCB_20240908T075210.tif",
+      "month": "2023-05",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230512T094549_N0510_R079_T34UCB_20240908T075210.tif",
+        "sc_ratio": 309.4584,
+        "sc_cfar": 123.6368,
+        "site_mean": 0.053658,
+        "ctrl_mean": 0.000173,
+        "ctrl_mu": 0.000434,
+        "ctrl_sigma": 0.000261,
+        "cv_ctrl": 0.6009,
+        "cfar_thresh_ratio": 2.9526,
+        "cfar_detect": true,
+        "cfar_margin": 120.6842
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.tif",
+      "month": "2023-06",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.tif",
+        "sc_ratio": 356.3333,
+        "sc_cfar": 122.1607,
+        "site_mean": 0.074852,
+        "ctrl_mean": 0.00021,
+        "ctrl_mu": 0.000613,
+        "ctrl_sigma": 0.00033,
+        "cv_ctrl": 0.5392,
+        "cfar_thresh_ratio": 2.7675,
+        "cfar_detect": true,
+        "cfar_margin": 119.3932
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20230815T095031_N0510_R079_T34UCB_20241014T180859",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20230815T095031_N0510_R079_T34UCB_20241014T180859.tif",
+      "month": "2023-08",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20230815T095031_N0510_R079_T34UCB_20241014T180859.tif",
+        "sc_ratio": 1033.4831,
+        "sc_cfar": 162.2144,
+        "site_mean": 0.058571,
+        "ctrl_mean": 5.7e-05,
+        "ctrl_mu": 0.000361,
+        "ctrl_sigma": 0.000452,
+        "cv_ctrl": 1.2522,
+        "cfar_thresh_ratio": 4.9067,
+        "cfar_detect": true,
+        "cfar_margin": 157.3077
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.tif",
+      "month": "2023-09",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.tif",
+        "sc_ratio": 182.956,
+        "sc_cfar": 22.3447,
+        "site_mean": 0.013322,
+        "ctrl_mean": 7.3e-05,
+        "ctrl_mu": 0.000596,
+        "ctrl_sigma": 0.000751,
+        "cv_ctrl": 1.2591,
+        "cfar_thresh_ratio": 4.9273,
+        "cfar_detect": true,
+        "cfar_margin": 17.4174
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+      "month": "2024-04",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+        "sc_ratio": 10.9319,
+        "sc_cfar": 10.4231,
+        "site_mean": 0.067508,
+        "ctrl_mean": 0.006175,
+        "ctrl_mu": 0.006477,
+        "ctrl_sigma": 0.004387,
+        "cv_ctrl": 0.6774,
+        "cfar_thresh_ratio": 3.1821,
+        "cfar_detect": true,
+        "cfar_margin": 7.241
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+      "month": "2024-05",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+        "sc_ratio": 187.0703,
+        "sc_cfar": 126.8366,
+        "site_mean": 0.044552,
+        "ctrl_mean": 0.000238,
+        "ctrl_mu": 0.000351,
+        "ctrl_sigma": 0.00032,
+        "cv_ctrl": 0.9105,
+        "cfar_thresh_ratio": 3.8815,
+        "cfar_detect": true,
+        "cfar_margin": 122.9551
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20240516T094549_N0510_R079_T34UCB_20240516T114959",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20240516T094549_N0510_R079_T34UCB_20240516T114959.tif",
+      "month": "2024-05",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240516T094549_N0510_R079_T34UCB_20240516T114959.tif",
+        "sc_ratio": 126.6698,
+        "sc_cfar": 150.9549,
+        "site_mean": 0.051828,
+        "ctrl_mean": 0.000409,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000228,
+        "cv_ctrl": 0.6632,
+        "cfar_thresh_ratio": 3.1397,
+        "cfar_detect": true,
+        "cfar_margin": 147.8152
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+      "month": "2024-07",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+        "sc_ratio": 1007.2355,
+        "sc_cfar": 224.4077,
+        "site_mean": 0.077059,
+        "ctrl_mean": 7.7e-05,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000394,
+        "cv_ctrl": 1.1465,
+        "cfar_thresh_ratio": 4.5895,
+        "cfar_detect": true,
+        "cfar_margin": 219.8182
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL1C_20240814T094549_N0511_R079_T34UCB_20240814T114912",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2B_MSIL1C_20240814T094549_N0511_R079_T34UCB_20240814T114912.tif",
+      "month": "2024-08",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240814T094549_N0511_R079_T34UCB_20240814T114912.tif",
+        "sc_ratio": 773.9999,
+        "sc_cfar": 91.4462,
+        "site_mean": 0.027071,
+        "ctrl_mean": 3.5e-05,
+        "ctrl_mu": 0.000296,
+        "ctrl_sigma": 0.000353,
+        "cv_ctrl": 1.1908,
+        "cfar_thresh_ratio": 4.7224,
+        "cfar_detect": true,
+        "cfar_margin": 86.7238
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20240918T095031_N0511_R079_T34UCB_20240918T133132",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20240918T095031_N0511_R079_T34UCB_20240918T133132.tif",
+      "month": "2024-09",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240918T095031_N0511_R079_T34UCB_20240918T133132.tif",
+        "sc_ratio": 546.3116,
+        "sc_cfar": 57.0429,
+        "site_mean": 0.04352,
+        "ctrl_mean": 8e-05,
+        "ctrl_mu": 0.000763,
+        "ctrl_sigma": 0.000989,
+        "cv_ctrl": 1.2965,
+        "cfar_thresh_ratio": 5.0396,
+        "cfar_detect": true,
+        "cfar_margin": 52.0033
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+      "month": "2024-10",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+        "sc_ratio": 16.6146,
+        "sc_cfar": 5.3435,
+        "site_mean": 0.390775,
+        "ctrl_mean": 0.02352,
+        "ctrl_mu": 0.07313,
+        "ctrl_sigma": 0.03592,
+        "cv_ctrl": 0.4912,
+        "cfar_thresh_ratio": 2.6235,
+        "cfar_detect": true,
+        "cfar_margin": 2.72
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL1C_20241018T095031_N0511_R079_T34UCB_20241018T104313",
+      "tif": "/Users/vincentcornelius/Downloads/methane-api/results_bitemporal/belchatow/original_S2A_MSIL1C_20241018T095031_N0511_R079_T34UCB_20241018T104313.tif",
+      "month": "2024-10",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241018T095031_N0511_R079_T34UCB_20241018T104313.tif",
+        "sc_ratio": 630.7583,
+        "sc_cfar": 110.7504,
+        "site_mean": 0.086242,
+        "ctrl_mean": 0.000137,
+        "ctrl_mu": 0.000779,
+        "ctrl_sigma": 0.00095,
+        "cv_ctrl": 1.2194,
+        "cfar_thresh_ratio": 4.8082,
+        "cfar_detect": true,
+        "cfar_margin": 105.9422
+      },
+      "previous_quant_status": "site_outside_crop",
+      "results_by_crop": [
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314176,
+          "actual_crop_w": -338687,
+          "requested_crop": 750
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314301,
+          "actual_crop_w": -338812,
+          "requested_crop": 500
+        },
+        {
+          "status": "crop_too_clipped",
+          "actual_crop_h": -314426,
+          "actual_crop_w": -338937,
+          "requested_crop": 250
+        }
+      ]
+    }
+  ]
+}

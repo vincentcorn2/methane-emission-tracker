@@ -1,0 +1,52 @@
+{
+  "site": "rybnik_cm",
+  "tif": "results_bitemporal/rybnik_cm/original_S2B_MSIL1C_20250322T095029_N0511_R079_T34UCA_20250322T114604.tif",
+  "s2_acquisition": "2025-03-22T09:50",
+  "cm_pin": {
+    "lat": 50.0781,
+    "lon": 18.5451
+  },
+  "centroid": {
+    "pin_pixel": [
+      4983,
+      2435
+    ],
+    "window_pixels": [
+      4683,
+      5284,
+      2135,
+      2736
+    ],
+    "pixel_size_m": 10.0,
+    "prob_threshold": 0.5,
+    "prob_max_in_window": 0.695855,
+    "prob_mean_in_window": 0.017918,
+    "n_pixels_above": 597,
+    "centroid_pixel": [
+      5162.45,
+      2252.49
+    ],
+    "centroid_lat": 50.06147,
+    "centroid_lon": 18.520388
+  },
+  "displacement_m": 2558.1,
+  "displacement_dx_m": -1765.4,
+  "displacement_dy_m": -1851.3,
+  "centroid_bearing_deg": 223.65,
+  "era5_wind": {
+    "wind_speed_ms": 4.8434,
+    "wind_dir_deg": 88.7,
+    "wind_source": "ERA5_reanalysis",
+    "era5_u_ms": -4.8422,
+    "era5_v_ms": -0.1066,
+    "expected_plume_bearing_deg": 268.7,
+    "angular_diff_deg": 45.05
+  },
+  "cm_wind_one_day_prior": {
+    "date": "2025-03-21",
+    "wind_dir_deg": 215.67,
+    "wind_speed_ms": 3.08,
+    "expected_plume_bearing_deg": 35.67,
+    "angular_diff_deg": 172.02
+  }
+}

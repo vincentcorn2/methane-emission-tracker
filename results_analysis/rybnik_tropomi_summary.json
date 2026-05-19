@@ -1,0 +1,112 @@
+{
+  "site": "silesia_rybnik",
+  "coords": {
+    "lat": 50.135,
+    "lon": 18.522
+  },
+  "full_period": {
+    "start": "2023-01-01",
+    "end": "2024-06-29"
+  },
+  "n_dates_with_valid_retrieval": 23,
+  "n_confirmed_positives_ge10ppb": 5,
+  "n_moderate_positives_5to10ppb": 3,
+  "confirmed_events": [
+    {
+      "date": "2023-02-10",
+      "enhancement_ppb": 13.91,
+      "n_near_pixels": 2,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230210T110554_20230210T124724_27610_03_020400_20230212T033"
+    },
+    {
+      "date": "2023-02-15",
+      "enhancement_ppb": 10.85,
+      "n_near_pixels": 26,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230215T093113_20230215T111243_27680_03_020400_20230217T015"
+    },
+    {
+      "date": "2023-03-01",
+      "enhancement_ppb": 17.42,
+      "n_near_pixels": 56,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230301T101042_20230301T115212_27879_03_020400_20230303T023"
+    },
+    {
+      "date": "2023-03-02",
+      "enhancement_ppb": 12.58,
+      "n_near_pixels": 4,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230302T113316_20230302T131447_27894_03_020400_20230304T041"
+    },
+    {
+      "date": "2024-06-28",
+      "enhancement_ppb": 19.66,
+      "n_near_pixels": 2,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20240628T102422_20240628T120552_34760_03_020600_20240630T024"
+    }
+  ],
+  "all_positive_events_ge5ppb": [
+    {
+      "date": "2023-01-02",
+      "enhancement_ppb": 9.23,
+      "n_near_pixels": 42,
+      "validated": false,
+      "product": "S5P_OFFL_L2__CH4____20230102T095319_20230102T113449_27056_03_020400_20230104T021"
+    },
+    {
+      "date": "2023-01-17",
+      "enhancement_ppb": 5.16,
+      "n_near_pixels": 60,
+      "validated": false,
+      "product": "S5P_OFFL_L2__CH4____20230117T101310_20230117T115441_27269_03_020400_20230119T022"
+    },
+    {
+      "date": "2023-02-09",
+      "enhancement_ppb": 5.28,
+      "n_near_pixels": 4,
+      "validated": false,
+      "product": "S5P_OFFL_L2__CH4____20230209T112450_20230209T130620_27596_03_020400_20230211T034"
+    },
+    {
+      "date": "2023-02-10",
+      "enhancement_ppb": 13.91,
+      "n_near_pixels": 2,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230210T110554_20230210T124724_27610_03_020400_20230212T033"
+    },
+    {
+      "date": "2023-02-15",
+      "enhancement_ppb": 10.85,
+      "n_near_pixels": 26,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230215T093113_20230215T111243_27680_03_020400_20230217T015"
+    },
+    {
+      "date": "2023-03-01",
+      "enhancement_ppb": 17.42,
+      "n_near_pixels": 56,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230301T101042_20230301T115212_27879_03_020400_20230303T023"
+    },
+    {
+      "date": "2023-03-02",
+      "enhancement_ppb": 12.58,
+      "n_near_pixels": 4,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20230302T113316_20230302T131447_27894_03_020400_20230304T041"
+    },
+    {
+      "date": "2024-06-28",
+      "enhancement_ppb": 19.66,
+      "n_near_pixels": 2,
+      "validated": true,
+      "product": "S5P_OFFL_L2__CH4____20240628T102422_20240628T120552_34760_03_020600_20240630T024"
+    }
+  ],
+  "max_enhancement_ppb": 19.66,
+  "mean_enhancement_ppb_when_positive": 14.88,
+  "generated_at": "2026-05-17T23:27:42Z"
+}

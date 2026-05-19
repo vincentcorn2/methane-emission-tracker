@@ -1,0 +1,738 @@
+17:17:55  INFO     
+── WEISWEILER ──────────────────────────────────────────────
+17:17:55  INFO       weisweiler (T31UGS): 11 tiles in cache
+17:17:55  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.npy  date=2021-06-01
+17:17:55  INFO         [run]  Running inference on S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.npy ...
+17:17:56  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:17:56  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:17:56  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:17:56  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:17:56  INFO       Running batched inference on 11881 tiles...
+17:19:13  INFO       Stitching predictions...
+17:19:23  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.tif
+17:19:23  INFO       Saved → original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.tif
+17:19:23  INFO                Saved: original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.tif
+17:19:26  INFO         S/C=2.8246    sc_cfar=9.8130    thr_ratio=5.459   CFAR=DETECT
+17:19:26  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.npy  date=2023-06-04
+17:19:26  INFO         [run]  Running inference on S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.npy ...
+17:19:27  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:19:27  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:19:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:19:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:19:27  INFO       Running batched inference on 11881 tiles...
+17:21:01  INFO       Stitching predictions...
+17:21:09  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.tif
+17:21:09  INFO       Saved → original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.tif
+17:21:09  INFO                Saved: original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.tif
+17:21:11  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+17:21:11  INFO       ── S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.npy  date=2024-06-08
+17:21:11  INFO         [hit]  original_S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.tif
+17:21:13  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+17:21:13  INFO       ── S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.npy  date=2024-07-15
+17:21:13  INFO         [hit]  original_S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.tif
+17:21:16  INFO         S/C=0.1016    sc_cfar=0.2523    thr_ratio=3.978   CFAR=no
+17:21:16  INFO       ── S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.npy  date=2024-08-31
+17:21:16  INFO         [hit]  original_S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.tif
+17:21:19  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+17:21:19  INFO       ── S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.npy  date=2024-09-20
+17:21:19  INFO         [hit]  original_S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.tif
+17:21:21  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+17:21:21  INFO       ── S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.npy  date=2020-06-01
+17:21:21  INFO         [run]  Running inference on S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.npy ...
+17:21:22  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:21:22  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:21:22  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:21:22  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:21:22  INFO       Running batched inference on 11881 tiles...
+17:23:30  INFO       Stitching predictions...
+17:24:07  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.tif
+17:24:07  INFO       Saved → original_S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.tif
+17:24:07  INFO                Saved: original_S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.tif
+17:24:13  INFO         S/C=0.1395    sc_cfar=0.5459    thr_ratio=6.194   CFAR=no
+17:24:13  INFO       ── S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.npy  date=2022-06-14
+17:24:13  INFO         [run]  Running inference on S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.npy ...
+17:24:15  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:24:15  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:24:15  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:24:15  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:24:15  INFO       Running batched inference on 11881 tiles...
+17:29:05  INFO       Stitching predictions...
+17:29:38  INFO     Saved georeferenced prediction to results_bitemporal/weisweiler/original_S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.tif
+17:29:38  INFO       Saved → original_S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.tif
+17:29:39  INFO                Saved: original_S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.tif
+17:29:44  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+17:29:44  INFO       ── S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.npy  date=2024-07-20
+17:29:44  INFO         [hit]  original_S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.tif
+17:29:51  INFO         S/C=0.2380    sc_cfar=0.4394    thr_ratio=3.113   CFAR=no
+17:29:51  INFO       ── S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.npy  date=2024-07-30
+17:29:51  INFO         [hit]  original_S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.tif
+17:29:57  INFO         S/C=0.0735    sc_cfar=0.0815    thr_ratio=1.581   CFAR=no
+17:29:57  INFO       ── S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.npy  date=2024-09-18
+17:29:57  INFO         [hit]  original_S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.tif
+17:30:03  INFO         S/C=23.4606   sc_cfar=2.0830    thr_ratio=5.973   CFAR=no
+17:30:03  INFO     
+── RYBNIK ──────────────────────────────────────────────
+17:30:03  INFO       rybnik (T34UCA): 5 tiles in cache
+17:30:03  INFO       ── S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.npy  date=2021-06-09
+17:30:03  INFO         [run]  Running inference on S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.npy ...
+17:30:04  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:30:04  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:30:04  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:30:04  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:30:04  INFO       Running batched inference on 11881 tiles...
+17:36:09  INFO       Stitching predictions...
+17:36:41  INFO     Saved georeferenced prediction to results_bitemporal/rybnik/original_S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.tif
+17:36:41  INFO       Saved → original_S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.tif
+17:36:41  INFO                Saved: original_S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.tif
+17:36:46  INFO         S/C=0.9870    sc_cfar=1.1957    thr_ratio=2.249   CFAR=no
+17:36:46  INFO       ── S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.npy  date=2022-06-01
+17:36:47  INFO         [run]  Running inference on S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.npy ...
+17:36:48  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:36:48  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:36:48  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:36:48  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:36:48  INFO       Running batched inference on 11881 tiles...
+17:42:27  INFO       Stitching predictions...
+17:43:15  INFO     Saved georeferenced prediction to results_bitemporal/rybnik/original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.tif
+17:43:15  INFO       Saved → original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.tif
+17:43:15  INFO                Saved: original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.tif
+17:43:22  INFO         S/C=0.3054    sc_cfar=0.0483    thr_ratio=5.828   CFAR=no
+17:43:22  INFO       ── S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.npy  date=2024-08-29
+17:43:22  INFO         [hit]  original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif
+17:43:28  INFO         S/C=2.0075    sc_cfar=0.6125    thr_ratio=5.146   CFAR=no
+17:43:28  INFO       ── S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.npy  date=2020-06-06
+17:43:28  INFO         [run]  Running inference on S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.npy ...
+17:43:29  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:43:29  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:43:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:43:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:43:29  INFO       Running batched inference on 11881 tiles...
+17:48:28  INFO       Stitching predictions...
+17:49:12  INFO     Saved georeferenced prediction to results_bitemporal/rybnik/original_S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.tif
+17:49:12  INFO       Saved → original_S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.tif
+17:49:12  INFO                Saved: original_S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.tif
+17:49:19  INFO         S/C=39.9739   sc_cfar=0.7033    thr_ratio=4.342   CFAR=no
+17:49:19  INFO       ── S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.npy  date=2023-06-01
+17:49:19  INFO         [run]  Running inference on S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.npy ...
+17:49:20  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:49:20  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:49:20  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:49:20  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:49:20  INFO       Running batched inference on 11881 tiles...
+17:54:04  INFO       Stitching predictions...
+17:54:47  INFO     Saved georeferenced prediction to results_bitemporal/rybnik/original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.tif
+17:54:47  INFO       Saved → original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.tif
+17:54:47  INFO                Saved: original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.tif
+17:54:53  INFO         S/C=309.5485  sc_cfar=3.0623    thr_ratio=6.009   CFAR=no
+17:54:53  INFO     
+── BELCHATOW ──────────────────────────────────────────────
+17:54:54  INFO       belchatow (T34UCB): 8 tiles in cache
+17:54:54  INFO       ── S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.npy  date=2020-06-01
+17:54:54  INFO         [run]  Running inference on S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.npy ...
+17:54:55  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:54:55  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:54:55  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:54:55  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:54:55  INFO       Running batched inference on 11881 tiles...
+17:59:07  INFO       Stitching predictions...
+17:59:49  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif
+17:59:49  INFO       Saved → original_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif
+17:59:49  INFO                Saved: original_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif
+17:59:56  INFO         S/C=849.0822  sc_cfar=600.5905  thr_ratio=3.284   CFAR=DETECT
+17:59:56  INFO       ── S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.npy  date=2021-06-06
+17:59:56  INFO         [run]  Running inference on S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.npy ...
+17:59:57  INFO                shape=(10980, 10980, 12)  dtype=uint8
+17:59:57  INFO       Tiling 10980×10980 scene → 100×100 patches...
+17:59:57  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:59:57  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+17:59:57  INFO       Running batched inference on 11881 tiles...
+18:04:18  INFO       Stitching predictions...
+18:04:54  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif
+18:04:54  INFO       Saved → original_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif
+18:04:55  INFO                Saved: original_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif
+18:05:00  INFO         S/C=18.5255   sc_cfar=11.2571   thr_ratio=4.159   CFAR=DETECT
+18:05:00  INFO       ── S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.npy  date=2022-06-01
+18:05:00  INFO         [run]  Running inference on S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.npy ...
+18:05:01  INFO                shape=(10980, 10980, 12)  dtype=uint8
+18:05:01  INFO       Tiling 10980×10980 scene → 100×100 patches...
+18:05:01  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:05:01  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:05:01  INFO       Running batched inference on 11881 tiles...
+18:17:24  INFO       Stitching predictions...
+18:17:48  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.tif
+18:17:48  INFO       Saved → original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.tif
+18:17:48  INFO                Saved: original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.tif
+18:17:53  INFO         S/C=0.5352    sc_cfar=0.2698    thr_ratio=3.905   CFAR=no
+18:17:53  INFO       ── S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy  date=2024-06-17
+18:17:53  INFO         [hit]  original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif
+18:17:57  INFO         S/C=1.0000    sc_cfar=1.4999    thr_ratio=3.271   CFAR=no
+18:17:57  INFO       ── S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.npy  date=2024-07-10
+18:17:57  INFO         [hit]  original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif
+18:18:02  INFO         S/C=142.9783  sc_cfar=50.6924   thr_ratio=4.465   CFAR=DETECT
+18:18:02  INFO       ── S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.npy  date=2023-06-01
+18:18:02  INFO         [run]  Running inference on S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.npy ...
+18:18:03  INFO                shape=(10980, 10980, 12)  dtype=uint8
+18:18:03  INFO       Tiling 10980×10980 scene → 100×100 patches...
+18:18:03  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:18:03  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:18:03  INFO       Running batched inference on 11881 tiles...
+18:29:34  INFO       Stitching predictions...
+18:29:58  INFO     Saved georeferenced prediction to results_bitemporal/belchatow/original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.tif
+18:29:58  INFO       Saved → original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.tif
+18:29:58  INFO                Saved: original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.tif
+18:30:03  INFO         S/C=0.1794    sc_cfar=0.1017    thr_ratio=2.856   CFAR=no
+18:30:03  INFO       ── S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.npy  date=2024-06-05
+18:30:03  INFO         [hit]  original_S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.tif
+18:30:08  INFO         S/C=9.4837    sc_cfar=1.1306    thr_ratio=3.104   CFAR=no
+18:30:08  INFO       ── S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy  date=2024-08-24
+18:30:08  INFO         [hit]  original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif
+18:30:12  INFO         S/C=27.3032   sc_cfar=2.6631    thr_ratio=4.945   CFAR=no
+18:30:12  INFO     
+── LIPPENDORF ──────────────────────────────────────────────
+18:30:12  INFO       lippendorf (T33UUS): 8 tiles in cache
+18:30:12  INFO       ── S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.npy  date=2023-06-22
+18:30:12  INFO         [run]  Running inference on S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.npy ...
+18:30:13  INFO                shape=(10980, 10980, 12)  dtype=uint8
+18:30:13  INFO       Tiling 10980×10980 scene → 100×100 patches...
+18:30:13  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:30:13  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:30:13  INFO       Running batched inference on 11881 tiles...
+18:41:57  INFO       Stitching predictions...
+18:42:21  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.tif
+18:42:21  INFO       Saved → original_S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.tif
+18:42:22  INFO                Saved: original_S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.tif
+18:42:27  INFO         S/C=0.9030    sc_cfar=0.5151    thr_ratio=3.253   CFAR=no
+18:42:27  INFO       ── S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy  date=2024-06-26
+18:42:27  INFO         [hit]  original_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.tif
+18:42:32  INFO         S/C=315.9831  sc_cfar=0.4762    thr_ratio=5.242   CFAR=no
+18:42:32  INFO       ── S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.npy  date=2024-06-29
+18:42:32  INFO         [run]  Running inference on S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.npy ...
+18:42:33  INFO                shape=(10980, 10980, 12)  dtype=uint8
+18:42:33  INFO       Tiling 10980×10980 scene → 100×100 patches...
+18:42:33  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:42:33  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:42:33  INFO       Running batched inference on 11881 tiles...
+18:54:49  INFO       Stitching predictions...
+18:55:11  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif
+18:55:11  INFO       Saved → original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif
+18:55:11  INFO                Saved: original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif
+18:55:16  INFO         S/C=1.5532    sc_cfar=0.5055    thr_ratio=3.519   CFAR=no
+18:55:16  INFO       ── S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.npy  date=2024-07-09
+18:55:16  INFO         [hit]  original_S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.tif
+18:55:21  INFO         S/C=0.1255    sc_cfar=0.0836    thr_ratio=3.495   CFAR=no
+18:55:21  INFO       ── S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.npy  date=2020-06-02
+18:55:21  INFO         [run]  Running inference on S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.npy ...
+18:55:22  INFO                shape=(10980, 10980, 12)  dtype=uint8
+18:55:22  INFO       Tiling 10980×10980 scene → 100×100 patches...
+18:55:22  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:55:22  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+18:55:22  INFO       Running batched inference on 11881 tiles...
+19:07:23  INFO       Stitching predictions...
+19:07:43  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.tif
+19:07:43  INFO       Saved → original_S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.tif
+19:07:43  INFO                Saved: original_S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.tif
+19:07:48  INFO         S/C=1.1499    sc_cfar=0.5575    thr_ratio=3.277   CFAR=no
+19:07:48  INFO       ── S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.npy  date=2021-06-17
+19:07:48  INFO         [run]  Running inference on S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.npy ...
+19:07:49  INFO                shape=(10980, 10980, 12)  dtype=uint8
+19:07:49  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:07:49  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:07:49  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:07:49  INFO       Running batched inference on 11881 tiles...
+19:19:10  INFO       Stitching predictions...
+19:19:32  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.tif
+19:19:32  INFO       Saved → original_S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.tif
+19:19:32  INFO                Saved: original_S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.tif
+19:19:36  INFO         S/C=1.2339    sc_cfar=0.5471    thr_ratio=3.364   CFAR=no
+19:19:36  INFO       ── S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.npy  date=2022-06-12
+19:19:36  INFO         [run]  Running inference on S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.npy ...
+19:19:38  INFO                shape=(10980, 10980, 12)  dtype=uint8
+19:19:38  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:19:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:19:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:19:38  INFO       Running batched inference on 11881 tiles...
+19:30:49  INFO       Stitching predictions...
+19:31:10  INFO     Saved georeferenced prediction to results_bitemporal/lippendorf/original_S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.tif
+19:31:10  INFO       Saved → original_S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.tif
+19:31:10  INFO                Saved: original_S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.tif
+19:31:15  INFO         S/C=0.1515    sc_cfar=0.2948    thr_ratio=3.084   CFAR=no
+19:31:15  INFO       ── S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.npy  date=2024-09-22
+19:31:15  INFO         [hit]  original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif
+19:31:19  INFO         S/C=155.3617  sc_cfar=16.6898   thr_ratio=2.914   CFAR=DETECT
+19:31:19  INFO     
+── NEURATH ──────────────────────────────────────────────
+19:31:19  INFO       neurath (T32ULB): 8 tiles in cache
+19:31:19  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.npy  date=2021-06-01
+19:31:19  INFO         [run]  Running inference on S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.npy ...
+19:31:20  INFO                shape=(10980, 10980, 12)  dtype=uint8
+19:31:20  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:31:20  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:31:20  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:31:20  INFO       Running batched inference on 11881 tiles...
+19:42:20  INFO       Stitching predictions...
+19:42:41  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.tif
+19:42:41  INFO       Saved → original_S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.tif
+19:42:41  INFO                Saved: original_S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.tif
+19:42:46  INFO         S/C=0.6023    sc_cfar=0.3141    thr_ratio=3.380   CFAR=no
+19:42:46  INFO       ── S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.npy  date=2022-06-16
+19:42:46  INFO         [run]  Running inference on S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.npy ...
+19:42:47  INFO                shape=(10980, 10980, 12)  dtype=uint8
+19:42:47  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:42:47  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:42:47  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:42:47  INFO       Running batched inference on 11881 tiles...
+19:54:07  INFO       Stitching predictions...
+19:54:28  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.tif
+19:54:28  INFO       Saved → original_S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.tif
+19:54:28  INFO                Saved: original_S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.tif
+19:54:33  INFO         S/C=0.7143    sc_cfar=0.3547    thr_ratio=3.420   CFAR=no
+19:54:33  INFO       ── S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.npy  date=2024-06-25
+19:54:33  INFO         [hit]  original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif
+19:54:37  INFO         S/C=23.0392   sc_cfar=15.2600   thr_ratio=4.127   CFAR=DETECT
+19:54:37  INFO       ── S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.npy  date=2024-07-15
+19:54:37  INFO         [hit]  original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif
+19:54:41  INFO         S/C=1.1235    sc_cfar=0.4362    thr_ratio=2.563   CFAR=no
+19:54:41  INFO       ── S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy  date=2024-09-20
+19:54:41  INFO         [hit]  original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+19:54:44  INFO         S/C=1.0000    sc_cfar=0.9077    thr_ratio=1.630   CFAR=no
+19:54:44  INFO       ── S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.npy  date=2020-06-01
+19:54:44  INFO         [run]  Running inference on S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.npy ...
+19:54:45  INFO                shape=(10980, 10980, 12)  dtype=uint8
+19:54:45  INFO       Tiling 10980×10980 scene → 100×100 patches...
+19:54:45  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:54:45  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+19:54:45  INFO       Running batched inference on 11881 tiles...
+20:05:53  INFO       Stitching predictions...
+20:06:13  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.tif
+20:06:13  INFO       Saved → original_S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.tif
+20:06:13  INFO                Saved: original_S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.tif
+20:06:17  INFO         S/C=0.5101    sc_cfar=0.2921    thr_ratio=3.376   CFAR=no
+20:06:17  INFO       ── S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.npy  date=2023-06-03
+20:06:17  INFO         [run]  Running inference on S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.npy ...
+20:06:18  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:06:18  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:06:18  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:06:18  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:06:18  INFO       Running batched inference on 11881 tiles...
+20:16:59  INFO       Stitching predictions...
+20:17:17  INFO     Saved georeferenced prediction to results_bitemporal/neurath/original_S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.tif
+20:17:17  INFO       Saved → original_S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.tif
+20:17:17  INFO                Saved: original_S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.tif
+20:17:21  INFO         S/C=0.4327    sc_cfar=0.3489    thr_ratio=3.010   CFAR=no
+20:17:21  INFO       ── S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.npy  date=2024-08-29
+20:17:21  INFO         [hit]  original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif
+20:17:24  INFO         S/C=67.2048   sc_cfar=96.9771   thr_ratio=2.014   CFAR=DETECT
+20:17:24  INFO     
+── BOXBERG ──────────────────────────────────────────────
+20:17:24  INFO       boxberg (T33UVT): 8 tiles in cache
+20:17:24  INFO       ── S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy  date=2024-06-26
+20:17:24  WARNING  No geo metadata found for S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy
+20:17:24  WARNING      No geo metadata for S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy — cannot run inference
+20:17:24  INFO       ── S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.npy  date=2024-07-06
+20:17:24  INFO         [hit]  original_S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.tif
+20:17:27  INFO         S/C=0.8428    sc_cfar=0.5262    thr_ratio=2.814   CFAR=no
+20:17:27  INFO       ── S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.npy  date=2020-06-22
+20:17:27  INFO         [run]  Running inference on S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.npy ...
+20:17:28  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:17:28  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:17:28  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:17:28  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:17:28  INFO       Running batched inference on 11881 tiles...
+20:26:00  INFO       Stitching predictions...
+20:26:20  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.tif
+20:26:20  INFO       Saved → original_S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.tif
+20:26:20  INFO                Saved: original_S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.tif
+20:26:24  INFO         S/C=0.9717    sc_cfar=0.8360    thr_ratio=2.673   CFAR=no
+20:26:24  INFO       ── S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.npy  date=2021-06-07
+20:26:24  INFO         [run]  Running inference on S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.npy ...
+20:26:25  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:26:25  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:26:25  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:26:25  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:26:25  INFO       Running batched inference on 11881 tiles...
+20:32:48  INFO       Stitching predictions...
+20:33:21  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.tif
+20:33:21  INFO       Saved → original_S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.tif
+20:33:22  INFO                Saved: original_S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.tif
+20:33:27  INFO         S/C=0.0324    sc_cfar=0.0337    thr_ratio=3.449   CFAR=no
+20:33:27  INFO       ── S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.npy  date=2022-06-19
+20:33:27  INFO         [run]  Running inference on S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.npy ...
+20:33:29  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:33:29  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:33:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:33:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:33:29  INFO       Running batched inference on 11881 tiles...
+20:36:50  INFO       Stitching predictions...
+20:37:21  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.tif
+20:37:21  INFO       Saved → original_S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.tif
+20:37:21  INFO                Saved: original_S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.tif
+20:37:25  INFO         S/C=0.0003    sc_cfar=0.0004    thr_ratio=3.268   CFAR=no
+20:37:25  INFO       ── S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.npy  date=2023-06-04
+20:37:25  INFO         [run]  Running inference on S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.npy ...
+20:37:27  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:37:27  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:37:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:37:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:37:27  INFO       Running batched inference on 11881 tiles...
+20:44:17  INFO       Stitching predictions...
+20:44:42  INFO     Saved georeferenced prediction to results_bitemporal/boxberg/original_S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.tif
+20:44:42  INFO       Saved → original_S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.tif
+20:44:42  INFO                Saved: original_S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.tif
+20:44:47  INFO         S/C=1.1394    sc_cfar=0.6022    thr_ratio=3.383   CFAR=no
+20:44:47  INFO       ── S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.npy  date=2024-07-21
+20:44:47  INFO         [hit]  original_S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.tif
+20:44:53  INFO         S/C=1202.8317  sc_cfar=0.5651    thr_ratio=4.306   CFAR=no
+20:44:53  INFO       ── S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy  date=2024-08-27
+20:44:53  INFO         [hit]  original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+20:44:56  INFO         S/C=0.0070    sc_cfar=0.0105    thr_ratio=3.270   CFAR=no
+20:44:56  INFO     
+── GRONINGEN ──────────────────────────────────────────────
+20:44:56  INFO       groningen (T31UGV): 6 tiles in cache
+20:44:56  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.npy  date=2021-06-01
+20:44:56  INFO         [run]  Running inference on S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.npy ...
+20:44:58  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:44:58  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:44:58  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:44:58  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:44:58  INFO       Running batched inference on 11881 tiles...
+20:50:12  INFO       Stitching predictions...
+20:50:43  INFO     Saved georeferenced prediction to results_bitemporal/groningen/original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.tif
+20:50:43  INFO       Saved → original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.tif
+20:50:43  INFO                Saved: original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.tif
+20:50:48  INFO         S/C=0.2509    sc_cfar=0.6306    thr_ratio=4.412   CFAR=no
+20:50:48  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.npy  date=2023-06-04
+20:50:48  INFO         [run]  Running inference on S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.npy ...
+20:50:49  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:50:49  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:50:49  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:50:49  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:50:49  INFO       Running batched inference on 11881 tiles...
+20:57:45  INFO       Stitching predictions...
+20:58:21  INFO     Saved georeferenced prediction to results_bitemporal/groningen/original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.tif
+20:58:21  INFO       Saved → original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.tif
+20:58:21  INFO                Saved: original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.tif
+20:58:26  INFO         S/C=4.6539    sc_cfar=1.9507    thr_ratio=3.757   CFAR=no
+20:58:26  INFO       ── S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.npy  date=2024-06-28
+20:58:26  INFO         [run]  Running inference on S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.npy ...
+20:58:27  INFO                shape=(10980, 10980, 12)  dtype=uint8
+20:58:27  INFO       Tiling 10980×10980 scene → 100×100 patches...
+20:58:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:58:27  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+20:58:27  INFO       Running batched inference on 11881 tiles...
+21:03:49  INFO       Stitching predictions...
+21:04:24  INFO     Saved georeferenced prediction to results_bitemporal/groningen/original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.tif
+21:04:24  INFO       Saved → original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.tif
+21:04:25  INFO                Saved: original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.tif
+21:04:29  INFO         S/C=1.6910    sc_cfar=2.0327    thr_ratio=1.945   CFAR=DETECT
+21:04:29  INFO       ── S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy  date=2024-08-17
+21:04:29  INFO         [hit]  original_S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.tif
+21:04:34  INFO         S/C=6.0092    sc_cfar=10.2369   thr_ratio=3.174   CFAR=DETECT
+21:04:34  INFO       ── S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.npy  date=2020-06-24
+21:04:34  INFO         [run]  Running inference on S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.npy ...
+21:04:35  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:04:35  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:04:35  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:04:35  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:04:35  INFO       Running batched inference on 11881 tiles...
+21:13:06  INFO       Stitching predictions...
+21:13:49  INFO     Saved georeferenced prediction to results_bitemporal/groningen/original_S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.tif
+21:13:49  INFO       Saved → original_S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.tif
+21:13:49  INFO                Saved: original_S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.tif
+21:13:56  INFO         S/C=4.6018    sc_cfar=1.1751    thr_ratio=3.428   CFAR=no
+21:13:56  INFO       ── S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.npy  date=2022-06-11
+21:13:56  INFO         [run]  Running inference on S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.npy ...
+21:13:57  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:13:57  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:13:57  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:13:57  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:13:57  INFO       Running batched inference on 11881 tiles...
+21:21:57  INFO       Stitching predictions...
+21:22:31  INFO     Saved georeferenced prediction to results_bitemporal/groningen/original_S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.tif
+21:22:31  INFO       Saved → original_S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.tif
+21:22:32  INFO                Saved: original_S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.tif
+21:22:37  INFO         S/C=0.3515    sc_cfar=0.4061    thr_ratio=1.600   CFAR=no
+21:22:37  INFO     
+── MAASVLAKTE ──────────────────────────────────────────────
+21:22:37  INFO       maasvlakte (T31UET): 7 tiles in cache
+21:22:37  INFO       ── S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.npy  date=2020-06-22
+21:22:37  INFO         [run]  Running inference on S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.npy ...
+21:22:38  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:22:38  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:22:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:22:38  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:22:38  INFO       Running batched inference on 11881 tiles...
+21:28:49  INFO       Stitching predictions...
+21:29:29  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.tif
+21:29:29  INFO       Saved → original_S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.tif
+21:29:29  INFO                Saved: original_S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.tif
+21:29:34  INFO         S/C=0.0038    sc_cfar=0.0026    thr_ratio=2.384   CFAR=no
+21:29:34  INFO       ── S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.npy  date=2022-06-09
+21:29:34  INFO         [run]  Running inference on S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.npy ...
+21:29:36  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:29:36  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:29:36  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:29:36  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:29:36  INFO       Running batched inference on 11881 tiles...
+21:35:22  INFO       Stitching predictions...
+21:35:58  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.tif
+21:35:58  INFO       Saved → original_S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.tif
+21:35:58  INFO                Saved: original_S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.tif
+21:36:03  INFO         S/C=0.0077    sc_cfar=0.0132    thr_ratio=3.611   CFAR=no
+21:36:03  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.npy  date=2023-06-04
+21:36:03  INFO         [run]  Running inference on S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.npy ...
+21:36:04  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:36:04  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:36:04  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:36:04  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:36:04  INFO       Running batched inference on 11881 tiles...
+21:41:25  INFO       Stitching predictions...
+21:42:04  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.tif
+21:42:04  INFO       Saved → original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.tif
+21:42:04  INFO                Saved: original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.tif
+21:42:09  INFO         S/C=0.0019    sc_cfar=0.0040    thr_ratio=4.144   CFAR=no
+21:42:09  INFO       ── S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.npy  date=2024-06-28
+21:42:09  INFO         [run]  Running inference on S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.npy ...
+21:42:10  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:42:10  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:42:10  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:42:10  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:42:10  INFO       Running batched inference on 11881 tiles...
+21:48:57  INFO       Stitching predictions...
+21:49:29  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.tif
+21:49:29  INFO       Saved → original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.tif
+21:49:29  INFO                Saved: original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.tif
+21:49:34  INFO         S/C=0.6664    sc_cfar=0.7562    thr_ratio=1.757   CFAR=no
+21:49:34  INFO       ── S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.npy  date=2021-06-02
+21:49:34  INFO         [run]  Running inference on S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.npy ...
+21:49:36  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:49:36  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:49:36  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:49:36  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:49:36  INFO       Running batched inference on 11881 tiles...
+21:55:46  INFO       Stitching predictions...
+21:56:22  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.tif
+21:56:22  INFO       Saved → original_S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.tif
+21:56:23  INFO                Saved: original_S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.tif
+21:56:28  INFO         S/C=0.2499    sc_cfar=0.0372    thr_ratio=2.895   CFAR=no
+21:56:28  INFO       ── S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.npy  date=2024-06-26
+21:56:28  INFO         [run]  Running inference on S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.npy ...
+21:56:29  INFO                shape=(10980, 10980, 12)  dtype=uint8
+21:56:29  INFO       Tiling 10980×10980 scene → 100×100 patches...
+21:56:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:56:29  INFO     Tiled 10980x10980 scene into 11881 patches of 100x100
+21:56:29  INFO       Running batched inference on 11881 tiles...
+22:01:59  INFO       Stitching predictions...
+22:02:32  INFO     Saved georeferenced prediction to results_bitemporal/maasvlakte/original_S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.tif
+22:02:32  INFO       Saved → original_S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.tif
+22:02:32  INFO                Saved: original_S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.tif
+22:02:36  INFO         S/C=0.0224    sc_cfar=0.0115    thr_ratio=2.263   CFAR=no
+22:02:36  INFO       ── S2B_MSIL1C_20240825T105619_N0511_R094_T31UET_20240825T130043.npy  date=2024-08-25
+22:02:36  INFO         [hit]  original_S2B_MSIL1C_20240825T105619_N0511_R094_T31UET_20240825T130043.tif
+22:02:41  INFO         S/C=0.2096    sc_cfar=0.0462    thr_ratio=2.847   CFAR=no
+22:55:56  INFO     Loaded existing timeseries: 61 records across 8 sites
+22:55:56  INFO     
+── WEISWEILER ──────────────────────────────────────────────
+22:55:56  INFO       weisweiler (T31UGS): 11 tiles in cache
+22:55:56  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.npy  date=2021-06-01
+22:55:56  INFO         [hit]  original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGS_20230320T022849.tif
+22:55:59  INFO         S/C=2.8246    sc_cfar=9.8130    thr_ratio=5.459   CFAR=DETECT
+22:55:59  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.npy  date=2023-06-04
+22:55:59  INFO         [hit]  original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGS_20240910T020808.tif
+22:56:01  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+22:56:01  INFO       ── S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.npy  date=2024-06-08
+22:56:01  INFO         [hit]  original_S2A_MSIL1C_20240608T104631_N0510_R051_T31UGS_20240608T143027.tif
+22:56:03  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+22:56:03  INFO       ── S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.npy  date=2024-07-15
+22:56:03  INFO         [hit]  original_S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.tif
+22:56:06  INFO         S/C=0.1016    sc_cfar=0.2523    thr_ratio=3.978   CFAR=no
+22:56:06  INFO       ── S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.npy  date=2024-08-31
+22:56:06  INFO         [hit]  original_S2A_MSIL1C_20240831T103021_N0511_R108_T31UGS_20240831T130645.tif
+22:56:08  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+22:56:08  INFO       ── S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.npy  date=2024-09-20
+22:56:08  INFO         [hit]  original_S2A_MSIL1C_20240920T102721_N0511_R108_T31UGS_20240920T123207.tif
+22:56:10  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+22:56:10  INFO       ── S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.npy  date=2020-06-01
+22:56:10  INFO         [hit]  original_S2B_MSIL1C_20200601T103629_N0500_R008_T31UGS_20230430T082552.tif
+22:56:13  INFO         S/C=0.1395    sc_cfar=0.5459    thr_ratio=6.194   CFAR=no
+22:56:13  INFO       ── S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.npy  date=2022-06-14
+22:56:13  INFO         [hit]  original_S2B_MSIL1C_20220614T104629_N0510_R051_T31UGS_20240630T015800.tif
+22:56:15  INFO         S/C=1.0000    sc_cfar=1.0000    thr_ratio=1.150   CFAR=no
+22:56:15  INFO       ── S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.npy  date=2024-07-20
+22:56:15  INFO         [hit]  original_S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.tif
+22:56:19  INFO         S/C=0.2380    sc_cfar=0.4394    thr_ratio=3.113   CFAR=no
+22:56:19  INFO       ── S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.npy  date=2024-07-30
+22:56:19  INFO         [hit]  original_S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.tif
+22:56:23  INFO         S/C=0.0735    sc_cfar=0.0815    thr_ratio=1.581   CFAR=no
+22:56:23  INFO       ── S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.npy  date=2024-09-18
+22:56:23  INFO         [hit]  original_S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.tif
+22:56:27  INFO         S/C=23.4606   sc_cfar=2.0830    thr_ratio=5.973   CFAR=no
+22:56:27  INFO     
+── RYBNIK ──────────────────────────────────────────────
+22:56:27  INFO       rybnik (T34UCA): 5 tiles in cache
+22:56:27  INFO       ── S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.npy  date=2021-06-09
+22:56:27  INFO         [hit]  original_S2A_MSIL1C_20210609T100031_N0500_R122_T34UCA_20230130T084931.tif
+22:56:29  INFO         S/C=0.9870    sc_cfar=1.1957    thr_ratio=2.249   CFAR=no
+22:56:29  INFO       ── S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.npy  date=2022-06-01
+22:56:29  INFO         [hit]  original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCA_20240615T191214.tif
+22:56:32  INFO         S/C=0.3054    sc_cfar=0.0483    thr_ratio=5.828   CFAR=no
+22:56:32  INFO       ── S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.npy  date=2024-08-29
+22:56:32  INFO         [hit]  original_S2A_MSIL1C_20240829T095031_N0511_R079_T34UCA_20240829T115208.tif
+22:56:35  INFO         S/C=2.0075    sc_cfar=0.6125    thr_ratio=5.146   CFAR=no
+22:56:35  INFO       ── S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.npy  date=2020-06-06
+22:56:35  INFO         [hit]  original_S2B_MSIL1C_20200606T095029_N0500_R079_T34UCA_20230421T183736.tif
+22:56:38  INFO         S/C=39.9739   sc_cfar=0.7033    thr_ratio=4.342   CFAR=no
+22:56:38  INFO       ── S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.npy  date=2023-06-01
+22:56:38  INFO         [hit]  original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCA_20240926T070742.tif
+22:56:41  INFO         S/C=309.5485  sc_cfar=3.0623    thr_ratio=6.009   CFAR=no
+22:56:41  INFO     
+── BELCHATOW ──────────────────────────────────────────────
+22:56:41  INFO       belchatow (T34UCB): 8 tiles in cache
+22:56:41  INFO       ── S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.npy  date=2020-06-01
+22:56:41  INFO         [hit]  original_S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.tif
+22:56:44  INFO         S/C=849.0822  sc_cfar=600.5905  thr_ratio=3.284   CFAR=DETECT
+22:56:44  INFO       ── S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.npy  date=2021-06-06
+22:56:44  INFO         [hit]  original_S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.tif
+22:56:48  INFO         S/C=18.5255   sc_cfar=11.2571   thr_ratio=4.159   CFAR=DETECT
+22:56:48  INFO       ── S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.npy  date=2022-06-01
+22:56:48  INFO         [hit]  original_S2A_MSIL1C_20220601T095041_N0510_R079_T34UCB_20240615T191214.tif
+22:56:51  INFO         S/C=0.5352    sc_cfar=0.2698    thr_ratio=3.905   CFAR=no
+22:56:51  INFO       ── S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy  date=2024-06-17
+22:56:51  INFO         [hit]  original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif
+22:56:54  INFO         S/C=1.0000    sc_cfar=1.4999    thr_ratio=3.271   CFAR=no
+22:56:54  INFO       ── S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.npy  date=2024-07-10
+22:56:54  INFO         [hit]  original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif
+22:56:57  INFO         S/C=142.9783  sc_cfar=50.6924   thr_ratio=4.465   CFAR=DETECT
+22:56:57  INFO       ── S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.npy  date=2023-06-01
+22:56:57  INFO         [hit]  original_S2B_MSIL1C_20230601T094549_N0510_R079_T34UCB_20240926T070742.tif
+22:57:00  INFO         S/C=0.1794    sc_cfar=0.1017    thr_ratio=2.856   CFAR=no
+22:57:00  INFO       ── S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.npy  date=2024-06-05
+22:57:00  INFO         [hit]  original_S2B_MSIL1C_20240605T094549_N0510_R079_T34UCB_20240605T104156.tif
+22:57:03  INFO         S/C=9.4837    sc_cfar=1.1306    thr_ratio=3.104   CFAR=no
+22:57:03  INFO       ── S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy  date=2024-08-24
+22:57:03  INFO         [hit]  original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif
+22:57:06  INFO         S/C=27.3032   sc_cfar=2.6631    thr_ratio=4.945   CFAR=no
+22:57:06  INFO     
+── LIPPENDORF ──────────────────────────────────────────────
+22:57:06  INFO       lippendorf (T33UUS): 8 tiles in cache
+22:57:06  INFO       ── S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.npy  date=2023-06-22
+22:57:06  INFO         [hit]  original_S2A_MSIL1C_20230622T100601_N0510_R022_T33UUS_20240910T175754.tif
+22:57:09  INFO         S/C=0.9030    sc_cfar=0.5151    thr_ratio=3.253   CFAR=no
+22:57:09  INFO       ── S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy  date=2024-06-26
+22:57:09  INFO         [hit]  original_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.tif
+22:57:13  INFO         S/C=315.9831  sc_cfar=0.4762    thr_ratio=5.242   CFAR=no
+22:57:13  INFO       ── S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.npy  date=2024-06-29
+22:57:13  INFO         [hit]  original_S2A_MSIL1C_20240629T102021_N0510_R065_T33UUS_20240629T135511.tif
+22:57:16  INFO         S/C=1.5532    sc_cfar=0.5055    thr_ratio=3.519   CFAR=no
+22:57:16  INFO       ── S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.npy  date=2024-07-09
+22:57:16  INFO         [hit]  original_S2A_MSIL1C_20240709T102031_N0510_R065_T33UUS_20240709T122027.tif
+22:57:19  INFO         S/C=0.1255    sc_cfar=0.0836    thr_ratio=3.495   CFAR=no
+22:57:19  INFO       ── S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.npy  date=2020-06-02
+22:57:19  INFO         [hit]  original_S2B_MSIL1C_20200602T100559_N0500_R022_T33UUS_20230618T064144.tif
+22:57:22  INFO         S/C=1.1499    sc_cfar=0.5575    thr_ratio=3.277   CFAR=no
+22:57:22  INFO       ── S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.npy  date=2021-06-17
+22:57:22  INFO         [hit]  original_S2B_MSIL1C_20210617T100559_N0500_R022_T33UUS_20230321T123228.tif
+22:57:25  INFO         S/C=1.2339    sc_cfar=0.5471    thr_ratio=3.364   CFAR=no
+22:57:25  INFO       ── S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.npy  date=2022-06-12
+22:57:25  INFO         [hit]  original_S2B_MSIL1C_20220612T100559_N0510_R022_T33UUS_20240629T144800.tif
+22:57:28  INFO         S/C=0.1515    sc_cfar=0.2948    thr_ratio=3.084   CFAR=no
+22:57:28  INFO       ── S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.npy  date=2024-09-22
+22:57:28  INFO         [hit]  original_S2B_MSIL1C_20240922T101629_N0511_R065_T33UUS_20240922T140318.tif
+22:57:31  INFO         S/C=155.3617  sc_cfar=16.6898   thr_ratio=2.914   CFAR=DETECT
+22:57:31  INFO     
+── NEURATH ──────────────────────────────────────────────
+22:57:31  INFO       neurath (T32ULB): 8 tiles in cache
+22:57:31  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.npy  date=2021-06-01
+22:57:31  INFO         [hit]  original_S2A_MSIL1C_20210601T104021_N0500_R008_T32ULB_20230320T022849.tif
+22:57:33  INFO         S/C=0.6023    sc_cfar=0.3141    thr_ratio=3.380   CFAR=no
+22:57:33  INFO       ── S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.npy  date=2022-06-16
+22:57:33  INFO         [hit]  original_S2A_MSIL1C_20220616T103631_N0510_R008_T32ULB_20240628T105428.tif
+22:57:36  INFO         S/C=0.7143    sc_cfar=0.3547    thr_ratio=3.420   CFAR=no
+22:57:36  INFO       ── S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.npy  date=2024-06-25
+22:57:36  INFO         [hit]  original_S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.tif
+22:57:39  INFO         S/C=23.0392   sc_cfar=15.2600   thr_ratio=4.127   CFAR=DETECT
+22:57:39  INFO       ── S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.npy  date=2024-07-15
+22:57:39  INFO         [hit]  original_S2A_MSIL1C_20240715T104021_N0510_R008_T32ULB_20240715T142048.tif
+22:57:41  INFO         S/C=1.1235    sc_cfar=0.4362    thr_ratio=2.563   CFAR=no
+22:57:41  INFO       ── S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy  date=2024-09-20
+22:57:41  INFO         [hit]  original_S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.tif
+22:57:44  INFO         S/C=1.0000    sc_cfar=0.9077    thr_ratio=1.630   CFAR=no
+22:57:44  INFO       ── S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.npy  date=2020-06-01
+22:57:44  INFO         [hit]  original_S2B_MSIL1C_20200601T103629_N0500_R008_T32ULB_20230430T082552.tif
+22:57:47  INFO         S/C=0.5101    sc_cfar=0.2921    thr_ratio=3.376   CFAR=no
+22:57:47  INFO       ── S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.npy  date=2023-06-03
+22:57:47  INFO         [hit]  original_S2B_MSIL1C_20230603T102559_N0510_R108_T32ULB_20240924T221401.tif
+22:57:50  INFO         S/C=0.4327    sc_cfar=0.3489    thr_ratio=3.010   CFAR=no
+22:57:50  INFO       ── S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.npy  date=2024-08-29
+22:57:50  INFO         [hit]  original_S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.tif
+22:57:52  INFO         S/C=67.2048   sc_cfar=96.9771   thr_ratio=2.014   CFAR=DETECT
+22:57:53  INFO     
+── BOXBERG ──────────────────────────────────────────────
+22:57:53  INFO       boxberg (T33UVT): 8 tiles in cache
+22:57:53  INFO       ── S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy  date=2024-06-26
+22:57:53  INFO         [miss] S2A_MSIL1C_20240626T101031_N0510_R022_T33UVT_20240626T152850.npy — skipping (no-inference / dry-run)
+22:57:53  INFO       ── S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.npy  date=2024-07-06
+22:57:53  INFO         [hit]  original_S2A_MSIL1C_20240706T100601_N0510_R022_T33UVT_20240706T134953.tif
+22:57:57  INFO         S/C=0.8428    sc_cfar=0.5262    thr_ratio=2.814   CFAR=no
+22:57:57  INFO       ── S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.npy  date=2020-06-22
+22:57:57  INFO         [hit]  original_S2B_MSIL1C_20200622T100559_N0500_R022_T33UVT_20230501T013926.tif
+22:58:00  INFO         S/C=0.9717    sc_cfar=0.8360    thr_ratio=2.673   CFAR=no
+22:58:00  INFO       ── S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.npy  date=2021-06-07
+22:58:00  INFO         [hit]  original_S2B_MSIL1C_20210607T100559_N0500_R022_T33UVT_20230313T212809.tif
+22:58:03  INFO         S/C=0.0324    sc_cfar=0.0337    thr_ratio=3.449   CFAR=no
+22:58:03  INFO       ── S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.npy  date=2022-06-19
+22:58:03  INFO         [hit]  original_S2B_MSIL1C_20220619T100029_N0510_R122_T33UVT_20240627T204751.tif
+22:58:06  INFO         S/C=0.0003    sc_cfar=0.0004    thr_ratio=3.268   CFAR=no
+22:58:06  INFO       ── S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.npy  date=2023-06-04
+22:58:06  INFO         [hit]  original_S2B_MSIL1C_20230604T095559_N0510_R122_T33UVT_20240926T134304.tif
+22:58:09  INFO         S/C=1.1394    sc_cfar=0.6022    thr_ratio=3.383   CFAR=no
+22:58:09  INFO       ── S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.npy  date=2024-07-21
+22:58:09  INFO         [hit]  original_S2B_MSIL1C_20240721T100559_N0510_R022_T33UVT_20240721T121133.tif
+22:58:13  INFO         S/C=1202.8317  sc_cfar=0.5651    thr_ratio=4.306   CFAR=no
+22:58:13  INFO       ── S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy  date=2024-08-27
+22:58:13  INFO         [hit]  original_S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.tif
+22:58:15  INFO         S/C=0.0070    sc_cfar=0.0105    thr_ratio=3.270   CFAR=no
+22:58:15  INFO     
+── GRONINGEN ──────────────────────────────────────────────
+22:58:15  INFO       groningen (T31UGV): 6 tiles in cache
+22:58:15  INFO       ── S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.npy  date=2021-06-01
+22:58:15  INFO         [hit]  original_S2A_MSIL1C_20210601T104021_N0500_R008_T31UGV_20230320T022849.tif
+22:58:19  INFO         S/C=0.2509    sc_cfar=0.6306    thr_ratio=4.412   CFAR=no
+22:58:19  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.npy  date=2023-06-04
+22:58:19  INFO         [hit]  original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UGV_20240910T020808.tif
+22:58:22  INFO         S/C=4.6539    sc_cfar=1.9507    thr_ratio=3.757   CFAR=no
+22:58:22  INFO       ── S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.npy  date=2024-06-28
+22:58:22  INFO         [hit]  original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.tif
+22:58:25  INFO         S/C=1.6910    sc_cfar=2.0327    thr_ratio=1.945   CFAR=DETECT
+22:58:25  INFO       ── S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy  date=2024-08-17
+22:58:25  INFO         [hit]  original_S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.tif
+22:58:28  INFO         S/C=6.0092    sc_cfar=10.2369   thr_ratio=3.174   CFAR=DETECT
+22:58:28  INFO       ── S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.npy  date=2020-06-24
+22:58:28  INFO         [hit]  original_S2B_MSIL1C_20200624T104629_N0500_R051_T31UGV_20230506T233231.tif
+22:58:31  INFO         S/C=4.6018    sc_cfar=1.1751    thr_ratio=3.428   CFAR=no
+22:58:31  INFO       ── S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.npy  date=2022-06-11
+22:58:31  INFO         [hit]  original_S2B_MSIL1C_20220611T103629_N0510_R008_T31UGV_20240629T102950.tif
+22:58:34  INFO         S/C=0.3515    sc_cfar=0.4061    thr_ratio=1.600   CFAR=no
+22:58:34  INFO     
+── MAASVLAKTE ──────────────────────────────────────────────
+22:58:34  INFO       maasvlakte (T31UET): 7 tiles in cache
+22:58:34  INFO       ── S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.npy  date=2020-06-22
+22:58:34  INFO         [hit]  original_S2A_MSIL1C_20200622T105631_N0500_R094_T31UET_20231110T094313.tif
+22:58:36  INFO         S/C=0.0038    sc_cfar=0.0026    thr_ratio=2.384   CFAR=no
+22:58:36  INFO       ── S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.npy  date=2022-06-09
+22:58:36  INFO         [hit]  original_S2A_MSIL1C_20220609T104631_N0510_R051_T31UET_20240619T141026.tif
+22:58:39  INFO         S/C=0.0077    sc_cfar=0.0132    thr_ratio=3.611   CFAR=no
+22:58:39  INFO       ── S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.npy  date=2023-06-04
+22:58:39  INFO         [hit]  original_S2A_MSIL1C_20230604T104621_N0510_R051_T31UET_20240910T020808.tif
+22:58:42  INFO         S/C=0.0019    sc_cfar=0.0040    thr_ratio=4.144   CFAR=no
+22:58:42  INFO       ── S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.npy  date=2024-06-28
+22:58:42  INFO         [hit]  original_S2A_MSIL1C_20240628T105031_N0510_R051_T31UET_20240628T142948.tif
+22:58:46  INFO         S/C=0.6664    sc_cfar=0.7562    thr_ratio=1.757   CFAR=no
+22:58:46  INFO       ── S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.npy  date=2021-06-02
+22:58:46  INFO         [hit]  original_S2B_MSIL1C_20210602T105619_N0500_R094_T31UET_20230319T104057.tif
+22:58:49  INFO         S/C=0.2499    sc_cfar=0.0372    thr_ratio=2.895   CFAR=no
+22:58:49  INFO       ── S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.npy  date=2024-06-26
+22:58:49  INFO         [hit]  original_S2B_MSIL1C_20240626T105619_N0510_R094_T31UET_20240626T133415.tif
+22:58:51  INFO         S/C=0.0224    sc_cfar=0.0115    thr_ratio=2.263   CFAR=no
+22:58:51  INFO       ── S2B_MSIL1C_20240825T105619_N0511_R094_T31UET_20240825T130043.npy  date=2024-08-25
+22:58:51  INFO         [hit]  original_S2B_MSIL1C_20240825T105619_N0511_R094_T31UET_20240825T130043.tif
+22:58:54  INFO         S/C=0.2096    sc_cfar=0.0462    thr_ratio=2.847   CFAR=no

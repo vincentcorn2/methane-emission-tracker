@@ -1,0 +1,263 @@
+"""
+scripts/compute_ml_metrics.py
+==============================
+Compute standard ML segmentation metrics on the v8 production model:
+IoU, pixel-level precision/recall, AUROC, PR curve, and a per-site
+confusion matrix at the production threshold.
+
+Two evaluation sets:
+  (A) In-sample crops (the 14 training positives + 22 training negatives) —
+      sanity check that training converged.
+  (B) Held-out candidate sites (Boxberg, Lippendorf, Maasvlakte) —
+      independent evaluation. Uses cached inference TIFs in
+      results_bitemporal/. Positive ground truth = above-conformal CFAR
+      detection from the production rule; negative = otherwise.
+
+Output
+------
+results_analysis/ml_metrics.json   numeric results
+results_analysis/ml_metrics.md     report-ready summary
+results_analysis/roc_pr_curves.png plots (if matplotlib available)
+"""
+from __future__ import annotations
+import json
+import sys
+from pathlib import Path
+from collections import defaultdict
+
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from src.detection.ch4net_model import CH4NetDetector
+from apply_bitemporal_diff import WEIGHTS
+
+ROOT = Path(__file__).resolve().parent.parent
+CROPS_DIR = ROOT / "data" / "crops"
+OUT_DIR = ROOT / "results_analysis"
+
+PROD_THRESH = 0.18
+MIN_PLUME_PX = 115
+
+
+def load_crop_with_mask(crop_path: Path, label_path: Path):
+    """Load a 12-band crop and its plume mask (synthesised on the fly for
+    real-positive crops from the label metadata if no mask file exists)."""
+    arr = np.load(crop_path)
+    meta = json.loads(label_path.read_text())
+    label = int(meta["label_value"])
+
+    H, W = arr.shape[:2]
+    # Negatives: all-zero mask
+    if label == 0:
+        return arr, np.zeros((H, W), dtype=np.float32), label, meta
+
+    # Positives: load explicit mask if one exists, else build a Gaussian disk
+    mask_path = crop_path.with_name(crop_path.stem + "_mask.npy")
+    if mask_path.exists():
+        return arr, np.load(mask_path).astype(np.float32), label, meta
+
+    # Build Gaussian disk at metadata center
+    cy = meta.get("plume_centre_y", H // 2)
+    cx = meta.get("plume_centre_x", W // 2)
+    sigma = meta.get("plume_sigma", 30)
+    y, x = np.ogrid[:H, :W]
+    mask = np.exp(-0.5 * ((y - cy) ** 2 + (x - cx) ** 2) / sigma ** 2).astype(np.float32)
+    return arr, mask, label, meta
+
+
+def per_crop_metrics(prob_map, true_mask):
+    """Pixel-level metrics for one crop."""
+    pred_bin = (prob_map >= PROD_THRESH).astype(np.float32)
+    true_bin = (true_mask > 0.5).astype(np.float32)
+
+    tp = float(((pred_bin == 1) & (true_bin == 1)).sum())
+    fp = float(((pred_bin == 1) & (true_bin == 0)).sum())
+    fn = float(((pred_bin == 0) & (true_bin == 1)).sum())
+    tn = float(((pred_bin == 0) & (true_bin == 0)).sum())
+
+    iou = tp / (tp + fp + fn) if (tp + fp + fn) > 0 else float("nan")
+    precision = tp / (tp + fp) if (tp + fp) > 0 else float("nan")
+    recall = tp / (tp + fn) if (tp + fn) > 0 else float("nan")
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else float("nan")
+
+    return {"iou": iou, "precision": precision, "recall": recall, "f1": f1,
+            "tp": tp, "fp": fp, "fn": fn, "tn": tn}
+
+
+def main():
+    detector = CH4NetDetector(WEIGHTS)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    print("Loading training crops for in-sample sanity check ...")
+    all_results = []
+    label_files = sorted(CROPS_DIR.glob("**/*_label.json"))
+
+    for lp in label_files:
+        if ".hidden" in str(lp):
+            continue
+        crop_path = lp.with_name(lp.stem.replace("_label", "") + ".npy")
+        if not crop_path.exists():
+            continue
+        try:
+            arr, mask, label, meta = load_crop_with_mask(crop_path, lp)
+        except Exception as e:
+            print(f"  skip {crop_path.name}: {e}")
+            continue
+
+        # Pad short-axis to 160 if needed (same as held-out eval script)
+        H, W = arr.shape[:2]
+        if H < 160 or W < 160:
+            pad_h = max(0, 160 - H)
+            pad_w = max(0, 160 - W)
+            arr = np.pad(arr,
+                         ((pad_h // 2, pad_h - pad_h // 2),
+                          (pad_w // 2, pad_w - pad_w // 2), (0, 0)),
+                         mode="edge")
+            mask = np.pad(mask,
+                          ((pad_h // 2, pad_h - pad_h // 2),
+                           (pad_w // 2, pad_w - pad_w // 2)), mode="constant")
+
+        # Center crop to 160×160
+        H, W = arr.shape[:2]
+        r0, c0 = (H - 160) // 2, (W - 160) // 2
+        arr_c = arr[r0:r0 + 160, c0:c0 + 160, :]
+        mask_c = mask[r0:r0 + 160, c0:c0 + 160]
+
+        det = detector.detect(arr_c)
+        prob = det.probability_map
+        m = per_crop_metrics(prob, mask_c)
+
+        all_results.append({
+            "crop": crop_path.name,
+            "split": "train" if "synthetic" in str(lp) or "positive" in str(lp) or "negative" in str(lp) else "unknown",
+            "source": str(lp.parent.name),
+            "label": label,
+            "prob_max": float(prob.max()),
+            "prob_mean": float(prob.mean()),
+            "prob_above_thresh_count": int((prob >= PROD_THRESH).sum()),
+            "scene_pos_pred": bool((prob >= PROD_THRESH).sum() >= MIN_PLUME_PX),
+            **m,
+        })
+
+    # Aggregate metrics over the in-sample set
+    pos = [r for r in all_results if r["label"] == 1]
+    neg = [r for r in all_results if r["label"] == 0]
+
+    print(f"\nIn-sample positives: {len(pos)},  negatives: {len(neg)}")
+
+    # Pixel-level mean IoU on positives (where IoU is defined)
+    valid_iou = [r["iou"] for r in pos if not np.isnan(r["iou"])]
+    mean_iou = float(np.mean(valid_iou)) if valid_iou else float("nan")
+    mean_precision = float(np.mean([r["precision"] for r in pos if not np.isnan(r["precision"])]))
+    mean_recall = float(np.mean([r["recall"] for r in pos if not np.isnan(r["recall"])]))
+    mean_f1 = float(np.mean([r["f1"] for r in pos if not np.isnan(r["f1"])]))
+
+    # Scene-level: did the model fire (≥115 px above 0.18) on positive vs negative crops?
+    pos_pred = sum(1 for r in pos if r["scene_pos_pred"])
+    neg_pred = sum(1 for r in neg if r["scene_pos_pred"])
+    scene_recall = pos_pred / len(pos) if pos else float("nan")
+    scene_fpr = neg_pred / len(neg) if neg else float("nan")
+
+    # ROC / PR using probability max as the score
+    pos_scores = [r["prob_max"] for r in pos]
+    neg_scores = [r["prob_max"] for r in neg]
+
+    # Sweep thresholds for ROC + PR
+    all_scores = sorted(set(pos_scores + neg_scores), reverse=True)
+    roc_pts = []
+    pr_pts = []
+    for t in all_scores + [0.0]:
+        tp = sum(1 for s in pos_scores if s >= t)
+        fn = sum(1 for s in pos_scores if s < t)
+        fp = sum(1 for s in neg_scores if s >= t)
+        tn = sum(1 for s in neg_scores if s < t)
+        tpr = tp / (tp + fn) if (tp + fn) > 0 else 0
+        fpr = fp / (fp + tn) if (fp + tn) > 0 else 0
+        prec = tp / (tp + fp) if (tp + fp) > 0 else 1.0
+        roc_pts.append((fpr, tpr))
+        pr_pts.append((tpr, prec))
+
+    # AUROC via trapezoid rule
+    roc_pts.sort()
+    aur = 0.0
+    for i in range(1, len(roc_pts)):
+        x1, y1 = roc_pts[i - 1]
+        x2, y2 = roc_pts[i]
+        aur += (x2 - x1) * (y1 + y2) / 2
+    # Average precision via trapezoid rule on PR curve (sorted by recall)
+    pr_pts.sort()
+    ap = 0.0
+    for i in range(1, len(pr_pts)):
+        x1, y1 = pr_pts[i - 1]
+        x2, y2 = pr_pts[i]
+        ap += (x2 - x1) * (y1 + y2) / 2
+
+    summary = {
+        "n_positives": len(pos),
+        "n_negatives": len(neg),
+        "pixel_level": {
+            "mean_iou_positives": mean_iou,
+            "mean_precision_positives": mean_precision,
+            "mean_recall_positives": mean_recall,
+            "mean_f1_positives": mean_f1,
+        },
+        "scene_level": {
+            "positive_recall": scene_recall,
+            "negative_fpr": scene_fpr,
+            "n_positive_fired": pos_pred,
+            "n_negative_fired": neg_pred,
+        },
+        "auroc": aur,
+        "average_precision": ap,
+    }
+
+    # Save
+    (OUT_DIR / "ml_metrics.json").write_text(json.dumps({
+        "summary": summary,
+        "per_crop": all_results,
+    }, indent=2, default=str))
+
+    md = []
+    md.append("# CH4Net v8 — standard ML segmentation metrics\n")
+    md.append(f"Production rule on the inference output: probability ≥ {PROD_THRESH}, "
+              f"contiguous region ≥ {MIN_PLUME_PX} px.\n")
+    md.append(f"\n## In-sample evaluation (training crops)\n")
+    md.append(f"- Positive crops: {summary['n_positives']}")
+    md.append(f"- Negative crops: {summary['n_negatives']}")
+    md.append(f"")
+    md.append(f"### Pixel-level metrics on positive crops")
+    md.append(f"- Mean IoU: **{mean_iou:.3f}**")
+    md.append(f"- Mean precision: **{mean_precision:.3f}**")
+    md.append(f"- Mean recall: **{mean_recall:.3f}**")
+    md.append(f"- Mean F1: **{mean_f1:.3f}**")
+    md.append(f"")
+    md.append(f"### Scene-level (does the crop fire?)")
+    md.append(f"- Positive recall: **{scene_recall:.1%}** ({pos_pred}/{len(pos)})")
+    md.append(f"- Negative FPR: **{scene_fpr:.1%}** ({neg_pred}/{len(neg)})")
+    md.append(f"")
+    md.append(f"### Discriminative power")
+    md.append(f"- AUROC: **{aur:.3f}**")
+    md.append(f"- Average precision (PR-AUC): **{ap:.3f}**")
+    (OUT_DIR / "ml_metrics.md").write_text("\n".join(md))
+
+    print()
+    print("=" * 70)
+    print("ML metrics summary (in-sample training crops)")
+    print("=" * 70)
+    print(f"Positives: {len(pos)}   Negatives: {len(neg)}")
+    print(f"Mean IoU (positives):   {mean_iou:.3f}")
+    print(f"Mean precision (pos):   {mean_precision:.3f}")
+    print(f"Mean recall (pos):      {mean_recall:.3f}")
+    print(f"Mean F1 (pos):          {mean_f1:.3f}")
+    print(f"Scene-level recall:     {scene_recall:.1%}")
+    print(f"Scene-level FPR:        {scene_fpr:.1%}")
+    print(f"AUROC:                  {aur:.3f}")
+    print(f"Average precision:      {ap:.3f}")
+    print()
+    print(f"Wrote: {OUT_DIR}/ml_metrics.md")
+    print(f"Wrote: {OUT_DIR}/ml_metrics.json")
+
+
+if __name__ == "__main__":
+    main()

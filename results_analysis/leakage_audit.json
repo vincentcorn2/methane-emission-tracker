@@ -1,0 +1,200 @@
+{
+  "training_crop_count": 87,
+  "candidate_site_overlap": {
+    "belchatow": {
+      "in_training": true,
+      "roles": [
+        "negative",
+        "positive",
+        "synthetic_substrate"
+      ],
+      "n_crops": 7,
+      "training_crops": [
+        "silesia_zofiowka_T34UCB_20230101_enh10",
+        "silesia_zofiowka_T34UCB_20230301_enh16",
+        "silesia_pniowek_T34UCB_20230301_enh17",
+        "belchatow_T34UCB_20240824",
+        "synth_belchatow_T34UCB_20240824_002",
+        "synth_belchatow_T34UCB_20240824_000",
+        "synth_belchatow_T34UCB_20240824_001"
+      ]
+    },
+    "rybnik": {
+      "in_training": true,
+      "roles": [
+        "positive"
+      ],
+      "n_crops": 2,
+      "training_crops": [
+        "silesia_rybnik_T34UCA_20240628_enh19",
+        "silesia_knurow_T34UCA_20230215_enh11"
+      ]
+    },
+    "weisweiler": {
+      "in_training": true,
+      "roles": [
+        "positive"
+      ],
+      "n_crops": 1,
+      "training_crops": [
+        "de_weisweiler_T31UGS_20240918_enh18"
+      ]
+    },
+    "lippendorf": {
+      "in_training": false,
+      "roles": [],
+      "n_crops": 0,
+      "training_crops": []
+    },
+    "neurath": {
+      "in_training": true,
+      "roles": [
+        "negative"
+      ],
+      "n_crops": 1,
+      "training_crops": [
+        "neurath_T32ULB_20240920"
+      ]
+    },
+    "boxberg": {
+      "in_training": true,
+      "roles": [
+        "negative"
+      ],
+      "n_crops": 1,
+      "training_crops": [
+        "janschwalde_T33UVT_20240827"
+      ]
+    },
+    "groningen": {
+      "in_training": true,
+      "roles": [
+        "negative",
+        "positive",
+        "synthetic_substrate"
+      ],
+      "n_crops": 35,
+      "training_crops": [
+        "nl_grijpskerk_T31UGV_20230208_enh13",
+        "groningen_gas_field_T31UGV_20240817",
+        "groningen_polder_E_T31UGV_20240628",
+        "groningen_polder_SW_T31UGV_20240817",
+        "groningen_polder_N_T31UGV_20240628",
+        "groningen_polder_SE_T31UGV_20240628",
+        "groningen_polder_E_T31UGV_20240817",
+        "groningen_polder_NW_T31UGV_20240628",
+        "groningen_gas_field_T31UGV_20240628",
+        "groningen_polder_SW_T31UGV_20240628",
+        "groningen_polder_N_T31UGV_20240817",
+        "synth_groningen_polder_N_T31UGV_20240628_001",
+        "synth_groningen_gas_field_T31UGV_20240817_000",
+        "synth_groningen_polder_SW_T31UGV_20240817_002",
+        "synth_groningen_polder_E_T31UGV_20240817_000",
+        "synth_groningen_polder_N_T31UGV_20240817_002",
+        "synth_groningen_polder_SW_T31UGV_20240817_000",
+        "synth_groningen_gas_field_T31UGV_20240817_002",
+        "synth_groningen_polder_E_T31UGV_20240628_001",
+        "synth_groningen_polder_NW_T31UGV_20240628_001",
+        "synth_groningen_gas_field_T31UGV_20240628_001",
+        "synth_groningen_polder_E_T31UGV_20240817_002",
+        "synth_groningen_polder_N_T31UGV_20240817_000",
+        "synth_groningen_gas_field_T31UGV_20240628_002",
+        "synth_groningen_polder_E_T31UGV_20240817_001",
+        "synth_groningen_polder_N_T31UGV_20240628_000",
+        "synth_groningen_polder_NW_T31UGV_20240628_002",
+        "synth_groningen_gas_field_T31UGV_20240817_001",
+        "synth_groningen_polder_E_T31UGV_20240628_002",
+        "synth_groningen_gas_field_T31UGV_20240628_000",
+        "synth_groningen_polder_N_T31UGV_20240817_001",
+        "synth_groningen_polder_N_T31UGV_20240628_002",
+        "synth_groningen_polder_SW_T31UGV_20240817_001",
+        "synth_groningen_polder_NW_T31UGV_20240628_000",
+        "synth_groningen_polder_E_T31UGV_20240628_000"
+      ]
+    },
+    "maasvlakte": {
+      "in_training": false,
+      "roles": [],
+      "n_crops": 0,
+      "training_crops": []
+    }
+  },
+  "temporal_proximity": {
+    "belchatow": [
+      {
+        "eval_date": "2020-06-01",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 1545,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2021-06-06",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 1175,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2021-09-09",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 1080,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-04-11",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 135,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-05-26",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 90,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-07-10",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 45,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-07-30",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 25,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-10-28",
+        "nearest_training_crop": "belchatow_T34UCB_20240824",
+        "days_apart": 65,
+        "flag": "OK"
+      }
+    ],
+    "neurath": [
+      {
+        "eval_date": "2024-06-25",
+        "nearest_training_crop": "neurath_T32ULB_20240920",
+        "days_apart": 87,
+        "flag": "OK"
+      },
+      {
+        "eval_date": "2024-08-29",
+        "nearest_training_crop": "neurath_T32ULB_20240920",
+        "days_apart": 22,
+        "flag": "OK"
+      }
+    ],
+    "rybnik": [
+      {
+        "eval_date": "2025-03-22",
+        "nearest_training_crop": "silesia_rybnik_T34UCA_20240628_enh19",
+        "days_apart": 267,
+        "flag": "OK"
+      }
+    ]
+  },
+  "conformal_calibration_independence": {
+    "sites_within_50km_of_candidate": [],
+    "checked_n": 28
+  }
+}

@@ -2,9 +2,25 @@
   "schema_version": "1.0.0",
   "method": "split_conformal_prediction",
   "reference": "Angelopoulos & Bates (2021) arXiv:2107.07511",
-  "n_calibration": 14,
+  "n_calibration": 35,
   "all_scores": [
+    0.0008,
     0.002,
+    0.0033,
+    0.0153,
+    0.0192,
+    0.0237,
+    0.0578,
+    0.0596,
+    0.0733,
+    0.0813,
+    0.0964,
+    0.2419,
+    0.2758,
+    0.3301,
+    0.4206,
+    0.541,
+    0.5908,
     0.9984,
     1.1302,
     1.2465,
@@ -13,51 +29,56 @@
     1.3317,
     1.3331,
     1.3547,
+    1.4088,
     1.8626,
     2.1172,
+    2.1726,
+    2.4901,
     2.5653,
     2.7397,
-    4.1052
+    3.5796,
+    4.1052,
+    4.3384
   ],
   "global_thresholds": {
     "tau_alpha_05": {
       "alpha": 0.05,
-      "tau": 4.1052,
+      "tau": 4.3384,
       "guarantee": "FPR \u2264 5% with finite-sample guarantee",
       "empirical_fpr_nonems": 0.0
     },
     "tau_alpha_10": {
       "alpha": 0.1,
-      "tau": 4.1052,
+      "tau": 3.5796,
       "guarantee": "FPR \u2264 10% with finite-sample guarantee",
-      "empirical_fpr_nonems": 0.0
+      "empirical_fpr_nonems": 0.0571
     },
     "tau_alpha_20": {
       "alpha": 0.2,
-      "tau": 2.5653,
+      "tau": 2.1726,
       "guarantee": "FPR \u2264 20% with finite-sample guarantee",
-      "empirical_fpr_nonems": 0.1429
+      "empirical_fpr_nonems": 0.1714
     }
   },
   "primary_threshold": {
     "alpha": 0.1,
-    "tau": 4.1052,
+    "tau": 3.5796,
     "production_threshold": 1.15,
-    "empirical_fpr_at_production": 0.7857,
-    "empirical_fpr_at_calibrated": 0.0,
+    "empirical_fpr_at_production": 0.4571,
+    "empirical_fpr_at_calibrated": 0.0571,
     "recommended_action": "REPLACE production threshold 1.15 with \u03c4_calibrated"
   },
   "bootstrap_ci": {
-    "tau_boot_mean": 3.5846,
-    "tau_boot_std": 0.7237,
-    "tau_boot_p5": 2.5653,
-    "tau_boot_p95": 4.1052,
+    "tau_boot_mean": 3.3406,
+    "tau_boot_std": 0.7056,
+    "tau_boot_p5": 2.4901,
+    "tau_boot_p95": 4.3384,
     "n_bootstrap": 2000
   },
   "sample_size_analysis": {
-    "n_calibration": 14,
+    "n_calibration": 35,
     "alpha": 0.1,
-    "conformal_rank": 14,
+    "conformal_rank": 33,
     "min_n_nontrivial": 9,
     "n_adequate": true,
     "note": "Conformal guarantee is valid for any n \u2265 1 (finite-sample exact), but the threshold is the k-th largest score; for very small n the threshold equals the maximum, giving a loose (conservative) bound."
@@ -65,23 +86,30 @@
   "mondrian_by_ecoregion": {
     "Atlantic": {
       "tau": 1.3331,
-      "n": 4,
+      "n": 9,
       "scores": [
+        0.0237,
+        0.0813,
+        0.0964,
+        0.4206,
+        0.541,
         0.9984,
         1.2465,
         1.3212,
         1.3331
       ],
-      "min_sc": 0.9984,
+      "min_sc": 0.0237,
       "max_sc": 1.3331,
-      "mean_sc": 1.2248,
-      "empirical_fpr_at_production": 0.75,
-      "small_n_warning": true
+      "mean_sc": 0.6736,
+      "empirical_fpr_at_production": 0.3333,
+      "small_n_warning": false
     },
     "Continental": {
       "tau": 4.1052,
-      "n": 6,
+      "n": 8,
       "scores": [
+        0.0596,
+        0.2419,
         1.3547,
         1.8626,
         2.1172,
@@ -89,63 +117,80 @@
         2.7397,
         4.1052
       ],
-      "min_sc": 1.3547,
+      "min_sc": 0.0596,
       "max_sc": 4.1052,
-      "mean_sc": 2.4575,
-      "empirical_fpr_at_production": 1.0,
+      "mean_sc": 1.8808,
+      "empirical_fpr_at_production": 0.75,
       "small_n_warning": false
     },
     "Pannonian": {
-      "tau": 1.1302,
-      "n": 1,
+      "tau": 3.5796,
+      "n": 6,
       "scores": [
-        1.1302
+        0.0578,
+        0.0733,
+        0.5908,
+        1.1302,
+        2.1726,
+        3.5796
       ],
-      "min_sc": 1.1302,
-      "max_sc": 1.1302,
-      "mean_sc": 1.1302,
-      "empirical_fpr_at_production": 0.0,
-      "small_n_warning": true
+      "min_sc": 0.0578,
+      "max_sc": 3.5796,
+      "mean_sc": 1.2674,
+      "empirical_fpr_at_production": 0.3333,
+      "small_n_warning": false
     },
     "Boreal": {
-      "tau": 1.3317,
-      "n": 2,
+      "tau": 4.3384,
+      "n": 6,
       "scores": [
+        0.0192,
+        0.2758,
         1.2984,
-        1.3317
+        1.3317,
+        2.4901,
+        4.3384
       ],
-      "min_sc": 1.2984,
-      "max_sc": 1.3317,
-      "mean_sc": 1.3151,
-      "empirical_fpr_at_production": 1.0,
-      "small_n_warning": true
+      "min_sc": 0.0192,
+      "max_sc": 4.3384,
+      "mean_sc": 1.6256,
+      "empirical_fpr_at_production": 0.6667,
+      "small_n_warning": false
     },
     "Mediterranean": {
-      "tau": 0.002,
-      "n": 1,
+      "tau": 1.4088,
+      "n": 6,
       "scores": [
-        0.002
+        0.0008,
+        0.002,
+        0.0033,
+        0.0153,
+        0.3301,
+        1.4088
       ],
-      "min_sc": 0.002,
-      "max_sc": 0.002,
-      "mean_sc": 0.002,
-      "empirical_fpr_at_production": 0.0,
-      "small_n_warning": true
+      "min_sc": 0.0008,
+      "max_sc": 1.4088,
+      "mean_sc": 0.2934,
+      "empirical_fpr_at_production": 0.1667,
+      "small_n_warning": false
     }
   },
   "mondrian_by_clc_class": {
     "pasture": {
       "tau": 1.2465,
-      "n": 2,
+      "n": 5,
       "scores": [
+        0.0237,
+        0.0596,
+        0.0964,
         0.9984,
         1.2465
       ],
-      "min_sc": 0.9984,
+      "min_sc": 0.0237,
       "max_sc": 1.2465,
-      "mean_sc": 1.1224,
-      "empirical_fpr_at_production": 0.5,
-      "small_n_warning": true
+      "mean_sc": 0.4849,
+      "empirical_fpr_at_production": 0.2,
+      "small_n_warning": false
     },
     "mixed_forest": {
       "tau": 1.3317,
@@ -163,68 +208,97 @@
     },
     "arable_land": {
       "tau": 4.1052,
-      "n": 4,
+      "n": 16,
       "scores": [
+        0.0008,
+        0.0033,
+        0.0153,
+        0.0192,
+        0.0578,
+        0.0733,
+        0.0813,
+        0.2419,
+        0.4206,
+        0.541,
         1.1302,
         1.3331,
         1.8626,
+        2.4901,
+        3.5796,
         4.1052
       ],
-      "min_sc": 1.1302,
+      "min_sc": 0.0008,
       "max_sc": 4.1052,
-      "mean_sc": 2.1078,
-      "empirical_fpr_at_production": 0.75,
-      "small_n_warning": true
+      "mean_sc": 0.9972,
+      "empirical_fpr_at_production": 0.3125,
+      "small_n_warning": false
     },
     "coniferous_forest": {
       "tau": 2.1172,
-      "n": 2,
+      "n": 3,
       "scores": [
+        0.2758,
         1.3547,
         2.1172
       ],
-      "min_sc": 1.3547,
+      "min_sc": 0.2758,
       "max_sc": 2.1172,
-      "mean_sc": 1.7359,
-      "empirical_fpr_at_production": 1.0,
+      "mean_sc": 1.2492,
+      "empirical_fpr_at_production": 0.6667,
       "small_n_warning": true
     },
     "complex_cultivation": {
       "tau": 2.7397,
-      "n": 1,
+      "n": 3,
       "scores": [
+        0.3301,
+        2.1726,
         2.7397
       ],
-      "min_sc": 2.7397,
+      "min_sc": 0.3301,
       "max_sc": 2.7397,
-      "mean_sc": 2.7397,
-      "empirical_fpr_at_production": 1.0,
+      "mean_sc": 1.7475,
+      "empirical_fpr_at_production": 0.6667,
       "small_n_warning": true
     },
     "broadleaved_forest": {
       "tau": 2.5653,
-      "n": 1,
+      "n": 2,
       "scores": [
+        0.5908,
         2.5653
       ],
-      "min_sc": 2.5653,
+      "min_sc": 0.5908,
       "max_sc": 2.5653,
-      "mean_sc": 2.5653,
-      "empirical_fpr_at_production": 1.0,
+      "mean_sc": 1.5781,
+      "empirical_fpr_at_production": 0.5,
       "small_n_warning": true
     },
     "coastal_wetland": {
-      "tau": 1.2984,
-      "n": 1,
+      "tau": 1.4088,
+      "n": 2,
       "scores": [
-        1.2984
+        1.2984,
+        1.4088
       ],
       "min_sc": 1.2984,
-      "max_sc": 1.2984,
-      "mean_sc": 1.2984,
+      "max_sc": 1.4088,
+      "mean_sc": 1.3536,
+      "empirical_fpr_at_production": 1.0,
+      "small_n_warning": true
+    },
+    "wetland": {
+      "tau": 4.3384,
+      "n": 1,
+      "scores": [
+        4.3384
+      ],
+      "min_sc": 4.3384,
+      "max_sc": 4.3384,
+      "mean_sc": 4.3384,
       "empirical_fpr_at_production": 1.0,
       "small_n_warning": true
     }
   },
-  "interpretation": "On n=14 non-emitter locations, the S/C scores ranged from 0.0020 to 4.1052. The production threshold of 1.15 yields an empirical FPR of 78.6% on this calibration set. The conformal threshold at \u03b1=0.1 is \u03c4=4.1052, providing a finite-sample guarantee that FPR \u2264 10% on exchangeable test scenes."
+  "interpretation": "On n=35 non-emitter locations, the S/C scores ranged from 0.0008 to 4.3384. The production threshold of 1.15 yields an empirical FPR of 45.7% on this calibration set. The conformal threshold at \u03b1=0.1 is \u03c4=3.5796, providing a finite-sample guarantee that FPR \u2264 10% on exchangeable test scenes."
 }

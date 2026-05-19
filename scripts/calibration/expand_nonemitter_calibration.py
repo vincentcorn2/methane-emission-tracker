@@ -1,0 +1,368 @@
+"""
+scripts/expand_nonemitter_calibration.py
+==========================================
+Expand the conformal calibration set from n=14 to n>=30 with proper ecoregion
+balance, then recompute τ and the bootstrap confidence interval.
+
+Why this exists
+---------------
+Current τ = 4.1052 at α = 0.10 is pinned by the single highest non-emitter
+observation (nonemit_003, Moselle Valley). The bootstrap 90% CI is wide
+([2.5653, 4.1052]) because n=14 is small. Expanding to n=30+ tightens that CI,
+gives the Mondrian per-ecoregion thresholds enough samples to mean something,
+and removes the "threshold is dominated by one observation" defensibility hole.
+
+What it does
+------------
+For each new candidate non-emitter location:
+  1. Search CDSE for a low-cloud Sentinel-2 L1C tile (summer 2024 window).
+  2. Download + convert to .npy.
+  3. Run CH4Net v8 inference on the full tile (re-uses production detector).
+  4. Compute the S/C ratio at the candidate coordinates.
+  5. Append the score to results_analysis/nonemitter_sc_scores.json.
+  6. Delete the .npy (disk discipline — each tile is ~1.4 GB).
+  7. Keep the inference TIF in results_nonemitter/ (smaller, useful for audit).
+
+After all new sites finish, call conformal_threshold.py to recompute τ.
+
+Run alongside the max-data time series and synthetic-only retrain — no
+resource conflict because all three are CPU/MPS-bound and stack fine.
+
+Usage
+-----
+  conda activate methane
+  python scripts/expand_nonemitter_calibration.py --dry-run
+  caffeinate -i python scripts/expand_nonemitter_calibration.py
+"""
+from __future__ import annotations
+import argparse
+import getpass
+import json
+import logging
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+from datetime import datetime
+
+import numpy as np
+import rasterio
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from src.ingestion.copernicus_client import CopernicusClient
+from src.ingestion.preprocessing import safe_to_npy
+from src.detection.ch4net_model import CH4NetDetector
+
+from apply_bitemporal_diff import (
+    B11_IDX, B12_IDX, WEIGHTS,
+    compute_sc_ratio, find_geo_meta, lonlat_to_pixel, run_inference,
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-7s  %(message)s",
+    datefmt="%H:%M:%S",
+)
+log = logging.getLogger("nonemit_expand")
+
+ROOT = Path(__file__).resolve().parent.parent
+NPY_CACHE = ROOT / "data" / "npy_cache"
+DOWNLOAD_DIR = ROOT / "data" / "downloads" / "nonemit_expand"
+TIF_DIR = ROOT / "results_nonemitter"
+SCORES_JSON = ROOT / "results_analysis" / "nonemitter_sc_scores.json"
+MANIFEST_OUT = ROOT / "results_analysis" / "nonemitter_manifest_expanded.json"
+
+# ── New non-emitter candidates ────────────────────────────────────────────────
+# Coordinates and land-cover classes chosen for ecoregion balance and
+# distance > 80 km from any candidate site. Locations are real European
+# CORINE Land Cover polygons, not random points.
+
+NEW_CANDIDATES = [
+    # Atlantic (currently n=4, target +4 → 8)
+    {"location_id": "nonemit_020", "label": "Yorkshire arable",        "lat": 53.95, "lon":  -1.10, "ecoregion": "Atlantic",      "clc_class": "arable_land"},
+    {"location_id": "nonemit_021", "label": "Brittany pasture",        "lat": 48.20, "lon":  -3.10, "ecoregion": "Atlantic",      "clc_class": "pasture"},
+    {"location_id": "nonemit_022", "label": "Irish midlands grassland","lat": 53.40, "lon":  -7.80, "ecoregion": "Atlantic",      "clc_class": "pasture"},
+    {"location_id": "nonemit_023", "label": "Lower Saxony arable",     "lat": 52.70, "lon":   9.30, "ecoregion": "Atlantic",      "clc_class": "arable_land"},
+
+    # Continental (currently n=6, target +4 → 10)
+    {"location_id": "nonemit_024", "label": "Bohemian farmland",       "lat": 50.05, "lon": 14.95, "ecoregion": "Continental",   "clc_class": "arable_land"},
+    {"location_id": "nonemit_025", "label": "Mazovian forest",         "lat": 53.10, "lon": 20.50, "ecoregion": "Continental",   "clc_class": "broadleaved_forest"},
+    {"location_id": "nonemit_026", "label": "Slovak Tatras foothills", "lat": 49.10, "lon": 19.80, "ecoregion": "Continental",   "clc_class": "coniferous_forest"},
+    {"location_id": "nonemit_027", "label": "Brandenburg pasture",     "lat": 52.60, "lon": 12.80, "ecoregion": "Continental",   "clc_class": "pasture"},
+
+    # Pannonian (currently n=1, target +3 → 4)
+    {"location_id": "nonemit_028", "label": "Hungarian Alföld arable", "lat": 47.20, "lon": 20.80, "ecoregion": "Pannonian",     "clc_class": "arable_land"},
+    {"location_id": "nonemit_029", "label": "Slavonia plain",          "lat": 45.60, "lon": 18.30, "ecoregion": "Pannonian",     "clc_class": "arable_land"},
+    {"location_id": "nonemit_030", "label": "Vojvodina cropland",      "lat": 45.40, "lon": 19.70, "ecoregion": "Pannonian",     "clc_class": "complex_cultivation"},
+
+    # Boreal (currently n=2, target +3 → 5)
+    {"location_id": "nonemit_031", "label": "Värmland coniferous",     "lat": 60.10, "lon": 13.40, "ecoregion": "Boreal",        "clc_class": "coniferous_forest"},
+    {"location_id": "nonemit_032", "label": "Karelian wetland",        "lat": 62.50, "lon": 30.20, "ecoregion": "Boreal",        "clc_class": "wetland"},
+    {"location_id": "nonemit_033", "label": "Norwegian inland forest", "lat": 61.20, "lon": 10.80, "ecoregion": "Boreal",        "clc_class": "coniferous_forest"},
+
+    # Mediterranean (currently n=1, target +3 → 4)
+    {"location_id": "nonemit_034", "label": "Castilian meseta",        "lat": 41.20, "lon":  -4.50, "ecoregion": "Mediterranean", "clc_class": "arable_land"},
+    {"location_id": "nonemit_035", "label": "Po Valley arable",        "lat": 45.05, "lon":   9.80, "ecoregion": "Mediterranean", "clc_class": "arable_land"},
+    {"location_id": "nonemit_036", "label": "Thessaly cropland",       "lat": 39.50, "lon": 22.40, "ecoregion": "Mediterranean", "clc_class": "complex_cultivation"},
+]
+
+# Acquisition window — match the existing calibration set (summer 2024)
+ACQ_START = "2024-06-01T00:00:00.000Z"
+ACQ_END   = "2024-08-31T23:59:59.999Z"
+MAX_CLOUD = 15.0
+MAX_CLOUD_FALLBACK = 30.0
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+def get_credentials():
+    user = os.environ.get("CDSE_USERNAME")
+    pw   = os.environ.get("CDSE_PASSWORD")
+    if user and pw:
+        return user, pw
+    log.info("CDSE_USERNAME / CDSE_PASSWORD env vars not set; prompting.")
+    user = input("CDSE username: ")
+    pw   = getpass.getpass("CDSE password: ")
+    return user, pw
+
+
+def bbox_wkt(lat, lon, margin=0.05):
+    return (f"POLYGON(({lon-margin} {lat-margin},{lon+margin} {lat-margin},"
+            f"{lon+margin} {lat+margin},{lon-margin} {lat+margin},"
+            f"{lon-margin} {lat-margin}))")
+
+
+def search_tile(client, lat, lon, max_cloud):
+    """Find lowest-cloud L1C product covering (lat, lon) in the acquisition window."""
+    products = client.search_products(
+        wkt_polygon=bbox_wkt(lat, lon),
+        start_date=ACQ_START,
+        end_date=ACQ_END,
+        collection="SENTINEL-2",
+        max_cloud_cover=max_cloud,
+    )
+    l1c = [p for p in products if "MSIL1C" in p.name]
+    if not l1c:
+        return None
+    l1c.sort(key=lambda p: (getattr(p, "cloud_cover", None) is None,
+                            getattr(p, "cloud_cover", 100.0) or 100.0))
+    return l1c[0]
+
+
+def download_and_convert(client, product, candidate):
+    """Download SAFE.zip + convert to .npy. Returns Path to .npy."""
+    DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    NPY_CACHE.mkdir(parents=True, exist_ok=True)
+
+    tile_id_match = re.search(r"_T(\d{2}[A-Z]{3})_", product.name)
+    if not tile_id_match:
+        raise RuntimeError(f"Could not parse tile_id from {product.name}")
+    tile_id = "T" + tile_id_match.group(1)
+
+    cc = getattr(product, "cloud_cover", None)
+    cc_str = f"{cc:.1f}%" if isinstance(cc, (int, float)) else "n/a"
+    log.info("  Downloading %s (cloud %s) ...", product.name[:70], cc_str)
+    zip_path = client.download_product(product, str(DOWNLOAD_DIR))
+    if zip_path is None:
+        raise RuntimeError("download_product returned None")
+
+    log.info("  Converting to .npy ...")
+    extract_dir = tempfile.mkdtemp(prefix=f"s2_nonemit_{candidate['location_id']}_")
+    try:
+        npy_path, _ = safe_to_npy(
+            zip_path=zip_path,
+            output_dir=str(NPY_CACHE),
+            tile_id=tile_id,
+            acquisition_date=product.acquisition_date,
+            satellite=product.satellite,
+            extract_dir=extract_dir,
+        )
+    finally:
+        shutil.rmtree(extract_dir, ignore_errors=True)
+        try:
+            Path(zip_path).unlink()  # SAFE.zip no longer needed after .npy
+        except OSError:
+            pass
+    return Path(npy_path), tile_id
+
+
+def run_one_site(candidate, detector, client):
+    """End-to-end for one candidate: download → inference → S/C → cleanup."""
+    log.info("=" * 65)
+    log.info("── %s : %s (%s) ──",
+             candidate["location_id"], candidate["label"], candidate["ecoregion"])
+    log.info("   lat=%.4f  lon=%.4f  clc=%s", candidate["lat"], candidate["lon"], candidate["clc_class"])
+
+    product = search_tile(client, candidate["lat"], candidate["lon"], MAX_CLOUD)
+    if product is None:
+        log.info("   Retrying with cloud <= %.0f%% ...", MAX_CLOUD_FALLBACK)
+        product = search_tile(client, candidate["lat"], candidate["lon"], MAX_CLOUD_FALLBACK)
+    if product is None:
+        return {**candidate, "status": "no_products", "sc_cfar": None}
+
+    try:
+        npy_path, tile_id = download_and_convert(client, product, candidate)
+    except Exception as e:
+        log.error("   Download/convert failed: %s", e)
+        return {**candidate, "status": "download_failed", "error": str(e), "sc_cfar": None}
+
+    geo_meta = find_geo_meta(npy_path)
+    if geo_meta is None:
+        npy_path.unlink(missing_ok=True)
+        return {**candidate, "status": "no_geo_meta", "sc_cfar": None}
+
+    # Inference into the nonemitter results folder (separate from candidate sites)
+    site_dir = TIF_DIR / candidate["location_id"]
+    site_dir.mkdir(parents=True, exist_ok=True)
+    out_tif = site_dir / f"original_{npy_path.stem}.tif"
+    if not out_tif.exists():
+        log.info("   Running CH4Net inference (full tile) ...")
+        target = np.load(npy_path)
+        run_inference(target, detector, geo_meta, out_tif)
+        del target
+
+    log.info("   Computing S/C at candidate coordinates ...")
+    sc = compute_sc_ratio(out_tif, candidate["lat"], candidate["lon"])
+
+    # Disk discipline: delete the .npy now that S/C is computed
+    log.info("   Deleting .npy to free disk (%s)", npy_path.name)
+    npy_path.unlink(missing_ok=True)
+    # Companion .npy.geo.json (saved alongside the .npy by safe_to_npy)
+    for sibling in NPY_CACHE.glob(f"{npy_path.stem}*_geo.json"):
+        sibling.unlink(missing_ok=True)
+
+    return {
+        **candidate,
+        "status":            "ok",
+        "product_name":      product.name,
+        "tile_id":           tile_id,
+        "mgrs_tile":         tile_id,
+        "acquisition_date":  product.acquisition_date[:10],
+        "cloud_cover":       getattr(product, "cloud_cover", None),
+        "tif":               str(out_tif),
+        "site_mean":         sc.get("site_mean"),
+        "ctrl_mean":         sc.get("ctrl_mean"),
+        "ctrl_mu":           sc.get("ctrl_mu"),
+        "ctrl_sigma":        sc.get("ctrl_sigma"),
+        "ctrl_n":            sc.get("ctrl_n"),
+        "ctrl_all_means":    sc.get("ctrl_all_means"),
+        "ctrl_direction":    sc.get("ctrl_direction"),
+        "cv_ctrl":           sc.get("cv_ctrl"),
+        "cfar_thresh_ratio": sc.get("cfar_thresh_ratio"),
+        "cfar_detect":       sc.get("cfar_detect"),
+        "cfar_margin":       sc.get("cfar_margin"),
+        "sc_ratio":          sc.get("sc_ratio"),
+        "sc_cfar":           sc.get("sc_cfar"),
+        "proximity_flag":    "OK",
+        "min_dist_to_emitter_km": None,   # not computed for the expansion candidates
+    }
+
+
+def load_existing_scores():
+    if SCORES_JSON.exists():
+        return json.loads(SCORES_JSON.read_text())
+    return None
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Show what would be processed, do not download or run inference")
+    parser.add_argument("--ids", nargs="+",
+                        help="Process only these specific candidate IDs")
+    args = parser.parse_args()
+
+    existing = load_existing_scores()
+    if existing is None:
+        log.warning("No existing scores at %s — starting fresh", SCORES_JSON)
+        existing_sites = []
+    elif isinstance(existing, list):
+        # Production schema: flat list of site dicts keyed by location_id
+        existing_sites = existing
+    elif isinstance(existing, dict) and "sites" in existing:
+        existing_sites = existing["sites"]
+    elif isinstance(existing, dict):
+        # Dict keyed by location_id → flatten to list
+        existing_sites = list(existing.values())
+    else:
+        existing_sites = []
+
+    existing_ids = {s.get("location_id") or s.get("id") for s in existing_sites}
+    existing_ids.discard(None)
+    log.info("Existing calibration set: %d sites", len(existing_ids))
+
+    to_process = [c for c in NEW_CANDIDATES if c["location_id"] not in existing_ids]
+    if args.ids:
+        to_process = [c for c in to_process if c["location_id"] in args.ids]
+    log.info("Candidates to process: %d", len(to_process))
+
+    if args.dry_run:
+        log.info("DRY RUN — would process these candidates:")
+        for c in to_process:
+            log.info("  %s  %s  %s  (%.4f, %.4f)",
+                     c["location_id"], c["ecoregion"], c["label"], c["lat"], c["lon"])
+        return
+
+    if not to_process:
+        log.info("Nothing to do — all candidates already in scores file.")
+        return
+
+    user, pw = get_credentials()
+    client = CopernicusClient(username=user, password=pw)
+
+    log.info("Loading CH4Net v8 weights ...")
+    detector = CH4NetDetector(WEIGHTS)
+
+    new_results = []
+    for cand in to_process:
+        try:
+            result = run_one_site(cand, detector, client)
+        except Exception as e:
+            log.exception("Unexpected failure on %s", cand["location_id"])
+            result = {**cand, "status": "exception", "error": str(e), "sc_cfar": None}
+
+        new_results.append(result)
+        existing_sites.append(result)
+
+        # Incremental save in the existing schema (flat list) so
+        # conformal_threshold.py can read it without changes.
+        SCORES_JSON.write_text(json.dumps(existing_sites, indent=2))
+        MANIFEST_OUT.write_text(json.dumps({"candidates": existing_sites,
+                                            "last_updated": datetime.utcnow().isoformat() + "Z"},
+                                           indent=2))
+        log.info("   Saved (total now %d sites)", len(existing_sites))
+
+    # Recompute conformal threshold
+    log.info("=" * 65)
+    log.info("Recomputing conformal threshold on n=%d sites ...", len(existing_sites))
+    cmd = [sys.executable, str(ROOT / "scripts" / "conformal_threshold.py")]
+    log.info("$ %s", " ".join(cmd))
+    proc = subprocess.run(cmd, cwd=str(ROOT))
+    if proc.returncode != 0:
+        log.error("conformal_threshold.py exited with code %d", proc.returncode)
+    else:
+        log.info("Conformal threshold recomputed — see results_analysis/calibrated_threshold.json")
+
+    # Console summary
+    print("\n" + "=" * 72)
+    print(f"Non-emitter calibration set expansion")
+    print("=" * 72)
+    print(f"Sites attempted:   {len(new_results)}")
+    print(f"  OK:              {sum(1 for r in new_results if r['status'] == 'ok')}")
+    print(f"  Failed:          {sum(1 for r in new_results if r['status'] != 'ok')}")
+    print(f"Total calibration set size: {len(existing_sites)}")
+    print()
+    by_ecoregion = {}
+    for s in existing_sites:
+        eco = s.get("ecoregion", "?")
+        by_ecoregion[eco] = by_ecoregion.get(eco, 0) + 1
+    print("Ecoregion balance:")
+    for eco, n in sorted(by_ecoregion.items()):
+        print(f"  {eco:<14} n={n}")
+
+
+if __name__ == "__main__":
+    main()

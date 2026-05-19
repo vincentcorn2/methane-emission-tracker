@@ -1,0 +1,78 @@
+{
+  "pipeline": "CH4Net v2 \u2192 NGFS Stress Test \u2192 PCAF Financed Emissions",
+  "tickers": [
+    "RWE.DE",
+    "PGE.WA"
+  ],
+  "scenarios": [
+    "orderly",
+    "disorderly",
+    "hot_house"
+  ],
+  "horizon_years": 10,
+  "n_paths": 50000,
+  "portfolio_stress": {
+    "orderly": {
+      "terminal_mean_eur": 50838186.80818458,
+      "terminal_var95_eur": 111482611.67448977,
+      "terminal_cvar95_eur": 144676520.4527785,
+      "npv_mean_eur": 306687083.20666695
+    },
+    "disorderly": {
+      "terminal_mean_eur": 82497248.0032672,
+      "terminal_var95_eur": 200891594.689135,
+      "terminal_cvar95_eur": 274481773.814916,
+      "npv_mean_eur": 368561413.9721689
+    },
+    "hot_house": {
+      "terminal_mean_eur": 20675990.200509924,
+      "terminal_var95_eur": 44473006.530759,
+      "terminal_cvar95_eur": 57365053.0701053,
+      "npv_mean_eur": 190645742.1882255
+    }
+  },
+  "bank_level_disorderly": {
+    "Deutsche Bank": {
+      "total_exposure_eur": 1400000000.0,
+      "total_financed_tCO2e": 116812.0,
+      "total_carbon_liability_eur": 22778336.0,
+      "n_issuers": 2
+    },
+    "Commerzbank": {
+      "total_exposure_eur": 800000000.0,
+      "total_financed_tCO2e": 71555.6,
+      "total_carbon_liability_eur": 13953337.0,
+      "n_issuers": 1
+    },
+    "BNP Paribas": {
+      "total_exposure_eur": 450000000.0,
+      "total_financed_tCO2e": 40250.0,
+      "total_carbon_liability_eur": 7848752.0,
+      "n_issuers": 1
+    },
+    "ING Group": {
+      "total_exposure_eur": 600000000.0,
+      "total_financed_tCO2e": 53666.7,
+      "total_carbon_liability_eur": 10465002.0,
+      "n_issuers": 1
+    },
+    "EIB": {
+      "total_exposure_eur": 1100000000.0,
+      "total_financed_tCO2e": 66850.4,
+      "total_carbon_liability_eur": 13035824.0,
+      "n_issuers": 2
+    },
+    "PKO Bank Polski": {
+      "total_exposure_eur": 900000000.0,
+      "total_financed_tCO2e": 42653.8,
+      "total_carbon_liability_eur": 8317487.0,
+      "n_issuers": 1
+    },
+    "Bank Pekao": {
+      "total_exposure_eur": 500000000.0,
+      "total_financed_tCO2e": 23696.5,
+      "total_carbon_liability_eur": 4620826.0,
+      "n_issuers": 1
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.SAFE": {
+    "status": "ok",
+    "npy": "data/npy_cache/S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048.npy",
+    "meta": "data/npy_cache/S2A_MSIL1C_20240715T104021_N0510_R008_T31UGS_20240715T142048_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-07-15T10:40:21.025000Z"
+  },
+  "S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.SAFE": {
+    "status": "ok",
+    "npy": "data/npy_cache/S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412.npy",
+    "meta": "data/npy_cache/S2B_MSIL1C_20240720T103629_N0510_R008_T31UGS_20240720T113412_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-07-20T10:36:29.024000Z"
+  },
+  "S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.SAFE": {
+    "status": "ok",
+    "npy": "data/npy_cache/S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944.npy",
+    "meta": "data/npy_cache/S2B_MSIL1C_20240730T103629_N0511_R008_T31UGS_20240730T123944_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-07-30T10:36:29.024000Z"
+  }
+}

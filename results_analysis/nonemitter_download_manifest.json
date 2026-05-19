@@ -1,0 +1,125 @@
+{
+  "nonemit_001": {
+    "location_id": "nonemit_001",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_001_S2B_MSIL1C_20240518T102559_N0510_R108_T32UNE_20240518T122950.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_002": {
+    "location_id": "nonemit_002",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_002_S2A_MSIL1C_20240509T105031_N0510_R051_T31UGR_20240509T125022.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_003": {
+    "location_id": "nonemit_003",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_003_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_004": {
+    "location_id": "nonemit_004",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_004_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_005": {
+    "location_id": "nonemit_005",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_005_S2B_MSIL1C_20240721T100559_N0510_R022_T33UUQ_20240721T121133.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_006": {
+    "location_id": "nonemit_006",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_006_S2A_MSIL1C_20240625T103631_N0510_R008_T31UGR_20240625T142035.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_007": {
+    "location_id": "nonemit_007",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_007_S2B_MSIL1C_20240519T095549_N0510_R122_T33UUQ_20240519T120005.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_008": {
+    "location_id": "nonemit_008",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_008_S2A_MSIL1C_20240729T102021_N0511_R065_T32UPA_20240729T172024.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_009": {
+    "location_id": "nonemit_009",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_009_S2A_MSIL1C_20240626T101031_N0510_R022_T33UUS_20240626T152850.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_010": {
+    "location_id": "nonemit_010",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_010_S2B_MSIL1C_20240615T094549_N0510_R079_T34UCU_20240615T111033.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_011": {
+    "location_id": "nonemit_011",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_011_S2B_MSIL1C_20240615T094549_N0510_R079_T34UDC_20240615T111033.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_012": {
+    "location_id": "nonemit_012",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_012_S2A_MSIL1C_20240421T095031_N0510_R079_T34UCU_20240421T115007.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_013": {
+    "status": "ok",
+    "npy": "data/nonemitter_tiles/nonemit_013_S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.npy",
+    "meta": "data/nonemitter_tiles/S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-08-14T09:45:49.024000Z",
+    "product_name": "S2B_MSIL1C_20240814T094549_N0511_R079_T34UDC_20240814T114912.SAFE",
+    "actual_tile": "T34UDC",
+    "location_id": "nonemit_013",
+    "proximity_flag": "OK"
+  },
+  "nonemit_014": {
+    "status": "ok",
+    "npy": "data/nonemitter_tiles/nonemit_014_S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.npy",
+    "meta": "data/nonemitter_tiles/S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-06-25T10:36:31.024000Z",
+    "product_name": "S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035.SAFE",
+    "actual_tile": "T32UNE",
+    "location_id": "nonemit_014",
+    "proximity_flag": "OK"
+  },
+  "nonemit_015": {
+    "location_id": "nonemit_015",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_015_S2B_MSIL1C_20240408T102559_N0510_R108_T33UUB_20240408T125832.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_016": {
+    "location_id": "nonemit_016",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_016_S2A_MSIL1C_20240326T093031_N0510_R136_T35VLC_20240326T102231.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_017": {
+    "location_id": "nonemit_017",
+    "status": "cached",
+    "npy": "data/nonemitter_tiles/nonemit_017_S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055.npy",
+    "proximity_flag": "OK"
+  },
+  "nonemit_018": {
+    "status": "ok",
+    "npy": "data/nonemitter_tiles/nonemit_018_S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.npy",
+    "meta": "data/nonemitter_tiles/S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044_geo.json",
+    "cloud_cover": null,
+    "acquisition_date": "2024-07-04T10:15:59.025000Z",
+    "product_name": "S2B_MSIL1C_20240704T101559_N0510_R065_T32TPQ_20240704T122044.SAFE",
+    "actual_tile": "T32TPQ",
+    "location_id": "nonemit_018",
+    "proximity_flag": "OK"
+  }
+}
