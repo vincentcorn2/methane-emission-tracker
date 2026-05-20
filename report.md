@@ -10,7 +10,7 @@ European Central Bank & European Investment Bank
 
 ## Abstract
 
-Methane from European coal mines represents an unquantified liability for institutions financing the sector's transition: operators self-report through activity-based estimates, and no independent, calibrated monitoring system with a verifiable error rate currently exists for this asset class. We close part of that gap. Adapting CH4Net to European terrain through eleven retraining experiments, we derive a conformal detection threshold with a finite-sample false-positive guarantee of ≤10% and apply CFAR background testing and CEMF+IME inversion to eight candidate facilities. Three findings follow. At KWB Bełchatów, we identify 30 above-threshold detections spanning 2020–2024, yielding a detection-weighted annualised estimate of 11,481 t CH₄/yr (95% CI: 6,563–16,400 t/yr), approximately 39% of the Climate TRACE inventory and consistent with published Sentinel-2 recovery ranges of 30–60%. At Rybnik, externally validated by both TROPOMI and Carbon Mapper, the calibrated rule never fires despite methane-consistent model responses. The failure is attributable to training-set under-representation of Silesian industrial-fringe terrain, and implies that current optical monitoring cannot yet confirm underground hard-coal emissions at this class of site. We demonstrate how these measurements translate into illustrative transition-risk exposure under EU ETS-equivalent pricing.
+Methane from European coal mines represents an unquantified liability for institutions financing the sector's transition: operators self-report through activity-based estimates, and no independent, calibrated monitoring system with a verifiable error rate currently exists for this asset class. We close part of that gap. Adapting CH4Net to European terrain through eleven retraining experiments, we derive a conformal detection threshold with a finite-sample false-positive guarantee of ≤10% and apply CFAR background testing and CEMF+IME inversion to eight candidate facilities. Three findings follow. At KWB Bełchatów, we identify 26 quantification-supporting detections spanning 2019–2025, yielding a detection-weighted annualised estimate of 16,486 t CH₄/yr (95% CI: 6,781–26,191 t/yr), approximately 56% of the Climate TRACE inventory and consistent with published Sentinel-2 recovery ranges of 30–60%. At Rybnik, externally validated by both TROPOMI and Carbon Mapper, the calibrated rule never fires despite methane-consistent model responses. The failure is attributable to training-set under-representation of Silesian industrial-fringe terrain, and implies that current optical monitoring cannot yet confirm underground hard-coal emissions at this class of site. We demonstrate how these measurements translate into illustrative transition-risk exposure under EU ETS-equivalent pricing.
 
 ---
 
@@ -21,13 +21,15 @@ Methane from European coal mines represents an unquantified liability for instit
 | Conformal threshold τ (α = 0.10) | 3.5796 |
 | Bootstrap 90% CI on τ | [2.49, 4.34] |
 | Calibration sites (n) | 35 |
-| Above-threshold responses (Bełchatów, 2020–2024) | 30 (1 TROPOMI cross-validated; 29 calibrated-rule only) |
-| Quantification-supporting observations | 37 |
-| Detection-weighted annualized estimate | 11,481 t CH₄/yr |
-| 95% CI on annual estimate | [6,563, 16,400] t/yr |
+| Above-threshold responses (Bełchatów, 2019–2025) | 30 above-threshold total; 26 quantification-supporting (1 TROPOMI cross-validated) |
+| Quantification-supporting observations | 26 |
+| Mean per-overpass flow rate | 1,882 kg CH₄/hr |
+| Detection-weighted annualised estimate | 16,486 t CH₄/yr |
+| 95% CI on annual estimate | [6,781, 26,191] t/yr |
 | Climate TRACE reported total (2024) | 29,636 t CH₄/yr |
-| Recovery ratio | 39% (95% CI: 22%–55%) |
-| Estimated gap | 18,155 t/yr |
+| Recovery ratio | 56% (95% CI: 23%–88%) |
+| Implied annual carbon cost (central, GWP100) | €32.3 M at €70/tCO₂e |
+| Monte Carlo Climate VaR 99 (GWP100) | €71.5 M |
 
 ---
 
@@ -38,11 +40,11 @@ Methane from European coal mines represents an unquantified liability for instit
 >
 > **What this pipeline is.** An independent, satellite-based, per-overpass emission monitoring system for coal-mine methane, built on freely available Sentinel-2 imagery and a deep learning model calibrated against a verified European non-emitter reference set. It produces a facility-level time series that can be updated with every cloud-free satellite pass — approximately 15–25 times per year at European latitudes — without any cooperation from the emitting entity.
 >
-> **What it found.** At KWB Bełchatów — Europe's largest coal mine, operated by PGE — the analysis identified 30 above-threshold detections spanning 2020–2024, all in months when Climate TRACE independently reports the mine emitting at the 1,700–3,000 tonne level. The detection-weighted annualized emission estimate is **11,481 t CH₄/yr** (95% CI: 6,563–16,400 t/yr), approximately 39% of the Climate TRACE inventory figure of 29,636 t/yr, consistent with published Sentinel-2 recovery ranges of 30–60% (see §6.4 for interpretation). One detection date — September 9, 2021 — carries independent confirmation from the TROPOMI atmospheric sensor on the same day.
+> **What it found.** At KWB Bełchatów — Europe's largest coal mine, operated by PGE — the analysis identified 30 above-threshold detections spanning 2019–2025, all in months when Climate TRACE independently reports the mine emitting at the 1,700–3,000 tonne level. The detection-weighted annualised emission estimate is **16,486 t CH₄/yr** (95% CI: 6,781–26,191 t/yr), approximately 56% of the Climate TRACE inventory figure of 29,636 t/yr, consistent with published Sentinel-2 recovery ranges of 30–60% (see §6.4 for interpretation). One detection date — September 9, 2021 — carries independent confirmation from the TROPOMI atmospheric sensor on the same day.
 >
 > **What it cannot find — and why this matters more.** The Rybnik underground hard-coal complex in Silesia, the most externally validated site in the candidate set (five TROPOMI enhancements ranging 10–20 ppb, six Carbon Mapper overpasses with four quantified emissions at 1,150–2,019 kg CH₄/hr), never triggers the calibrated detection rule. The model responds to Rybnik spectrally — it is not blind — but the industrial-fringe terrain exceeds the current training distribution's coverage. **A monitoring implication follows: portfolio-level methane risk assessments relying solely on optical satellite detection would undercount underground hard-coal operations if this gap is not addressed. The underground sector's methane exposure should be treated as currently unverifiable by this approach, not as zero.**
 >
-> **Financial exposure — single issuer.** Under EU ETS-equivalent pricing and the EU MRV metric (GWP100, factor 28), the Bełchatów detection record implies an annual carbon-cost exposure of approximately **€22.5 M** at €70/tCO₂e (95% CI: €12.9–€32.1 M). Under GWP20 (factor 83, IPCC AR6) — more appropriate for near-term transition risk over 5–10 year investment horizons — the comparable figure is **€66.8 M** (CI: €38.1–€95.3 M). Credit-spread and equity stress scenarios for a hypothetical €10 M PGE position are developed in Section 7.
+> **Financial exposure — single issuer.** Under EU ETS-equivalent pricing and the EU MRV metric (GWP100, factor 28), the Bełchatów detection record implies an annual carbon-cost exposure of approximately **€32.3 M** at €70/tCO₂e (95% CI: €13.3–€51.3 M). Under GWP20 (factor 83, IPCC AR6) — more appropriate for near-term transition risk over 5–10 year investment horizons — the comparable figure is **€95.8 M** (CI: €39.4–€152.2 M). Credit-spread and equity stress scenarios for a hypothetical €10 M PGE position are developed in Section 7.
 >
 > **Scenario: regulatory disclosure and coordinated reassessment.** If satellite-derived emission monitoring were deployed systematically and linked to mandatory disclosure frameworks, it could contribute to a coordinated reassessment of carbon-linked asset values across coal-sector portfolios — one mechanism the CRST literature identifies as a prerequisite for information-driven repricing (Reinders, Schoenmaker & van Dijk, 2025). This pipeline demonstrates the sensing capability that would underpin such a scenario at a single facility. Whether markets would respond to improved emission transparency through material repricing is conditional on regulatory adoption, disclosure coordination, and investor response — none of which this study models or predicts.
 >
@@ -76,7 +78,7 @@ Methane from European coal mines represents an unquantified liability for instit
 
 **Main findings.** Bełchatów — included in training as a negative example — produces a multi-year above-threshold detection record consistent with an independent emissions inventory, providing evidence consistent with spectral generalisation rather than site memorization, though this inference rests on a single site and should be interpreted accordingly. Rybnik produces no calibrated detections despite stronger external validation than any other candidate site; the cause is an identifiable training-distribution gap documented in Section 5. Full quantitative results are in Section 6.
 
-**Contributions.** This paper makes six concrete contributions. First, a European domain adaptation of CH4Net with documented training-set shifts, eleven retraining experiments, and held-out validation. Second, a conformal-calibrated detection threshold replacing the heuristic 1.15 threshold — a methodologically sharper foundation than is typical in applied remote-sensing work. Third, operational handling for four real-world remote-sensing failure modes rarely addressed together: partial-swath data artifacts, denominator-collapse in S/C ratios, terrain-heterogeneity-driven CFAR adaptation, and cloud-driven temporal sparsity. Fourth, a facility-level quantification pipeline integrating Sentinel-2 output, ERA5 winds, and the IME/CEMF framework across 37 observations. Fifth, an empirical characterization of where the current European detection frontier lies, including a systematic failure mode with direct implications for how institutions should interpret optical satellite monitoring of underground hard-coal operations. Sixth, direct evidence against training-set memorization: the model produces 30 above-threshold responses at Bełchatów despite this site being labeled as a non-emitter in training, with zero date-overlap between training crops and evaluation acquisitions confirmed by formal temporal leakage audit — a stronger generalization argument than a held-out test provides.
+**Contributions.** This paper makes six concrete contributions. First, a European domain adaptation of CH4Net with documented training-set shifts, eleven retraining experiments, and held-out validation. Second, a conformal-calibrated detection threshold replacing the heuristic 1.15 threshold — a methodologically sharper foundation than is typical in applied remote-sensing work. Third, operational handling for four real-world remote-sensing failure modes rarely addressed together: partial-swath data artifacts, denominator-collapse in S/C ratios, terrain-heterogeneity-driven CFAR adaptation, and cloud-driven temporal sparsity. Fourth, a facility-level quantification pipeline integrating Sentinel-2 output, ERA5 winds, and the IME/CEMF framework across 26 observations. Fifth, an empirical characterization of where the current European detection frontier lies, including a systematic failure mode with direct implications for how institutions should interpret optical satellite monitoring of underground hard-coal operations. Sixth, direct evidence against training-set memorization: the model produces 30 above-threshold responses at Bełchatów despite this site being labeled as a non-emitter in training, with zero date-overlap between training crops and evaluation acquisitions confirmed by formal temporal leakage audit — a stronger generalization argument than a held-out test provides.
 
 ---
 
@@ -228,7 +230,7 @@ The Rybnik non-detection reflects a training coverage gap, not a fundamental lim
 
 ## 6. Results at Bełchatów
 
-A note on epistemic register before the results: **detection** and **quantification** operate in fundamentally different uncertainty regimes in this pipeline, and the paper's claims should be read accordingly. Detection — whether the model's calibrated rule fires — is relatively strong: the conformal threshold provides a calibrated false-positive bound, every above-threshold response date aligns with Climate TRACE's independent inventory, and the model produces above-threshold responses at this site despite a negative training label. Annual quantification is substantially weaker: it is conditioned on the highly non-representative sample of cloud-free observable overpasses, carries structural seasonal bias (zero winter observations in any year), and propagates significant wind and spatial-extent uncertainty through the CEMF inversion. The 11,481 t/yr figure and the 39% recovery ratio should be read as detection-conditioned estimates under a continuous-emission assumption, not as direct measurements of annual throughput.
+A note on epistemic register before the results: **detection** and **quantification** operate in fundamentally different uncertainty regimes in this pipeline, and the paper's claims should be read accordingly. Detection — whether the model's calibrated rule fires — is relatively strong: the conformal threshold provides a calibrated false-positive bound, every above-threshold response date aligns with Climate TRACE's independent inventory, and the model produces above-threshold responses at this site despite a negative training label. Annual quantification is substantially weaker: it is conditioned on the highly non-representative sample of cloud-free observable overpasses, carries structural seasonal bias (zero winter observations in any year), and propagates significant wind and spatial-extent uncertainty through the CEMF inversion. The 16,486 t/yr figure and the 56% recovery ratio should be read as detection-conditioned estimates under a continuous-emission assumption, not as direct measurements of annual throughput.
 
 ### 6.1 The Facility
 
@@ -236,7 +238,7 @@ KWB Bełchatów is an open-pit lignite mine in central Poland, operated by PGE P
 
 ### 6.2 The Detection Record
 
-We ingested 111 Sentinel-2 acquisitions over Bełchatów spanning 2021 through 2024, averaging slightly over three overpasses per month. Of these, 47 were reclassified as missing observations due to the partial-swath data quality issue described in Section 5.2. The remaining 64 acquisitions entered the detection analysis as valid observations. Of those, 37 produced sufficient model output to support a CEMF+IME quantification estimate at a consistent 7.5 km crop window. The 30 above-threshold responses in the combined record are composed of two groups: 27 detections from the 2021–2024 intensive monitoring period that satisfied both the calibrated S/C threshold (sc_cfar > τ) and the CFAR gate, plus 3 additional detections from the 2020–2024 candidate backfill evaluation (including the June 2020 detection at S/C = 849). Eight further records fell below the conformal threshold but carried enough model signal for a valid IME inversion. The September 9, 2021 acquisition — the highest-S/C date in the record — carries same-day TROPOMI cross-validation (§6.5); the remaining 29 above-threshold dates are calibrated-rule-confirmed only.
+We ingested 139 Sentinel-2 acquisitions over Bełchatów spanning 2019 through 2025. Of these, 65 were reclassified as missing observations due to the partial-swath data quality issue described in Section 5.2. The remaining 74 acquisitions entered the detection analysis as valid observations. Of those, 26 produced sufficient model output to support a CEMF+IME quantification estimate using the OSM mine polygon boundary. The 30 above-threshold responses in the combined record are composed of two groups: 27 detections from the 2021–2024 intensive monitoring period that satisfied both the calibrated S/C threshold (sc_cfar > τ) and the CFAR gate, plus 3 additional detections from the 2020–2024 candidate backfill evaluation (including the June 2020 detection at S/C = 849). Eight further records fell below the conformal threshold but carried enough model signal for a valid IME inversion. The September 9, 2021 acquisition — the highest-S/C date in the record — carries same-day TROPOMI cross-validation (§6.5); the remaining 29 above-threshold dates are calibrated-rule-confirmed only.
 
 Every detection date from 2021 onward falls inside a month where Climate TRACE independently reports the mine emitting methane at the 1,700 to 3,000 tonne level. Non-detection dates cluster in winter and shoulder-season months — December through February and November — when cloud cover, reduced solar elevation, and occasional snow cover reduce Sentinel-2's effective sensitivity in the shortwave-infrared bands. These are not months when the mine stops emitting; they are months when the satellite cannot see clearly enough to detect it.
 
@@ -246,17 +248,17 @@ The record of above-threshold responses also provides evidence against a label-r
 
 To convert the spatial probability maps into physical emission rate estimates, we apply the Column-Enhancement Mass Flux (CEMF) method, following Varon et al. (2021). This approach integrates the mass of methane enhancement implied by the CH4Net probability map over a defined area, then divides by the estimated atmospheric transport time using wind speed data from the ERA5 reanalysis product (produced by the European Centre for Medium-Range Weather Forecasts, and available through the Copernicus Climate Data Store). The wind provides the key link between a snapshot of a plume at one moment and an estimate of how fast methane is flowing out of the source.
 
-We applied this method to a consistent 7.5 kilometer crop window centered on the mine coordinates across all 37 quantification-supporting observations. ERA5 wind data was retrieved at the satellite overpass time for each date; all 37 records used ERA5 reanalysis winds rather than climatological fallback values, which would have required an additional uncertainty penalty.
+We applied the MBSP retrieval (Varon et al. 2021, scene-derived band-scaling factor *c*) to the OSM mine polygon boundary across all 26 quantification-supporting observations. ERA5 wind data was retrieved at the satellite overpass time for each date; all 26 records used ERA5 reanalysis winds rather than climatological fallback values, which would have required an additional uncertainty penalty.
 
-Estimated emission rates across the 37 records ranged from 82 to 8,218 kilograms of methane per hour, with a median of 618 kg/hr and a mean of 1,311 kg/hr. The wide range is expected and physically meaningful: methane emissions from an open-pit mine are not constant. They vary with excavation activity, wind conditions that affect how the plume disperses, and atmospheric stability that affects how much methane the satellite can sense above the background. High emission days tend to produce higher S/C ratios, which is why the distribution of detection-date flow rates skews upward relative to the overall emission average — the model detects more easily on high-emission days, introducing a selection bias that our 30–60% recovery expectation accounts for. The dominant uncertainty sources on individual per-overpass estimates, in approximate order of contribution, are: wind retrieval (~±20%, propagated from ERA5 accuracy at coarse resolution), sensitivity coefficient (~±15%, traceable to the Varon 2021 calibration), mask threshold sensitivity (~±5–7% at Bełchatów, based on formal jackknife decomposition showing near-zero background contribution), and temporal sampling bias — the largest structural uncertainty on the annualised figure, arising because detected days may not be representative of the continuous emission distribution across all cloud-free opportunities.
+Estimated emission rates across the 26 records ranged from 72 to 9,957 kilograms of methane per hour, with a median of 612 kg/hr and a mean of 1,882 kg/hr. The wide range is expected and physically meaningful: methane emissions from an open-pit mine are not constant. They vary with excavation activity, wind conditions that affect how the plume disperses, and atmospheric stability that affects how much methane the satellite can sense above the background. High emission days tend to produce higher S/C ratios, which is why the distribution of detection-date flow rates skews upward relative to the overall emission average — the model detects more easily on high-emission days, introducing a selection bias that our 30–60% recovery expectation accounts for. The dominant uncertainty sources on individual per-overpass estimates, in approximate order of contribution, are: wind retrieval (~±20%, propagated from ERA5 accuracy at coarse resolution), sensitivity coefficient (~±15%, traceable to the Varon 2021 calibration), mask threshold sensitivity (~±5–7% at Bełchatów, based on formal jackknife decomposition showing near-zero background contribution), and temporal sampling bias — the largest structural uncertainty on the annualised figure, arising because detected days may not be representative of the continuous emission distribution across all cloud-free opportunities.
 
-The 95% confidence interval on the mean rate, based on a t-distribution with 36 degrees of freedom, runs from 749 to 1,872 kg/hr. Under a continuous-emission assumption and conditional on the cloud-free observable overpasses that produced this sample, the detection-weighted mean flow rate corresponds to an annualized estimate of 11,481 tonnes of methane per year. The 95% confidence interval on this annualized projection is 6,563 to 16,400 tonnes per year. This figure reflects what was detectable and measurable under the sampling conditions described in Section 8; it is not a direct measurement of annual throughput.
+The 95% confidence interval on the mean rate, based on a t-distribution with 25 degrees of freedom, runs from 774 to 2,990 kg/hr. Under a continuous-emission assumption and conditional on the cloud-free observable overpasses that produced this sample, the detection-weighted mean flow rate corresponds to an annualised estimate of 16,486 tonnes of methane per year. The 95% confidence interval on this annualised projection is 6,781 to 26,191 tonnes per year. This figure reflects what was detectable and measurable under the sampling conditions described in Section 8; it is not a direct measurement of annual throughput.
 
 ### 6.4 Comparison to the Independent Inventory
 
-Climate TRACE reports 29,636 tonnes of methane from asset 16168 for the full year 2024, making our annualized mean estimate approximately 39% of the inventory figure. The 95% confidence interval spans 22% to 55% of the Climate TRACE value.
+Climate TRACE reports 29,636 tonnes of methane from asset 16168 for the full year 2024, making our annualised mean estimate approximately 56% of the inventory figure. The 95% confidence interval spans 23% to 88% of the Climate TRACE value.
 
-This recovery fraction is not a discrepancy — it is the expected behavior of satellite-based single-overpass detection applied to a continuously emitting source. The published literature on Sentinel-2-based methane quantification at coal mines documents recovery ratios in the 30 to 60% range (Varon et al. 2021; Sherwin et al. 2024). Our estimate sits just below the lower bound of that range, which reflects two structural factors specific to our pipeline. First, we detect preferentially on favorable atmospheric days — low cloud cover, adequate solar illumination, stable atmospheric conditions — and these are not representative of the full year. On days the satellite cannot see clearly or the model cannot detect, we have no flow rate estimate, and those gaps tend toward periods of lower modeled sensitivity rather than lower actual emissions. Second, the model's probability maps over-predict spatial extent relative to the true plume boundary, which makes the area integration in the CEMF calculation sensitive to the crop window size. We used a consistent 7.5 kilometer crop for all 37 records to avoid introducing size-dependent bias across the time series, but the absolute level of the estimate varies with this choice: a narrower window (5 km) would capture less of the over-predicted plume area and likely reduce the mean estimate, while a wider window (10 km) risks incorporating background pixels that inflate it. The direction of the dominant bias is toward overestimation of spatial extent, which would push our recovery ratio downward relative to the true value — meaning 39% should be interpreted as a lower bound on the fraction of total emissions we are detecting, not an upper bound. A useful analogy: measuring a river's flow rate on 37 cloud-free days per year and averaging does not "see only 37/365 of the river" — it measures the flow on those specific days and extrapolates. The 39% ratio reflects how that day-weighted average compares to an inventory covering all 365 days; it is not evidence that the pipeline misses 61% of plumes on the days it does observe.
+This recovery fraction is not a discrepancy — it is the expected behavior of satellite-based single-overpass detection applied to a continuously emitting source. The published literature on Sentinel-2-based methane quantification at coal mines documents recovery ratios in the 30 to 60% range (Varon et al. 2021; Sherwin et al. 2024). Our estimate sits within that range, which reflects two structural factors specific to our pipeline. First, we detect preferentially on favorable atmospheric days — low cloud cover, adequate solar illumination, stable atmospheric conditions — and these are not representative of the full year. On days the satellite cannot see clearly or the model cannot detect, we have no flow rate estimate, and those gaps tend toward periods of lower modeled sensitivity rather than lower actual emissions. Second, the model's probability maps over-predict spatial extent relative to the true plume boundary, which makes the area integration in the CEMF calculation sensitive to the crop window size. We used the OSM mine polygon boundary consistently across all 26 records to avoid introducing size-dependent bias across the time series, but the absolute level of the estimate varies with crop choice: a tighter boundary would capture less of the over-predicted plume area and likely reduce the mean estimate, while a looser one risks incorporating background pixels that inflate it. The direction of the dominant bias is toward overestimation of spatial extent, which would push our recovery ratio downward relative to the true value — meaning 56% should be interpreted as a lower bound on the fraction of total emissions we are detecting, not an upper bound. A useful analogy: measuring a river's flow rate on 26 cloud-free days per year and averaging does not "see only 26/365 of the river" — it measures the flow on those specific days and extrapolates. The 56% ratio reflects how that day-weighted average compares to an inventory covering all 365 days; it is not evidence that the pipeline misses 44% of plumes on the days it does observe.
 
 Climate TRACE itself rates its 2024 confidence for this asset as "low" on its published confidence scale, reflecting the well-documented difficulty of quantifying fugitive coal mine emissions from activity data alone. Neither estimate is a ground-truth measurement. Both are independent estimates built from different methodologies, and their order-of-magnitude agreement is the validation we can responsibly claim.
 
@@ -300,7 +302,7 @@ Key 2024 financials (PGE consolidated annual report): net loss EUR 717M (second 
 
 We implement a Monte Carlo uncertainty propagation engine (10,000 simulations) to translate the satellite-derived methane emission record into a full probability distribution of carbon liabilities. The framework follows the stochastic climate risk approach of Desnos, Le Guenedal, Morais and Roncalli (Amundi, 2024) and incorporates the IME plume quantification uncertainty budget recommended in Worden et al. (NIST IR 8575, 2025).
 
-In each simulation we draw five inputs: (i) annual CH₄ emission from a zero-truncated normal matching the 37-observation sampling CI; (ii) systematic ERA5 wind bias ~N(0, 0.10) per NIST IR 8575 §4.2; (iii) plume spatial-extent factor ~Uniform(0.85, 1.15) per Varon et al. (2021, AMT §2.3); (iv) carbon price from LogNormal centred at €70/tCO₂e with 30% log-volatility; and (v) regulatory enforcement probability from Beta(9,1), mean 90%.
+In each simulation we draw five inputs: (i) annual CH₄ emission from a zero-truncated normal matching the 26-observation sampling CI; (ii) systematic ERA5 wind bias ~N(0, 0.10) per NIST IR 8575 §4.2; (iii) plume spatial-extent factor ~Uniform(0.85, 1.15) per Varon et al. (2021, AMT §2.3); (iv) carbon price from LogNormal centred at €70/tCO₂e with 30% log-volatility; and (v) regulatory enforcement probability from Beta(9,1), mean 90%.
 
 The truncated normal in step (i) — rather than a log-normal — preserves the exact accounting identity E[Liability] = E[Q] × GWP × E[Price] × E[β], making the model auditable against the deterministic base case. The stochastic mean lies ~10% below the deterministic figure, reflecting the Beta(9,1) enforcement distribution; this gap is documented, not a defect.
 
@@ -308,38 +310,38 @@ We report the mean expected liability, 95% and 99% Climate Value-at-Risk, and 99
 
 ### 7.2 Implied Carbon-Cost Exposure
 
-Coal-mine methane is not currently covered under the EU ETS (Phase IV), but the Methane Regulation sets the trajectory. The figures below represent order-of-magnitude exposure if a comparable price regime applied. Converting the pipeline's central estimate (11,481 t CH₄/yr) via IPCC AR5 GWP100 (factor 28) gives 321,468 t CO₂e/yr. Sensitivity across EUA price scenarios:
+Coal-mine methane is not currently covered under the EU ETS (Phase IV), but the Methane Regulation sets the trajectory. The figures below represent order-of-magnitude exposure if a comparable price regime applied. Converting the pipeline's central estimate (16,486 t CH₄/yr) via IPCC AR5 GWP100 (factor 28) gives 461,608 t CO₂e/yr. Sensitivity across EUA price scenarios:
 
 | Price case | €/tCO₂e | Mean estimate | Lower CI bound | Upper CI bound |
 |---|---:|---:|---:|---:|
-| Low | 50 | €16.07 M | €9.19 M | €22.96 M |
-| Central | 70 | €22.50 M | €12.86 M | €32.14 M |
-| Upper | 95 | €30.54 M | €17.46 M | €43.62 M |
+| Low | 50 | €23.08 M | €9.49 M | €36.67 M |
+| Central | 70 | €32.31 M | €13.29 M | €51.33 M |
+| Upper | 95 | €43.85 M | €18.04 M | €69.67 M |
 
-To place these figures in context: PGE's existing CO₂ allowance book is EUR ~2.54B (end-2024). The methane satellite estimate at the central EUA price adds approximately 0.9–2.6% to that existing carbon exposure depending on GWP metric — small as a fraction of the allowance book, but entirely unpriced and unaudited without independent monitoring. Under the central case the implied annual exposure is approximately €22.5 M at GWP100. The EU MRV framework uses GWP100 as its regulatory metric, making it the appropriate basis for compliance exposure estimates. GWP20 (factor 83, IPCC AR6) is the more relevant horizon for near-term transition risk: it reflects the actual climate forcing over the 5–10 year investment horizons within which most coal asset repricing is expected to occur.
+To place these figures in context: PGE's existing CO₂ allowance book is EUR ~2.54B (end-2024). The methane satellite estimate at the central EUA price adds approximately 1.3–3.8% to that existing carbon exposure depending on GWP metric — small as a fraction of the allowance book, but entirely unpriced and unaudited without independent monitoring. Under the central case the implied annual exposure is approximately €32.3 M at GWP100. The EU MRV framework uses GWP100 as its regulatory metric, making it the appropriate basis for compliance exposure estimates. GWP20 (factor 83, IPCC AR6) is the more relevant horizon for near-term transition risk: it reflects the actual climate forcing over the 5–10 year investment horizons within which most coal asset repricing is expected to occur.
 
 **GWP Sensitivity — Carbon-Cost Exposure (Central EUA price: €70/tCO₂e)**
 
 | | GWP100 (factor 28, EU MRV) | GWP20 (factor 83, IPCC AR6) |
 |---|---:|---:|
-| Annual CO₂e equivalent | 321,468 t | 953,923 t |
-| Mean estimate | €22.50 M | €66.77 M |
-| 95% CI lower bound | €12.86 M | €38.13 M |
-| 95% CI upper bound | €32.14 M | €95.28 M |
+| Annual CO₂e equivalent | 461,608 t | 1,368,338 t |
+| Mean estimate | €32.31 M | €95.80 M |
+| 95% CI lower bound | €13.29 M | €39.42 M |
+| 95% CI upper bound | €51.33 M | €152.19 M |
 
 The ~3× difference between GWP100 and GWP20 is not a modeling choice — it reflects a genuine scientific distinction about which time horizon the exposure is being priced over. GWP100 is the regulatory compliance metric: it governs EU MRV reporting and ETS-equivalent pricing frameworks. GWP20 is the investor-relevant metric for transition risk: stranded-asset repricing, if it occurs, unfolds over 5–10 year horizons driven by near-term physical forcing and policy action — not over a century. Supervisory exercises focused on near-term financial stability should present both.
 
 **Monte Carlo Climate Value-at-Risk (10,000 simulations)**
 
-The stochastic engine described in §7.1 propagates all five uncertainty layers jointly. The mean expected liability (€20.3M GWP100 / €60.3M GWP20) lies approximately 10% below the deterministic base case, reflecting the Beta(9,1) enforcement pass-through (mean 90%) — this gap is documented and intentional, not a model defect. The uncertainty decomposition reveals that carbon price trajectory (log-vol 30%, contributing 77% of total σ) dominates the tail; improving the satellite emission precision would have less impact on the liability distribution than reducing uncertainty about whether and when a comparable price regime applies.
+The stochastic engine described in §7.1 propagates all five uncertainty layers jointly. The mean expected liability (€29.0M GWP100 / €86.0M GWP20) lies approximately 10% below the deterministic base case, reflecting the Beta(9,1) enforcement pass-through (mean 90%) — this gap is documented and intentional, not a model defect. The uncertainty decomposition reveals that carbon price trajectory (log-vol 30%, contributing 77% of total σ) dominates the tail; improving the satellite emission precision would have less impact on the liability distribution than reducing uncertainty about whether and when a comparable price regime applies.
 
 | Risk Metric | GWP100 (M€) | GWP20 (M€) |
 |---|---:|---:|
-| Mean expected liability | 20.34 | 60.29 |
-| Median | 18.80 | 55.74 |
-| 95th percentile — Climate VaR 95 | 36.36 | 107.78 |
-| 99th percentile — Climate VaR 99 | 48.11 | 142.60 |
-| **99% Expected Shortfall (ES)** | **54.47** | **161.45** |
+| Mean expected liability | 29.03 | 86.04 |
+| Median | 26.65 | 79.01 |
+| 95th percentile — Climate VaR 95 | 55.01 | 163.05 |
+| 99th percentile — Climate VaR 99 | 71.50 | 211.96 |
+| **99% Expected Shortfall (ES)** | **81.44** | **241.41** |
 
 *Parameters: n_sim = 10,000; seed = 42; carbon price central €70/tCO₂e, log-vol 30%; pass-through Beta(9,1) mean 90%; ERA5 systematic σ = 10%; mask jitter Uniform(0.85,1.15). Full results in `results_analysis/finance_climate_var.json`.*
 
@@ -405,7 +407,7 @@ Finally, one methodological choice deserves transparency. We deliberately chose 
 
 Calibrated Sentinel-2 methane detection can produce financially relevant facility-level monitoring at large European open-pit coal mines, but current optical pipelines systematically underperform in industrial-fringe underground coal terrain. Both halves of that conclusion are empirically grounded. At Bełchatów, the approach yields a four-year above-threshold response record consistent with an independent emissions inventory, cross-validated by TROPOMI on the highest-signal date, and robust to a leakage audit and training-label contradiction test. At Rybnik — the most externally confirmed methane site in the candidate set — the calibrated rule never fires; the reason is identifiable: a training-distribution gap in Silesian industrial-fringe terrain.
 
-The Rybnik finding is as important as the Bełchatów result. It establishes that underground hard-coal operations in complex industrial terrain are currently below the detection horizon of this approach, and any institution using optical satellite monitoring to assess European coal methane risk should treat the underground hard-coal sector as systematically underrepresented rather than zero-emitting. The 61% gap between our Bełchatów estimate and the Climate TRACE inventory (18,155 t/yr in absolute terms) is not a pipeline failure — it is an honest characterization of what single-overpass optical sensing can see, consistent with the published literature. What the pipeline cannot see is equally important to document.
+The Rybnik finding is as important as the Bełchatów result. It establishes that underground hard-coal operations in complex industrial terrain are currently below the detection horizon of this approach, and any institution using optical satellite monitoring to assess European coal methane risk should treat the underground hard-coal sector as systematically underrepresented rather than zero-emitting. The 44% gap between our Bełchatów estimate and the Climate TRACE inventory (13,150 t/yr in absolute terms) is not a pipeline failure — it is an honest characterization of what single-overpass optical sensing can see, consistent with the published literature. What the pipeline cannot see is equally important to document.
 
 The immediate next steps are expanding the model's training coverage for Silesian underground mines, growing the conformal calibration set from n=35 toward n≥40 with additional Atlantic and Continental candidates to further tighten the bootstrap CI, and broadening the illustrative transition-risk translation (Section 7) from the single-issuer PGE case to a peer-portfolio basis covering other Central European lignite and hard-coal operators. Section 7 demonstrates how the quantification time series maps to carbon-price exposure and stylized stress scenarios under explicit regulatory assumptions; the portfolio extension is the natural follow-up.
 
@@ -413,7 +415,59 @@ The immediate next steps are expanding the model's training coverage for Silesia
 
 ## Data and Code Availability
 
-The pipeline code, trained model weights (CH4Net v8), per-site detection records, quantification outputs, and Monte Carlo simulation results are available at: **https://github.com/vincentcorn2/methane-emission-tracker**. Sentinel-2 imagery is freely accessible via the Copernicus Data Space Ecosystem (https://dataspace.copernicus.eu). ERA5 reanalysis wind data is available via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu). Climate TRACE facility-level inventory data is publicly available at https://climatetrace.org. Carbon Mapper overpass data used for Rybnik validation is available at https://carbonmapper.org.
+All pipeline code, model weights, detection records, and financial outputs are available at **https://github.com/vincentcorn2/methane-emission-tracker**. The file map below identifies every result file referenced in the paper. Files marked **[canonical]** are the authoritative inputs for all numbers reported in §6 and §7; files marked [archive] are retained for audit and crop-comparison purposes only.
+
+### Bełchatów detection and quantification records
+
+All files are under `results_analysis/` in the repository unless otherwise noted.
+
+| File | Coverage | Physics | Crop | Role |
+|---|---|---|---|---|
+| `belchatow_annual_timeseries_mbsp.json` | 2019–2025 | MBSP (Varon 2021, scene-derived *c*) | OSM mine polygon (51.242°N, 19.275°E) | **[canonical] Primary result — all §6 numbers** |
+| `belchatow_annual_timeseries.json` | 2019–2025 | Old heuristic (*c* = 0.5) | OSM mine polygon | [archive] Pre-MBSP run at correct site |
+| `timeseries/belchatow/04_belchatow_mine_polygon_allacq_2019-2025_snapshot.json` | 2019–2025 | Old heuristic | OSM mine polygon | [archive] Snapshot before MBSP re-run |
+| `timeseries/belchatow/03_belchatow_mine_coords_singleacq_2021-2024.json` | 2021–2024 | Old heuristic | 750 px square, correct coords | [archive] Intermediate crop |
+| `timeseries/belchatow/03_belchatow_mine_coords_singleacq_2021-2024_mbsp.json` | 2021–2024 | MBSP | 750 px square, correct coords | [archive] MBSP requant of intermediate |
+| `timeseries/belchatow/01_belchatow_powerstation_coords_750px_crop_2019-2024.json` | 2019–2024 | Old heuristic | 750 px square, **wrong site** (51.266°N, 19.315°E) | [archive] Old wrong-site run |
+| `timeseries/belchatow/01_belchatow_powerstation_coords_750px_crop_2019-2024_mbsp.json` | 2019–2024 | MBSP | 750 px square, wrong site | [archive] MBSP requant of wrong site |
+| `timeseries/belchatow/02_belchatow_powerstation_5km_crop_2024.json` | 2024 | Old heuristic | 5 km square, wrong site | [archive] −95% under MBSP (spurious surface signal) |
+| `timeseries/belchatow/02_belchatow_powerstation_5km_crop_2024_mbsp.json` | 2024 | MBSP | 5 km square, wrong site | [archive] Collapses to 320 kg/hr under MBSP |
+
+**Note on the wrong-site archive.** The `01_` and `02_` files used power-station coordinates (51.266°N, 19.315°E) rather than the mine centroid. They are retained as they demonstrate the internal validation described in §6: under MBSP physics the 5 km power-station crop collapses by 95%, confirming that old estimates over that boundary were driven by surface heterogeneity, not methane signal.
+
+### Rybnik detection records
+
+| File | Coverage | Role |
+|---|---|---|
+| `rybnik_chwalowice_annual_timeseries_mbsp.json` | 2019–2025 | **[canonical]** Current-site run, MBSP physics |
+| `rybnik_chwalowice_annual_timeseries.json` | 2019–2025 | [archive] Current-site run, old heuristic |
+| `timeseries/rybnik/02_rybnik_chwalowice_cm_pin_allacq_2019-2025_snapshot.json` | 2019–2025 | [archive] Snapshot, CM pin polygon |
+| `timeseries/rybnik/01_rybnik_wrong_site_pge_heat_centroid_2023.json` | 2023 | [archive] Old wrong-site run — 0 detections |
+
+### Financial outputs
+
+| File | Contents | Inputs used |
+|---|---|---|
+| `finance_climate_var.json` | **[canonical]** Monte Carlo CVaR, 10,000 simulations, all §7.1–7.2 tables | MBSP emission params (16,486 t/yr, n=26) |
+| `finance_transition_risk.json` | **[canonical]** Carbon-cost exposure table, PGE issuer stress grid, §7.2–7.5 | MBSP emission params (16,486 t/yr) |
+
+### Quantification and retrieval scripts
+
+| Script | Function |
+|---|---|
+| `src/quantification/cemf.py` | MBSP retrieval: scene-derived *c*, Varon Eq. 3, dXCH4 integration |
+| `src/quantification/ime.py` | IME inversion: Q = mass × U_eff / L, uncertainty bounds |
+| `scripts/quantification/requant_mbsp_upgrade.py` | Re-applies MBSP to all five historical crop variants for comparison |
+| `scripts/timeseries/belchatow_annual_timeseries.py` | Production Bełchatów pipeline (mine polygon, MBSP) |
+| `scripts/timeseries/rybnik_chwalowice_annual_timeseries.py` | Production Rybnik pipeline (CM pin polygon, MBSP) |
+| `scripts/finance/finance_climate_var.py` | Monte Carlo CVaR engine |
+| `scripts/finance/finance_transition_risk.py` | Transition-risk scenario module |
+| `scripts/analysis/annualise_belchatow.py` | QC-filtered annualisation with three framings |
+| `scripts/analysis/requant_mbsp_upgrade.py` | Crop comparison re-quantification |
+
+### External data sources
+
+Sentinel-2 imagery: Copernicus Data Space Ecosystem (https://dataspace.copernicus.eu). ERA5 reanalysis winds: Copernicus Climate Data Store (https://cds.climate.copernicus.eu). Climate TRACE facility inventory: https://climatetrace.org (asset 16168 for Bełchatów mine; note: do not use the adjacent power station asset, which reports near-zero methane). Carbon Mapper overpass data: https://carbonmapper.org.
 
 ---
 
