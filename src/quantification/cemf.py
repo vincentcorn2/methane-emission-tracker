@@ -58,10 +58,23 @@ def run_cemf(
             warning="Insufficient background pixels for stable retrieval"
         )
 
-    # Scene-derived background reference spectrum
-    mu_b11 = b11[background].mean()
-    mu_b12 = b12[background].mean()
+    # ── Varon et al. (2021) MBSP column retrieval ─────────────────────────────
+    # Eq. (3): ΔR_MBSP = (c · R12 − R11) / R11
+    # where c is the band-scaling factor fit by zero-intercept least squares on
+    # background pixels only: minimise ||R11 − c·R12||²  →  c = Σ(R11·R12)/Σ(R12²)
+    #
+    # Methane absorbs in B12 but not B11, so over a plume pixel c·R12 < R11 and
+    # ΔR_MBSP < 0.  We negate before dividing by the sensitivity so dXCH4 > 0.
+    #
+    # Sensitivity: ~4e-7 reflectance per ppb·m  (Varon 2021, calibrated for S2A/B
+    # near background column Ω₀ ≈ 1875 ppb; within ±15% across typical scenes).
+    # Using the full in-scene CH4Net mask as the background selector keeps this
+    # single-pass (MBSP) — no temporal differencing, safe for continuous emitters.
 
+    bg_b11 = b11[background].astype(np.float64)
+    bg_b12 = b12[background].astype(np.float64)
+
+    mu_b11 = float(bg_b11.mean())
     if mu_b11 < 1e-6:
         return CEMFResult(
             dxch4_map=np.zeros_like(b11),
@@ -73,16 +86,27 @@ def run_cemf(
             warning="Near-zero B11 background — possible bad scene"
         )
 
-    # Reflectance anomalies relative to background
-    d_b11 = b11 - mu_b11
-    d_b12 = b12 - mu_b12
+    b12_sq_sum = float(np.dot(bg_b12, bg_b12))
+    if b12_sq_sum < 1e-12:
+        return CEMFResult(
+            dxch4_map=np.zeros_like(b11),
+            plume_mask=mask,
+            total_mass_kg=0.0,
+            scene_id=scene_id,
+            timestamp=timestamp,
+            retrieval_valid=False,
+            warning="Near-zero B12 background — possible bad scene"
+        )
 
-    # Matched filter: methane absorbs more strongly in B12 than B11
-    # dXCH4 proportional to the differential absorption signal
-    # Sensitivity coefficient ~4e-7 reflectance per ppb·m (Varon et al. 2021, AMT, Sec. 2.2)
-    # Negative values clipped — non-physical for emission retrieval
-    dxch4 = (d_b12 - 0.5 * d_b11) / (mu_b11 * 4e-7)
-    dxch4 = np.clip(dxch4, 0, None)
+    # Scene-derived band-scaling factor (replaces hardcoded 0.5)
+    c = float(np.dot(bg_b11, bg_b12)) / b12_sq_sum
+
+    # Fractional reflectance anomaly per Varon Eq. (3)
+    delta_R = (c * b12.astype(np.float64) - b11.astype(np.float64)) / b11.astype(np.float64)
+
+    # Convert to column enhancement: ΔR is negative over plume → negate for positive dXCH4
+    SENSITIVITY = 4e-7   # reflectance per ppb·m (Varon 2021 Sec. 2.2)
+    dxch4 = np.clip(-delta_R / SENSITIVITY, 0, None).astype(np.float32)
 
     # Integrate mass over plume pixels
     # dXCH4 (ppb*m) -> kg per pixel

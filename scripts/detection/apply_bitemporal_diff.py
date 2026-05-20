@@ -357,7 +357,11 @@ def safe_crop(arr: np.ndarray, row: int, col: int,
     return arr[r0:r1, c0:c1]
 
 
-def compute_sc_ratio(tif_path: Path, lat: float, lon: float) -> dict:
+def compute_sc_ratio(tif_path: Path, lat: float, lon: float,
+                     offset_n: float = SC_OFFSET_DEG,
+                     offset_s: float = SC_OFFSET_DEG,
+                     offset_e: float = SC_OFFSET_DEG,
+                     offset_w: float = SC_OFFSET_DEG) -> dict:
     """Compute S/C ratio and CFAR threshold using all 4 directional control crops.
 
     Classic mode (sc_ratio): site_mean / ctrl_mean for the first valid direction.
@@ -367,12 +371,16 @@ def compute_sc_ratio(tif_path: Path, lat: float, lon: float) -> dict:
     CFAR is more robust to heterogeneous backgrounds: sites with variable control
     terrain (e.g., Dutch polders) get a higher adaptive threshold, reducing false
     positives without requiring retraining.
+
+    Per-direction offsets (offset_n/s/e/w) allow asymmetric control placement —
+    useful when the site footprint is elongated (e.g. KWB Bełchatów mine spans
+    ~21 km E-W, so E/W controls need wider offsets to clear the mine boundary).
     """
     offsets = [
-        ( SC_OFFSET_DEG, 0.0,            "N"),
-        (-SC_OFFSET_DEG, 0.0,            "S"),
-        (0.0,            SC_OFFSET_DEG,  "E"),
-        (0.0,           -SC_OFFSET_DEG,  "W"),
+        ( offset_n, 0.0,      "N"),
+        (-offset_s, 0.0,      "S"),
+        (0.0,       offset_e, "E"),
+        (0.0,      -offset_w, "W"),
     ]
     try:
         with rasterio.open(tif_path) as src:

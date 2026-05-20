@@ -57,17 +57,19 @@ OUT_PATH = ROOT / "results_analysis" / "finance_climate_var.json"
 @dataclass
 class EmissionParams:
     """
-    Observed Bełchatów emission record — 37 quantification-supporting overpasses.
+    Observed Bełchatów emission record — 26 quantification-supporting overpasses.
+    Updated to MBSP (Varon 2021) scene-derived c coefficient retrieval.
     The 95% CI is the sampling CI on the detection-weighted mean under the
     upper-framing annualisation (non-detection months assigned detection-day mean).
+    Source: recompute_annualisation.py on belchatow_annual_timeseries_mbsp.json
     """
-    mean_flow_kgh:  float = 1_311.0    # mean per-overpass flow rate (kg/hr)
-    sd_flow_kgh:    float = 1_690.0    # standard deviation across 37 detections
-    n_obs:          int   = 37         # quantification-supporting observations
+    mean_flow_kgh:  float = 1_882.0    # mean per-overpass flow rate (kg/hr)
+    sd_flow_kgh:    float = 2_762.0    # standard deviation across 26 detections
+    n_obs:          int   = 26         # quantification-supporting observations
     # Annual estimates (t CH₄/yr)
-    mean_annual_t:  float = 11_481.0   # detection-weighted annualised estimate
-    ci95_lo:        float =  6_563.0   # 95% CI lower bound
-    ci95_hi:        float = 16_400.0   # 95% CI upper bound
+    mean_annual_t:  float = 16_486.0   # detection-weighted annualised estimate (upper framing)
+    ci95_lo:        float =  6_781.0   # 95% CI lower bound
+    ci95_hi:        float = 26_191.0   # 95% CI upper bound
     # Hours per year (for mean × 8760 annualisation)
     hours_per_year: float = 8_760.0
 
@@ -123,8 +125,8 @@ class UncertaintyParams:
     tau_boot_std:   float = 0.7056    # bootstrap std
 
     # — Base detection rate at τ_current —
-    # 37 quantification records / 64 valid observations = 0.578
-    base_det_rate: float = 0.578
+    # 26 quantification records / 68 valid observations = 0.382
+    base_det_rate: float = 0.382
 
 
 # ── ③ CARBON PRICE & FINANCIAL PARAMETERS  ───────────────────────────────────

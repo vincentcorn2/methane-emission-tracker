@@ -7,50 +7,42 @@
       "Amundi 2024 \u2014 stochastic carbon price / pass-through",
       "NIST IR 8575 (Worden et al. 2025) \u2014 IME uncertainty budget"
     ],
+    "source": "belchatow_annual_timeseries_mbsp.json (MBSP retrieval, Varon 2021)",
     "carbon_price_central_eur_tco2e": 70.0,
     "carbon_price_log_vol": 0.3,
     "passthrough_beta_mean": 0.9
   },
   "emission_draws": {
-    "q_mean_t_yr": 11431.3,
-    "q_p5_t_yr": 7044.4,
-    "q_p95_t_yr": 16327.3,
-    "q_sd_t_yr": 2869.3
+    "q_mean_t_yr": 16472.5,
+    "q_p5_t_yr": 8352.1,
+    "q_p95_t_yr": 25674.8,
+    "q_sd_t_yr": 5257.8
   },
   "carbon_price_draws": {
-    "mean_eur_tco2e": 70.47,
-    "p5_eur_tco2e": 40.93,
-    "p95_eur_tco2e": 111.05
+    "mean_eur_tco2e": 69.93,
+    "p5_eur_tco2e": 40.57,
+    "p95_eur_tco2e": 109.86
   },
   "liability_gwp100": {
     "label": "GWP100 (factor 28)",
-    "mean": 20.339,
-    "median": 18.805,
-    "var_95": 36.359,
-    "var_99": 48.107,
-    "es_99": 54.466,
-    "p5": 9.292,
-    "p25": 14.209,
-    "p75": 24.908
+    "mean": 29.027,
+    "median": 26.653,
+    "var_95": 55.006,
+    "var_99": 71.503,
+    "es_99": 81.44,
+    "p5": 11.535,
+    "p25": 19.234,
+    "p75": 35.964
   },
   "liability_gwp20": {
     "label": "GWP20  (factor 83)",
-    "mean": 60.291,
-    "median": 55.743,
-    "var_95": 107.779,
-    "var_99": 142.601,
-    "es_99": 161.453,
-    "p5": 27.545,
-    "p25": 42.12,
-    "p75": 73.835
-  },
-  "tau_sensitivity": {
-    "note": "Lower-bound framing (det_rate \u00d7 mean_flow \u00d7 8760). Upper framing is \u03c4-independent.",
-    "tau_mean_draw": 3.3364,
-    "det_rate_mean": 0.565,
-    "gwp100_mean_liability_MEur": 11.388,
-    "gwp20_mean_liability_MEur": 33.758,
-    "gwp100_var99_MEur": 22.956,
-    "gwp20_var99_MEur": 68.049
+    "mean": 86.044,
+    "median": 79.008,
+    "var_95": 163.053,
+    "var_99": 211.955,
+    "es_99": 241.412,
+    "p5": 34.192,
+    "p25": 57.015,
+    "p75": 106.608
   }
 }

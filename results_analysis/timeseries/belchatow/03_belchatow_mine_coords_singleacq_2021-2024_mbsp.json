@@ -1,0 +1,1615 @@
+{
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "site": "belchatow",
+  "records": [
+    {
+      "month": "2021-01",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-01-04T09:44:11.024000Z"
+      },
+      "ct_ch4_t_month": 4053.9916775480915,
+      "npy": "S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210104T094411_N0500_R036_T34UCB_20230406T104325.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.2398,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.343369,
+        "ctrl_sigma": 0.116436,
+        "cv_ctrl": 0.3391,
+        "cfar_thresh_ratio": 2.1673,
+        "cfar_detect": false,
+        "cfar_margin": -0.9275
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-02",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-02-26T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 3755.8853945179562,
+      "npy": "S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210226T095031_N0500_R079_T34UCB_20230602T235243.tif",
+        "sc_ratio": 0.7237,
+        "sc_cfar": 0.5781,
+        "site_mean": 0.161162,
+        "ctrl_mean": 0.222691,
+        "ctrl_mu": 0.278802,
+        "ctrl_sigma": 0.063241,
+        "cv_ctrl": 0.2268,
+        "cfar_thresh_ratio": 1.8305,
+        "cfar_detect": false,
+        "cfar_margin": -1.2524
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.7237
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2021-03",
+      "search": {
+        "status": "cached",
+        "product_name": "S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-03-10T09:40:29.024000Z"
+      },
+      "ct_ch4_t_month": 3369.329189372157,
+      "npy": "S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210310T094029_N0500_R036_T34UCB_20230524T081236.tif",
+        "sc_ratio": 1.043,
+        "sc_cfar": 1.0294,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.40817,
+        "ctrl_mu": 0.413554,
+        "ctrl_sigma": 0.008608,
+        "cv_ctrl": 0.0208,
+        "cfar_thresh_ratio": 1.2124,
+        "cfar_detect": false,
+        "cfar_margin": -0.1831
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.043
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-04",
+      "search": {
+        "status": "cached",
+        "product_name": "S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-04-27T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 3255.6500569451646,
+      "npy": "S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210427T095031_N0500_R079_T34UCB_20230603T224626.tif",
+        "sc_ratio": 0.4351,
+        "sc_cfar": 0.43,
+        "site_mean": 0.089375,
+        "ctrl_mean": 0.205433,
+        "ctrl_mu": 0.207825,
+        "ctrl_sigma": 0.016313,
+        "cv_ctrl": 0.0785,
+        "cfar_thresh_ratio": 1.3855,
+        "cfar_detect": false,
+        "cfar_margin": -0.9554
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.4351
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2021-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20210512T095029_N0500_R079_T34UCB_20230331T132610.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-05-12T09:50:29.024000Z"
+      },
+      "ct_ch4_t_month": 2737.609622872642,
+      "npy": "S2B_MSIL1C_20210512T095029_N0500_R079_T34UCB_20230331T132610.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210512T095029_N0500_R079_T34UCB_20230331T132610.tif",
+        "sc_ratio": 0.2631,
+        "sc_cfar": 0.3509,
+        "site_mean": 1.5e-05,
+        "ctrl_mean": 5.8e-05,
+        "ctrl_mu": 4.3e-05,
+        "ctrl_sigma": 1.1e-05,
+        "cv_ctrl": 0.2485,
+        "cfar_thresh_ratio": 1.8956,
+        "cfar_detect": false,
+        "cfar_margin": -1.5447
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.2631
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2021-06",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-06-21T09:50:29.024000Z"
+      },
+      "ct_ch4_t_month": 2331.598216369996,
+      "npy": "S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210621T095029_N0500_R079_T34UCB_20230319T202620.tif",
+        "sc_ratio": 0.2903,
+        "sc_cfar": 0.4234,
+        "site_mean": 1.4e-05,
+        "ctrl_mean": 4.8e-05,
+        "ctrl_mu": 3.3e-05,
+        "ctrl_sigma": 1.1e-05,
+        "cv_ctrl": 0.3477,
+        "cfar_thresh_ratio": 2.1931,
+        "cfar_detect": false,
+        "cfar_margin": -1.7697
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.2903
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2021-07",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20210713T094031_N0500_R036_T34UCB_20230206T034246.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-07-13T09:40:31.024000Z"
+      },
+      "ct_ch4_t_month": 2222.5985782823786,
+      "npy": "S2A_MSIL1C_20210713T094031_N0500_R036_T34UCB_20230206T034246.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210713T094031_N0500_R036_T34UCB_20230206T034246.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.3992,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.304247,
+        "ctrl_sigma": 0.171762,
+        "cv_ctrl": 0.5645,
+        "cfar_thresh_ratio": 2.8436,
+        "cfar_detect": false,
+        "cfar_margin": -1.4444
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-08",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20210815T095031_N0500_R079_T34UCB_20230213T012951.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-08-15T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 2183.7005969285688,
+      "npy": "S2A_MSIL1C_20210815T095031_N0500_R079_T34UCB_20230213T012951.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210815T095031_N0500_R079_T34UCB_20230213T012951.tif",
+        "sc_ratio": 0.6881,
+        "sc_cfar": 0.1393,
+        "site_mean": 0.00587,
+        "ctrl_mean": 0.008532,
+        "ctrl_mu": 0.042129,
+        "ctrl_sigma": 0.053396,
+        "cv_ctrl": 1.2674,
+        "cfar_thresh_ratio": 4.9523,
+        "cfar_detect": false,
+        "cfar_margin": -4.813
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.6881
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2021-09",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20210921T094031_N0500_R036_T34UCB_20230121T063456.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-09-21T09:40:31.024000Z"
+      },
+      "ct_ch4_t_month": 2455.637740410067,
+      "npy": "S2A_MSIL1C_20210921T094031_N0500_R036_T34UCB_20230121T063456.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20210921T094031_N0500_R036_T34UCB_20230121T063456.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.3757,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.309446,
+        "ctrl_sigma": 0.16441,
+        "cv_ctrl": 0.5313,
+        "cfar_thresh_ratio": 2.7439,
+        "cfar_detect": false,
+        "cfar_margin": -1.3682
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-10",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20211031T094141_N0500_R036_T34UCB_20230115T233621.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-10-31T09:41:41.024000Z"
+      },
+      "ct_ch4_t_month": 3028.122998353366,
+      "npy": "S2A_MSIL1C_20211031T094141_N0500_R036_T34UCB_20230115T233621.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20211031T094141_N0500_R036_T34UCB_20230115T233621.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.3642,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.312046,
+        "ctrl_sigma": 0.160733,
+        "cv_ctrl": 0.5151,
+        "cfar_thresh_ratio": 2.6953,
+        "cfar_detect": false,
+        "cfar_margin": -1.3311
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-11",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20211125T094229_N0500_R036_T34UCB_20230105T165518.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-11-25T09:42:29.024000Z"
+      },
+      "ct_ch4_t_month": 3444.7339755868147,
+      "npy": "S2B_MSIL1C_20211125T094229_N0500_R036_T34UCB_20230105T165518.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20211125T094229_N0500_R036_T34UCB_20230105T165518.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.9492,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.448471,
+        "ctrl_sigma": 0.032201,
+        "cv_ctrl": 0.0718,
+        "cfar_thresh_ratio": 1.3654,
+        "cfar_detect": false,
+        "cfar_margin": -0.4162
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-12",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20211203T095401_N0500_R079_T34UCB_20221223T093200.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-12-03T09:54:01.024000Z"
+      },
+      "ct_ch4_t_month": 3828.107753791213,
+      "npy": "S2A_MSIL1C_20211203T095401_N0500_R079_T34UCB_20221223T093200.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20211203T095401_N0500_R079_T34UCB_20221223T093200.tif",
+        "sc_ratio": 1.8653,
+        "sc_cfar": 2.1851,
+        "site_mean": 0.27336,
+        "ctrl_mean": 0.146553,
+        "ctrl_mu": 0.125103,
+        "ctrl_sigma": 0.018498,
+        "cv_ctrl": 0.1479,
+        "cfar_thresh_ratio": 1.5936,
+        "cfar_detect": true,
+        "cfar_margin": 0.5915
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 4081.98,
+        "flow_rate_lower_kgh": 2857.39,
+        "flow_rate_upper_kgh": 5306.57,
+        "sc_ratio": 1.8653,
+        "n_plume_pixels": 80841,
+        "total_mass_kg": 1577.2991,
+        "wind_speed_ms": 5.5066,
+        "wind_dir_deg": 234.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 35758.144799999995,
+        "flow_rate_kgh_old": 1437.87
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2022-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220109T094401_N0510_R036_T34UCB_20240426T053926.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-01-09T09:44:01.000000Z"
+      },
+      "ct_ch4_t_month": 4393.263592583089,
+      "npy": "S2A_MSIL1C_20220109T094401_N0510_R036_T34UCB_20240426T053926.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220109T094401_N0510_R036_T34UCB_20240426T053926.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.9522,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.447054,
+        "ctrl_sigma": 0.030196,
+        "cv_ctrl": 0.0675,
+        "cfar_thresh_ratio": 1.3526,
+        "cfar_detect": false,
+        "cfar_margin": -0.4004
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-02",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220228T094031_N0510_R036_T34UCB_20240524T042405.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-02-28T09:40:31.000000Z"
+      },
+      "ct_ch4_t_month": 4070.209283614043,
+      "npy": "S2A_MSIL1C_20220228T094031_N0510_R036_T34UCB_20240524T042405.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220228T094031_N0510_R036_T34UCB_20240524T042405.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.3197,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.322582,
+        "ctrl_sigma": 0.145833,
+        "cv_ctrl": 0.4521,
+        "cfar_thresh_ratio": 2.5062,
+        "cfar_detect": false,
+        "cfar_margin": -1.1866
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-03",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20220328T095029_N0510_R079_T34UCB_20240525T204713.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-03-28T09:50:29.024000Z"
+      },
+      "ct_ch4_t_month": 3651.3028236034393,
+      "npy": "S2B_MSIL1C_20220328T095029_N0510_R079_T34UCB_20240525T204713.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20220328T095029_N0510_R079_T34UCB_20240525T204713.tif",
+        "sc_ratio": 0.0001,
+        "sc_cfar": 0.0003,
+        "site_mean": 2.1e-05,
+        "ctrl_mean": 0.18928,
+        "ctrl_mu": 0.063183,
+        "ctrl_sigma": 0.089164,
+        "cv_ctrl": 1.4112,
+        "cfar_thresh_ratio": 5.3836,
+        "cfar_detect": false,
+        "cfar_margin": -5.3832
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.0001
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2022-04",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220412T095031_N0510_R079_T34UCB_20240528T085241.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-04-12T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 3528.11007101496,
+      "npy": "S2A_MSIL1C_20220412T095031_N0510_R079_T34UCB_20240528T085241.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220412T095031_N0510_R079_T34UCB_20240528T085241.tif",
+        "sc_ratio": 0.3732,
+        "sc_cfar": 0.0073,
+        "site_mean": 0.000279,
+        "ctrl_mean": 0.000747,
+        "ctrl_mu": 0.038169,
+        "ctrl_sigma": 0.052272,
+        "cv_ctrl": 1.3695,
+        "cfar_thresh_ratio": 5.2584,
+        "cfar_detect": false,
+        "cfar_margin": -5.2511
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.3732
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2022-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220509T094041_N0510_R036_T34UCB_20240617T104913.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-05-09T09:40:41.024000Z"
+      },
+      "ct_ch4_t_month": 2966.715682590058,
+      "npy": "S2A_MSIL1C_20220509T094041_N0510_R036_T34UCB_20240617T104913.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220509T094041_N0510_R036_T34UCB_20240617T104913.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4388,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.295871,
+        "ctrl_sigma": 0.183608,
+        "cv_ctrl": 0.6206,
+        "cfar_thresh_ratio": 3.0117,
+        "cfar_detect": false,
+        "cfar_margin": -1.5729
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-06",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-06-26T09:50:39.024000Z"
+      },
+      "ct_ch4_t_month": 2526.725847327164,
+      "npy": "S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20220626T095039_N0510_R079_T34UCB_20240620T013500.tif",
+        "sc_ratio": 0.444,
+        "sc_cfar": 0.6831,
+        "site_mean": 2.4e-05,
+        "ctrl_mean": 5.5e-05,
+        "ctrl_mu": 3.6e-05,
+        "ctrl_sigma": 1.4e-05,
+        "cv_ctrl": 0.3883,
+        "cfar_thresh_ratio": 2.3149,
+        "cfar_detect": false,
+        "cfar_margin": -1.6318
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.444
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2022-07",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220728T094041_N0510_R036_T34UCB_20240717T072649.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-07-28T09:40:41.024000Z"
+      },
+      "ct_ch4_t_month": 2408.6042082850518,
+      "npy": "S2A_MSIL1C_20220728T094041_N0510_R036_T34UCB_20240717T072649.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220728T094041_N0510_R036_T34UCB_20240717T072649.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4956,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.284643,
+        "ctrl_sigma": 0.199487,
+        "cv_ctrl": 0.7008,
+        "cfar_thresh_ratio": 3.2525,
+        "cfar_detect": false,
+        "cfar_margin": -1.7569
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-08",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220827T093601_N0510_R036_T34UCB_20240717T103157.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-08-27T09:36:01.024000Z"
+      },
+      "ct_ch4_t_month": 2366.4509186635923,
+      "npy": "S2A_MSIL1C_20220827T093601_N0510_R036_T34UCB_20240717T103157.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220827T093601_N0510_R036_T34UCB_20240717T103157.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4999,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283817,
+        "ctrl_sigma": 0.200655,
+        "cv_ctrl": 0.707,
+        "cfar_thresh_ratio": 3.271,
+        "cfar_detect": false,
+        "cfar_margin": -1.771
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-09",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20220906T093601_N0510_R036_T34UCB_20240727T145423.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-09-06T09:36:01.024000Z"
+      },
+      "ct_ch4_t_month": 2661.146035712002,
+      "npy": "S2A_MSIL1C_20220906T093601_N0510_R036_T34UCB_20240727T145423.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220906T093601_N0510_R036_T34UCB_20240727T145423.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4999,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283824,
+        "ctrl_sigma": 0.200645,
+        "cv_ctrl": 0.7069,
+        "cfar_thresh_ratio": 3.2708,
+        "cfar_detect": false,
+        "cfar_margin": -1.7709
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-10",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20221031T094039_N0510_R036_T34UCB_20240722T151115.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-10-31T09:40:39.024000Z"
+      },
+      "ct_ch4_t_month": 3281.541646029087,
+      "npy": "S2B_MSIL1C_20221031T094039_N0510_R036_T34UCB_20240722T151115.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20221031T094039_N0510_R036_T34UCB_20240722T151115.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4961,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.284542,
+        "ctrl_sigma": 0.19963,
+        "cv_ctrl": 0.7016,
+        "cfar_thresh_ratio": 3.2547,
+        "cfar_detect": false,
+        "cfar_margin": -1.7587
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-11",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20221120T094219_N0510_R036_T34UCB_20240804T031237.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-11-20T09:42:19.024000Z"
+      },
+      "ct_ch4_t_month": 3733.018112714177,
+      "npy": "S2B_MSIL1C_20221120T094219_N0510_R036_T34UCB_20240804T031237.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20221120T094219_N0510_R036_T34UCB_20240804T031237.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.2905,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.329876,
+        "ctrl_sigma": 0.135517,
+        "cv_ctrl": 0.4108,
+        "cfar_thresh_ratio": 2.3824,
+        "cfar_detect": false,
+        "cfar_margin": -1.092
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2022-12",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20221225T094411_N0510_R036_T34UCB_20240809T140420.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2022-12-25T09:44:11.024000Z"
+      },
+      "ct_ch4_t_month": 4148.475813691765,
+      "npy": "S2A_MSIL1C_20221225T094411_N0510_R036_T34UCB_20240809T140420.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20221225T094411_N0510_R036_T34UCB_20240809T140420.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.2767,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.333451,
+        "ctrl_sigma": 0.130462,
+        "cv_ctrl": 0.3912,
+        "cfar_thresh_ratio": 2.3237,
+        "cfar_detect": false,
+        "cfar_margin": -1.0471
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2023-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCB_20240810T185544.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-01-12T09:52:49.024000Z"
+      },
+      "ct_ch4_t_month": 3276.584527590776,
+      "npy": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCB_20240810T185544.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230112T095249_N0510_R079_T34UCB_20240810T185544.tif",
+        "sc_ratio": 1.4013,
+        "sc_cfar": 1.466,
+        "site_mean": 0.517031,
+        "ctrl_mean": 0.368978,
+        "ctrl_mu": 0.352687,
+        "ctrl_sigma": 0.057857,
+        "cv_ctrl": 0.164,
+        "cfar_thresh_ratio": 1.6421,
+        "cfar_detect": false,
+        "cfar_margin": -0.1762
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 5849.6,
+        "flow_rate_lower_kgh": 4094.72,
+        "flow_rate_upper_kgh": 7604.48,
+        "sc_ratio": 1.4013,
+        "n_plume_pixels": 126481,
+        "total_mass_kg": 2689.5303,
+        "wind_speed_ms": 4.6399,
+        "wind_dir_deg": 215.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 51242.496,
+        "flow_rate_kgh_old": 3083.56
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-02",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230228T094029_N0510_R036_T34UCB_20240821T090105.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-02-28T09:40:29.025000Z"
+      },
+      "ct_ch4_t_month": 3035.6441132421946,
+      "npy": "S2B_MSIL1C_20230228T094029_N0510_R036_T34UCB_20240821T090105.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230228T094029_N0510_R036_T34UCB_20240821T090105.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.1412,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.373022,
+        "ctrl_sigma": 0.0745,
+        "cv_ctrl": 0.1997,
+        "cfar_thresh_ratio": 1.7492,
+        "cfar_detect": false,
+        "cfar_margin": -0.6079
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2023-03",
+      "search": {
+        "status": "no_products",
+        "month": "2023-03"
+      },
+      "ct_ch4_t_month": 2723.2152328773045,
+      "partial_swath": null,
+      "swath_valid_frac": null
+    },
+    {
+      "month": "2023-04",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-04-22T09:50:29.024000Z"
+      },
+      "ct_ch4_t_month": 2631.3355952147267,
+      "npy": "S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230422T095029_N0510_R079_T34UCB_20240904T074719.tif",
+        "sc_ratio": 0.239,
+        "sc_cfar": 0.2508,
+        "site_mean": 2.8e-05,
+        "ctrl_mean": 0.000119,
+        "ctrl_mu": 0.000113,
+        "ctrl_sigma": 6e-05,
+        "cv_ctrl": 0.5291,
+        "cfar_thresh_ratio": 2.7373,
+        "cfar_detect": false,
+        "cfar_margin": -2.4865
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.239
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-05-27T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 2212.636346188382,
+      "npy": "S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20230527T095031_N0510_R079_T34UCB_20240906T164859.tif",
+        "sc_ratio": 0.8401,
+        "sc_cfar": 0.7001,
+        "site_mean": 4.3e-05,
+        "ctrl_mean": 5.1e-05,
+        "ctrl_mu": 6.1e-05,
+        "ctrl_sigma": 3e-05,
+        "cv_ctrl": 0.4903,
+        "cfar_thresh_ratio": 2.6209,
+        "cfar_detect": false,
+        "cfar_margin": -1.9208
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.8401
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-06",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-06-11T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": 1884.4830596536299,
+      "npy": "S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230611T094549_N0510_R079_T34UCB_20240909T074443.tif",
+        "sc_ratio": 0.5722,
+        "sc_cfar": 0.2762,
+        "site_mean": 3.3e-05,
+        "ctrl_mean": 5.7e-05,
+        "ctrl_mu": 0.000118,
+        "ctrl_sigma": 9.7e-05,
+        "cv_ctrl": 0.8201,
+        "cfar_thresh_ratio": 3.6104,
+        "cfar_detect": false,
+        "cfar_margin": -3.3341
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.5722
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-07",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230718T093549_N0509_R036_T34UCB_20230718T102940.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-07-18T09:35:49.024000Z"
+      },
+      "ct_ch4_t_month": 1796.3855606753173,
+      "npy": "S2B_MSIL1C_20230718T093549_N0509_R036_T34UCB_20230718T102940.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230718T093549_N0509_R036_T34UCB_20230718T102940.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4997,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283863,
+        "ctrl_sigma": 0.200591,
+        "cv_ctrl": 0.7066,
+        "cfar_thresh_ratio": 3.2699,
+        "cfar_detect": false,
+        "cfar_margin": -1.7703
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2023-08",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230822T094041_N0510_R036_T34UCB_20241018T224539.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-22T09:40:41.024000Z"
+      },
+      "ct_ch4_t_month": 1764.9467877335105,
+      "npy": "S2A_MSIL1C_20230822T094041_N0510_R036_T34UCB_20241018T224539.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20230822T094041_N0510_R036_T34UCB_20241018T224539.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4997,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283851,
+        "ctrl_sigma": 0.200607,
+        "cv_ctrl": 0.7067,
+        "cfar_thresh_ratio": 3.2702,
+        "cfar_detect": false,
+        "cfar_margin": -1.7705
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2023-09",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-09-29T09:47:09.024000Z"
+      },
+      "ct_ch4_t_month": 1984.7363452068043,
+      "npy": "S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230929T094709_N0510_R079_T34UCB_20241101T233240.tif",
+        "sc_ratio": 0.8782,
+        "sc_cfar": 1.9804,
+        "site_mean": 0.0001,
+        "ctrl_mean": 0.000114,
+        "ctrl_mu": 5.1e-05,
+        "ctrl_sigma": 4.5e-05,
+        "cv_ctrl": 0.8975,
+        "cfar_thresh_ratio": 3.8425,
+        "cfar_detect": false,
+        "cfar_margin": -1.8621
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.8782
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-10",
+      "search": {
+        "status": "no_products",
+        "month": "2023-10"
+      },
+      "ct_ch4_t_month": 2447.439894609583,
+      "partial_swath": null,
+      "swath_valid_frac": null
+    },
+    {
+      "month": "2023-11",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20231108T095129_N0510_R079_T34UCB_20241106T214931.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-11-08T09:51:29.024000Z"
+      },
+      "ct_ch4_t_month": 2784.1601423564157,
+      "npy": "S2B_MSIL1C_20231108T095129_N0510_R079_T34UCB_20241106T214931.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20231108T095129_N0510_R079_T34UCB_20241106T214931.tif",
+        "sc_ratio": 1.7077,
+        "sc_cfar": 1.2963,
+        "site_mean": 0.737947,
+        "ctrl_mean": 0.432129,
+        "ctrl_mu": 0.569271,
+        "ctrl_sigma": 0.167171,
+        "cv_ctrl": 0.2937,
+        "cfar_thresh_ratio": 2.031,
+        "cfar_detect": false,
+        "cfar_margin": -0.7347
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 6927.59,
+        "flow_rate_lower_kgh": 4849.31,
+        "flow_rate_upper_kgh": 9005.87,
+        "sc_ratio": 1.7077,
+        "n_plume_pixels": 100159,
+        "total_mass_kg": 3190.5989,
+        "wind_speed_ms": 4.632,
+        "wind_dir_deg": 270.7,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 60685.6884,
+        "flow_rate_kgh_old": 6240.39
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-12",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20231218T095329_N0510_R079_T34UCB_20231218T104146.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-12-18T09:53:29.024000Z"
+      },
+      "ct_ch4_t_month": 3094.016868729443,
+      "npy": "S2B_MSIL1C_20231218T095329_N0510_R079_T34UCB_20231218T104146.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20231218T095329_N0510_R079_T34UCB_20231218T104146.tif",
+        "sc_ratio": 1.9291,
+        "sc_cfar": 1.5917,
+        "site_mean": 0.719515,
+        "ctrl_mean": 0.372985,
+        "ctrl_mu": 0.452036,
+        "ctrl_sigma": 0.215625,
+        "cv_ctrl": 0.477,
+        "cfar_thresh_ratio": 2.581,
+        "cfar_detect": false,
+        "cfar_margin": -0.9893
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 11687.79,
+        "flow_rate_lower_kgh": 8181.45,
+        "flow_rate_upper_kgh": 15194.13,
+        "sc_ratio": 1.9291,
+        "n_plume_pixels": 134826,
+        "total_mass_kg": 4676.1968,
+        "wind_speed_ms": 5.3321,
+        "wind_dir_deg": 262.0,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 102385.04040000001,
+        "flow_rate_kgh_old": 1612.73
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-01-29T09:42:41.024000Z"
+      },
+      "ct_ch4_t_month": 3276.584527590776,
+      "npy": "S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240129T094241_N0510_R036_T34UCB_20240129T103454.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.9441,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.450891,
+        "ctrl_sigma": 0.035623,
+        "cv_ctrl": 0.079,
+        "cfar_thresh_ratio": 1.387,
+        "cfar_detect": false,
+        "cfar_margin": -0.4429
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2024-02",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-02-16T09:50:29.024000Z"
+      },
+      "ct_ch4_t_month": 3035.6441132421946,
+      "npy": "S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240216T095029_N0510_R079_T34UCB_20240216T104052.tif",
+        "sc_ratio": 1.4769,
+        "sc_cfar": 2.8158,
+        "site_mean": 0.07421,
+        "ctrl_mean": 0.050246,
+        "ctrl_mu": 0.026355,
+        "ctrl_sigma": 0.020334,
+        "cv_ctrl": 0.7715,
+        "cfar_thresh_ratio": 3.4646,
+        "cfar_detect": false,
+        "cfar_margin": -0.6488
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 957.4,
+        "flow_rate_lower_kgh": 670.18,
+        "flow_rate_upper_kgh": 1244.62,
+        "sc_ratio": 1.4769,
+        "n_plume_pixels": 31409,
+        "total_mass_kg": 438.9851,
+        "wind_speed_ms": 4.6042,
+        "wind_dir_deg": 172.7,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 8386.824,
+        "flow_rate_kgh_old": 281.9
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-03",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-03-09T09:40:31.024000Z"
+      },
+      "ct_ch4_t_month": 2723.2152328773045,
+      "npy": "S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240309T094031_N0510_R036_T34UCB_20240309T103432.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4868,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.286323,
+        "ctrl_sigma": 0.197111,
+        "cv_ctrl": 0.6884,
+        "cfar_thresh_ratio": 3.2153,
+        "cfar_detect": false,
+        "cfar_margin": -1.7285
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2024-04",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-04-11T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 2631.3355952147267,
+      "npy": "S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240411T095031_N0510_R079_T34UCB_20240411T115001.tif",
+        "sc_ratio": 0.0271,
+        "sc_cfar": 0.0044,
+        "site_mean": 3e-05,
+        "ctrl_mean": 0.001104,
+        "ctrl_mu": 0.006845,
+        "ctrl_sigma": 0.008626,
+        "cv_ctrl": 1.2601,
+        "cfar_thresh_ratio": 4.9304,
+        "cfar_detect": false,
+        "cfar_margin": -4.926
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.0271
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-05-26T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": 2212.636346188382,
+      "npy": "S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240526T094549_N0510_R079_T34UCB_20240526T104221.tif",
+        "sc_ratio": 1.8814,
+        "sc_cfar": 2.4471,
+        "site_mean": 0.000105,
+        "ctrl_mean": 5.6e-05,
+        "ctrl_mu": 4.3e-05,
+        "ctrl_sigma": 1.2e-05,
+        "cv_ctrl": 0.2743,
+        "cfar_thresh_ratio": 1.9728,
+        "cfar_detect": true,
+        "cfar_margin": 0.4743
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 283.52,
+        "flow_rate_lower_kgh": 198.46,
+        "flow_rate_upper_kgh": 368.58,
+        "sc_ratio": 1.8814,
+        "n_plume_pixels": 7469,
+        "total_mass_kg": 251.0999,
+        "wind_speed_ms": 2.2018,
+        "wind_dir_deg": 90.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 2483.6351999999997,
+        "flow_rate_kgh_old": 48.96
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-06",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-06-17T09:40:41.024000Z"
+      },
+      "ct_ch4_t_month": 1884.4830596536299,
+      "npy": "S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240617T094041_N0510_R036_T34UCB_20240617T114131.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4998,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.283835,
+        "ctrl_sigma": 0.20063,
+        "cv_ctrl": 0.7069,
+        "cfar_thresh_ratio": 3.2706,
+        "cfar_detect": false,
+        "cfar_margin": -1.7707
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2024-07",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-07-30T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": 1796.3855606753173,
+      "npy": "S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240730T095031_N0511_R079_T34UCB_20240730T133103.tif",
+        "sc_ratio": 0.4703,
+        "sc_cfar": 0.1467,
+        "site_mean": 2.9e-05,
+        "ctrl_mean": 6.1e-05,
+        "ctrl_mu": 0.000195,
+        "ctrl_sigma": 0.000171,
+        "cv_ctrl": 0.8738,
+        "cfar_thresh_ratio": 3.7713,
+        "cfar_detect": false,
+        "cfar_margin": -3.6246
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.4703
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-08",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-08-24T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": 1764.9467877335105,
+      "npy": "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",
+        "sc_ratio": 0.2353,
+        "sc_cfar": 0.4579,
+        "site_mean": 2e-05,
+        "ctrl_mean": 8.4e-05,
+        "ctrl_mu": 4.3e-05,
+        "ctrl_sigma": 3e-05,
+        "cv_ctrl": 0.6923,
+        "cfar_thresh_ratio": 3.227,
+        "cfar_detect": false,
+        "cfar_margin": -2.7691
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.2353
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-09",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-09-25T09:40:31.024000Z"
+      },
+      "ct_ch4_t_month": 1984.7363452068043,
+      "npy": "S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240925T094031_N0511_R036_T34UCB_20240925T103457.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.4998,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.28383,
+        "ctrl_sigma": 0.200636,
+        "cv_ctrl": 0.7069,
+        "cfar_thresh_ratio": 3.2707,
+        "cfar_detect": false,
+        "cfar_margin": -1.7708
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2024-10",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-10-28T09:51:21.024000Z"
+      },
+      "ct_ch4_t_month": 2447.439894609583,
+      "npy": "S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241028T095121_N0511_R079_T34UCB_20241028T104252.tif",
+        "sc_ratio": 0.1884,
+        "sc_cfar": 0.4418,
+        "site_mean": 0.021969,
+        "ctrl_mean": 0.116628,
+        "ctrl_mu": 0.049729,
+        "ctrl_sigma": 0.048659,
+        "cv_ctrl": 0.9785,
+        "cfar_thresh_ratio": 4.0855,
+        "cfar_detect": false,
+        "cfar_margin": -3.6437
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.1884
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-11",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-11-27T09:53:41.024000Z"
+      },
+      "ct_ch4_t_month": 2784.1601423564157,
+      "npy": "S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241127T095341_N0511_R079_T34UCB_20241127T104349.tif",
+        "sc_ratio": 0.8289,
+        "sc_cfar": 2.1892,
+        "site_mean": 0.465003,
+        "ctrl_mean": 0.560982,
+        "ctrl_mu": 0.212407,
+        "ctrl_sigma": 0.246707,
+        "cv_ctrl": 1.1615,
+        "cfar_thresh_ratio": 4.6344,
+        "cfar_detect": false,
+        "cfar_margin": -2.4452
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.8289
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-12",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-12-29T09:43:19.024000Z"
+      },
+      "ct_ch4_t_month": 3094.016868729443,
+      "npy": "S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20241229T094319_N0511_R036_T34UCB_20241229T102823.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 0.8744,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.486838,
+        "ctrl_sigma": 0.08646,
+        "cv_ctrl": 0.1776,
+        "cfar_thresh_ratio": 1.6828,
+        "cfar_detect": false,
+        "cfar_margin": -0.8084
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      },
+      "swath_valid_frac": 0.0,
+      "partial_swath": true
+    },
+    {
+      "month": "2021-02",
+      "acquisition_date": "2021-02-21",
+      "search": {
+        "product_name": "S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2021-02-21T09:50:29.024000Z",
+        "status": "downloaded"
+      },
+      "ct_ch4_t_month": 3755.8853945179562,
+      "npy": "S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20210221T095029_N0500_R079_T34UCB_20230520T205254.tif",
+        "sc_ratio": 1.126,
+        "sc_cfar": 0.8142,
+        "site_mean": 0.526567,
+        "ctrl_mean": 0.467645,
+        "ctrl_mu": 0.646745,
+        "ctrl_sigma": 0.159252,
+        "cv_ctrl": 0.2462,
+        "cfar_thresh_ratio": 1.8887,
+        "cfar_detect": false,
+        "cfar_margin": -1.0745,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.126
+      }
+    }
+  ],
+  "summary": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "site": "belchatow",
+    "acquisitions_processed": 46,
+    "detections_above_threshold": 6,
+    "detections_above_tau": 0,
+    "detections_cfar_pass": 2,
+    "detection_rate": 0.125,
+    "quantification_boundary": "KWB mine polygon (~21km \u00d7 4.2km)",
+    "mean_flow_kg_h": 2117.568333333333,
+    "median_flow_kg_h": 1525.3,
+    "min_flow_kg_h": 48.96,
+    "max_flow_kg_h": 6240.39,
+    "annualised_t_per_yr_upper": 18549.898599999997,
+    "annualised_t_per_yr_floor_imputed": 4704.769382608695,
+    "detection_floor_kgh_assumed": 300.0,
+    "annualised_t_per_yr_lower_bound": 2419.551991304347,
+    "n_detections": 6,
+    "n_non_detections": 40,
+    "n_observations": 46,
+    "ct_ch4_annual_t_by_year": {
+      "2021": 36666.96580097842,
+      "2022": 39735.56403582843,
+      "2023": 29635.58447407809,
+      "2024": 29635.58447407809
+    },
+    "ct_ch4_monthly_reference": {
+      "2021-01": 4053.99,
+      "2021-02": 3755.89,
+      "2021-03": 3369.33,
+      "2021-04": 3255.65,
+      "2021-05": 2737.61,
+      "2021-06": 2331.6,
+      "2021-07": 2222.6,
+      "2021-08": 2183.7,
+      "2021-09": 2455.64,
+      "2021-10": 3028.12,
+      "2021-11": 3444.73,
+      "2021-12": 3828.11,
+      "2022-01": 4393.26,
+      "2022-02": 4070.21,
+      "2022-03": 3651.3,
+      "2022-04": 3528.11,
+      "2022-05": 2966.72,
+      "2022-06": 2526.73,
+      "2022-07": 2408.6,
+      "2022-08": 2366.45,
+      "2022-09": 2661.15,
+      "2022-10": 3281.54,
+      "2022-11": 3733.02,
+      "2022-12": 4148.48,
+      "2023-01": 3276.58,
+      "2023-02": 3035.64,
+      "2023-03": 2723.22,
+      "2023-04": 2631.34,
+      "2023-05": 2212.64,
+      "2023-06": 1884.48,
+      "2023-07": 1796.39,
+      "2023-08": 1764.95,
+      "2023-09": 1984.74,
+      "2023-10": 2447.44,
+      "2023-11": 2784.16,
+      "2023-12": 3094.02,
+      "2024-01": 3276.58,
+      "2024-02": 3035.64,
+      "2024-03": 2723.22,
+      "2024-04": 2631.34,
+      "2024-05": 2212.64,
+      "2024-06": 1884.48,
+      "2024-07": 1796.39,
+      "2024-08": 1764.95,
+      "2024-09": 1984.74,
+      "2024-10": 2447.44,
+      "2024-11": 2784.16,
+      "2024-12": 3094.02
+    },
+    "swath_corrected": {
+      "n_valid_observations": 23,
+      "n_partial_swath_excluded": 23,
+      "n_detections": 6,
+      "n_non_detections": 17,
+      "detection_rate": 0.2609,
+      "mean_flow_kg_h": 2117.6,
+      "min_flow_kg_h": 49.0,
+      "max_flow_kg_h": 6240.4,
+      "annualised_t_per_yr_upper": 18549.9,
+      "annualised_t_per_yr_floor_imputed": 6781.5,
+      "annualised_t_per_yr_lower_bound": 4839.1,
+      "detection_floor_kgh_assumed": 300.0
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "site": "rybnik_chwalowice",
+  "records": [
+    {
+      "month": "2023-01",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-01-12T09:52:49.024000Z"
+      },
+      "cm_detections": [],
+      "npy": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.tif",
+        "sc_ratio": 1.8639,
+        "sc_cfar": 1.4845,
+        "site_mean": 0.54747,
+        "ctrl_mean": 0.293717,
+        "ctrl_mu": 0.368781,
+        "ctrl_sigma": 0.085017,
+        "cv_ctrl": 0.2305,
+        "cfar_thresh_ratio": 1.8416,
+        "cfar_detect": false,
+        "cfar_margin": -0.3571
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.8639,
+        "flow_rate_kgh": 919.36,
+        "flow_rate_lower_kgh": 643.55,
+        "flow_rate_upper_kgh": 1195.17,
+        "wind_speed_ms": 4.8598,
+        "wind_dir_deg": 211.3,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 8053.5936,
+        "n_plume_pixels": 45445,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2023-02",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-02-09T10:01:51.024000Z"
+      },
+      "cm_detections": [],
+      "npy": "S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2023-03",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-03-01T10:00:21.024000Z"
+      },
+      "cm_detections": [],
+      "npy": "S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2023-04",
+      "search": {
+        "status": "download_failed",
+        "error": "download_product returned None for S2A_MSIL1C_20230430T100031_N0510_R122_T34UCA_20241011T172517.SAFE",
+        "product_name": "S2A_MSIL1C_20230430T100031_N0510_R122_T34UCA_20241011T172517.SAFE"
+      },
+      "cm_detections": []
+    },
+    {
+      "month": "2023-05",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230530T100031_N0510_R122_T34UCA_20240906T053620.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-05-30T10:00:31.024000Z"
+      },
+      "cm_detections": [],
+      "npy": "S2A_MSIL1C_20230530T100031_N0510_R122_T34UCA_20240906T053620.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230530T100031_N0510_R122_T34UCA_20240906T053620.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    },
+    {
+      "month": "2023-06",
+      "search": {
+        "status": "downloaded",
+        "product_name": "S2A_MSIL1C_20230619T100031_N0510_R122_T34UCA_20240911T141358.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-06-19T10:00:31.024000Z"
+      },
+      "cm_detections": [],
+      "npy": "S2A_MSIL1C_20230619T100031_N0510_R122_T34UCA_20240911T141358.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230619T100031_N0510_R122_T34UCA_20240911T141358.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 1.0
+      }
+    }
+  ]
+}

@@ -365,17 +365,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 5316.92,
+        "flow_rate_lower_kgh": 3721.84,
+        "flow_rate_upper_kgh": 6912.0,
         "sc_ratio": 1.8653,
-        "flow_rate_kgh": 1437.87,
-        "flow_rate_lower_kgh": 1006.51,
-        "flow_rate_upper_kgh": 1869.23,
+        "n_plume_pixels": 154496,
+        "total_mass_kg": 3406.2632,
         "wind_speed_ms": 5.5066,
         "wind_dir_deg": 234.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 12595.7412,
-        "n_plume_pixels": 134896,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 46576.2192,
+        "flow_rate_kgh_old": 1437.87
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -765,17 +768,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 6258.72,
+        "flow_rate_lower_kgh": 4381.1,
+        "flow_rate_upper_kgh": 8136.34,
         "sc_ratio": 1.4013,
-        "flow_rate_kgh": 3083.56,
-        "flow_rate_lower_kgh": 2158.49,
-        "flow_rate_upper_kgh": 4008.63,
+        "n_plume_pixels": 246041,
+        "total_mass_kg": 4758.5908,
         "wind_speed_ms": 4.6399,
         "wind_dir_deg": 215.6,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 27011.9856,
-        "n_plume_pixels": 199870,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 54826.387200000005,
+        "flow_rate_kgh_old": 3083.56
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1035,17 +1041,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 6724.91,
+        "flow_rate_lower_kgh": 4707.44,
+        "flow_rate_upper_kgh": 8742.38,
         "sc_ratio": 1.7077,
-        "flow_rate_kgh": 6240.39,
-        "flow_rate_lower_kgh": 4368.27,
-        "flow_rate_upper_kgh": 8112.51,
+        "n_plume_pixels": 191988,
+        "total_mass_kg": 5121.7622,
         "wind_speed_ms": 4.632,
         "wind_dir_deg": 270.7,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 54665.8164,
-        "n_plume_pixels": 181634,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 58910.2116,
+        "flow_rate_kgh_old": 6240.39
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1075,17 +1084,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 9956.79,
+        "flow_rate_lower_kgh": 6969.75,
+        "flow_rate_upper_kgh": 12943.83,
         "sc_ratio": 1.9291,
-        "flow_rate_kgh": 1612.73,
-        "flow_rate_lower_kgh": 1128.91,
-        "flow_rate_upper_kgh": 2096.55,
+        "n_plume_pixels": 246343,
+        "total_mass_kg": 6577.1528,
         "wind_speed_ms": 5.3321,
         "wind_dir_deg": 262.0,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 14127.5148,
-        "n_plume_pixels": 198163,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 87221.4804,
+        "flow_rate_kgh_old": 1612.73
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1145,17 +1157,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 628.43,
+        "flow_rate_lower_kgh": 439.9,
+        "flow_rate_upper_kgh": 816.96,
         "sc_ratio": 1.4769,
-        "flow_rate_kgh": 281.9,
-        "flow_rate_lower_kgh": 197.33,
-        "flow_rate_upper_kgh": 366.47,
+        "n_plume_pixels": 48630,
+        "total_mass_kg": 476.9604,
         "wind_speed_ms": 4.6042,
         "wind_dir_deg": 172.7,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2469.444,
-        "n_plume_pixels": 73360,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5505.0468,
+        "flow_rate_kgh_old": 281.9
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1245,17 +1260,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 151.98,
+        "flow_rate_lower_kgh": 106.39,
+        "flow_rate_upper_kgh": 197.57,
         "sc_ratio": 1.8814,
-        "flow_rate_kgh": 48.96,
-        "flow_rate_lower_kgh": 34.27,
-        "flow_rate_upper_kgh": 63.65,
+        "n_plume_pixels": 8059,
+        "total_mass_kg": 239.6776,
         "wind_speed_ms": 2.2018,
         "wind_dir_deg": 90.6,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 428.8896,
-        "n_plume_pixels": 12031,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1331.3447999999999,
+        "flow_rate_kgh_old": 48.96
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1535,17 +1553,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 142.98,
+        "flow_rate_lower_kgh": 100.09,
+        "flow_rate_upper_kgh": 185.87,
         "sc_ratio": 2.4259,
-        "flow_rate_kgh": 137.95,
-        "flow_rate_lower_kgh": 96.56,
-        "flow_rate_upper_kgh": 179.33,
+        "n_plume_pixels": 14236,
+        "total_mass_kg": 164.5396,
         "wind_speed_ms": 3.0462,
         "wind_dir_deg": 273.7,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1208.442,
-        "n_plume_pixels": 25121,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1252.5047999999997,
+        "flow_rate_kgh_old": 137.95
       }
     },
     {
@@ -1722,17 +1743,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 671.77,
+        "flow_rate_lower_kgh": 470.24,
+        "flow_rate_upper_kgh": 873.3,
         "sc_ratio": 42.7822,
-        "flow_rate_kgh": 1847.81,
-        "flow_rate_lower_kgh": 1293.47,
-        "flow_rate_upper_kgh": 2402.15,
+        "n_plume_pixels": 99498,
+        "total_mass_kg": 1558.2,
         "wind_speed_ms": 1.5161,
         "wind_dir_deg": 94.9,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 16186.8156,
-        "n_plume_pixels": 53065,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5884.7052,
+        "flow_rate_kgh_old": 1847.81
       }
     },
     {
@@ -1821,17 +1845,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 594.69,
+        "flow_rate_lower_kgh": 416.28,
+        "flow_rate_upper_kgh": 773.1,
         "sc_ratio": 4.763,
-        "flow_rate_kgh": 220.65,
-        "flow_rate_lower_kgh": 154.45,
-        "flow_rate_upper_kgh": 286.85,
+        "n_plume_pixels": 5587,
+        "total_mass_kg": 320.5421,
         "wind_speed_ms": 6.5037,
         "wind_dir_deg": 316.2,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1932.894,
-        "n_plume_pixels": 14448,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5209.4844,
+        "flow_rate_kgh_old": 220.65
       }
     },
     {
@@ -1861,17 +1888,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 83.6,
+        "flow_rate_lower_kgh": 58.52,
+        "flow_rate_upper_kgh": 108.68,
         "sc_ratio": 3.8031,
-        "flow_rate_kgh": 34.32,
-        "flow_rate_lower_kgh": 24.02,
-        "flow_rate_upper_kgh": 44.62,
+        "n_plume_pixels": 2682,
+        "total_mass_kg": 95.6107,
         "wind_speed_ms": 3.0605,
         "wind_dir_deg": 352.6,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 300.6432,
-        "n_plume_pixels": 9572,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 732.336,
+        "flow_rate_kgh_old": 34.32
       }
     },
     {
@@ -2017,17 +2047,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 2304.38,
+        "flow_rate_lower_kgh": 1613.07,
+        "flow_rate_upper_kgh": 2995.69,
         "sc_ratio": 2.0074,
-        "flow_rate_kgh": 9402.36,
-        "flow_rate_lower_kgh": 6581.65,
-        "flow_rate_upper_kgh": 12223.07,
+        "n_plume_pixels": 132814,
+        "total_mass_kg": 1532.8419,
         "wind_speed_ms": 5.2951,
         "wind_dir_deg": 285.5,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 82364.6736,
-        "n_plume_pixels": 113355,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 20186.3688,
+        "flow_rate_kgh_old": 9402.36
       }
     },
     {
@@ -2057,17 +2090,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 366.97,
+        "flow_rate_lower_kgh": 256.88,
+        "flow_rate_upper_kgh": 477.06,
         "sc_ratio": 557.1804,
-        "flow_rate_kgh": 260.0,
-        "flow_rate_lower_kgh": 182.0,
-        "flow_rate_upper_kgh": 338.0,
+        "n_plume_pixels": 15493,
+        "total_mass_kg": 279.6596,
         "wind_speed_ms": 4.5708,
         "wind_dir_deg": 130.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2277.6,
-        "n_plume_pixels": 26897,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 3214.6572,
+        "flow_rate_kgh_old": 260.0
       }
     },
     {
@@ -2242,17 +2278,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 107.62,
+        "flow_rate_lower_kgh": 75.33,
+        "flow_rate_upper_kgh": 139.91,
         "sc_ratio": 48.3586,
-        "flow_rate_kgh": 45.41,
-        "flow_rate_lower_kgh": 31.79,
-        "flow_rate_upper_kgh": 59.03,
+        "n_plume_pixels": 4129,
+        "total_mass_kg": 105.1507,
         "wind_speed_ms": 3.5481,
         "wind_dir_deg": 227.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 397.7916,
-        "n_plume_pixels": 11583,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 942.7512,
+        "flow_rate_kgh_old": 45.41
       }
     },
     {
@@ -2311,17 +2350,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 123.51,
+        "flow_rate_lower_kgh": 86.46,
+        "flow_rate_upper_kgh": 160.56,
         "sc_ratio": 2.404,
-        "flow_rate_kgh": 48.15,
-        "flow_rate_lower_kgh": 33.7,
-        "flow_rate_upper_kgh": 62.6,
+        "n_plume_pixels": 9169,
+        "total_mass_kg": 142.1303,
         "wind_speed_ms": 3.0464,
         "wind_dir_deg": 194.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 421.794,
-        "n_plume_pixels": 14325,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1081.9476000000002,
+        "flow_rate_kgh_old": 48.15
       }
     },
     {
@@ -2655,17 +2697,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 818.79,
+        "flow_rate_lower_kgh": 573.15,
+        "flow_rate_upper_kgh": 1064.43,
         "sc_ratio": 4.499,
-        "flow_rate_kgh": 178.77,
-        "flow_rate_lower_kgh": 125.14,
-        "flow_rate_upper_kgh": 232.4,
+        "n_plume_pixels": 12199,
+        "total_mass_kg": 451.6511,
         "wind_speed_ms": 6.1336,
         "wind_dir_deg": 56.5,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1566.0252,
-        "n_plume_pixels": 13995,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 7172.600399999999,
+        "flow_rate_kgh_old": 178.77
       }
     },
     {
@@ -3019,17 +3064,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 322.02,
+        "flow_rate_lower_kgh": 225.41,
+        "flow_rate_upper_kgh": 418.63,
         "sc_ratio": 28.9664,
-        "flow_rate_kgh": 151.24,
-        "flow_rate_lower_kgh": 105.87,
-        "flow_rate_upper_kgh": 196.61,
+        "n_plume_pixels": 7379,
+        "total_mass_kg": 231.9733,
         "wind_speed_ms": 4.8047,
         "wind_dir_deg": 294.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1324.8624,
-        "n_plume_pixels": 16158,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 2820.8952,
+        "flow_rate_kgh_old": 151.24
       }
     },
     {
@@ -3118,17 +3166,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 155.78,
+        "flow_rate_lower_kgh": 109.05,
+        "flow_rate_upper_kgh": 202.51,
         "sc_ratio": 6.0768,
-        "flow_rate_kgh": 166.86,
-        "flow_rate_lower_kgh": 116.8,
-        "flow_rate_upper_kgh": 216.92,
+        "n_plume_pixels": 9102,
+        "total_mass_kg": 182.2272,
         "wind_speed_ms": 2.9731,
         "wind_dir_deg": 235.3,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1461.6936,
-        "n_plume_pixels": 15546,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1364.6328,
+        "flow_rate_kgh_old": 166.86
       }
     },
     {
@@ -3187,17 +3238,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 1287.32,
+        "flow_rate_lower_kgh": 901.12,
+        "flow_rate_upper_kgh": 1673.52,
         "sc_ratio": 42.1469,
-        "flow_rate_kgh": 2030.41,
-        "flow_rate_lower_kgh": 1421.29,
-        "flow_rate_upper_kgh": 2639.53,
+        "n_plume_pixels": 100262,
+        "total_mass_kg": 1645.2795,
         "wind_speed_ms": 2.7559,
         "wind_dir_deg": 302.8,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 17786.3916,
-        "n_plume_pixels": 78891,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 11276.9232,
+        "flow_rate_kgh_old": 2030.41
       }
     },
     {
@@ -3314,17 +3368,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 3267.43,
+        "flow_rate_lower_kgh": 2287.2,
+        "flow_rate_upper_kgh": 4247.66,
         "sc_ratio": 6.605,
-        "flow_rate_kgh": 1880.68,
-        "flow_rate_lower_kgh": 1316.48,
-        "flow_rate_upper_kgh": 2444.88,
+        "n_plume_pixels": 106528,
+        "total_mass_kg": 3022.6926,
         "wind_speed_ms": 3.8014,
         "wind_dir_deg": 230.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 16474.7568,
-        "n_plume_pixels": 90130,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 28622.686799999996,
+        "flow_rate_kgh_old": 1880.68
       }
     },
     {
@@ -3383,17 +3440,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 72.25,
+        "flow_rate_lower_kgh": 50.58,
+        "flow_rate_upper_kgh": 93.92,
         "sc_ratio": 5.315,
-        "flow_rate_kgh": 32.46,
-        "flow_rate_lower_kgh": 22.72,
-        "flow_rate_upper_kgh": 42.2,
+        "n_plume_pixels": 4768,
+        "total_mass_kg": 110.6819,
         "wind_speed_ms": 2.1833,
         "wind_dir_deg": 241.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 284.3496,
-        "n_plume_pixels": 7039,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 632.91,
+        "flow_rate_kgh_old": 32.46
       }
     },
     {
@@ -3598,17 +3658,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 7021.2,
+        "flow_rate_lower_kgh": 4914.84,
+        "flow_rate_upper_kgh": 9127.56,
         "sc_ratio": 1.2423,
-        "flow_rate_kgh": 3412.55,
-        "flow_rate_lower_kgh": 2388.78,
-        "flow_rate_upper_kgh": 4436.32,
+        "n_plume_pixels": 229813,
+        "total_mass_kg": 4741.8862,
         "wind_speed_ms": 5.2235,
         "wind_dir_deg": 121.8,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 29893.938,
-        "n_plume_pixels": 177220,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 61505.712,
+        "flow_rate_kgh_old": 3412.55
       }
     },
     {
@@ -3638,17 +3701,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 182.14,
+        "flow_rate_lower_kgh": 127.5,
+        "flow_rate_upper_kgh": 236.78,
         "sc_ratio": 5.0455,
-        "flow_rate_kgh": 259.94,
-        "flow_rate_lower_kgh": 181.96,
-        "flow_rate_upper_kgh": 337.92,
+        "n_plume_pixels": 36749,
+        "total_mass_kg": 491.0201,
         "wind_speed_ms": 1.2983,
         "wind_dir_deg": 220.0,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2277.0744,
-        "n_plume_pixels": 52594,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1595.5464,
+        "flow_rate_kgh_old": 259.94
       }
     },
     {
@@ -3678,17 +3744,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 161.29,
+        "flow_rate_lower_kgh": 112.9,
+        "flow_rate_upper_kgh": 209.68,
         "sc_ratio": 12.6879,
-        "flow_rate_kgh": 67.3,
-        "flow_rate_lower_kgh": 47.11,
-        "flow_rate_upper_kgh": 87.49,
+        "n_plume_pixels": 19842,
+        "total_mass_kg": 349.6004,
         "wind_speed_ms": 1.5994,
         "wind_dir_deg": 331.8,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 589.548,
-        "n_plume_pixels": 21586,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1412.9004,
+        "flow_rate_kgh_old": 67.3
       }
     },
     {
@@ -3784,17 +3853,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 944.21,
+        "flow_rate_lower_kgh": 660.95,
+        "flow_rate_upper_kgh": 1227.47,
         "sc_ratio": 6231.6379,
-        "flow_rate_kgh": 4900.93,
-        "flow_rate_lower_kgh": 3430.65,
-        "flow_rate_upper_kgh": 6371.21,
+        "n_plume_pixels": 131733,
+        "total_mass_kg": 1563.2628,
         "wind_speed_ms": 2.1207,
         "wind_dir_deg": 37.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 42932.1468,
-        "n_plume_pixels": 121722,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 8271.2796,
+        "flow_rate_kgh_old": 4900.93
       }
     },
     {
@@ -4012,17 +4084,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 366.96,
+        "flow_rate_lower_kgh": 256.87,
+        "flow_rate_upper_kgh": 477.05,
         "sc_ratio": 7.3283,
-        "flow_rate_kgh": 146.54,
-        "flow_rate_lower_kgh": 102.58,
-        "flow_rate_upper_kgh": 190.5,
+        "n_plume_pixels": 9147,
+        "total_mass_kg": 274.3507,
         "wind_speed_ms": 4.6294,
         "wind_dir_deg": 94.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1283.6904,
-        "n_plume_pixels": 18537,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 3214.5696,
+        "flow_rate_kgh_old": 146.54
       }
     },
     {
@@ -4081,17 +4156,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 898.42,
+        "flow_rate_lower_kgh": 628.89,
+        "flow_rate_upper_kgh": 1167.95,
         "sc_ratio": 29.6769,
-        "flow_rate_kgh": 1112.75,
-        "flow_rate_lower_kgh": 778.92,
-        "flow_rate_upper_kgh": 1446.58,
+        "n_plume_pixels": 75702,
+        "total_mass_kg": 762.8995,
         "wind_speed_ms": 4.1283,
         "wind_dir_deg": 217.8,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 9747.69,
-        "n_plume_pixels": 91584,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 7870.159199999999,
+        "flow_rate_kgh_old": 1112.75
       }
     },
     {

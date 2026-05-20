@@ -1,0 +1,505 @@
+{
+  "years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "site": "rybnik_chwalowice",
+  "records": [
+    {
+      "month": "2023-01",
+      "acquisition_date": "2023-01-12",
+      "search": {
+        "product_name": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-01-12T09:52:49.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [],
+      "tropomi_events": [],
+      "npy": "S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20230112T095249_N0510_R079_T34UCA_20240810T185544.tif",
+        "sc_ratio": 1.8639,
+        "sc_cfar": 1.4845,
+        "site_mean": 0.54747,
+        "ctrl_mean": 0.293717,
+        "ctrl_mu": 0.368781,
+        "ctrl_sigma": 0.085017,
+        "cv_ctrl": 0.2305,
+        "cfar_thresh_ratio": 1.8416,
+        "cfar_detect": false,
+        "cfar_margin": -0.3571,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 2596.16,
+        "flow_rate_lower_kgh": 1817.31,
+        "flow_rate_upper_kgh": 3375.01,
+        "sc_ratio": 1.8639,
+        "n_plume_pixels": 79533,
+        "total_mass_kg": 976.42,
+        "wind_speed_ms": 4.8598,
+        "wind_dir_deg": 211.3,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 22742.361599999997,
+        "flow_rate_kgh_old": 919.36
+      }
+    },
+    {
+      "month": "2023-02",
+      "acquisition_date": "2023-02-09",
+      "search": {
+        "product_name": "S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-02-09T10:01:51.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [],
+      "tropomi_events": [
+        {
+          "date": "2023-02-10",
+          "enhancement_ppb": 13.91,
+          "n_near_pixels": 2,
+          "validated": false,
+          "product_name": "S5P_OFFL_L2__CH4____20230210T110554_20230210T124724_27610_03_020400_20230212T033258.nc"
+        },
+        {
+          "date": "2023-02-15",
+          "enhancement_ppb": 10.85,
+          "n_near_pixels": 26,
+          "validated": false,
+          "product_name": "S5P_OFFL_L2__CH4____20230215T093113_20230215T111243_27680_03_020400_20230217T015806.nc"
+        }
+      ],
+      "npy": "S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "uniform_field": true
+      },
+      "quantification": {
+        "status": "uniform_field_excluded"
+      }
+    },
+    {
+      "month": "2023-03",
+      "acquisition_date": "2023-03-01",
+      "search": {
+        "product_name": "S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-03-01T10:00:21.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [],
+      "tropomi_events": [
+        {
+          "date": "2023-03-01",
+          "enhancement_ppb": 17.42,
+          "n_near_pixels": 56,
+          "validated": false,
+          "product_name": "S5P_OFFL_L2__CH4____20230301T101042_20230301T115212_27879_03_020400_20230303T023220.nc"
+        },
+        {
+          "date": "2023-03-02",
+          "enhancement_ppb": 12.58,
+          "n_near_pixels": 4,
+          "validated": false,
+          "product_name": "S5P_OFFL_L2__CH4____20230302T113316_20230302T131447_27894_03_020400_20230304T041312.nc"
+        }
+      ],
+      "npy": "S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230301T100021_N0510_R122_T34UCA_20240820T221216.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "uniform_field": true
+      },
+      "quantification": {
+        "status": "uniform_field_excluded"
+      }
+    },
+    {
+      "month": "2023-08",
+      "acquisition_date": "2023-08-23",
+      "search": {
+        "product_name": "S2B_MSIL1C_20230823T095559_N0510_R122_T34UCA_20241019T145646.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-23T09:55:59.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "emi20230811t122506p08004-F",
+          "date": "2023-08-11",
+          "time_utc": "12:25",
+          "instrument": "emi",
+          "platform": "ISS",
+          "mission_phase": "production",
+          "emission_kgh": 1149.8778918501246,
+          "wind_speed_ms": 1.6851851851851851,
+          "wind_dir_deg": 257.33282069289993
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2B_MSIL1C_20230823T095559_N0510_R122_T34UCA_20241019T145646.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20230823T095559_N0510_R122_T34UCA_20241019T145646.tif",
+        "sc_ratio": 1.1807,
+        "sc_cfar": 1.1727,
+        "site_mean": 0.41076,
+        "ctrl_mean": 0.347909,
+        "ctrl_mu": 0.350275,
+        "ctrl_sigma": 0.042583,
+        "cv_ctrl": 0.1216,
+        "cfar_thresh_ratio": 1.5147,
+        "cfar_detect": false,
+        "cfar_margin": -0.342,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.1807,
+        "flow_rate_kgh": 0,
+        "flow_rate_lower_kgh": 0.0,
+        "flow_rate_upper_kgh": 0.0,
+        "wind_speed_ms": 2.1335,
+        "wind_dir_deg": 21.5,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 0.0,
+        "n_plume_pixels": 0,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2024-06",
+      "acquisition_date": "2024-06-08",
+      "search": {
+        "product_name": "S2B_MSIL1C_20240608T095549_N0510_R122_T34UCA_20240608T105303.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2024-06-08T09:55:49.024000Z",
+        "status": "downloaded"
+      },
+      "cm_detections": [],
+      "tropomi_events": [
+        {
+          "date": "2024-06-28",
+          "enhancement_ppb": 19.66,
+          "n_near_pixels": 2,
+          "validated": false,
+          "product_name": "S5P_OFFL_L2__CH4____20240628T102422_20240628T120552_34760_03_020600_20240630T024449.nc"
+        }
+      ],
+      "npy": "S2B_MSIL1C_20240608T095549_N0510_R122_T34UCA_20240608T105303.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20240608T095549_N0510_R122_T34UCA_20240608T105303.tif",
+        "sc_ratio": 1.1761,
+        "sc_cfar": 1.1709,
+        "site_mean": 0.410769,
+        "ctrl_mean": 0.349275,
+        "ctrl_mu": 0.350811,
+        "ctrl_sigma": 0.042584,
+        "cv_ctrl": 0.1214,
+        "cfar_thresh_ratio": 1.5142,
+        "cfar_detect": false,
+        "cfar_margin": -0.3432,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.1761,
+        "flow_rate_kgh": 0,
+        "flow_rate_lower_kgh": 0.0,
+        "flow_rate_upper_kgh": 0.0,
+        "wind_speed_ms": 1.9425,
+        "wind_dir_deg": 150.5,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 0.0,
+        "n_plume_pixels": 0,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2025-03",
+      "acquisition_date": "2025-03-25",
+      "search": {
+        "product_name": "S2B_MSIL1C_20250325T100029_N0511_R122_T34UCA_20250325T122616.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2025-03-25T10:00:29.024000Z",
+        "status": "downloaded"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "tan20250321t102154c00s4001-K",
+          "date": "2025-03-21",
+          "time_utc": "10:21",
+          "instrument": "tan",
+          "platform": "Tanager",
+          "mission_phase": "first_light",
+          "emission_kgh": 2019.1851618460248,
+          "wind_speed_ms": 3.0833333333333335,
+          "wind_dir_deg": 215.66789566449873
+        },
+        {
+          "plume_id": "tan20250312t100804c00s4001-I",
+          "date": "2025-03-12",
+          "time_utc": "10:08",
+          "instrument": "tan",
+          "platform": "Tanager",
+          "mission_phase": "first_light",
+          "emission_kgh": 1332.6302866141,
+          "wind_speed_ms": 3.0370370370370368,
+          "wind_dir_deg": 183.34060165746567
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2B_MSIL1C_20250325T100029_N0511_R122_T34UCA_20250325T122616.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20250325T100029_N0511_R122_T34UCA_20250325T122616.tif",
+        "sc_ratio": 1.2306,
+        "sc_cfar": 1.0492,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.345924,
+        "ctrl_mu": 0.405757,
+        "ctrl_sigma": 0.034545,
+        "cv_ctrl": 0.0851,
+        "cfar_thresh_ratio": 1.4054,
+        "cfar_detect": false,
+        "cfar_margin": -0.3563,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.2306,
+        "flow_rate_kgh": 0,
+        "flow_rate_lower_kgh": 0.0,
+        "flow_rate_upper_kgh": 0.0,
+        "wind_speed_ms": 0.7146,
+        "wind_dir_deg": 135.9,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 0.0,
+        "n_plume_pixels": 0,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2023-08",
+      "acquisition_date": "2023-08-20",
+      "search": {
+        "product_name": "S2B_MSIL1C_20230820T094549_N0510_R079_T34UCA_20241022T101050.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-20T09:45:49.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "emi20230811t122506p08004-F",
+          "date": "2023-08-11",
+          "time_utc": "12:25",
+          "instrument": "emi",
+          "platform": "ISS",
+          "mission_phase": "production",
+          "emission_kgh": 1149.8778918501246,
+          "wind_speed_ms": 1.6851851851851851,
+          "wind_dir_deg": 257.33282069289993
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2B_MSIL1C_20230820T094549_N0510_R079_T34UCA_20241022T101050.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20230820T094549_N0510_R079_T34UCA_20241022T101050.tif",
+        "sc_ratio": 1.4632,
+        "sc_cfar": 2.3851,
+        "site_mean": 0.172863,
+        "ctrl_mean": 0.118139,
+        "ctrl_mu": 0.072475,
+        "ctrl_sigma": 0.034254,
+        "cv_ctrl": 0.4726,
+        "cfar_thresh_ratio": 2.5679,
+        "cfar_detect": false,
+        "cfar_margin": -0.1828,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 70.72,
+        "flow_rate_lower_kgh": 49.5,
+        "flow_rate_upper_kgh": 91.94,
+        "sc_ratio": 1.4632,
+        "n_plume_pixels": 6187,
+        "total_mass_kg": 98.8564,
+        "wind_speed_ms": 1.2838,
+        "wind_dir_deg": 315.2,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 619.5071999999999,
+        "flow_rate_kgh_old": 101.81
+      }
+    },
+    {
+      "month": "2023-08",
+      "acquisition_date": "2023-08-18",
+      "search": {
+        "product_name": "S2A_MSIL1C_20230818T100031_N0510_R122_T34UCA_20241024T171046.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-18T10:00:31.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "emi20230811t122506p08004-F",
+          "date": "2023-08-11",
+          "time_utc": "12:25",
+          "instrument": "emi",
+          "platform": "ISS",
+          "mission_phase": "production",
+          "emission_kgh": 1149.8778918501246,
+          "wind_speed_ms": 1.6851851851851851,
+          "wind_dir_deg": 257.33282069289993
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2A_MSIL1C_20230818T100031_N0510_R122_T34UCA_20241024T171046.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230818T100031_N0510_R122_T34UCA_20241024T171046.tif",
+        "sc_ratio": 1.631,
+        "sc_cfar": 1.1585,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.261005,
+        "ctrl_mu": 0.367458,
+        "ctrl_sigma": 0.067486,
+        "cv_ctrl": 0.1837,
+        "cfar_thresh_ratio": 1.701,
+        "cfar_detect": false,
+        "cfar_margin": -0.5425,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1.631,
+        "flow_rate_kgh": 0,
+        "flow_rate_lower_kgh": 0.0,
+        "flow_rate_upper_kgh": 0.0,
+        "wind_speed_ms": 0.5836,
+        "wind_dir_deg": 225.2,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 0.0,
+        "n_plume_pixels": 0,
+        "governance_flags": []
+      }
+    },
+    {
+      "month": "2023-08",
+      "acquisition_date": "2023-08-15",
+      "search": {
+        "product_name": "S2A_MSIL1C_20230815T095031_N0510_R079_T34UCA_20241025T000725.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-15T09:50:31.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "emi20230811t122506p08004-F",
+          "date": "2023-08-11",
+          "time_utc": "12:25",
+          "instrument": "emi",
+          "platform": "ISS",
+          "mission_phase": "production",
+          "emission_kgh": 1149.8778918501246,
+          "wind_speed_ms": 1.6851851851851851,
+          "wind_dir_deg": 257.33282069289993
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2A_MSIL1C_20230815T095031_N0510_R079_T34UCA_20241025T000725.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2A_MSIL1C_20230815T095031_N0510_R079_T34UCA_20241025T000725.tif",
+        "sc_ratio": 0.0269,
+        "sc_cfar": 0.0554,
+        "site_mean": 0.003998,
+        "ctrl_mean": 0.148744,
+        "ctrl_mu": 0.07223,
+        "ctrl_sigma": 0.0593,
+        "cv_ctrl": 0.821,
+        "cfar_thresh_ratio": 3.613,
+        "cfar_detect": false,
+        "cfar_margin": -3.5576,
+        "uniform_field": false
+      },
+      "quantification": {
+        "status": "below_threshold",
+        "sc_ratio": 0.0269
+      }
+    },
+    {
+      "month": "2023-08",
+      "acquisition_date": "2023-08-13",
+      "search": {
+        "product_name": "S2B_MSIL1C_20230813T095559_N0510_R122_T34UCA_20241015T094424.SAFE",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-13T09:55:59.024000Z",
+        "status": "cached"
+      },
+      "cm_detections": [
+        {
+          "plume_id": "emi20230811t122506p08004-F",
+          "date": "2023-08-11",
+          "time_utc": "12:25",
+          "instrument": "emi",
+          "platform": "ISS",
+          "mission_phase": "production",
+          "emission_kgh": 1149.8778918501246,
+          "wind_speed_ms": 1.6851851851851851,
+          "wind_dir_deg": 257.33282069289993
+        }
+      ],
+      "tropomi_events": [],
+      "npy": "S2B_MSIL1C_20230813T095559_N0510_R122_T34UCA_20241015T094424.npy",
+      "detection": {
+        "tif": "results_bitemporal/rybnik_chwalowice/original_S2B_MSIL1C_20230813T095559_N0510_R122_T34UCA_20241015T094424.tif",
+        "sc_ratio": 1.0,
+        "sc_cfar": 1.0,
+        "site_mean": 0.425702,
+        "ctrl_mean": 0.425702,
+        "ctrl_mu": 0.425702,
+        "ctrl_sigma": 0.0,
+        "cv_ctrl": 0.0,
+        "cfar_thresh_ratio": 1.15,
+        "cfar_detect": false,
+        "cfar_margin": -0.15,
+        "uniform_field": true
+      },
+      "quantification": {
+        "status": "uniform_field_excluded"
+      }
+    }
+  ]
+}

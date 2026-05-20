@@ -59,11 +59,11 @@ class MethaneEvidence:
 
 BELCHATOW_EVIDENCE = MethaneEvidence(
     site_label="KWB Bełchatów (Climate TRACE asset 16168)",
-    annual_ch4_t_mean=11_481.0,
-    annual_ch4_t_lower=6_563.0,
-    annual_ch4_t_upper=16_400.0,
-    detection_overpasses=37,
-    source="results_analysis/belchatow_annual_timeseries.json",
+    annual_ch4_t_mean=16_486.0,
+    annual_ch4_t_lower=6_781.0,
+    annual_ch4_t_upper=26_191.0,
+    detection_overpasses=26,
+    source="results_analysis/belchatow_annual_timeseries_mbsp.json",
 )
 
 

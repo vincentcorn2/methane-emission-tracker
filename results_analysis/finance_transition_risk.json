@@ -3,43 +3,43 @@
   "framing": "Stylized scenario analysis. Equity and spread shocks are illustrative stress tiers, not predictive forecasts.",
   "methane_evidence": {
     "site_label": "KWB Be\u0142chat\u00f3w (Climate TRACE asset 16168)",
-    "annual_ch4_t_mean": 11481.0,
-    "annual_ch4_t_lower": 6563.0,
-    "annual_ch4_t_upper": 16400.0,
-    "detection_overpasses": 37,
-    "source": "results_analysis/belchatow_annual_timeseries.json"
+    "annual_ch4_t_mean": 16486.0,
+    "annual_ch4_t_lower": 6781.0,
+    "annual_ch4_t_upper": 26191.0,
+    "detection_overpasses": 26,
+    "source": "results_analysis/belchatow_annual_timeseries_mbsp.json"
   },
   "gwp_factors": {
     "GWP100": 28,
     "GWP20": 83
   },
-  "co2e_t_mean": 321468.0,
-  "co2e_t_lower": 183764.0,
-  "co2e_t_upper": 459200.0,
-  "co2e_t_mean_gwp20": 952923.0,
+  "co2e_t_mean": 461608.0,
+  "co2e_t_lower": 189868.0,
+  "co2e_t_upper": 733348.0,
+  "co2e_t_mean_gwp20": 1368338.0,
   "carbon_cost_table": [
     {
       "price_case": "Low",
       "eur_per_tco2e": 50.0,
-      "exposure_eur_mean": 16073400.0,
-      "exposure_eur_lower": 9188200.0,
-      "exposure_eur_upper": 22960000.0,
+      "exposure_eur_mean": 23080400.0,
+      "exposure_eur_lower": 9493400.0,
+      "exposure_eur_upper": 36667400.0,
       "rationale": "Lower-band EUA realised price, 2023"
     },
     {
       "price_case": "Central",
       "eur_per_tco2e": 70.0,
-      "exposure_eur_mean": 22502760.0,
-      "exposure_eur_lower": 12863480.0,
-      "exposure_eur_upper": 32144000.0,
+      "exposure_eur_mean": 32312560.0,
+      "exposure_eur_lower": 13290760.0,
+      "exposure_eur_upper": 51334360.0,
       "rationale": "EUA central reference, 2024-2025"
     },
     {
       "price_case": "Upper",
       "eur_per_tco2e": 95.0,
-      "exposure_eur_mean": 30539460.0,
-      "exposure_eur_lower": 17457580.0,
-      "exposure_eur_upper": 43624000.0,
+      "exposure_eur_mean": 43852760.0,
+      "exposure_eur_lower": 18037460.0,
+      "exposure_eur_upper": 69668060.0,
       "rationale": "Forward-curve estimate, post-2027 MSR tightening"
     }
   ],

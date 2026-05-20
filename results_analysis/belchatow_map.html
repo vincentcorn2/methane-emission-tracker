@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ad837841c0882302fec3123b5a9b10e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-dvf/0.3.0/leaflet-dvf.markers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position:fixed;top:10px;right:10px;z-index:1000;
+  background:rgba(10,10,10,0.88);padding:16px 18px;border-radius:10px;
+  color:white;font-family:sans-serif;font-size:12px;min-width:280px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.5);">
+
+  <div style="font-size:14px;font-weight:700;color:#FFD700;margin-bottom:4px;">
+    CH4Net · Bełchatów · Aug 24 2024
+  </div>
+  <div style="font-size:11px;color:#bbb;margin-bottom:12px;">
+    T34UCB · Sentinel-2B · S/C = 27.3× · τ = 3.5796
+  </div>
+
+  <table style="border-collapse:collapse;width:100%;">
+    <tr style="border-bottom:1px solid #333;">
+      <td style="padding:6px 0;vertical-align:top;width:28px;">
+        <div style="width:20px;height:20px;border:3px solid #185FA5;
+          background:rgba(24,95,165,0.30);"></div>
+      </td>
+      <td style="padding:6px 0 6px 6px;">
+        <b>S/C site crop — analysis window</b><br>
+        <span style="color:#aaa;font-size:11px;">
+          1km × 1km · 100×100 px at 10m<br>
+          Centred on KWB mine · 51.242°N, 19.275°E (corrected)
+        </span>
+      </td>
+    </tr>
+    <tr style="border-bottom:1px solid #333;">
+      <td style="padding:6px 0;vertical-align:top;">
+        <div style="width:20px;height:20px;border:2px dashed #185FA5;
+          background:rgba(24,95,165,0.15);"></div>
+      </td>
+      <td style="padding:6px 0 6px 6px;">
+        <b>Control crops × 4</b><br>
+        <span style="color:#aaa;font-size:11px;">
+          1km × 1km each · N/S: 0.20° (~22km) · E: 0.30° (~33km) · W: 0.39° (~43km)<br>
+          Background reference for S/C denominator
+        </span>
+      </td>
+    </tr>
+    <tr style="border-bottom:1px solid #333;">
+      <td style="padding:6px 0;vertical-align:top;">
+        <div style="width:20px;height:20px;border:2px dashed #E8851A;
+          background:rgba(232,133,26,0.08);"></div>
+      </td>
+      <td style="padding:6px 0 6px 6px;">
+        <b>Mine quantification polygon</b><br>
+        <span style="color:#aaa;font-size:11px;">
+          KWB Bełchatów exact boundary · ~21km × 4.2km<br>
+          NW 51.257°N 19.097°E → NE 51.2566°N 19.390°E<br>
+          SE 51.219°N 19.3996°E → SW 51.2185°N 19.099°E<br>
+          CEMF+IME mass retrieval bounded here → Q (kg/h)
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:6px 0;vertical-align:top;">
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">
+          <div style="width:20px;height:20px;border-radius:50%;
+            background:#D85A30;text-align:center;line-height:20px;
+            font-size:11px;">★</div>
+          <div style="width:20px;height:20px;border-radius:50%;
+            background:#185FA5;text-align:center;line-height:20px;
+            font-size:10px;font-weight:700;">S</div>
+          <div style="width:20px;height:20px;border-radius:50%;
+            background:#3B6D11;text-align:center;line-height:20px;
+            font-size:9px;font-weight:700;">CT</div>
+        </div>
+      </td>
+      <td style="padding:6px 0 6px 6px;vertical-align:top;">
+        <span style="color:#D85A30;font-weight:600;">★</span>
+        Detection centroid · 51.2495°N, 19.2227°E<br>
+        <span style="color:#6699cc;font-weight:600;">S</span>
+        S/C crop centre · 51.242°N, 19.275°E <i style="color:#aaa;">(KWB mine — corrected)</i><br>
+        <span style="color:#7fc96d;font-weight:600;">CT</span>
+        Climate TRACE · 51.2420°N, 19.2754°E<br>
+        <span style="color:#E8851A;">→</span>
+        Wind FROM 245° WSW · 2.19 m/s ERA5
+      </td>
+    </tr>
+  </table>
+
+  <div style="border-top:1px solid #333;margin-top:8px;padding-top:6px;
+    font-size:10px;color:#777;">
+    Cursor coords bottom-right · Ruler top-left · Satellite toggle bottom-left
+  </div>
+</div>
+    
+            <div class="folium-map" id="map_ad837841c0882302fec3123b5a9b10e9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ad837841c0882302fec3123b5a9b10e9 = L.map(
+                "map_ad837841c0882302fec3123b5a9b10e9",
+                {
+                    center: [51.238, 19.248],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6aed3d23492263a40dc8074824f0768e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6aed3d23492263a40dc8074824f0768e.addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var tile_layer_45ef3cd916f2aa649a4e67b1d1036e95 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            var polygon_9da2ab096964cbad6beede8063fddfe3 = L.polygon(
+                [[51.257, 19.097], [51.2566, 19.39], [51.219, 19.3996], [51.2185, 19.099], [51.257, 19.097]],
+                {"bubblingMouseEvents": true, "color": "#E8851A", "dashArray": "10 5", "dashOffset": null, "fill": true, "fillColor": "#E8851A", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_9a42c5148947ee9c9fe6c7d84f5df325 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4a6a1034e44669646f55cc900eb35092 = $(`<div id="html_4a6a1034e44669646f55cc900eb35092" style="width: 100.0%; height: 100.0%;"><b>KWB Bełchatów Mine — quantification boundary</b><br>Exact OSM polygon used to bound CEMF+IME mass retrieval.<br><br><table style='font-size:11px;'><tr><td>NW</td><td>51.2570°N, 19.0970°E</td></tr><tr><td>NE</td><td>51.2566°N, 19.3900°E</td></tr><tr><td>SE</td><td>51.2190°N, 19.3996°E</td></tr><tr><td>SW</td><td>51.2185°N, 19.0990°E</td></tr></table><br>Width: ~21 km · Height: ~4.2 km<br>B11/B12 spectral mass retrieved within this polygon → Q (kg/h)</div>`)[0];
+                popup_9a42c5148947ee9c9fe6c7d84f5df325.setContent(html_4a6a1034e44669646f55cc900eb35092);
+            
+        
+
+        polygon_9da2ab096964cbad6beede8063fddfe3.bindPopup(popup_9a42c5148947ee9c9fe6c7d84f5df325)
+        ;
+
+        
+    
+    
+            polygon_9da2ab096964cbad6beede8063fddfe3.bindTooltip(
+                `<div>
+                     Mine quantification polygon — click for corner coordinates
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cc2844fa14090e002e3a8f14f33f1fea = L.marker(
+                [51.257, 19.097],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_4b585f80b5f153fdec62a6818711eb65 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#E8851A;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 4px;border-radius:2px;white-space:nowrap;border:1px solid rgba(232,133,26,0.4);\"\u003eNW  51.2570\u00b0N 19.0970\u00b0E\u003c/div\u003e",
+  "iconSize": [200, 14],
+  "iconAnchor": [0, 7],
+  "className": "empty",
+});
+        
+    
+                marker_cc2844fa14090e002e3a8f14f33f1fea.setIcon(div_icon_4b585f80b5f153fdec62a6818711eb65);
+            
+    
+            var marker_632f15ac6fccc0876b18d9c71bd00eed = L.marker(
+                [51.2566, 19.39],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_33b9b30315020368edaac1951d7ab8d5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#E8851A;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 4px;border-radius:2px;white-space:nowrap;border:1px solid rgba(232,133,26,0.4);\"\u003eNE  51.2566\u00b0N 19.3900\u00b0E\u003c/div\u003e",
+  "iconSize": [200, 14],
+  "iconAnchor": [0, 7],
+  "className": "empty",
+});
+        
+    
+                marker_632f15ac6fccc0876b18d9c71bd00eed.setIcon(div_icon_33b9b30315020368edaac1951d7ab8d5);
+            
+    
+            var marker_ee3d9ea1e9c5dcd866b8a1a446ad8979 = L.marker(
+                [51.219, 19.3996],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_d1ca6ada76dc8cb4889b1a9bf8f59118 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#E8851A;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 4px;border-radius:2px;white-space:nowrap;border:1px solid rgba(232,133,26,0.4);\"\u003eSE  51.2190\u00b0N 19.3996\u00b0E\u003c/div\u003e",
+  "iconSize": [200, 14],
+  "iconAnchor": [0, 7],
+  "className": "empty",
+});
+        
+    
+                marker_ee3d9ea1e9c5dcd866b8a1a446ad8979.setIcon(div_icon_d1ca6ada76dc8cb4889b1a9bf8f59118);
+            
+    
+            var marker_723e9771b8d92e9edc4e242f54776d11 = L.marker(
+                [51.2185, 19.099],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_793d13b4e2614d75000d990025868990 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#E8851A;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 4px;border-radius:2px;white-space:nowrap;border:1px solid rgba(232,133,26,0.4);\"\u003eSW  51.2185\u00b0N 19.0990\u00b0E\u003c/div\u003e",
+  "iconSize": [200, 14],
+  "iconAnchor": [0, 7],
+  "className": "empty",
+});
+        
+    
+                marker_723e9771b8d92e9edc4e242f54776d11.setIcon(div_icon_793d13b4e2614d75000d990025868990);
+            
+    
+            var rectangle_4086cf82125f3c84648cb9593927309c = L.rectangle(
+                [[51.4374954954955, 19.26780467783597], [51.4465045045045, 19.28219532216403]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "5 4", "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_bcd212947c5a65824283d64b5e356559 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2e9262060a795bc3aa6bb9ccf6c07d4d = $(`<div id="html_2e9262060a795bc3aa6bb9ccf6c07d4d" style="width: 100.0%; height: 100.0%;"><b>Control crop N</b><br>Centre: 51.4420°N, 19.2750°E<br>Size: 1 km × 1 km (100 px × 100 px at 10 m)<br>Offset: 0.2° (~22 km) from source<br><br>Mean CH4Net probability here = background reference.<br>S/C = site mean ÷ mean(all valid control crops).<br><i>E/W offset = 1.5× N/S offset to clear mine footprint</i></div>`)[0];
+                popup_bcd212947c5a65824283d64b5e356559.setContent(html_2e9262060a795bc3aa6bb9ccf6c07d4d);
+            
+        
+
+        rectangle_4086cf82125f3c84648cb9593927309c.bindPopup(popup_bcd212947c5a65824283d64b5e356559)
+        ;
+
+        
+    
+    
+            rectangle_4086cf82125f3c84648cb9593927309c.bindTooltip(
+                `<div>
+                     Control crop N — background reference (click for coords)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c4981432ca4fe3d5a30b939b1b0967f1 = L.polyline(
+                [[51.242, 19.275], [51.442, 19.275]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "3 6", "dashOffset": null, "fill": false, "fillColor": "#185FA5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.25, "smoothFactor": 1.0, "stroke": true, "weight": 1}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var rectangle_3fd7d006304444615c5f9b57b751c4af = L.rectangle(
+                [[51.03749549549549, 19.26780467783597], [51.0465045045045, 19.28219532216403]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "5 4", "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_f4801feaef2d70e9ae15ef6844cf0443 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f503bd6a169c0fcc9def81107a51a3f9 = $(`<div id="html_f503bd6a169c0fcc9def81107a51a3f9" style="width: 100.0%; height: 100.0%;"><b>Control crop S</b><br>Centre: 51.0420°N, 19.2750°E<br>Size: 1 km × 1 km (100 px × 100 px at 10 m)<br>Offset: 0.2° (~22 km) from source<br><br>Mean CH4Net probability here = background reference.<br>S/C = site mean ÷ mean(all valid control crops).<br><i>E/W offset = 1.5× N/S offset to clear mine footprint</i></div>`)[0];
+                popup_f4801feaef2d70e9ae15ef6844cf0443.setContent(html_f503bd6a169c0fcc9def81107a51a3f9);
+            
+        
+
+        rectangle_3fd7d006304444615c5f9b57b751c4af.bindPopup(popup_f4801feaef2d70e9ae15ef6844cf0443)
+        ;
+
+        
+    
+    
+            rectangle_3fd7d006304444615c5f9b57b751c4af.bindTooltip(
+                `<div>
+                     Control crop S — background reference (click for coords)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e2c1b4cb559cfdfd7ca943b2e23a68f0 = L.polyline(
+                [[51.242, 19.275], [51.041999999999994, 19.275]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "3 6", "dashOffset": null, "fill": false, "fillColor": "#185FA5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.25, "smoothFactor": 1.0, "stroke": true, "weight": 1}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var rectangle_84edff60561a45c2d81a290939de03b0 = L.rectangle(
+                [[51.237495495495494, 19.56780467783597], [51.2465045045045, 19.58219532216403]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "5 4", "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_f982b29a6701b113f6dbbb0eeacb173f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_32f7303dfbe84d8fa554e29f19843f27 = $(`<div id="html_32f7303dfbe84d8fa554e29f19843f27" style="width: 100.0%; height: 100.0%;"><b>Control crop E</b><br>Centre: 51.2420°N, 19.5750°E<br>Size: 1 km × 1 km (100 px × 100 px at 10 m)<br>Offset: 0.3° (~33 km) from source<br><br>Mean CH4Net probability here = background reference.<br>S/C = site mean ÷ mean(all valid control crops).<br><i>E/W offset = 1.5× N/S offset to clear mine footprint</i></div>`)[0];
+                popup_f982b29a6701b113f6dbbb0eeacb173f.setContent(html_32f7303dfbe84d8fa554e29f19843f27);
+            
+        
+
+        rectangle_84edff60561a45c2d81a290939de03b0.bindPopup(popup_f982b29a6701b113f6dbbb0eeacb173f)
+        ;
+
+        
+    
+    
+            rectangle_84edff60561a45c2d81a290939de03b0.bindTooltip(
+                `<div>
+                     Control crop E — background reference (click for coords)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9c608ae3d2eb9d2ceb8f1ce67bba6695 = L.polyline(
+                [[51.242, 19.275], [51.242, 19.575]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "3 6", "dashOffset": null, "fill": false, "fillColor": "#185FA5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.25, "smoothFactor": 1.0, "stroke": true, "weight": 1}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var rectangle_ff56e718066c6dcdab3f96a23936d669 = L.rectangle(
+                [[51.237495495495494, 18.877804677835968], [51.2465045045045, 18.892195322164028]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "5 4", "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_9d8f7f48f55f51f4d0b6148fb5a56882 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_4259435da88b5cf76132f0215d7b0583 = $(`<div id="html_4259435da88b5cf76132f0215d7b0583" style="width: 100.0%; height: 100.0%;"><b>Control crop W</b><br>Centre: 51.2420°N, 18.8850°E<br>Size: 1 km × 1 km (100 px × 100 px at 10 m)<br>Offset: 0.39° (~43 km) from source<br><br>Mean CH4Net probability here = background reference.<br>S/C = site mean ÷ mean(all valid control crops).<br><i>E/W offset = 1.5× N/S offset to clear mine footprint</i></div>`)[0];
+                popup_9d8f7f48f55f51f4d0b6148fb5a56882.setContent(html_4259435da88b5cf76132f0215d7b0583);
+            
+        
+
+        rectangle_ff56e718066c6dcdab3f96a23936d669.bindPopup(popup_9d8f7f48f55f51f4d0b6148fb5a56882)
+        ;
+
+        
+    
+    
+            rectangle_ff56e718066c6dcdab3f96a23936d669.bindTooltip(
+                `<div>
+                     Control crop W — background reference (click for coords)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4abf5b32eb102aa9037cb7fe30fc0d45 = L.polyline(
+                [[51.242, 19.275], [51.242, 18.884999999999998]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": "3 6", "dashOffset": null, "fill": false, "fillColor": "#185FA5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.25, "smoothFactor": 1.0, "stroke": true, "weight": 1}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var rectangle_2843b23c2d2cbcfff8565f3ce4886c22 = L.rectangle(
+                [[51.237495495495494, 19.26780467783597], [51.2465045045045, 19.28219532216403]],
+                {"bubblingMouseEvents": true, "color": "#185FA5", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_99db3fee06a40292329e9463dcc537b2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_d45218a4bc5e5abea12c0bc2d29257f3 = $(`<div id="html_d45218a4bc5e5abea12c0bc2d29257f3" style="width: 100.0%; height: 100.0%;"><b>S/C site crop — analysis window</b><br>Centre: 51.242°N, 19.275°E<br>Size: 1 km × 1 km (100 px × 100 px at 10 m)<br><br>Mean CH4Net probability inside this box = the signal.<br>Divided by mean of 4 control crops = S/C ratio.<br>S/C = <b>27.3×</b> on Aug 24 2024 → above τ = 3.58.<br><br>Centred on Climate TRACE KWB mine (corrected).<br><i>Code: LAT, LON = 51.242, 19.275</i></div>`)[0];
+                popup_99db3fee06a40292329e9463dcc537b2.setContent(html_d45218a4bc5e5abea12c0bc2d29257f3);
+            
+        
+
+        rectangle_2843b23c2d2cbcfff8565f3ce4886c22.bindPopup(popup_99db3fee06a40292329e9463dcc537b2)
+        ;
+
+        
+    
+    
+            rectangle_2843b23c2d2cbcfff8565f3ce4886c22.bindTooltip(
+                `<div>
+                     S/C site crop — 1km² · centred on mine · S/C=27.3 (click for coords)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_443cf4ada4ecae6a2de03ec540b8e591 = L.marker(
+                [51.2465045045045, 19.26780467783597],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_2a5ab78dbe5233541d156302d47a36ad = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#185FA5;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 3px;border-radius:2px;white-space:nowrap;\"\u003e51.2465\u00b0N 19.2678\u00b0E\u003c/div\u003e",
+  "iconSize": [140, 14],
+  "iconAnchor": [70, 7],
+  "className": "empty",
+});
+        
+    
+                marker_443cf4ada4ecae6a2de03ec540b8e591.setIcon(div_icon_2a5ab78dbe5233541d156302d47a36ad);
+            
+    
+            var marker_af040b3274aecff819129c31323719b3 = L.marker(
+                [51.2465045045045, 19.28219532216403],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_5e9591b8e2ef353446d79c61ad33ce4a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#185FA5;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 3px;border-radius:2px;white-space:nowrap;\"\u003e51.2465\u00b0N 19.2822\u00b0E\u003c/div\u003e",
+  "iconSize": [140, 14],
+  "iconAnchor": [70, 7],
+  "className": "empty",
+});
+        
+    
+                marker_af040b3274aecff819129c31323719b3.setIcon(div_icon_5e9591b8e2ef353446d79c61ad33ce4a);
+            
+    
+            var marker_4228af6833d73b5508374739ed974ea8 = L.marker(
+                [51.237495495495494, 19.26780467783597],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_3d9d37157ba81ce8cd1dae8f978460b0 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#185FA5;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 3px;border-radius:2px;white-space:nowrap;\"\u003e51.2375\u00b0N 19.2678\u00b0E\u003c/div\u003e",
+  "iconSize": [140, 14],
+  "iconAnchor": [70, 7],
+  "className": "empty",
+});
+        
+    
+                marker_4228af6833d73b5508374739ed974ea8.setIcon(div_icon_3d9d37157ba81ce8cd1dae8f978460b0);
+            
+    
+            var marker_55013a8e9d77812c576196542ac4c428 = L.marker(
+                [51.237495495495494, 19.28219532216403],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_36410ff85d40633cac70d65f82b087a6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8px;color:#185FA5;font-family:monospace;background:rgba(255,255,255,0.85);padding:1px 3px;border-radius:2px;white-space:nowrap;\"\u003e51.2375\u00b0N 19.2822\u00b0E\u003c/div\u003e",
+  "iconSize": [140, 14],
+  "iconAnchor": [70, 7],
+  "className": "empty",
+});
+        
+    
+                marker_55013a8e9d77812c576196542ac4c428.setIcon(div_icon_36410ff85d40633cac70d65f82b087a6);
+            
+    
+            var poly_line_8216d25d91cb5bd4e282921e96c122cc = L.polyline(
+                [[51.2495, 19.2227], [51.25901842931848, 19.2553112001055]],
+                {"bubblingMouseEvents": true, "color": "#E8851A", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#E8851A", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var regular_polygon_marker_8c25e6e5cfe381566d640b0f6a38e9fa = new L.RegularPolygonMarker(
+                [51.25901842931848, 19.2553112001055],
+                {
+  "stroke": true,
+  "color": "#E8851A",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#E8851A",
+  "fillOpacity": 1.0,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 7,
+  "numberOfSides": 3,
+  "rotation": -25.0,
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            regular_polygon_marker_8c25e6e5cfe381566d640b0f6a38e9fa.bindTooltip(
+                `<div>
+                     Wind FROM 245.0° WSW → plume drifts ENE · 2.19 m/s ERA5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7848dbe1bb6a7415d62c9819f6bf1f83 = L.circleMarker(
+                [51.2495, 19.2227],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D85A30", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_df27292f5a1402c6ca463e0d8c9a54f2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_54bad7a23f8dc34c61e84dbd7738346c = $(`<div id="html_54bad7a23f8dc34c61e84dbd7738346c" style="width: 100.0%; height: 100.0%;"><b>Detection centroid</b><br><code>51.2495°N, 19.2227°E</code><br><br>Probability-weighted centroid of CH4Net mask across full T34UCB tile.<br>Western edge of mine — plume drifts ENE on wind FROM 245.0°.<br><br>S/C = 27.3× · Aug 24 2024 · T34UCB</div>`)[0];
+                popup_df27292f5a1402c6ca463e0d8c9a54f2.setContent(html_54bad7a23f8dc34c61e84dbd7738346c);
+            
+        
+
+        circle_marker_7848dbe1bb6a7415d62c9819f6bf1f83.bindPopup(popup_df27292f5a1402c6ca463e0d8c9a54f2)
+        ;
+
+        
+    
+    
+            circle_marker_7848dbe1bb6a7415d62c9819f6bf1f83.bindTooltip(
+                `<div>
+                     Detection centroid · 51.2495°N, 19.2227°E
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_137ca05982ccba98cd12f0fb49554013 = L.marker(
+                [51.2495, 19.2227],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_d142ab8fb66b3d489e173c3c7f116cd0 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:700;color:white;text-align:center;margin-top:-16px;margin-left:-8px;width:16px;line-height:22px;\"\u003e\u2605\u003c/div\u003e",
+  "iconSize": [16, 22],
+  "className": "empty",
+});
+        
+    
+                marker_137ca05982ccba98cd12f0fb49554013.setIcon(div_icon_d142ab8fb66b3d489e173c3c7f116cd0);
+            
+    
+            var circle_marker_fb3f71d1ea986b56eaebfe1b99fa1c62 = L.circleMarker(
+                [51.242, 19.275],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#185FA5", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_2c769042bd8613bae30b4c7912fe0acd = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_2be9afed304070f96b46bfbddb50f3e5 = $(`<div id="html_2be9afed304070f96b46bfbddb50f3e5" style="width: 100.0%; height: 100.0%;"><b>S/C site crop centre</b><br><code>51.242°N, 19.275°E</code><br><br>Climate TRACE KWB Bełchatów mine centroid (asset 16168).<br>Corrected from previous 51.266°N, 19.315°E (power station).<br><i>belchatow_annual_timeseries.py · LAT, LON = 51.242, 19.275</i></div>`)[0];
+                popup_2c769042bd8613bae30b4c7912fe0acd.setContent(html_2be9afed304070f96b46bfbddb50f3e5);
+            
+        
+
+        circle_marker_fb3f71d1ea986b56eaebfe1b99fa1c62.bindPopup(popup_2c769042bd8613bae30b4c7912fe0acd)
+        ;
+
+        
+    
+    
+            circle_marker_fb3f71d1ea986b56eaebfe1b99fa1c62.bindTooltip(
+                `<div>
+                     S/C crop centre · 51.242°N, 19.275°E · KWB mine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_72065a5715d16c625e6ca83021d19140 = L.marker(
+                [51.242, 19.275],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_fceca05ee87e3d2a171c3c282d5b3731 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:700;color:white;text-align:center;margin-top:-16px;margin-left:-8px;width:16px;line-height:22px;\"\u003eS\u003c/div\u003e",
+  "iconSize": [16, 22],
+  "className": "empty",
+});
+        
+    
+                marker_72065a5715d16c625e6ca83021d19140.setIcon(div_icon_fceca05ee87e3d2a171c3c282d5b3731);
+            
+    
+            var circle_marker_13682137b26f5d4df887d9d61e4c03ad = L.circleMarker(
+                [51.242, 19.2754],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+        var popup_fdf1138d9f08e19114f823a85644895f = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_c2dd0902fa4bbde496e1b5c2bafcc04b = $(`<div id="html_c2dd0902fa4bbde496e1b5c2bafcc04b" style="width: 100.0%; height: 100.0%;"><b>Climate TRACE mine centroid</b><br><code>51.242°N, 19.2754°E</code><br><br>Asset 16168 · KWB Bełchatów · 29,636 t CH₄/yr (2024)<br>Reference point — S/C crop now aligned to this location.</div>`)[0];
+                popup_fdf1138d9f08e19114f823a85644895f.setContent(html_c2dd0902fa4bbde496e1b5c2bafcc04b);
+            
+        
+
+        circle_marker_13682137b26f5d4df887d9d61e4c03ad.bindPopup(popup_fdf1138d9f08e19114f823a85644895f)
+        ;
+
+        
+    
+    
+            circle_marker_13682137b26f5d4df887d9d61e4c03ad.bindTooltip(
+                `<div>
+                     Climate TRACE · 51.242°N, 19.2754°E
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1660107bb2b501ffda06c03adacea6d9 = L.marker(
+                [51.242, 19.2754],
+                {
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+        
+    
+            var div_icon_1165c7837291ac9db5fe7e8e05d9e76e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:700;color:white;text-align:center;margin-top:-16px;margin-left:-8px;width:16px;line-height:22px;\"\u003eCT\u003c/div\u003e",
+  "iconSize": [16, 22],
+  "className": "empty",
+});
+        
+    
+                marker_1660107bb2b501ffda06c03adacea6d9.setIcon(div_icon_1165c7837291ac9db5fe7e8e05d9e76e);
+            
+    
+            var layer_control_2b913e27d557e9da6db58b1029a1da7f_layers = {
+                base_layers : {
+                    "OpenStreetMap" : tile_layer_6aed3d23492263a40dc8074824f0768e,
+                    "Esri Satellite" : tile_layer_45ef3cd916f2aa649a4e67b1d1036e95,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_2b913e27d557e9da6db58b1029a1da7f = L.control.layers(
+                layer_control_2b913e27d557e9da6db58b1029a1da7f_layers.base_layers,
+                layer_control_2b913e27d557e9da6db58b1029a1da7f_layers.overlays,
+                {
+  "position": "bottomleft",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_ad837841c0882302fec3123b5a9b10e9);
+
+        
+    
+            var measure_control_355a6d33bd7b9475b7dd9478aefde31e = new L.Control.Measure(
+                {
+  "position": "topleft",
+  "primaryLengthUnit": "kilometers",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_ad837841c0882302fec3123b5a9b10e9.addControl(measure_control_355a6d33bd7b9475b7dd9478aefde31e);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var mouse_position_8203e136230aa89483041c59bf0bb3d5 = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " | ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "",
+}
+            );
+            mouse_position_8203e136230aa89483041c59bf0bb3d5.options["latFormatter"] =
+                function(n){return n.toFixed(4)+'°N';};
+            mouse_position_8203e136230aa89483041c59bf0bb3d5.options["lngFormatter"] =
+                function(n){return n.toFixed(4)+'°E';};
+            map_ad837841c0882302fec3123b5a9b10e9.addControl(mouse_position_8203e136230aa89483041c59bf0bb3d5);
+        
+</script>
+</html>

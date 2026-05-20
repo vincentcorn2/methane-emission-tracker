@@ -1,31 +1,36 @@
 """
-scripts/belchatow_annual_timeseries.py
-=======================================
-Build an annual Belchatow CH4Net + CEMF+IME time series for Section 4 / Figure 6
-and the financial annualization in the report.
+scripts/timeseries/rybnik_chwalowice_annual_timeseries.py
+==========================================================
+Annual CH4Net + CEMF+IME time series for KWK ROW Ruch Chwałowice
+(Polska Grupa Górnicza S.A.), Rybnik, Upper Silesia, Poland.
+
+Site confirmed by Carbon Mapper (Tanager + EMIT):
+  6 detections at 50.0781°N, 18.5451°E, ranging 1,150–2,019 kg CH₄/hr.
 
 For each target month in the configured year:
-  1. Search CDSE for cloud-free T34UCB Sentinel-2 L1C acquisitions
+  1. Search CDSE for cloud-free T34UCA Sentinel-2 L1C acquisitions
   2. Pick the lowest-cloud product not already cached
   3. Download + convert to .npy if needed
-  4. Run CH4Net v8 inference, compute S/C against the site catalogue entry
-  5. If S/C > 1.15 (Belchatow uses classic CFAR with skip_bitemporal=True):
+  4. Run CH4Net v8 inference, compute S/C against the site crop
+  5. If S/C > 1.15 (skip_bitemporal=True — same as rybnik in backfill pipeline):
      extract B11/B12, build a SiteCfg, run CEMF+IME with ERA5 wind
-  6. Log every record to results_analysis/belchatow_annual_timeseries.json
+  6. Log every record to results_analysis/rybnik_chwalowice_annual_timeseries.json
 
-Defaults to 2019–2025. Evaluates all cloud-free acquisitions per month (not just
-the lowest-cloud one), giving 3–6× more observations per month. Climate TRACE
-reference values for 2025 are model projections.
+Results are tagged with any Carbon Mapper detections in the same calendar month
+for direct comparison.
+
+Defaults to 2019–2025. Evaluates all cloud-free acquisitions per month.
+CM detections span 2023–2026; pre-2023 years provide baseline context.
 
 Usage:
     conda activate methane
-    python scripts/belchatow_annual_timeseries.py
-    python scripts/belchatow_annual_timeseries.py --year 2024
-    python scripts/belchatow_annual_timeseries.py --year 2024 --max-cloud 30
-    python scripts/belchatow_annual_timeseries.py --dry-run
+    python scripts/timeseries/rybnik_chwalowice_annual_timeseries.py
+    python scripts/timeseries/rybnik_chwalowice_annual_timeseries.py --years 2023 2024 2025
+    python scripts/timeseries/rybnik_chwalowice_annual_timeseries.py --dry-run
 """
 
 import argparse
+import csv
 import getpass
 import json
 import logging
@@ -40,8 +45,9 @@ from pathlib import Path
 
 import numpy as np
 
+# ── Path setup: must be before any local imports ──────────────────────────────
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]   # methane-api/
-sys.path.insert(0, str(_PROJECT_ROOT))                  # for src.*
+sys.path.insert(0, str(_PROJECT_ROOT))                          # for src.*
 sys.path.insert(0, str(_PROJECT_ROOT / "scripts" / "detection"))  # for apply_bitemporal_diff
 
 from src.ingestion.copernicus_client import CopernicusClient
@@ -68,67 +74,143 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("results_analysis/belchatow_annual_timeseries.log"),
+        logging.FileHandler("results_analysis/rybnik_chwalowice_annual_timeseries.log"),
     ],
 )
-log = logging.getLogger("belchatow_timeseries")
+log = logging.getLogger("rybnik_chwalowice_timeseries")
 
 
 # ── Site config ───────────────────────────────────────────────────────────────
-SITE_NAME = "belchatow"
-LAT, LON  = 51.242, 19.275   # Climate TRACE KWB Bełchatów coal mine centroid (asset 16168)
-                               # Previously 51.266, 19.315 (power station — wrong)
-TILE_ID   = "T34UCB"
-DETECTION_THRESHOLD = 1.15   # classic S/C threshold for continuous emitter
-CONFORMAL_TAU       = 3.5796 # global conformal τ at α=0.10, n_cal=35 (calibrated_threshold.json)
-                              # Continental ecoregion Mondrian τ = 4.1052 — not used here;
-                              # report uses global guarantee across all n=35 non-emitter sites
+SITE_NAME = "rybnik_chwalowice"
+LAT, LON  = 50.0781, 18.5451   # Carbon Mapper confirmed source pin
+                                 # KWK ROW Ruch Chwałowice (d. "Donnersmarck Grube")
+                                 # PGG S.A., Rybnik, Silesian Voivodeship, Poland
+TILE_ID   = "T34UCA"
+DETECTION_THRESHOLD = 1.15   # classic S/C threshold (skip_bitemporal=True — same
+                              # as all Rybnik entries in apply_bitemporal_diff.py)
+CONFORMAL_TAU       = 3.5796 # global conformal τ at α=0.10, n_cal=35
+                              # (calibrated_threshold.json → global_thresholds.tau_alpha_10.tau)
 
-# ── S/C control crop offsets (asymmetric — mine spans ~21 km E-W) ─────────────
-# N/S: 0.20° (~22 km) clears the ~4.2 km mine height comfortably.
-# E:   0.30° (~33 km) clears the eastern mine edge at 19.400°E.
-# W:   0.39° (~43 km) clears the western mine edge at 19.097°E with extra margin.
+# ── S/C control crop offsets ──────────────────────────────────────────────────
+# Underground mine — symmetric offsets. 0.20° (~22 km) clears the ~7.5 km E-W
+# concession boundary on all sides with headroom.
 SC_OFFSET_N = 0.20
 SC_OFFSET_S = 0.20
-SC_OFFSET_E = 0.30
-SC_OFFSET_W = 0.39
+SC_OFFSET_E = 0.20
+SC_OFFSET_W = 0.20
 
-# ── KWB Bełchatów mine polygon — quantification boundary ─────────────────────
-# Exact OSM boundary corners. The quantification crop is taken as the bounding
-# box of this polygon; pixels outside the polygon are masked before CEMF+IME.
-# Previously a 750 px (7.5 km) square centred on the wrong coords (power station).
+# ── KWK Chwałowice mine polygon — quantification boundary ────────────────────
+# Approximate concession area boundary of KWK ROW Ruch Chwałowice based on
+# OSM industrial polygons and the Carbon Mapper plume extents.
+# ~7.5 km E-W × ~3.6 km N-S. Pixels outside this polygon are masked before CEMF+IME.
 MINE_POLYGON_LATLON = [
-    (51.257,  19.097),   # NW
-    (51.2566, 19.390),   # NE
-    (51.219,  19.3996),  # SE
-    (51.2185, 19.099),   # SW
+    (50.092, 18.508),   # NW
+    (50.092, 18.580),   # NE
+    (50.060, 18.580),   # SE
+    (50.060, 18.508),   # SW
 ]
 
-DOWNLOAD_DIR = Path("data/downloads/annual")
-OUT_JSON     = Path("results_analysis/belchatow_annual_timeseries.json")
+DOWNLOAD_DIR = Path("data/downloads/rybnik_chwalowice_annual")
+OUT_JSON     = Path("results_analysis/rybnik_chwalowice_annual_timeseries.json")
 ACQ_DATE_RE  = re.compile(r"_(\d{8})T")
 
-# Climate TRACE CH4 reference (asset 16168, monthly, t CH4)
-CT_CH4_CSV   = Path("data/16168_climate_trace_ch4.csv")
+# Carbon Mapper detections CSV (Tanager + EMIT, all confirmed at this pin)
+CM_CSV = Path("data/rybnik_chwalowice_carbon_mapper.csv")
+
+# TROPOMI positive events JSON (from extend_tropomi_rybnik.py)
+TROPOMI_JSON = Path("results_analysis/tropomi_positives.json")
+TROPOMI_SITE = "silesia_rybnik"   # site key used in tropomi_positives.json
 
 
-def load_ct_ch4() -> dict:
-    """Return {(year, month): t_ch4} from the Climate TRACE monthly CSV."""
-    import csv
-    ct = {}
-    if not CT_CH4_CSV.exists():
-        log.warning("Climate TRACE CSV not found at %s — CT comparison disabled", CT_CH4_CSV)
-        return ct
-    with open(CT_CH4_CSV, newline="", encoding="utf-8") as f:
+def load_tropomi_events() -> dict:
+    """Return {(year, month): [event_dict, ...]} from tropomi_positives.json.
+
+    Only includes events for TROPOMI_SITE.  Each event dict has:
+    date, enhancement_ppb, n_near_pixels, validated, product_name.
+    Months with no events are absent from the returned dict.
+    """
+    by_month: dict = {}
+    if not TROPOMI_JSON.exists():
+        log.warning("TROPOMI JSON not found at %s — TROPOMI tagging disabled",
+                    TROPOMI_JSON)
+        return by_month
+
+    with open(TROPOMI_JSON) as f:
+        events = json.load(f)
+
+    site_events = [e for e in events if e.get("site") == TROPOMI_SITE]
+    for e in site_events:
+        date_str = e.get("date", "")
+        if not date_str:
+            continue
+        try:
+            year, month, _ = date_str.split("-")
+            key = (int(year), int(month))
+        except ValueError:
+            continue
+        by_month.setdefault(key, []).append({
+            "date":            date_str,
+            "enhancement_ppb": e.get("enhancement_ppb"),
+            "n_near_pixels":   e.get("n_near_pixels"),
+            "validated":       e.get("validated", False),
+            "product_name":    e.get("product_name", ""),
+        })
+
+    total = sum(len(v) for v in by_month.values())
+    log.info("Loaded %d TROPOMI events across %d months (site: %s)",
+             total, len(by_month), TROPOMI_SITE)
+    return by_month
+
+
+def load_cm_detections() -> dict:
+    """Return {(year, month): [detection_dict, ...]} from the Carbon Mapper CSV.
+
+    Each detection dict has: date, instrument, emission_kgh, wind_dir_deg,
+    wind_speed_ms, plume_id.  Months with no detections are absent from the dict.
+    """
+    by_month: dict = {}
+    if not CM_CSV.exists():
+        log.warning("Carbon Mapper CSV not found at %s — CM comparison disabled", CM_CSV)
+        return by_month
+
+    with open(CM_CSV, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            if row.get("gas", "").strip().lower() != "ch4":
+            # datetime field: "2025-03-21T10:21:54+00"
+            dt_str = row.get("datetime", "").strip()
+            if not dt_str:
                 continue
-            # start_time format: "2024-1-1"
-            parts = row["start_time"].split("-")
-            key = (int(parts[0]), int(parts[1]))
-            ct[key] = float(row["emissions_quantity"])
-    log.info("Loaded %d monthly CT CH4 records (2021–2025)", len(ct))
-    return ct
+            try:
+                dt = datetime.fromisoformat(dt_str.replace("+00", "+00:00"))
+            except ValueError:
+                log.warning("Could not parse CM datetime: %s", dt_str)
+                continue
+
+            key = (dt.year, dt.month)
+
+            # emission_auto is blank for some Tanager rows (v3 without auto-emission)
+            em_str = row.get("emission_auto", "").strip()
+            emission_kgh = float(em_str) if em_str else None
+
+            ws_str = row.get("wind_speed_avg_auto", "").strip()
+            wd_str = row.get("wind_direction_avg_auto", "").strip()
+
+            det = {
+                "plume_id":      row.get("plume_id", "").strip(),
+                "date":          dt.strftime("%Y-%m-%d"),
+                "time_utc":      dt.strftime("%H:%M"),
+                "instrument":    row.get("instrument", "").strip(),
+                "platform":      row.get("platform", "").strip(),
+                "mission_phase": row.get("mission_phase", "").strip(),
+                "emission_kgh":  emission_kgh,
+                "wind_speed_ms": float(ws_str) if ws_str else None,
+                "wind_dir_deg":  float(wd_str) if wd_str else None,
+            }
+            by_month.setdefault(key, []).append(det)
+
+    total_dets = sum(len(v) for v in by_month.values())
+    log.info("Loaded %d Carbon Mapper detections across %d months",
+             total_dets, len(by_month))
+    return by_month
 
 
 # ── Utility ──────────────────────────────────────────────────────────────────
@@ -175,7 +257,7 @@ def _zip_is_valid(zip_path):
     """Return True if the file exists and is a readable zip."""
     import zipfile
     try:
-        with zipfile.ZipFile(zip_path, 'r') as z:
+        with zipfile.ZipFile(zip_path, "r") as z:
             z.namelist()
         return True
     except Exception:
@@ -190,7 +272,7 @@ def download_one(client, product):
     if zip_path is None:
         raise RuntimeError(f"download_product returned None for {product.name}")
 
-    # Guard against corrupt ZIPs from previous interrupted runs
+    # Guard against corrupt ZIPs from interrupted previous runs
     if not _zip_is_valid(zip_path):
         log.warning("  ZIP appears corrupt — deleting and re-downloading: %s",
                     Path(zip_path).name)
@@ -226,11 +308,13 @@ def download_one(client, product):
         shutil.rmtree(extract_dir, ignore_errors=True)
 
 
-def acquire_all_month(year, month, client, max_cloud, dry_run):
+def acquire_all_month(year, month, client, max_cloud, dry_run, max_candidates=0):
     """Return list of {"npy_path", "search"} dicts — one per cloud-free L1C
     acquisition this month.  All candidates are downloaded (or pulled from cache),
-    not just the lowest-cloud one.  Provides more observations per month and
-    avoids missing emission events that occurred on a non-optimal acquisition day.
+    not just the lowest-cloud one.  This gives more observations per month,
+    which matters especially for episodic emitters like underground coal mines.
+
+    If max_candidates > 0, stop downloading after that many successful results.
 
     Returns a single-element list with status "no_products" or "search_failed"
     when no usable acquisitions exist.
@@ -293,6 +377,11 @@ def acquire_all_month(year, month, client, max_cloud, dry_run):
             meta["error"]  = str(e)
             results.append({"npy_path": None, "search": meta})
 
+        # Stop early once we have enough successful acquisitions
+        if max_candidates > 0 and len(results) >= max_candidates:
+            log.info("  max_candidates=%d reached, stopping early.", max_candidates)
+            break
+
     return results
 
 
@@ -320,13 +409,14 @@ def inference_and_sc(npy_path, detector):
 
     # Uniform-field guard: if site_mean ≈ ctrl_mean to high precision, CH4Net
     # produced a spatially uniform probability field (spectrally homogeneous
-    # scene — snow, uniform bright surface).  S/C ratio is floating-point noise.
-    # These pass the B11 non-zero swath check, so they need a separate flag.
+    # scene — snow, uniform cloud-free winter landscape).  The S/C ratio is
+    # floating-point noise and must not be treated as a real detection.
+    # These scenes pass the B11 non-zero swath check, so they need a separate flag.
     sm = sc.get("site_mean") or 0.0
     cm = sc.get("ctrl_mean") or 0.0
     uniform_field = bool(sm > 0 and abs(sm - cm) < 1e-4)
 
-    sc_record = {
+    return {
         "tif":               str(out_tif),
         "sc_ratio":          sc.get("sc_ratio"),
         "sc_cfar":           sc.get("sc_cfar"),
@@ -340,7 +430,6 @@ def inference_and_sc(npy_path, detector):
         "cfar_margin":       sc.get("cfar_margin"),
         "uniform_field":     uniform_field,
     }
-    return sc_record
 
 
 def quantify(npy_path, sc_record, era5_client):
@@ -351,10 +440,6 @@ def quantify(npy_path, sc_record, era5_client):
 
     log.info("  S/C = %.2f >= %.2f -> running quantification", sc, DETECTION_THRESHOLD)
 
-    # ── Polygon-bounded quantification crop ───────────────────────────────────
-    # Convert the mine polygon corners to pixel coordinates, take the bounding
-    # box of those pixels, then mask out anything outside the polygon.
-    # This replaces the old 750 px square (7.5 km) centred on the wrong coords.
     import rasterio
     from rasterio.features import geometry_mask
     from shapely.geometry import Polygon as ShapelyPolygon
@@ -365,7 +450,7 @@ def quantify(npy_path, sc_record, era5_client):
         H, W = prob_full.shape
         transform = src.transform
 
-        # Convert polygon lat/lon → pixel row/col
+        # Convert mine polygon lat/lon → pixel row/col
         poly_rows, poly_cols = [], []
         for plat, plon in MINE_POLYGON_LATLON:
             pr, pc = lonlat_to_pixel(tif_path, plon, plat)
@@ -381,9 +466,9 @@ def quantify(npy_path, sc_record, era5_client):
                  r0, r1, c0, c1, r1-r0, c1-c0,
                  (r1-r0)*10/1000, (c1-c0)*10/1000)
 
-        # Build polygon in UTM (same CRS as the raster) and rasterise.
-        # geometry_mask expects geometry coords to match the raster's CRS —
-        # passing pixel-space coords would produce a completely wrong mask.
+        # Build polygon in UTM (same CRS as the raster).
+        # geometry_mask expects coords in the raster CRS — passing pixel-space
+        # integers would give a completely wrong mask.
         poly_xy = [
             (transform.c + c * transform.a, transform.f + r * transform.e)
             for r, c in zip(poly_rows, poly_cols)
@@ -411,13 +496,12 @@ def quantify(npy_path, sc_record, era5_client):
     b12 = arr[r0:r1, c0:c1, B12_IDX].astype(np.float32) / 255.0
     del arr
 
-    # Mask: CH4Net threshold AND inside mine polygon
+    # Combined mask: CH4Net threshold AND inside mine polygon
     mask_original = ((prob >= 0.18) & mine_mask).astype(np.float32)
     log.info("  Polygon mask: %d / %d px active (%.1f%% of bounding box)",
              int(mine_mask.sum()), mine_mask.size,
              100 * mine_mask.sum() / mine_mask.size)
 
-    # Acquisition timestamp from filename
     m = ACQ_DATE_RE.search(npy_path.name)
     acq = m.group(1) if m else None
     if acq is None:
@@ -444,9 +528,6 @@ def quantify(npy_path, sc_record, era5_client):
         log.error("  Quantification failed: %s", e)
         return {"status": "quant_failed", "error": str(e)}
 
-    # Derive governance flags from record state (canonical schema doesn't expose
-    # them as a dataclass attribute; they're injected into the dict at write time
-    # via apply_governance_to_record). We replicate the rules we care about here.
     flags = []
     if record.wind_source != "ERA5_reanalysis":
         flags.append("WIND_FALLBACK")
@@ -472,20 +553,39 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--years", nargs="+", type=int,
                         default=[2019, 2020, 2021, 2022, 2023, 2024, 2025],
-                        help="Years to process (default: 2019–2025; CT values for 2025 are model projections)")
-    parser.add_argument("--max-cloud", type=float, default=20.0,
-                        help="CDSE cloud-cover ceiling (%%)")
-    parser.add_argument("--max-cloud-fallback", type=float, default=40.0,
-                        help="Retry ceiling if first search returns no products")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Search catalog only, no downloads or inference")
+                        help="Years to process (ignored if --target-months is set)")
     parser.add_argument("--months", nargs="+", type=int,
                         default=list(range(1, 13)),
-                        help="Months to process per year (default: 1..12)")
+                        help="Months to process per year (ignored if --target-months is set)")
+    parser.add_argument("--target-months", nargs="+", type=str,
+                        default=None,
+                        metavar="YYYY-MM",
+                        help="Explicit list of YYYY-MM months to process. Overrides "
+                             "--years/--months. E.g. --target-months 2023-01 2023-08 2025-03")
+    parser.add_argument("--max-cloud", type=float, default=20.0)
+    parser.add_argument("--max-cloud-fallback", type=float, default=40.0,
+                        help="Retry cloud ceiling if first search returns no products")
+    parser.add_argument("--max-acq", type=int, default=1,
+                        help="Max acquisitions to evaluate per month (default: 1 = lowest-cloud only). "
+                             "Use --max-acq 0 for all.")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Search catalog only, no downloads or inference")
     args = parser.parse_args()
 
+    # Build (year, month) pairs to process
+    if args.target_months:
+        try:
+            ym_pairs = [(int(s[:4]), int(s[5:7])) for s in args.target_months]
+        except (ValueError, IndexError):
+            parser.error("--target-months must be YYYY-MM strings, e.g. 2023-01")
+        args.years = sorted({y for y, m in ym_pairs})
+        log.info("Target months: %s", ", ".join(args.target_months))
+    else:
+        ym_pairs = [(y, m) for y in args.years for m in args.months]
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    ct_ch4 = load_ct_ch4()
+    cm_detections   = load_cm_detections()    # {(year, month): [det, ...]}
+    tropomi_events  = load_tropomi_events()   # {(year, month): [event, ...]}
 
     # Load or initialise store
     if OUT_JSON.exists():
@@ -503,7 +603,7 @@ def main():
     store["years"] = args.years
     store["site"] = SITE_NAME
 
-    # Init clients
+    # Credentials and clients
     user, pw = get_credentials()
     cdse = CopernicusClient(username=user, password=pw)
     era5 = ERA5Client()
@@ -515,13 +615,16 @@ def main():
         detector = None
 
     # ── Processed-acquisition lookup ──────────────────────────────────────────
-    # Records are per-acquisition.  Track by product_name so reruns skip
-    # acquisitions already handled, while download_failed ones remain retryable.
+    # Records are now per-acquisition (not per-month).  Track by product_name so
+    # reruns skip individual acquisitions we've already handled, while still
+    # retrying download_failed acquisitions (those have a product_name but no
+    # "detection" key — we exclude them from `done_products`).
     done_products = {
         r.get("search", {}).get("product_name")
         for r in records
         if "detection" in r and r.get("search", {}).get("product_name")
     }
+    # Months confirmed to have no available products — skip re-searching these.
     done_no_products = {
         r.get("month")
         for r in records
@@ -532,89 +635,98 @@ def main():
         with open(OUT_JSON, "w") as f:
             json.dump(store, f, indent=2)
 
-    # Process each (year, month) combination
-    for year in args.years:
-        for month in args.months:
-            month_key = f"{year}-{month:02d}"
-            if month_key in done_no_products:
-                log.info("=" * 65)
-                log.info("── %s : no products (confirmed), skipping", month_key)
-                continue
+    for year, month in ym_pairs:
+        month_key = f"{year}-{month:02d}"
 
+        if month_key in done_no_products:
             log.info("=" * 65)
-            acquisitions = acquire_all_month(
-                year, month, cdse, args.max_cloud, args.dry_run
-            )
-            if (len(acquisitions) == 1
-                    and acquisitions[0]["search"].get("status") == "no_products"
-                    and args.max_cloud_fallback > args.max_cloud):
-                log.info("  Retrying with cloud <= %.0f%% ...", args.max_cloud_fallback)
-                acquisitions = acquire_all_month(
-                    year, month, cdse, args.max_cloud_fallback, args.dry_run
-                )
+            log.info("── %s : no products (confirmed), skipping", month_key)
+            continue
 
-            first_status = acquisitions[0]["search"].get("status")
-            if first_status in ("no_products", "search_failed"):
-                if not any(r.get("month") == month_key
-                           and r.get("search", {}).get("status") == first_status
-                           for r in records):
-                    rec = {
-                        "month":          month_key,
-                        "search":         acquisitions[0]["search"],
-                        "ct_ch4_t_month": ct_ch4.get((year, month)),
-                    }
-                    records.append(rec)
-                    _save()
+        log.info("=" * 65)
+        acquisitions = acquire_all_month(
+            year, month, cdse, args.max_cloud, args.dry_run,
+            max_candidates=args.max_acq,
+        )
+        # If nothing found at strict cloud threshold, retry looser
+        if (len(acquisitions) == 1
+                and acquisitions[0]["search"].get("status") == "no_products"
+                and args.max_cloud_fallback > args.max_cloud):
+            log.info("  Retrying with cloud <= %.0f%% ...", args.max_cloud_fallback)
+            acquisitions = acquire_all_month(
+                year, month, cdse, args.max_cloud_fallback, args.dry_run,
+                max_candidates=args.max_acq,
+            )
+
+        # Handle month-level failures (no products / search error)
+        first_status = acquisitions[0]["search"].get("status")
+        if first_status in ("no_products", "search_failed"):
+            if not any(r.get("month") == month_key
+                       and r.get("search", {}).get("status") == first_status
+                       for r in records):
+                rec = {
+                    "month":           month_key,
+                    "search":          acquisitions[0]["search"],
+                    "cm_detections":   cm_detections.get((year, month), []),
+                    "tropomi_events":  tropomi_events.get((year, month), []),
+                }
+                records.append(rec)
+                _save()
+            continue
+
+        # Process each individual acquisition
+        for acq in acquisitions:
+            search_meta  = acq["search"]
+            npy_path     = acq["npy_path"]
+            product_name = search_meta.get("product_name", "")
+            acq_date     = search_meta.get("acquisition_date", "")[:10]
+
+            if product_name in done_products:
+                log.info("  Already processed: %s", product_name[:60])
                 continue
 
-            for acq in acquisitions:
-                search_meta  = acq["search"]
-                npy_path     = acq["npy_path"]
-                product_name = search_meta.get("product_name", "")
-                acq_date     = search_meta.get("acquisition_date", "")[:10]
+            rec = {
+                "month":            month_key,
+                "acquisition_date": acq_date,
+                "search":           search_meta,
+                "cm_detections":    cm_detections.get((year, month), []),
+                "tropomi_events":   tropomi_events.get((year, month), []),
+            }
 
-                if product_name in done_products:
-                    log.info("  Already processed: %s", product_name[:60])
-                    continue
-
-                rec = {
-                    "month":            month_key,
-                    "acquisition_date": acq_date,
-                    "search":           search_meta,
-                    "ct_ch4_t_month":   ct_ch4.get((year, month)),
-                }
-
-                if npy_path is None or args.dry_run:
-                    records.append(rec)
-                    _save()
-                    continue
-
-                rec["npy"] = npy_path.name
-                sc_rec = inference_and_sc(npy_path, detector)
-                rec["detection"] = sc_rec
-
-                uf = sc_rec.get("uniform_field", False)
-                if uf:
-                    log.info("  %s [%s]  ← UNIFORM FIELD (site_mean≈ctrl_mean=%.5f) — excluded",
-                             month_key, acq_date, sc_rec.get("site_mean", 0))
-
-                if sc_rec.get("sc_ratio") is not None and not uf:
-                    quant_rec = quantify(npy_path, sc_rec, era5)
-                    rec["quantification"] = quant_rec
-                    log.info(
-                        "  %s [%s]  S/C=%.2f  CFAR=%s  Q=%s kg/h",
-                        month_key, acq_date,
-                        sc_rec["sc_ratio"],
-                        "DETECT" if sc_rec.get("cfar_detect") else "no",
-                        f"{quant_rec.get('flow_rate_kgh'):.0f}"
-                        if quant_rec.get("flow_rate_kgh") else "—",
-                    )
-                elif uf:
-                    rec["quantification"] = {"status": "uniform_field_excluded"}
-
+            if npy_path is None or args.dry_run:
                 records.append(rec)
-                done_products.add(product_name)
                 _save()
+                continue
+
+            rec["npy"] = npy_path.name
+            sc_rec = inference_and_sc(npy_path, detector)
+            rec["detection"] = sc_rec
+
+            uf = sc_rec.get("uniform_field", False)
+            if uf:
+                log.info("  %s  ← UNIFORM FIELD (site_mean≈ctrl_mean=%.5f) — excluded",
+                         month_key, sc_rec.get("site_mean", 0))
+
+            if sc_rec.get("sc_ratio") is not None and not uf:
+                quant_rec = quantify(npy_path, sc_rec, era5)
+                rec["quantification"] = quant_rec
+                cm_flag = "★CM" if cm_detections.get((year, month)) else ""
+                trop_flag = "★TROP" if tropomi_events.get((year, month)) else ""
+                log.info(
+                    "  %s [%s]  S/C=%.2f  CFAR=%s  Q=%s kg/h  %s%s",
+                    month_key, acq_date,
+                    sc_rec["sc_ratio"],
+                    "DETECT" if sc_rec.get("cfar_detect") else "no",
+                    f"{quant_rec.get('flow_rate_kgh'):.0f}"
+                    if quant_rec.get("flow_rate_kgh") else "—",
+                    cm_flag, trop_flag,
+                )
+            elif uf:
+                rec["quantification"] = {"status": "uniform_field_excluded"}
+
+            records.append(rec)
+            done_products.add(product_name)
+            _save()
 
     # ── Final summary ─────────────────────────────────────────────────────────
     log.info("=" * 65)
@@ -638,19 +750,34 @@ def main():
     ]
 
     # ── Month-level aggregation for annualisation ────────────────────────────
-    # Valid acquisition: has detection result AND is not uniform-field.
-    # A valid observation month has at least one valid acquisition.
+    # A "valid observation month" is a calendar month that had at least one
+    # acquisition with a real (non-uniform-field, non-partial-swath) detection
+    # result — regardless of whether it detected CH4.  Records with only
+    # uniform_field or download_failed acquisitions don't count as observed.
     valid_acq = [
         r for r in records
         if "detection" in r
         and not r.get("detection", {}).get("uniform_field")
     ]
+    # Unique observed months
     obs_months = sorted({r["month"] for r in valid_acq})
+    # Months with any detection
     det_months = sorted({r["month"] for r in detected})
+
+    # Months where Carbon Mapper also detected (independent confirmation)
+    cm_confirmed_months = {
+        f"{y}-{m:02d}"
+        for (y, m) in cm_detections
+        if y in args.years
+    }
+    co_detected_months = sorted(set(det_months) & cm_confirmed_months)
 
     summary = {
         "years":                      args.years,
         "site":                       SITE_NAME,
+        "lat":                        LAT,
+        "lon":                        LON,
+        "tile":                       TILE_ID,
         "acquisitions_processed":     len([r for r in records if "detection" in r]),
         "uniform_field_excluded":     len([r for r in records
                                           if r.get("detection", {}).get("uniform_field")]),
@@ -662,65 +789,68 @@ def main():
         "detections_cfar_pass":       len(cfar_pass),
         "detection_rate_by_month":    (len(det_months) / len(obs_months))
                                        if obs_months else 0,
-        "quantification_boundary":    "KWB mine polygon (~21km × 4.2km)",
+        "quantification_boundary":    "KWK Chwałowice polygon (~7.5km × 3.6km)",
+        "cm_co_detected_months":      co_detected_months,
+        "n_cm_co_detected_months":    len(co_detected_months),
     }
 
     if detected:
         flows = [r["quantification"]["flow_rate_kgh"] for r in detected
                  if r["quantification"].get("flow_rate_kgh") is not None]
-        summary["mean_flow_kg_h"]      = float(np.mean(flows))
-        summary["median_flow_kg_h"]    = float(np.median(flows))
-        summary["min_flow_kg_h"]       = float(np.min(flows))
-        summary["max_flow_kg_h"]       = float(np.max(flows))
+        if flows:
+            summary["mean_flow_kg_h"]   = float(np.mean(flows))
+            summary["median_flow_kg_h"] = float(np.median(flows))
+            summary["min_flow_kg_h"]    = float(np.min(flows))
+            summary["max_flow_kg_h"]    = float(np.max(flows))
 
-        n_det_mo  = len(det_months)
-        n_obs_mo  = len(obs_months)
-        n_ndet_mo = n_obs_mo - n_det_mo
-        mean_q    = float(np.mean(flows))
+            n_det_mo  = len(det_months)
+            n_obs_mo  = len(obs_months)
+            n_ndet_mo = n_obs_mo - n_det_mo
 
-        # ── Three annualisation framings (month-level) ────────────────────────
-        # Non-detection months at a continuous emitter like Bełchatów are NOT
-        # zero-emission months (Climate TRACE confirms emissions every month).
-        # Non-detections are missing observations, not zero observations.
+            # Three annualisation framings — month-level (same framing as Bełchatów).
+            # Non-detection months are missing observations, not zero-emission months.
+            DETECTION_FLOOR_KGH = 300.0
+            mean_q = float(np.mean(flows))
+            summary["annualised_t_per_yr_upper"] = float(mean_q * 8760 / 1000)
+            summary["annualised_t_per_yr_floor_imputed"] = float(
+                (mean_q * (n_det_mo / n_obs_mo) +
+                 DETECTION_FLOOR_KGH * (n_ndet_mo / n_obs_mo)) * 8760 / 1000
+            )
+            summary["annualised_t_per_yr_lower_bound"] = float(
+                mean_q * 8760 / 1000 * (n_det_mo / n_obs_mo)
+            )
+            summary["detection_floor_kgh_assumed"] = DETECTION_FLOOR_KGH
+            summary["n_detection_months"]     = n_det_mo
+            summary["n_non_detection_months"] = n_ndet_mo
+            summary["n_observed_months"]      = n_obs_mo
 
-        # (1) UPPER — assumes every month emits at the mean detected rate.
-        summary["annualised_t_per_yr_upper"] = float(mean_q * 8760 / 1000)
+    # Carbon Mapper reference — all detections in the run years
+    cm_ref = {}
+    for (y, m), dets in sorted(cm_detections.items()):
+        if y in args.years:
+            key = f"{y}-{m:02d}"
+            cm_ref[key] = [{k: v for k, v in d.items()} for d in dets]
+    summary["cm_detections_by_month"] = cm_ref
 
-        # (2) DETECTION-FLOOR IMPUTATION — non-detection months imputed at the
-        # empirical CH4Net + S2 detection floor.  Our smallest resolved Q is
-        # 282 kg/h (2024-02); we use 300 kg/h as the floor.  This is consistent
-        # with the enhanced sensitivity of CH4Net v8 (Vaughan et al., 2024)
-        # relative to MBMP (Varon et al., 2021, min. 2,600–3,500 kg/h).
-        DETECTION_FLOOR_KGH = 300.0
-        summary["annualised_t_per_yr_floor_imputed"] = float(
-            (mean_q * (n_det_mo / n_obs_mo) +
-             DETECTION_FLOOR_KGH * (n_ndet_mo / n_obs_mo)) * 8760 / 1000
-        )
-        summary["detection_floor_kgh_assumed"] = DETECTION_FLOOR_KGH
-
-        # (3) LOWER BOUND — non-detection months treated as Q = 0.
-        summary["annualised_t_per_yr_lower_bound"] = float(
-            mean_q * 8760 / 1000 * (n_det_mo / n_obs_mo)
-        )
-
-        summary["n_detection_months"]     = n_det_mo
-        summary["n_non_detection_months"] = n_ndet_mo
-        summary["n_observed_months"]      = n_obs_mo
-
-    # ── Climate TRACE annual totals for the run year(s) ──────────────────────
-    ct_annual = {}
-    for yr in args.years:
-        yr_total = sum(v for (y, m), v in ct_ch4.items() if y == yr)
-        if yr_total > 0:
-            ct_annual[yr] = yr_total
-    summary["ct_ch4_annual_t_by_year"] = ct_annual
-
-    # Monthly CT breakdown for every processed record (already tagged above)
-    summary["ct_ch4_monthly_reference"] = {
-        f"{y}-{m:02d}": round(v, 2)
-        for (y, m), v in sorted(ct_ch4.items())
-        if y in args.years
-    }
+    # TROPOMI reference — all events in the run years
+    tropomi_ref = {}
+    for (y, m), evts in sorted(tropomi_events.items()):
+        if y in args.years:
+            key = f"{y}-{m:02d}"
+            tropomi_ref[key] = [{k: v for k, v in e.items()} for e in evts]
+    tropomi_validated = {k: [e for e in v if e.get("validated")]
+                         for k, v in tropomi_ref.items()}
+    tropomi_validated = {k: v for k, v in tropomi_validated.items() if v}
+    summary["tropomi_events_by_month"]           = tropomi_ref
+    summary["tropomi_validated_months"]          = sorted(tropomi_validated.keys())
+    summary["n_tropomi_validated_months"]        = len(tropomi_validated)
+    summary["tropomi_mean_enhancement_ppb"]      = (
+        float(np.mean([e["enhancement_ppb"]
+                       for evts in tropomi_validated.values()
+                       for e in evts
+                       if e.get("enhancement_ppb") is not None]))
+        if tropomi_validated else None
+    )
 
     store["summary"] = summary
     with open(OUT_JSON, "w") as f:
@@ -730,32 +860,49 @@ def main():
     print("\n" + "=" * 72)
     years_str = "–".join(str(y) for y in (min(args.years), max(args.years))) \
                 if len(args.years) > 1 else str(args.years[0])
-    print(f"Bełchatów {years_str} time series  (quant crop: KWB mine polygon ~21km × 4.2km)")
+    print(f"KWK Chwałowice (rybnik_chwalowice) {years_str}  "
+          f"(quant crop: {summary['quantification_boundary']})")
     print("=" * 72)
     print(f"Acquisitions processed:      {summary['acquisitions_processed']}")
     print(f"Uniform-field excluded:      {summary['uniform_field_excluded']}  "
           f"(site_mean≈ctrl_mean — spectrally homogeneous scene)")
     print(f"Valid acquisitions:          {summary['valid_acquisitions']}")
     print(f"Observed months:             {summary['n_observed_months']}")
-    print(f"Detection acquisitions:      {summary['detection_acquisitions']}  (S/C > 1.15)")
+    print(f"Detection acquisitions:      {summary['detection_acquisitions']}  "
+          f"(S/C > 1.15, not uniform-field)")
     print(f"Detection months:            {summary['detection_months']}")
     print(f"Detections above conformal:  {summary['detections_above_tau']}  "
-          f"(τ={CONFORMAL_TAU})")
+          f"(τ={CONFORMAL_TAU}, α=0.10, n=35)")
     print(f"Detections CFAR-confirmed:   {summary['detections_cfar_pass']}")
+    print(f"CM co-detected months:       {summary['n_cm_co_detected_months']}  "
+          f"{summary['cm_co_detected_months']}")
     if detected and flows:
         print(f"Det months / non-det / obs:  "
               f"{summary['n_detection_months']} / {summary['n_non_detection_months']} / {summary['n_observed_months']}")
         print(f"Detection rate (by month):   {summary['detection_rate_by_month']*100:.1f}%")
         print(f"Mean flow rate (detections): {summary['mean_flow_kg_h']:.0f} kg/h")
-        print(f"Range:                       {summary['min_flow_kg_h']:.0f}–{summary['max_flow_kg_h']:.0f} kg/h")
-        print(f"Annualisation — three framings (non-detections are missing obs, not zero):")
+        print(f"CM range (Tanager+EMIT):     1,150–2,019 kg/h  "
+              f"(6 detections 2023-08 / 2025-03 / 2025-08 / 2026-03)")
+        print(f"Annualisation — three framings (month-level):")
         print(f"  Upper (det-mean × 8760):           {summary['annualised_t_per_yr_upper']:.0f} t/yr")
-        print(f"  Floor-imputed (Q_floor={summary['detection_floor_kgh_assumed']:.0f} kg/h):     {summary['annualised_t_per_yr_floor_imputed']:.0f} t/yr")
+        print(f"  Floor-imputed (Q_floor={summary['detection_floor_kgh_assumed']:.0f} kg/h): "
+              f"    {summary['annualised_t_per_yr_floor_imputed']:.0f} t/yr")
         print(f"  Lower bound (non-det = 0):         {summary['annualised_t_per_yr_lower_bound']:.0f} t/yr")
-    if ct_annual:
-        for yr, total in sorted(ct_annual.items()):
-            print(f"Climate TRACE {yr} annual CH4:      {total:,.1f} t/yr  (asset 16168, sum of monthly)")
-    print(f"Output: {OUT_JSON}")
+    if cm_ref:
+        print(f"\nCarbon Mapper detections in run years:")
+        for mkey, dets in sorted(cm_ref.items()):
+            for d in dets:
+                em = f"{d['emission_kgh']:.0f} kg/h" if d["emission_kgh"] else "(no auto-emission)"
+                print(f"  {d['date']}  {d['instrument'].upper():5s}  {em}")
+
+    if tropomi_validated:
+        print(f"\nTROPOMI validated events ({summary['n_tropomi_validated_months']} months, "
+              f"mean enhancement {summary['tropomi_mean_enhancement_ppb']:.1f} ppb):")
+        for mkey, evts in sorted(tropomi_validated.items()):
+            for e in evts:
+                print(f"  {e['date']}  +{e['enhancement_ppb']:.1f} ppb  "
+                      f"({e['n_near_pixels']} px)")
+    print(f"\nOutput: {OUT_JSON}")
     print("=" * 72)
 
 
