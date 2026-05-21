@@ -316,7 +316,16 @@ Carbon Mapper has independently observed the same source (Tanager and EMIT instr
 
 Two additional Tanager overpasses (2025-08-20 and 2025-08-29) detected the source but could not produce a defensible emission rate due to wind or geometry constraints.
 
-Despite this, CH4Net v8 never clears the conformal threshold at Rybnik. The highest baseline S/C across the full backfill is 309.55 on 2023-06-01, with a control coefficient of variation of 1.62 — the high background heterogeneity inflates the CFAR threshold to ~6.0, so the value does not register as a CFAR detection even though the raw ratio is large. The 2025-03-22 acquisition (one day after the Carbon Mapper 2,019 kg/hr detection) returns baseline sc_ratio = 5.48, which is above 1.15 but produces sc_cfar = 0.42, below τ = 3.5796. Post-BT S/C collapses to 0.68 with a 15-month reference offset (December 2023 reference vs. March 2025 target), which as discussed in Section 2.2 is ambiguous and cannot be cleanly interpreted. (`results_analysis/bitemporal_comparison.json`, key `rybnik_cm`)
+CH4Net v8 never clears the conformal threshold at Rybnik — cfar_detect = False on every acquisition — but the model is not blind to the source. The canonical MBSP timeseries (`results_analysis/rybnik_chwalowice_annual_timeseries_mbsp.json`) contains two non-zero sub-threshold quantification records:
+
+| Date | sc_cfar | cfar_detect | Q (kg/hr, MBSP) | Note |
+|---|---|---|---|---|
+| 2023-01-12 | 1.4845 | False | 2,596 | Within Carbon Mapper range (1,150–2,019 kg/hr); TROPOMI +13.9/+10.9 ppb on 2023-02-10/15 nearby |
+| 2023-08-20 | 2.3851 | False | 71 | Weak signal; same month as Carbon Mapper EMIT detection |
+
+Neither clears τ = 3.5796. The highest baseline S/C across the full backfill is 309.55 on 2023-06-01, with a control coefficient of variation of 1.62 — the high background heterogeneity inflates the CFAR threshold to ~6.0, so the value does not register as a CFAR detection even though the raw ratio is large. The 2025-03-22 acquisition (one day after the Carbon Mapper 2,019 kg/hr detection) returns baseline sc_ratio = 5.48, which is above 1.15 but produces sc_cfar = 0.42, below τ = 3.5796. Post-BT S/C collapses to 0.68 with a 15-month reference offset (December 2023 reference vs. March 2025 target), which as discussed in Section 2.2 is ambiguous and cannot be cleanly interpreted. (`results_analysis/bitemporal_comparison.json`, key `rybnik_cm`)
+
+The correct characterisation is therefore: the conformal production rule never triggers at Rybnik, but sub-threshold spectral signals consistent with the Carbon Mapper source magnitude are present. The CFAR gate — not an absence of model response — is what prevents a formal detection.
 
 The model under-fires at Silesian industrial-fringe terrain. This is a documented failure mode driven by training-set under-representation: only one underground-mine industrial scene appears in the v8 positive training set (silesia_rybnik 2024-06-28), against ten Groningen polder scenes in the negative training set that explicitly suppress polder-style false positives. The fine-tuning has therefore learned the polder/lignite spectral distinction at the cost of the underground-mine signature. Expanding the training set with Silesia-class positive crops (Rybnik Feb–Mar 2023 cluster, Knurów, Pniówek, Zofiówka) is the priority follow-up (Section 5.3).
 
@@ -412,7 +421,7 @@ A geometry check on the 2025-03-22 acquisition (`scripts/rybnik_centroid_vs_wind
 
 As an independence check, the Carbon Mapper-reported wind from the previous day's overpass (2025-03-21, from 215.7°) would predict a plume travelling northeast at bearing 35.7°; the centroid bearing is 172° from that, almost exactly opposite. This makes the static terrain feature explanation difficult to reconcile with the data: a static surface feature does not change position based on yesterday's wind direction, but the centroid shifts to align with the day-of wind rather than the previous day's, which is the directional behavior a methane-consistent signal would exhibit.
 
-The model under-fires here due to training-set under-representation: only one underground-mine industrial scene appears in the v8 positive training set, against ten Groningen polder scenes in the negative training set. Expanding the training set with Silesia-class positive crops is the priority follow-up.
+The model produces sub-threshold signals at Rybnik (January 2023: sc_cfar = 1.48, Q = 2,596 kg/hr; August 2023: sc_cfar = 2.39, Q = 71 kg/hr) but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses both below τ = 3.5796. This is a training-distribution gap that raises the effective detection floor rather than a fundamental inability to see the source. Only one underground-mine industrial scene appears in the v8 positive training set, against ten Groningen polder scenes in the negative training set. Expanding the training set with Silesia-class positive crops (Rybnik Feb–Mar 2023 cluster, Knurów, Pniówek, Zofiówka) is the priority follow-up.
 
 ### 5.4 Independent Instrument Confirmation — Partial Coverage with One Confirmed Dual-Sensor Date
 
@@ -478,17 +487,17 @@ The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance
 
 **Accounting property.** Layer 1 uses a truncated normal rather than log-normal so that E[Liability] = E[Q] × GWP × E[Price] × E[β] holds as an exact identity, making the stochastic mean auditable against the deterministic base case. The simulated mean (~€29.0M GWP100) lies ≈10% below the deterministic figure (€32.3M) by construction, reflecting the Beta(9,1) enforcement probability mean of 90%.
 
-**Uncertainty decomposition** (independent quadrature, relative σ contributions):
+**Uncertainty decomposition** (independent quadrature):
 
-| Source | Relative σ | Share of total σ |
-|---|---|---|
-| Emission sampling (truncnorm, n=26) | 0.286 | 66% |
-| ERA5 wind systematic (±10%) | 0.100 | 23% |
-| Mask spatial extent (±15%) | 0.087 | 20% |
-| Carbon price (log-vol 30%) | 0.300 | 69% |
-| **Combined (quadrature)** | **0.435** | — |
+| Source | Relative σ | σ share (σᵢ/σ_total) | Variance share (σᵢ²/Σσᵢ²) |
+|---|---|---|---|
+| Carbon price (log-vol 30%) | 0.300 | 69% | **47.5%** |
+| Emission sampling (truncnorm, n=26) | 0.286 | 66% | 43.2% |
+| ERA5 wind systematic (±10%) | 0.100 | 23% | 5.3% |
+| Mask spatial extent (±15%) | 0.087 | 20% | 4.0% |
+| **Combined (quadrature)** | **0.435** | — | **100%** |
 
-Note: shares exceed 100% because each is σ_layer/σ_total (not variance-weighted). The carbon price trajectory dominates the tail (log-vol 30%, contributing 77% of total σ in variance terms): improving emission measurement precision would have less impact on the liability distribution than reducing uncertainty about whether and when a comparable price regime applies.
+The σ-share column (σᵢ/σ_total) sums to more than 100% by construction — this is the correct behaviour for independent additive quadrature contributions. The variance-share column (σᵢ²/Σσᵢ²) sums to exactly 100% and is the standard decomposition. Carbon price and emission sampling are the two dominant variance sources (47.5% and 43.2% respectively); satellite measurement uncertainties (ERA5 + spatial extent) together contribute ~9%. Improving emission measurement precision would reduce the second row but leave the dominant sources of uncertainty largely untouched.
 
 **Reproducibility:** `python scripts/finance_climate_var.py` — all parameters declared as module-level dataclasses (`EmissionParams`, `UncertaintyParams`, `CarbonPriceParams`). seed=42, n_sim=10,000.
 

@@ -20,23 +20,23 @@ The pipeline detects methane plumes using a domain-adapted deep learning model (
 
 | Metric | Value |
 |---|---|
-| Above-threshold detections | 30 (spanning 2020–2024) |
-| Detection-weighted annual estimate | 11,481 t CH₄/yr |
-| 95% sampling CI | [6,563 – 16,400] t/yr |
-| Recovery vs. Climate TRACE inventory | ~39% (consistent with published 30–60% range) |
+| Above-threshold detections | 30 total (2019–2025); 26 with full CEMF+IME quantification |
+| Detection-weighted annual estimate | 16,486 t CH₄/yr (cloud-free-conditioned; not a full annual mass balance) |
+| 95% sampling CI | [6,781 – 26,191] t/yr |
+| Recovery vs. Climate TRACE inventory | 56% (95% CI: 23%–88%; consistent with published 30–70% range) |
 | TROPOMI cross-validation | Sept 9 2021 — +12.7 ppb same-day confirmation |
 | Conformal threshold τ (α=0.10) | 3.5796 (n=35 calibration sites, FPR ≤ 10%) |
 
-**Monte Carlo Climate VaR (10,000 simulations):**
+**Monte Carlo Climate VaR (10,000 simulations, MBSP emission inputs):**
 
 | Risk Metric | GWP100 (M€) | GWP20 (M€) |
 |---|---|---|
-| Mean expected liability | 20.3 | 60.3 |
-| 95% Climate VaR | 36.4 | 107.8 |
-| 99% Climate VaR | 48.1 | 142.6 |
-| 99% Expected Shortfall | 54.5 | 161.5 |
+| Mean expected liability | 29.03 | 86.04 |
+| 95% Climate VaR | 55.01 | 163.05 |
+| 99% Climate VaR | 71.50 | 211.96 |
+| 99% Expected Shortfall | 81.44 | 241.41 |
 
-**Rybnik finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. The cause is a training distribution gap in Silesian industrial-fringe terrain — a documented limitation with direct implications for underground hard-coal methane monitoring.
+**Rybnik finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. Sub-threshold signals are present (January 2023: 2,596 kg/hr, within Carbon Mapper range) but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses them below τ. The cause is a training distribution gap, not an absence of model response.
 
 ---
 
