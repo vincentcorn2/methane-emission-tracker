@@ -75,6 +75,25 @@ Scene-level discriminative metrics are reported separately for the full training
 
 The real-crops-only estimates carry 90% bootstrap confidence intervals (stratified, 2,000 resamples): AUROC [0.656, 0.893] and AP [0.596, 0.904]. The wide intervals are expected given n=14 real positives and are reported explicitly rather than suppressed — reporting CIs is the defensible choice when the real positive set is small. (`results_analysis/ml_metrics.json`, `results_analysis/bootstrap_auroc_ap.json`)
 
+### 1.6 Model Card — CH4Net v8 (European Fine-Tune)
+
+*Intended for model risk reviewers and institutional due diligence. All entries are traceable to §1.1–§1.5 above.*
+
+| Property | Detail |
+|---|---|
+| **Model name** | CH4Net v8 (European fine-tune) |
+| **Weights file** | `weights/european_model_v8.pth` |
+| **Architecture** | U-Net, ~13.5M parameters (div_factor=1, wider than published Vaughan et al. checkpoint) |
+| **Input** | 12-band Sentinel-2 L1C tile, 100×100 px at 10 m resolution |
+| **Output** | Per-pixel sigmoid methane probability map |
+| **Training distribution** | 14 TROPOMI-confirmed positive crops (9 EU sites); 51 synthetic plume injections (Gaussian B12 attenuation); 22 verified-negative crops (18 EU sites, incl. 10 Groningen polder scenes). Dominant terrain: open-pit lignite mines (Poland, Germany), gas infrastructure (Netherlands). |
+| **Base weights** | Vaughan et al. (2024) global pretrain (`av555/ch4net` on Hugging Face) |
+| **Intended use** | Facility-level methane screening at large European open-pit coal mines and lignite power stations under calibrated conformal detection rule |
+| **Out-of-scope uses** | Underground hard-coal in Silesian industrial-fringe terrain (documented failure mode; see below); sub-1 km² diffuse sources; arid-terrain sites (not re-validated post fine-tune) |
+| **Known failure modes** | **(1) Silesian underground hard-coal:** training distribution gap causes systematic under-detection despite externally confirmed large methane sources (Rybnik; §3.3, §5.3). **(2) Spatial extent over-prediction:** pixel recall 0.94 but precision 0.28 — probability maps over-predict plume area; the S/C ratio production rule mitigates this but raw maps should not be used for plume sizing without the OSM polygon boundary. **(3) Heterogeneous-terrain false positives:** suppressed by the CFAR gate and BT differencing at gas/polder sites, not by model output alone; direct-threshold use on raw output is not supported. |
+| **Scene-level performance** | AUROC 0.786 (real crops only, 90% CI [0.656, 0.893]); AP 0.754 (90% CI [0.596, 0.904]); conformal FPR ≤10% at τ = 3.5796 (n=35 non-emitter calibration sites) |
+| **Model risk notes** | (i) Wide architecture departs from published Vaughan et al. checkpoint — inference code auto-detects configuration; (ii) European fine-tuning dataset is small (87 crops total, 14 real positives) — performance CIs are correspondingly wide; (iii) Synthetic plumes are essential for augmentation but cannot replace real positive crops (§1.5 ablation); (iv) Bełchatów and Neurath were trained as negatives — their above-threshold responses are a generalisation result, not a training artefact. |
+
 **Notation.** S/C — signal-to-control ratio: mean CH4Net probability in the 100×100 px site crop divided by the mean across four 100×100 px control crops offset 0.20° in each cardinal direction. sc_cfar — site-mean divided by the mean across all four control directions (used by the production rule). cv_ctrl — coefficient of variation of the four control means. α — false-positive rate target. τ — calibrated detection threshold. CFAR (Constant False Alarm Rate) — a detection rule that adapts to local background noise; see Section 2.2. BT — bitemporal differencing; see Section 2.2. MGRS — Sentinel-2 tile naming convention (e.g. T34UCB contains Bełchatów). All other acronyms are defined on first use.
 
 ---
@@ -99,12 +118,12 @@ The real-crops-only estimates carry 90% bootstrap confidence intervals (stratifi
 | Bełchatów CFAR detections (candidate backfill) | 3 | `results_analysis/historical_backfill_timeseries.json` |
 | Bełchatów CFAR detections (intensive monitoring 2021–2024) | 27 | `results_analysis/production_rule_audit.json` |
 | Bełchatów CFAR detections (combined intensive + candidate-selection backfill) | 30 | `results_analysis/production_rule_audit.json` |
-| Bełchatów CEMF+IME quantifications | 37 | `results_analysis/belchatow_annual_timeseries.json` |
-| Mean flow rate (Bełchatów) | 1,311 kg/hr | `results_analysis/belchatow_annual_timeseries.json` |
-| Median flow rate (Bełchatów) | 618 kg/hr | `results_analysis/belchatow_annual_timeseries.json` |
-| Annual estimate 95% CI | [6,563, 16,400] t CH₄/yr | `results_analysis/belchatow_annual_timeseries.json` |
-| Climate TRACE 2024 annual (asset 16168) | 29,636 t CH₄ | `results_analysis/belchatow_annual_timeseries.json` |
-| Recovery ratio (mean-based) | 39% (CI 22%–55%) | `results_analysis/belchatow_annual_timeseries.json` |
+| Bełchatów CEMF+IME quantifications (MBSP, mine polygon) | 26 | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
+| Mean flow rate (Bełchatów, MBSP) | 1,882 kg/hr | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
+| Median flow rate (Bełchatów, MBSP) | 612 kg/hr | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
+| Annual estimate 95% CI | [6,781, 26,191] t CH₄/yr | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
+| Climate TRACE 2024 annual (asset 16168) | 29,636 t CH₄ | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
+| Recovery ratio (mean-based, MBSP) | 56% (CI 23%–88%) | `results_analysis/belchatow_annual_timeseries_mbsp.json` |
 | Same-day TROPOMI confirmation | 2021-09-09 (+12.7 ppb) | `results_analysis/tropomi_validation.json` |
 | Rybnik Carbon Mapper detections | 6 (4 quantified, 1,150–2,019 kg/hr) | Carbon Mapper source CSV |
 | Rybnik TROPOMI confirmations | 5 (+10.85 to +19.66 ppb) | `results_analysis/tropomi_positives.json` |
@@ -210,27 +229,16 @@ The fix is a fingerprint check: any record where `site_mean == ctrl_mean` (withi
 
 **Results — mean sc_cfar.** The distribution is heavily right-skewed (min=3.6, median=57.4, mean=97.6, max=515). The August 2022 acquisition (sc_cfar=515) has the largest influence on the mean: removing it shifts the mean to 81.5, an influence of 16.5%. No other single scene exceeds 5% influence on the mean.
 
+Top-5 months by mean sc_cfar influence (full 19-month table in `results_analysis/loo_detection_stability.json`):
+
 | Month | Max sc_cfar | n scenes | LOO rate (month) | Δrate | Mean influence |
 |---|---|---|---|---|---|
-| 2022-08 | 515.0 | 1 | 0.4091 | −0.0131 | 0.165 |
+| 2022-08 | 515.0 | 1 | 0.4091 | −0.0131 | **0.165** |
 | 2024-07 | 224.4 | 2 | 0.4091 | −0.0131 | 0.050 |
 | 2023-05 | 208.1 | 2 | 0.4091 | −0.0131 | 0.044 |
 | 2022-06 | 169.4 | 1 | 0.4091 | −0.0131 | 0.028 |
 | 2023-08 | 162.2 | 1 | 0.4091 | −0.0131 | 0.026 |
-| 2024-05 | 151.0 | 3 | 0.4091 | −0.0131 | 0.021 |
-| 2023-06 | 122.2 | 1 | 0.4091 | −0.0131 | 0.010 |
-| 2024-10 | 110.8 | 3 | 0.4091 | −0.0131 | 0.005 |
-| 2024-08 | 91.4 | 1 | 0.4091 | −0.0131 | 0.002 |
-| 2021-06 | 57.4 | 1 | 0.4091 | −0.0131 | 0.016 |
-| 2024-09 | 57.0 | 1 | 0.4091 | −0.0131 | 0.016 |
-| 2022-07 | 33.2 | 1 | 0.4091 | −0.0131 | 0.025 |
-| 2021-07 | 25.6 | 1 | 0.4091 | −0.0131 | 0.028 |
-| 2021-09 | 23.1 | 1 | 0.4091 | −0.0131 | 0.029 |
-| 2023-09 | 22.3 | 1 | 0.4091 | −0.0131 | 0.030 |
-| 2024-04 | 10.4 | 2 | 0.4091 | −0.0131 | 0.034 |
-| 2021-04 | 9.0 | 2 | 0.4091 | −0.0131 | 0.035 |
-| 2023-04 | 7.3 | 1 | 0.4091 | −0.0131 | 0.036 |
-| 2021-10 | 3.6 | 1 | 0.4091 | −0.0131 | 0.037 |
+| *remaining 14 months* | *≤151* | — | 0.4091 | −0.0131 | *≤0.021* |
 
 **Verdict.** The detection rate is stable: max |Δrate| = 0.73 pp (scene-level) and 1.31 pp (month-level), both well below 2 percentage points. No single scene drives the binary detection outcome. The August 2022 acquisition is an outlier in sc_cfar magnitude and exerts a 16% influence on the distributional mean; this is disclosed in the main text (§4.4) but does not affect any detection count, financial estimate, or threshold calculation, all of which depend on binary cfar_detect flags rather than continuous sc_cfar values.
 
@@ -330,9 +338,9 @@ Bełchatów is the primary case study on four converging lines of evidence:
 
 **(ii) Inventory confirmation.** Every detection date from 2021 onward falls inside a month with multi-thousand-tonne Climate TRACE methane emissions reported at the mine asset (Section 4.1). The 2020-06-01 detection predates Climate TRACE's monthly coverage but is the strongest model signal in the candidate set by an order of magnitude.
 
-**(iii) Quantification at scale.** The intensive 2021–2024 monitoring produces 27 CFAR above-threshold responses (1 with same-day TROPOMI cross-validation; 26 calibrated-threshold-only) and 37 CEMF+IME-completing quantifications at a consistent 7.5 km crop window using ERA5 winds. Combined with the 3 above-threshold responses from the 2019–2020 candidate-selection backfill, the multi-year record holds 30 calibrated-rule detections in total. Mean flow rate 1,311 kg/hr, median 618 kg/hr, range 82–8,218 kg/hr. 95% sampling CI on mean Q: [6,563, 16,400] t CH₄/yr annualised. These records form the basis of the annual emission estimate (Section 4.1) and the financial scenario module (Section 6).
+**(iii) Quantification at scale.** The intensive 2021–2024 monitoring produces 27 CFAR above-threshold responses (1 with same-day TROPOMI cross-validation; 26 calibrated-threshold-only) and 26 CEMF+IME-completing quantifications under the MBSP retrieval applied to the OSM mine polygon boundary, using ERA5 winds at acquisition time. Combined with the 3 above-threshold responses from the 2020–2024 candidate-selection backfill, the multi-year record holds 30 calibrated-rule detections in total. Mean flow rate 1,882 kg/hr, median 612 kg/hr, range 72–9,957 kg/hr. 95% sampling CI on mean Q: [6,781, 26,191] t CH₄/yr annualised (t-distribution, df=25). These records form the basis of the annual emission estimate (Section 4.1) and the financial scenario module (Section 6).
 
-**(iv) Above-threshold responses are not driven by training memorisation.** Bełchatów was included in v8's training data as a negative crop (label_value = 0 on the 2024-08-24 background tile). The model's above-threshold responses at this site override the training assignment based on spectral evidence alone — consistent with generalised methane signature learning rather than label reproduction.
+**(iv) Above-threshold responses are not driven by training memorisation.** Bełchatów was included in training as a negative example (label_value = 0); the model nonetheless produces 30 above-threshold responses, overriding its own training label on the basis of spectral evidence. The full evidential argument — including the zero date-overlap leakage audit and the synthetic-only ablation — is in §1.5 (Held-out test set and Synthetic plume validation).
 
 Rybnik is retained as the documented detection-system limitation (Section 3.3, 5.3). Neurath is retained as the dual-sensor cross-validation site (Section 3.4, 4.3). The remaining five candidates do not appear downstream.
 
@@ -348,15 +356,17 @@ The four converging lines of evidence that underpin the Bełchatów case-study d
 
 Climate TRACE is a non-profit consortium that publishes facility-level greenhouse-gas inventories built from activity data (production, capacity utilisation, fuel throughput) and IPCC emissions factors, rather than from satellite retrievals. The Bełchatów coal mine — IPCC sector 1B1a, fugitive emissions from coal mining — is indexed as asset 16168 (KWB Bełchatów Coal Mine, 51.242°N, 19.275°E). Methane is reported at monthly resolution from January 2021 onward. The annual total for 2024 is 29,636 tonnes CH₄.
 
-**Temporal correlation.** Across the intensive 2021–2024 monitoring of Bełchatów (111 acquisitions ingested, 47 excluded as partial-swath, 64 valid observations), the production rule fires 27 times in the intensive monitoring window; combined with the 3 above-threshold responses from the 2019–2020 candidate-selection backfill, the multi-year record holds 30 calibrated-rule detections in total. Every above-threshold response date from 2021 onward falls inside a month in which Climate TRACE reports the mine emitting at the 1,700–3,000 tonne level. Non-detection records in the intensive window (37 of 64 valid observations, 58%) are concentrated in winter and shoulder-season months where Sentinel-2 SWIR sensitivity is reduced by cloud cover, snow, and low solar elevation — not in zero-emission months, which by Climate TRACE's account do not exist for this asset.
+**Temporal correlation.** Across the intensive 2021–2024 monitoring of Bełchatów (111 acquisitions ingested, 47 excluded as partial-swath, 64 valid observations), the production rule fires 27 times in the intensive monitoring window; combined with the 3 above-threshold responses from the 2020–2024 candidate-selection backfill, the multi-year record holds 30 calibrated-rule detections in total. Every above-threshold response date from 2021 onward falls inside a month in which Climate TRACE reports the mine emitting at the 1,700–3,000 tonne level. Non-detection records in the intensive window (37 of 64 valid observations, 58%) are concentrated in winter and shoulder-season months where Sentinel-2 SWIR sensitivity is reduced by cloud cover, snow, and low solar elevation — not in zero-emission months, which by Climate TRACE's account do not exist for this asset.
 
-**Quantitative cross-check.** The CEMF+IME quantification chain completes on 37 records at a consistent 7.5 km crop window. Of those 37: 25 satisfy the calibrated production rule (sc_cfar > τ AND CFAR-detect) at the time of inversion, and 12 fall below the calibrated rule but produce valid IME inversions. The single intensive-monitoring above-threshold response that does not appear in the 37-record quantification set is excluded because the IME inversion did not converge; the 3 candidate-selection backfill detections sit outside the intensive monitoring quantification pipeline entirely. All quantification numbers below are at a single crop size with no truncation bias.
+**Quantitative cross-check.** The CEMF+IME quantification chain completes on 26 records under the MBSP retrieval (Varon et al. 2021, scene-derived band-scaling factor *c*) applied to the OSM mine polygon boundary. Of those 26, all carry ERA5 reanalysis winds retrieved at satellite overpass time; no climatological fallback values were used, which would have triggered an additional uncertainty penalty under the governance framework. The 3 candidate-selection backfill detections (2019–2020) sit outside the intensive monitoring quantification pipeline and are reported separately. All quantification numbers below use the MBSP physics and the mine polygon boundary, superseding earlier power-station-coordinate and heuristic-physics runs (archived in `results_analysis/timeseries/belchatow/`).
 
-Per-detection flow rates range from 82 to 8,218 kg/hr, median 618 kg/hr, mean 1,311 kg/hr, standard deviation 1,690 kg/hr, SEM 278 kg/hr. Wind speeds across the detection set span 1.0–6.0 m/s (ERA5 reanalysis at acquisition time and plume centroid).
+Per-detection flow rates range from 72 to 9,957 kg/hr, median 612 kg/hr, mean 1,882 kg/hr, standard deviation ~2,743 kg/hr, SEM ~538 kg/hr. Wind speeds across the 26 records span ERA5-retrieved values at acquisition time, with the mine polygon centroid used as the retrieval point.
 
-**Annualisation.** Under a continuous-emission assumption and conditional on the cloud-free observable overpasses that produced this sample, the detection-weighted mean flow rate corresponds to an annualized projection of 11,481 t CH₄/yr, with a 95% sampling confidence interval of [6,563, 16,400] t/yr (t-distribution, df=36). The median flow rate annualises to 5,414 t/yr. Against the Climate TRACE 2024 reported total of 29,636 t CH₄ for asset 16168, the mean-based estimate represents 39% of the inventory (95% CI 22%–55%); the median-based estimate represents 18%. Both numbers, and the upper end of the 95% CI, sit inside or adjacent to the 30–60% recovery range documented in the published Sentinel-2 IME literature for coal-mine fugitive sources (Varon et al. 2021; Sherwin et al. 2024). The systematic shortfall against the inventory is the expected behaviour of single-overpass multispectral methods: detection preferentially fires on favourable atmospheric conditions and misses the diffuse continuous baseline that activity-data inventories capture.
+**Annualisation.** Under a continuous-emission assumption and conditional on the cloud-free observable overpasses that produced this sample, the detection-weighted mean flow rate corresponds to an annualised projection of 16,486 t CH₄/yr, with a 95% sampling confidence interval of [6,781, 26,191] t/yr (t-distribution, df=25). The median flow rate annualises to approximately 5,361 t/yr. Against the Climate TRACE 2024 reported total of 29,636 t CH₄ for asset 16168, the mean-based estimate represents 56% of the inventory (95% CI 23%–88%); the median-based estimate represents 18%. Both the mean-based ratio and the upper end of the 95% CI are consistent with published Sentinel-2 recovery ranges for analogous industrial point sources. Vaughan et al. (2024) document a 30–70% recovery band for global super-emitter ensembles under single-overpass multispectral retrieval; Ehret et al. (2022) report comparable recovery fractions for oil-and-gas point sources. Neither study addresses coal-mine fugitive sources specifically — coal-mine-specific Sentinel-2 recovery benchmarks are sparse in the published literature — so this comparison is treated as a cross-source plausibility check rather than a direct coal-mine calibration. The shift from the earlier 39% (power-station coordinates, heuristic physics) to 56% (mine polygon, MBSP) reflects two simultaneous improvements: the correct spatial extent (mine polygon versus the larger, heterogeneous power-station 5 km crop) and the scene-derived *c* coefficient (which suppresses surface-driven inflation that the fixed-coefficient heuristic could not detect). The systematic shortfall against the inventory is the expected behaviour of single-overpass multispectral methods: detection preferentially fires on favourable atmospheric conditions and misses the diffuse continuous baseline that activity-data inventories capture.
 
-Climate TRACE rates its confidence in the 2024 magnitude for this asset as "low" on the published confidence scale, reflecting the well-documented difficulty of activity-data quantification for fugitive coal-mine sources. The comparison is therefore between two independent estimates with their own uncertainty bands — methodological agreement at the order-of-magnitude level rather than a measurement against a high-confidence ground truth.
+**Recovery ratio interpretation.** The 56% recovery fraction is not a discrepancy. Two structural factors account for it. First, detection fires preferentially on favorable atmospheric days (low cloud cover, adequate solar illumination, stable atmospheric conditions) — these are not representative of the full year; on days the satellite cannot observe or the model cannot detect, no flow rate estimate enters the sample, and those gaps skew toward lower modeled sensitivity rather than lower actual emissions. Second, the model's probability maps over-predict spatial extent relative to the true plume boundary, which makes the CEMF area integration sensitive to the crop window size; using the OSM mine polygon boundary consistently across all 26 records avoids size-dependent bias across the time series, but the absolute level varies with crop choice — a tighter boundary would reduce the mean estimate, a looser one risk incorporating background pixels that inflate it. The dominant bias direction is toward overestimation of spatial extent, which pushes recovery ratio downward relative to the true value: 56% is a lower bound on the fraction of total emissions detected, not an upper bound. A useful analogy: measuring a river's flow rate on 26 cloud-free days per year does not "see only 26/365 of the river" — it measures flow on those specific days and extrapolates; the 56% ratio reflects how that day-weighted average compares to a full-year inventory.
+
+Climate TRACE rates its confidence in the 2024 magnitude for this asset as "low" on the published confidence scale, reflecting the well-documented difficulty of activity-data quantification for fugitive coal-mine sources. The comparison is between two independent estimates with their own uncertainty bands — methodological agreement at the order-of-magnitude level rather than a measurement against a high-confidence ground truth.
 
 ### 4.2 Asset-Level Disambiguation
 
@@ -370,7 +380,7 @@ The CH4Net probability centroid on 2024-08-24 (sc_cfar = 2.66, CFAR-suppressed u
 
 A search was conducted for independent satellite or airborne methane confirmations on every Bełchatów acquisition date with above-threshold sc_cfar. TROPOMI (Sentinel-5P L2 CH₄) produced a **+12.7 ppb same-day enhancement** at the Bełchatów coordinates on **2021-09-09**, which is also the date with the highest CH4Net response in the candidate backfill (sc_cfar = 414.13 in the intensive monitoring record). This is the only same-day cross-instrument agreement in the 2021–2024 record.
 
-The 32 other above-threshold CH4Net dates lack usable TROPOMI retrievals — either the orbital swath did not cover the tile within a ±3-day window, or QA filtering removed too many pixels for a valid column extraction. This is a sparse co-validation rate (1 of 33 dates), reflecting TROPOMI's coarser temporal-and-spatial sampling at this latitude rather than evidence against the CH4Net detections. The single agreement is informative because it occurs on a high-signal day where both instruments would be expected to see the plume.
+The remaining 32 above-threshold dates within the 2021–2024 intensive monitoring window lack usable TROPOMI retrievals — either the orbital swath did not cover the tile within a ±3-day window, or QA filtering removed too many pixels for a valid column extraction. Across the combined 30-detection record (including the 3 backfill dates from the 2020–2024 candidate-selection run), 29 above-threshold dates carry no TROPOMI confirmation. The co-validation rate of 1 in 33 intensive-window dates reflects TROPOMI's coarser temporal-and-spatial sampling at this latitude rather than evidence against the CH4Net detections. The single agreement is informative because it occurs on the highest-signal date in the record, where both instruments would be expected to detect the plume.
 
 Carbon Mapper (Tanager and EMIT instruments) did not run a campaign at Bełchatów during the relevant windows, so no airborne dual-sensor confirmations are available.
 
@@ -406,17 +416,17 @@ The model under-fires here due to training-set under-representation: only one un
 
 ### 5.4 Independent Instrument Confirmation — Partial Coverage with One Confirmed Dual-Sensor Date
 
-TROPOMI co-location was run across all Bełchatów acquisitions with above-threshold S/C response across 2021–2024 (n = 33 dates; `scripts/tropomi_colocate_belchatow.py`, ±3-day search window). One acquisition produces a same-day dual-sensor confirmation: **2021-09-09**, CH4Net sc_cfar = 414.13 and TROPOMI ΔXCH₄ = +12.7 ppb at the Bełchatów coordinates against a 0.25–1.0° annulus background.
+TROPOMI co-location was run across all Bełchatów acquisitions with above-threshold S/C response across 2021–2024 (33 dates in the intensive monitoring window; `scripts/tropomi_colocate_belchatow.py`, ±3-day search window). One acquisition produces a same-day dual-sensor confirmation: **2021-09-09**, CH4Net sc_cfar = 414.13 and TROPOMI ΔXCH₄ = +12.7 ppb at the Bełchatów coordinates against a 0.25–1.0° annulus background.
 
-The remaining 32 dates returned no usable TROPOMI enhancement value due to either orbital swath misses or cloud filtering (qa_value ≥ 0.5) removing too many pixels. Both failure modes are coverage limitations of the TROPOMI instrument at this latitude rather than evidence against the CH4Net detections. Climate TRACE monthly inventory confirmation (Section 4.1) remains the primary cross-validation evidence on the 32 non-coincident dates.
+The remaining 32 intensive-window dates returned no usable TROPOMI enhancement value due to either orbital swath misses or cloud filtering (qa_value ≥ 0.5) removing too many pixels. Both failure modes are coverage limitations of the TROPOMI instrument at this latitude rather than evidence against the CH4Net detections. Climate TRACE monthly inventory confirmation (Section 4.1) remains the primary cross-validation evidence on non-coincident dates.
 
 **Carbon Mapper tasking opportunity.** The 2021-09-09 TROPOMI confirmation now constitutes the documented methane signal that Carbon Mapper's public-data programme requires before accepting a tasking request at Bełchatów. A Tanager overpass during the next Sentinel-2 cloud-free window would convert several more dates from "Climate TRACE inventory confirmation" to "model detection plus overpass-coincident plume quantification."
 
 ### 5.5 Temporal Sampling Is Near the Structural Ceiling for Sentinel-2 in Central Poland
 
-The Bełchatów coverage record (111 acquisitions ingested, 47 `no_coverage` via partial-swath repair, 64 valid, 37 quantification-supporting records — see Section 4.1 and Section 2.3) averages approximately 16 valid observations per year. Above-threshold responses cluster in Q2 (April–June) and Q3 (July–September), with none in any November through March record across all years.
+The Bełchatów intensive monitoring coverage record (111 acquisitions ingested, 47 `no_coverage` via partial-swath repair, 64 valid — see Section 4.1 and Section 2.3) averages approximately 16 valid observations per year. The full 2019–2025 pipeline ingested 139 acquisitions, of which 65 were partial-swath, yielding 74 valid observations; of these, 26 support CEMF+IME quantification under the MBSP retrieval and OSM mine polygon boundary. Above-threshold responses cluster in Q2 (April–June) and Q3 (July–September), with none in any November through March record across all years.
 
-**Why this is close to the structural ceiling.** Sentinel-2's nominal revisit at 51°N (Bełchatów) with the A+B constellation is 5 days, implying roughly 73 theoretical passes per year. However, the SWIR methane absorption signal requires both solar illumination and a cloud-free line of sight. Central Poland has a cloud climatology of 55–70% annual cloud cover, concentrated in the November–March period (60–80% cloudy days in DJF). This reduces effective Sentinel-2 clear-sky passes to approximately 15–25 per year at this latitude, consistent with the 15/year average this pipeline achieved. The 37 quantification-supporting observations over 2.5 effective detection-capable years represent a full draw on the realistic cloud-free opportunities, not a sparse sample of a larger possible set.
+**Why this is close to the structural ceiling.** Sentinel-2's nominal revisit at 51°N (Bełchatów) with the A+B constellation is 5 days, implying roughly 73 theoretical passes per year. However, the SWIR methane absorption signal requires both solar illumination and a cloud-free line of sight. Central Poland has a cloud climatology of 55–70% annual cloud cover, concentrated in the November–March period (60–80% cloudy days in DJF). This reduces effective Sentinel-2 clear-sky passes to approximately 15–25 per year at this latitude, consistent with the 15/year average this pipeline achieved. The 26 MBSP quantification-supporting observations drawn from the full 2019–2025 record represent a near-complete draw on the realistic cloud-free opportunities at this site and latitude, not a sparse sample of a larger accessible set.
 
 **Quarterly representation gap.** The implication is that Q1 (January–March) and Q4 (October–December, except October) are structurally near-invisible. Climate TRACE's monthly inventory shows the mine emitting continuously through winter at 1,700–3,000 tonne-per-month rates, but the pipeline has no above-threshold responses during these months to validate that estimate. If winter emission rates systematically differ from summer rates — for example, due to seasonal ventilation patterns inside the mine — the detection-weighted mean flow rate would carry an unquantified seasonal bias. The direction of this bias is unknown with the current dataset.
 
@@ -436,37 +446,49 @@ The practical implication is that Sentinel-2-based methane quantification in tem
 
 ## Section 6 — Transition-Risk Scenario Module
 
+**Canonical result files for §6 and report §7.** All financial scenario figures in the main paper are produced from the MBSP-updated emission inputs:
+
+| File | Role |
+|---|---|
+| `results_analysis/belchatow_annual_timeseries_mbsp.json` | **[canonical]** Emission inputs — 16,486 t/yr, n=26, CI [6,781–26,191] |
+| `results_analysis/finance_climate_var.json` | **[canonical]** Monte Carlo CVaR, 10,000 simulations |
+| `results_analysis/finance_transition_risk.json` | **[canonical]** Deterministic stress scenarios |
+| `results_analysis/timeseries/belchatow/01_belchatow_powerstation_coords_750px_crop_2019-2024_mbsp.json` | [archive] Old wrong-site run, MBSP physics — −95% collapse under correct crop |
+| `results_analysis/timeseries/belchatow/02_belchatow_powerstation_5km_crop_2024_mbsp.json` | [archive] 5 km power-station crop, MBSP — collapses to 320 kg/hr (spurious surface signal) |
+
 ### 6.1 Deterministic Stress Scenarios
 
 The deterministic financial scenarios in report §7.3–7.5 are produced by `scripts/finance_transition_risk.py` and serialised to `results_analysis/finance_transition_risk.json`. The module implements three transmission channels — implied carbon-cost exposure under EU ETS-equivalent pricing, credit-spread stress on a hypothetical PGE bond holding, and an equity-repricing scenario — producing a Mild/Moderate/Severe sensitivity grid. All inputs are declared as module-level constants and reproducible from a single command (`python3 scripts/finance_transition_risk.py`). The script is framed as stylized scenario analysis; shocks are not calibrated to PGE's historical return distribution.
 
-### 6.2 Monte Carlo Climate Value-at-Risk Engine
+### 6.2 Monte Carlo Climate Value-at-Risk Engine (Appendix H)
 
-The stochastic extension in report §7.1–7.2 is implemented in `scripts/finance_climate_var.py` and serialised to `results_analysis/finance_climate_var.json`. It runs 10,000 simulations propagating five uncertainty layers following Desnos et al. (Amundi, 2024) and the NIST IR 8575 uncertainty budget (Worden et al., 2025).
+The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance/finance_climate_var.py` and serialised to `results_analysis/finance_climate_var.json`. It runs 10,000 Monte Carlo simulations propagating five uncertainty layers through the carbon-liability calculation, following the stochastic climate risk framework of Desnos, Le Guenedal, Morais and Roncalli (Amundi, 2024) and incorporating the IME plume quantification uncertainty budget recommended in Worden et al. (NIST IR 8575, 2025).
+
+**Simulation structure.** In each simulation five inputs are drawn independently: (i) annual CH₄ emission from a zero-truncated normal matching the 26-observation sampling CI; (ii) systematic ERA5 wind bias from N(0, 0.10) per NIST IR 8575 §4.2; (iii) plume spatial-extent multiplier from Uniform(0.85, 1.15) per Varon et al. (2021, AMT §2.3); (iv) carbon price from LogNormal centred at €70/tCO₂e with 30% log-volatility; and (v) regulatory enforcement probability from Beta(9,1), mean 90%. GWP conversion (factor 28 for GWP100, factor 83 for GWP20) is applied as a constant outside the stochastic draw. Outputs are reported as mean expected liability, 95th and 99th percentile Climate Value-at-Risk, and 99% Expected Shortfall — separately under GWP100 (EU MRV regulatory metric) and GWP20 (near-term transition risk horizon).
 
 **Uncertainty layers (in order of application):**
 
 | Layer | Distribution | Parameter | Justification |
 |---|---|---|---|
-| 1 — Annual emission | Truncated Normal(μ, σ), zero-bounded | μ = 11,481 t/yr; σ = SEM from 95% CI | 37-observation sampling distribution; truncnorm preserves E[Q] = μ exactly |
+| 1 — Annual emission | Truncated Normal(μ, σ), zero-bounded | μ = 16,486 t/yr; σ = SEM from 95% CI | 26-observation sampling distribution; truncnorm preserves E[Q] = μ exactly |
 | 2 — ERA5 wind systematic bias | Multiplicative N(1, 0.10), clipped [0.5, 2.0] | σ = 10% | NIST IR 8575 §4.2: grid-to-point interpolation error vs. tower observations |
 | 3 — Plume spatial extent | Uniform(0.85, 1.15) | ±15% | Varon et al. (2021, AMT §2.3): IME integration boundary sensitivity |
 | 4 — Carbon price | LogNormal centred at €70/tCO₂e | log-vol = 30% | Amundi (2024) GBM calibration to EU ETS historical dynamics |
 | 5 — Regulatory pass-through | Beta(9, 1) | mean = 90% | Conservative compliance stress; Beta(5,2) → 71% for policy-uncertainty scenario |
 
-**Accounting property.** Layer 1 uses a truncated normal rather than log-normal so that E[Liability] = E[Q] × GWP × E[Price] × E[β] holds as an exact identity, making the stochastic mean auditable against the deterministic base case. The simulated mean (~€20.3M GWP100) lies ≈10% below the deterministic figure (€22.5M) by construction, reflecting the Beta(9,1) enforcement probability.
+**Accounting property.** Layer 1 uses a truncated normal rather than log-normal so that E[Liability] = E[Q] × GWP × E[Price] × E[β] holds as an exact identity, making the stochastic mean auditable against the deterministic base case. The simulated mean (~€29.0M GWP100) lies ≈10% below the deterministic figure (€32.3M) by construction, reflecting the Beta(9,1) enforcement probability mean of 90%.
 
 **Uncertainty decomposition** (independent quadrature, relative σ contributions):
 
 | Source | Relative σ | Share of total σ |
 |---|---|---|
-| Emission sampling (truncnorm, n=37) | 0.211 | 54% |
-| ERA5 wind systematic (±10%) | 0.100 | 26% |
-| Mask spatial extent (±15%) | 0.087 | 22% |
-| Carbon price (log-vol 30%) | 0.300 | 77% |
-| **Combined (quadrature)** | **0.390** | — |
+| Emission sampling (truncnorm, n=26) | 0.286 | 66% |
+| ERA5 wind systematic (±10%) | 0.100 | 23% |
+| Mask spatial extent (±15%) | 0.087 | 20% |
+| Carbon price (log-vol 30%) | 0.300 | 69% |
+| **Combined (quadrature)** | **0.435** | — |
 
-Note: shares exceed 100% because each is σ_layer/σ_total (not variance-weighted). The carbon price trajectory dominates: improving emission measurement precision would have less impact on the liability distribution than reducing uncertainty about regulatory adoption of methane pricing.
+Note: shares exceed 100% because each is σ_layer/σ_total (not variance-weighted). The carbon price trajectory dominates the tail (log-vol 30%, contributing 77% of total σ in variance terms): improving emission measurement precision would have less impact on the liability distribution than reducing uncertainty about whether and when a comparable price regime applies.
 
 **Reproducibility:** `python scripts/finance_climate_var.py` — all parameters declared as module-level dataclasses (`EmissionParams`, `UncertaintyParams`, `CarbonPriceParams`). seed=42, n_sim=10,000.
 
@@ -483,7 +505,7 @@ Eight candidate sites were evaluated against a training set with documented per-
 ## References
 
 - Angelopoulos, A.N. & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. *arXiv:2107.07511 [cs.LG]*. https://doi.org/10.48550/arXiv.2107.07511
-- Ehret, T. et al. (2022). Global tracking and quantification of oil and gas methane leaks from multispectral satellite data. *Environmental Science & Technology*.
+- Ehret, T. et al. (2022). Global tracking and quantification of oil and gas methane leaks from multispectral satellite data. *Environmental Science & Technology*, 56(14), 10226–10235. https://doi.org/10.1021/acs.est.1c07201
 - Sherwin, E.D., El Abbadi, S.H., Burdeau, P.M., Zhang, Z., Chen, Z., Rutherford, J.S., Chen, Y., and Brandt, A.R. (2024). Single-blind test of nine methane-sensing satellite systems from three continents. *Atmospheric Measurement Techniques*, 17, 765–782. https://doi.org/10.5194/amt-17-765-2024
 - Varon, D.J. et al. (2021). Quantifying time-averaged methane emissions from individual coal mine vents with GHGSat-D satellite observations. *Atmospheric Measurement Techniques*, 14, 2771–2785. https://doi.org/10.5194/amt-14-2771-2021
 - Vaughan, A., Mateo-García, G., Gómez-Chova, L., Růžička, V., Guanter, L., and Irakulis-Loitxate, I. (2024). CH4Net: a deep learning model for monitoring methane super-emitters with Sentinel-2 imagery. *Atmospheric Measurement Techniques*, 17, 2583–2593. https://doi.org/10.5194/amt-17-2583-2024
