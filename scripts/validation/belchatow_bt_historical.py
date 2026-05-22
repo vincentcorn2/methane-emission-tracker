@@ -35,7 +35,7 @@ import logging
 from pathlib import Path
 
 # ── Path setup ────────────────────────────────────────────────────────────────
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(ROOT))
 
 logging.basicConfig(
@@ -54,8 +54,8 @@ NPY_CACHE = ROOT / "data" / "npy_cache"
 OUT_DIR   = ROOT / "results_bitemporal" / "belchatow_historical"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-BELCHATOW_LAT = 51.266
-BELCHATOW_LON = 19.315
+BELCHATOW_LAT = 51.242   # mine centroid (ClimateTrace asset 16168); was 51.266 (power station — wrong)
+BELCHATOW_LON = 19.275   # mine centroid (ClimateTrace asset 16168); was 19.315 (power station — wrong)
 
 TARGET_TILES = [
     {

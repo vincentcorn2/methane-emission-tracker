@@ -1,0 +1,47 @@
+TRAINING CROP DATASET STATISTICS
+Generated: 2026-04-09 03:53 UTC
+==================================================
+  Total crops:        27
+  Negatives:          12  (44%)
+  Positives:          15  (56%)
+  Neg/Pos ratio:    0.8x
+
+  Split breakdown:
+    Train: 9 neg + 13 pos = 22
+    Val:   3 neg + 2 pos = 5
+
+  Crop size: 200×200×12 px (uint8)
+  (Resize to 160×160 during training for random crop augmentation)
+
+  Positive sites:
+    de_bad_lauchstaedt           enh=+12.2 ppb  split=train
+    de_bad_lauchstaedt           enh=+11.3 ppb  split=train
+    de_bad_lauchstaedt           enh=+16.2 ppb  split=train
+    de_weisweiler                enh=+18.0 ppb  split=train
+    de_weisweiler                enh=+18.0 ppb  split=train
+    nl_bergermeer                enh=+16.2 ppb  split=train
+    nl_grijpskerk                enh=+13.9 ppb  split=train
+    ro_totea                     enh=+24.6 ppb  split=train
+    ro_totea                     enh=+10.8 ppb  split=val
+    ro_totea                     enh=+18.6 ppb  split=train
+    silesia_knurow               enh=+11.8 ppb  split=val
+    silesia_pniowek              enh=+17.1 ppb  split=train
+    silesia_rybnik               enh=+19.7 ppb  split=train
+    silesia_zofiowka             enh=+10.7 ppb  split=train
+    silesia_zofiowka             enh=+16.9 ppb  split=train
+
+  Negative sites:
+    belchatow                    sc=0.959  split=train
+    ctrl_dk_jutland              sc=0.833  split=train
+    ctrl_nl_flevoland            sc=0.405  split=train
+    ctrl_ro_wallachia            sc=0.358  split=val
+    dunkerque                    sc=0.741  split=train
+    janschwalde                  sc=1.000  split=train
+    larobla                      sc=0.296  split=train
+    maritsa_east2                sc=0.699  split=train
+    neurath                      sc=1.000  split=val
+    philippsburg                 sc=1.000  split=train
+    rovinari                     sc=0.395  split=val
+    tusimice                     sc=0.100  split=train
+
+  WARNING: Only 12 negatives for 15 positives — need more negatives

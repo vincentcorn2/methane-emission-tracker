@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32635",
+  "transform": [
+    10.0,
+    0.0,
+    399960.0,
+    0.0,
+    -10.0,
+    7000020.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "T35VMK",
+  "acquisition_date": "2024-08-17T09:55:49.024000Z",
+  "satellite": "S2B",
+  "source_product": "S2B_MSIL1C_20240817T095549_N0511_R122_T35VMK_20240817T122306"
+}

@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_polder_N",
+  "lat": 53.292,
+  "lon": 6.682,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240817",
+  "note": "Groningen polder agricultural terrain north offset (~4.5 km). Captures same spectral background causing FP; adds terrain diversity.",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 8892,
+  "pixel_col": 4542,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy",
+  "extracted": "2026-04-10T00:08:21.007567+00:00",
+  "b11_mean": 74.19,
+  "b12_mean": 46.81,
+  "b12_b11_ratio": 0.6309
+}

@@ -2,47 +2,92 @@
   "metadata": {
     "n_sim": 10000,
     "seed": 42,
-    "facility": "KWB Be\u0142chat\u00f3w Coal Mine, Poland (PGE GiEK)",
+    "facility": "KWB Belchatow Coal Mine, Poland (PGE GiEK)",
     "methodology": [
       "Amundi 2024 \u2014 stochastic carbon price / pass-through",
       "NIST IR 8575 (Worden et al. 2025) \u2014 IME uncertainty budget"
     ],
-    "source": "belchatow_annual_timeseries_mbsp.json (MBSP retrieval, Varon 2021)",
     "carbon_price_central_eur_tco2e": 70.0,
     "carbon_price_log_vol": 0.3,
-    "passthrough_beta_mean": 0.9
+    "passthrough_beta_mean": 0.9,
+    "layers": [
+      {
+        "layer": "EmissionSampling",
+        "distribution": "TruncNorm(mu, SEM, a=0)",
+        "mu_t_yr": 4174.0,
+        "sem_t_yr": 580.1,
+        "ci95": [
+          2987.0,
+          5360.0
+        ],
+        "n_obs": 30
+      },
+      {
+        "layer": "WindBias",
+        "distribution": "clip(1 + N(0, 0.1), 0.5, 2.0)",
+        "sigma": 0.1
+      },
+      {
+        "layer": "SpatialExtent",
+        "distribution": "Uniform(0.85, 1.15)",
+        "range": [
+          0.85,
+          1.15
+        ]
+      },
+      {
+        "layer": "CarbonPrice",
+        "distribution": "LogNormal(mu=4.203, sigma=0.3)",
+        "central_eur": 70.0,
+        "log_vol": 0.3
+      },
+      {
+        "layer": "RegulatoryPassThrough",
+        "distribution": "Beta(9.0, 1.0)",
+        "mean": 0.9
+      }
+    ]
   },
   "emission_draws": {
-    "q_mean_t_yr": 16472.5,
-    "q_p5_t_yr": 8352.1,
-    "q_p95_t_yr": 25674.8,
-    "q_sd_t_yr": 5257.8
+    "q_mean_t_yr": 4179.3,
+    "q_p5_t_yr": 2939.0,
+    "q_p95_t_yr": 5586.5,
+    "q_sd_t_yr": 805.7
   },
   "carbon_price_draws": {
-    "mean_eur_tco2e": 69.93,
-    "p5_eur_tco2e": 40.57,
-    "p95_eur_tco2e": 109.86
+    "mean_eur_tco2e": 70.48,
+    "p5_eur_tco2e": 40.93,
+    "p95_eur_tco2e": 111.05
   },
   "liability_gwp100": {
     "label": "GWP100 (factor 28)",
-    "mean": 29.027,
-    "median": 26.653,
-    "var_95": 55.006,
-    "var_99": 71.503,
-    "es_99": 81.44,
-    "p5": 11.535,
-    "p25": 19.234,
-    "p75": 35.964
+    "mean": 7.425,
+    "median": 6.961,
+    "var_95": 12.782,
+    "var_99": 16.492,
+    "es_99": 18.377,
+    "p5": 3.686,
+    "p25": 5.407,
+    "p75": 8.883
   },
   "liability_gwp20": {
     "label": "GWP20  (factor 83)",
-    "mean": 86.044,
-    "median": 79.008,
-    "var_95": 163.053,
-    "var_99": 211.955,
-    "es_99": 241.412,
-    "p5": 34.192,
-    "p25": 57.015,
-    "p75": 106.608
+    "mean": 22.009,
+    "median": 20.633,
+    "var_95": 37.889,
+    "var_99": 48.887,
+    "es_99": 54.476,
+    "p5": 10.926,
+    "p25": 16.027,
+    "p75": 26.331
+  },
+  "tau_sensitivity": {
+    "note": "Lower-bound framing (det_rate x mean_flow x 8760). Upper framing is tau-independent.",
+    "tau_mean_draw": 3.3364,
+    "det_rate_mean": 0.246,
+    "gwp100_mean_liability_meur": 1.803,
+    "gwp20_mean_liability_meur": 5.344,
+    "gwp100_var99_meur": 3.634,
+    "gwp20_var99_meur": 10.772
   }
 }

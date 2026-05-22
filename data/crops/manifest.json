@@ -1,0 +1,168 @@
+{
+  "negatives": [
+    {
+      "path": "data/crops/negative/belchatow_T34UCB_20240824.npy",
+      "split": "train",
+      "site": "belchatow",
+      "sc_ratio": 0.9592
+    },
+    {
+      "path": "data/crops/negative/ctrl_dk_jutland_T32VNH_20240831.npy",
+      "split": "train",
+      "site": "ctrl_dk_jutland",
+      "sc_ratio": 0.8327
+    },
+    {
+      "path": "data/crops/negative/ctrl_nl_flevoland_T31UFU_20240819.npy",
+      "split": "train",
+      "site": "ctrl_nl_flevoland",
+      "sc_ratio": 0.4053
+    },
+    {
+      "path": "data/crops/negative/ctrl_ro_wallachia_T35TLK_20240825.npy",
+      "split": "val",
+      "site": "ctrl_ro_wallachia",
+      "sc_ratio": 0.3578
+    },
+    {
+      "path": "data/crops/negative/dunkerque_T31UDS_20240827.npy",
+      "split": "train",
+      "site": "dunkerque",
+      "sc_ratio": 0.7406
+    },
+    {
+      "path": "data/crops/negative/janschwalde_T33UVT_20240827.npy",
+      "split": "train",
+      "site": "janschwalde",
+      "sc_ratio": 1.0
+    },
+    {
+      "path": "data/crops/negative/larobla_T29TQH_20240828.npy",
+      "split": "train",
+      "site": "larobla",
+      "sc_ratio": 0.2957
+    },
+    {
+      "path": "data/crops/negative/maritsa_east2_T35TMG_20240827.npy",
+      "split": "train",
+      "site": "maritsa_east2",
+      "sc_ratio": 0.6985
+    },
+    {
+      "path": "data/crops/negative/neurath_T32ULB_20240920.npy",
+      "split": "val",
+      "site": "neurath",
+      "sc_ratio": 1.0
+    },
+    {
+      "path": "data/crops/negative/philippsburg_T32UMV_20240828.npy",
+      "split": "train",
+      "site": "philippsburg",
+      "sc_ratio": 1.0
+    },
+    {
+      "path": "data/crops/negative/rovinari_T34TFQ_20240825.npy",
+      "split": "val",
+      "site": "rovinari",
+      "sc_ratio": 0.3945
+    },
+    {
+      "path": "data/crops/negative/tusimice_T33UUR_20240828.npy",
+      "split": "train",
+      "site": "tusimice",
+      "sc_ratio": 0.1003
+    }
+  ],
+  "positives": [
+    {
+      "path": "data/crops/positive/de_bad_lauchstaedt_T32UQC_20230109_enh12.npy",
+      "split": "train",
+      "site": "de_bad_lauchstaedt",
+      "enhancement_ppb": 12.25
+    },
+    {
+      "path": "data/crops/positive/de_bad_lauchstaedt_T32UQC_20230208_enh11.npy",
+      "split": "train",
+      "site": "de_bad_lauchstaedt",
+      "enhancement_ppb": 11.27
+    },
+    {
+      "path": "data/crops/positive/de_bad_lauchstaedt_T32UQC_20230216_enh16.npy",
+      "split": "train",
+      "site": "de_bad_lauchstaedt",
+      "enhancement_ppb": 16.19
+    },
+    {
+      "path": "data/crops/positive/de_weisweiler_T31UGS_20240918_enh18.npy",
+      "split": "train",
+      "site": "de_weisweiler",
+      "enhancement_ppb": 18
+    },
+    {
+      "path": "data/crops/positive/de_weisweiler_T32ULB_20240920_enh18.npy",
+      "split": "train",
+      "site": "de_weisweiler",
+      "enhancement_ppb": 18
+    },
+    {
+      "path": "data/crops/positive/nl_bergermeer_T31UFU_20230126_enh16.npy",
+      "split": "train",
+      "site": "nl_bergermeer",
+      "enhancement_ppb": 16.19
+    },
+    {
+      "path": "data/crops/positive/nl_grijpskerk_T31UGV_20230208_enh13.npy",
+      "split": "train",
+      "site": "nl_grijpskerk",
+      "enhancement_ppb": 13.89
+    },
+    {
+      "path": "data/crops/positive/ro_totea_T35TLK_20230101_enh24.npy",
+      "split": "train",
+      "site": "ro_totea",
+      "enhancement_ppb": 24.59
+    },
+    {
+      "path": "data/crops/positive/ro_totea_T35TLK_20230115_enh10.npy",
+      "split": "val",
+      "site": "ro_totea",
+      "enhancement_ppb": 10.78
+    },
+    {
+      "path": "data/crops/positive/ro_totea_T35TLK_20230221_enh18.npy",
+      "split": "train",
+      "site": "ro_totea",
+      "enhancement_ppb": 18.63
+    },
+    {
+      "path": "data/crops/positive/silesia_knurow_T34UCA_20230215_enh11.npy",
+      "split": "val",
+      "site": "silesia_knurow",
+      "enhancement_ppb": 11.79
+    },
+    {
+      "path": "data/crops/positive/silesia_pniowek_T34UCB_20230301_enh17.npy",
+      "split": "train",
+      "site": "silesia_pniowek",
+      "enhancement_ppb": 17.11
+    },
+    {
+      "path": "data/crops/positive/silesia_rybnik_T34UCA_20240628_enh19.npy",
+      "split": "train",
+      "site": "silesia_rybnik",
+      "enhancement_ppb": 19.66
+    },
+    {
+      "path": "data/crops/positive/silesia_zofiowka_T34UCB_20230101_enh10.npy",
+      "split": "train",
+      "site": "silesia_zofiowka",
+      "enhancement_ppb": 10.7
+    },
+    {
+      "path": "data/crops/positive/silesia_zofiowka_T34UCB_20230301_enh16.npy",
+      "split": "train",
+      "site": "silesia_zofiowka",
+      "enhancement_ppb": 16.85
+    }
+  ]
+}

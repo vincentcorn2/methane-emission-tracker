@@ -1,0 +1,21 @@
+{
+  "site": "synth_belchatow_T34UCB_20240824",
+  "source_site": "belchatow_T34UCB_20240824",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 42,
+    "centre_x": 138,
+    "sigma": 30.36074539132183,
+    "alpha": 0.22878968798670737,
+    "aspect": 1.1881576203415547,
+    "angle_rad": 0.29586686425840997,
+    "b12_mean_attenuation_dn": 2.4366250038146973,
+    "b12_max_attenuation_dn": 17.0
+  },
+  "plume_centre_y": 42,
+  "plume_centre_x": 138,
+  "enhancement_ppb": 45.8,
+  "extracted": "2026-04-10T01:58:42.661078+00:00"
+}

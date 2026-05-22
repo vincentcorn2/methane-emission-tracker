@@ -194,7 +194,8 @@
     ]
   },
   "conformal_calibration_independence": {
-    "sites_within_50km_of_candidate": [],
-    "checked_n": 28
-  }
+    "sites_within_exclusion_radius": [],
+    "checked_n": 35
+  },
+  "overlap_count": 0
 }

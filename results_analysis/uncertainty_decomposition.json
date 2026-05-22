@@ -1,261 +1,18 @@
 [
   {
     "label": "Neurath 2024-08-29",
-    "site": "neurath",
-    "scene_id": "S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434",
-    "acquisition_ts": "2024-08-29T10:36:29Z",
-    "wind_ms": 2.6612,
-    "wind_source": "ERA5_reanalysis",
-    "reported_flow_kgh": 85.0,
-    "cemf_base_flow_kgh": 101.39,
-    "n_plume_pixels_20m": 3848,
-    "canonical_thresh": 0.0007,
-    "uncertainty": {
-      "wind": {
-        "sigma_pct": 20.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "ERA5 10m \u2192 plume-layer transport uncertainty"
-      },
-      "coeff": {
-        "sigma_pct": 15.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "CEMF sensitivity = 4e-7 reflectance/(ppb\u00b7m) \u00b1 15%"
-      },
-      "mask": {
-        "sigma_pct": 40.9,
-        "n_valid": 50,
-        "threshold_range": [
-          0.00021,
-          0.007
-        ],
-        "canonical_thresh": 0.0007,
-        "mean_flow_kgh": 87.8,
-        "std_flow_kgh": 35.89,
-        "flows_summary": [
-          {
-            "p_star": 0.00021,
-            "flow_kgh": 158.3085,
-            "n_px": 5051
-          },
-          {
-            "p_star": 0.0005,
-            "flow_kgh": 116.6491,
-            "n_px": 4160
-          },
-          {
-            "p_star": 0.00126,
-            "flow_kgh": 79.6382,
-            "n_px": 3301
-          },
-          {
-            "p_star": 0.00297,
-            "flow_kgh": 55.6751,
-            "n_px": 2679
-          },
-          {
-            "p_star": 0.007,
-            "flow_kgh": 39.6788,
-            "n_px": 2138
-          }
-        ]
-      },
-      "background": {
-        "sigma_pct": 0.0,
-        "n_valid": 4,
-        "mean_flow_kgh": 101.39,
-        "std_flow_kgh": 0.0,
-        "per_quadrant_kgh": {
-          "N": 101.39,
-          "S": 101.39,
-          "W": 101.39,
-          "E": 101.39
-        }
-      },
-      "combined_mc": {
-        "n_samples": 10000,
-        "mean_kgh": 85.54,
-        "std_kgh": 41.77,
-        "p5_kgh": 25.05,
-        "p95_kgh": 160.96,
-        "sigma_pct_mc": 48.8,
-        "sigma_pct_quadrature": 47.9
-      }
-    },
-    "status": "ok"
+    "status": "error",
+    "error": "Required data file not found: /Users/vincentcornelius/Downloads/methane-api/data/npy_cache/S2B_MSIL1C_20240829T103629_N0511_R008_T32ULB_20240829T124434.npy"
   },
   {
     "label": "Be\u0142chat\u00f3w 2024-07-10",
-    "site": "belchatow",
-    "scene_id": "S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148",
-    "acquisition_ts": "2024-07-10T09:50:31Z",
-    "wind_ms": 3.3183,
-    "wind_source": "ERA5_reanalysis",
-    "reported_flow_kgh": 1071.0,
-    "cemf_base_flow_kgh": 1071.16,
-    "n_plume_pixels_20m": 8533,
-    "canonical_thresh": 0.002,
-    "uncertainty": {
-      "wind": {
-        "sigma_pct": 20.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "ERA5 10m \u2192 plume-layer transport uncertainty"
-      },
-      "coeff": {
-        "sigma_pct": 15.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "CEMF sensitivity = 4e-7 reflectance/(ppb\u00b7m) \u00b1 15%"
-      },
-      "mask": {
-        "sigma_pct": 4.7,
-        "n_valid": 50,
-        "threshold_range": [
-          0.0006,
-          0.02
-        ],
-        "canonical_thresh": 0.002,
-        "mean_flow_kgh": 1042.3,
-        "std_flow_kgh": 49.1,
-        "flows_summary": [
-          {
-            "p_star": 0.0006,
-            "flow_kgh": 1119.173,
-            "n_px": 9025
-          },
-          {
-            "p_star": 0.00142,
-            "flow_kgh": 1081.2049,
-            "n_px": 8662
-          },
-          {
-            "p_star": 0.00359,
-            "flow_kgh": 1045.1887,
-            "n_px": 8289
-          },
-          {
-            "p_star": 0.00847,
-            "flow_kgh": 998.6416,
-            "n_px": 7910
-          },
-          {
-            "p_star": 0.02,
-            "flow_kgh": 952.5137,
-            "n_px": 7386
-          }
-        ]
-      },
-      "background": {
-        "sigma_pct": 0.0,
-        "n_valid": 4,
-        "mean_flow_kgh": 1071.16,
-        "std_flow_kgh": 0.0,
-        "per_quadrant_kgh": {
-          "N": 1071.16,
-          "S": 1071.16,
-          "W": 1071.16,
-          "E": 1071.16
-        }
-      },
-      "combined_mc": {
-        "n_samples": 10000,
-        "mean_kgh": 1072.25,
-        "std_kgh": 275.35,
-        "p5_kgh": 651.18,
-        "p95_kgh": 1558.41,
-        "sigma_pct_mc": 25.7,
-        "sigma_pct_quadrature": 25.4
-      }
-    },
-    "status": "ok"
+    "status": "error",
+    "error": "Required data file not found: /Users/vincentcornelius/Downloads/methane-api/data/npy_cache/S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.npy"
   },
   {
     "label": "Neurath 2024-06-25",
-    "site": "neurath",
-    "scene_id": "S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035",
-    "acquisition_ts": "2024-06-25T10:36:31Z",
-    "wind_ms": 3.5,
-    "wind_source": "climatological_fallback_3.5ms",
-    "reported_flow_kgh": 338.0,
-    "cemf_base_flow_kgh": 534.71,
-    "n_plume_pixels_20m": 14614,
-    "canonical_thresh": 0.016,
-    "uncertainty": {
-      "wind": {
-        "sigma_pct": 20.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "ERA5 10m \u2192 plume-layer transport uncertainty"
-      },
-      "coeff": {
-        "sigma_pct": 15.0,
-        "method": "literature_prior",
-        "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "CEMF sensitivity = 4e-7 reflectance/(ppb\u00b7m) \u00b1 15%"
-      },
-      "mask": {
-        "sigma_pct": 19.2,
-        "n_valid": 50,
-        "threshold_range": [
-          0.0048,
-          0.16
-        ],
-        "canonical_thresh": 0.016,
-        "mean_flow_kgh": 485.65,
-        "std_flow_kgh": 93.26,
-        "flows_summary": [
-          {
-            "p_star": 0.0048,
-            "flow_kgh": 626.1482,
-            "n_px": 16939
-          },
-          {
-            "p_star": 0.01133,
-            "flow_kgh": 564.1148,
-            "n_px": 15300
-          },
-          {
-            "p_star": 0.02872,
-            "flow_kgh": 493.6786,
-            "n_px": 13462
-          },
-          {
-            "p_star": 0.06779,
-            "flow_kgh": 425.2255,
-            "n_px": 11683
-          },
-          {
-            "p_star": 0.16,
-            "flow_kgh": 291.443,
-            "n_px": 9018
-          }
-        ]
-      },
-      "background": {
-        "sigma_pct": 0.0,
-        "n_valid": 4,
-        "mean_flow_kgh": 534.71,
-        "std_flow_kgh": 0.0,
-        "per_quadrant_kgh": {
-          "N": 534.71,
-          "S": 534.71,
-          "W": 534.71,
-          "E": 534.71
-        }
-      },
-      "combined_mc": {
-        "n_samples": 10000,
-        "mean_kgh": 338.96,
-        "std_kgh": 108.52,
-        "p5_kgh": 182.53,
-        "p95_kgh": 534.59,
-        "sigma_pct_mc": 32.0,
-        "sigma_pct_quadrature": 31.5
-      }
-    },
-    "status": "ok"
+    "status": "error",
+    "error": "Required data file not found: /Users/vincentcornelius/Downloads/methane-api/data/npy_cache/S2A_MSIL1C_20240625T103631_N0510_R008_T32ULB_20240625T142035.npy"
   },
   {
     "label": "Be\u0142chat\u00f3w 2024-08-24",
@@ -273,13 +30,13 @@
         "sigma_pct": 20.0,
         "method": "literature_prior",
         "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "ERA5 10m \u2192 plume-layer transport uncertainty"
+        "note": "ERA5 10 m \u2192 plume-layer transport uncertainty"
       },
       "coeff": {
         "sigma_pct": 15.0,
         "method": "literature_prior",
         "reference": "Varon 2021 AMT 14:2771-2785 Table 2",
-        "note": "CEMF sensitivity = 4e-7 reflectance/(ppb\u00b7m) \u00b1 15%"
+        "note": "CEMF sensitivity \u03b5 = 4e-7 reflectance (ppb\u00b7m)\u207b\u00b9 \u00b1 15%"
       },
       "mask": {
         "sigma_pct": 6.9,
@@ -342,5 +99,10 @@
       }
     },
     "status": "ok"
+  },
+  {
+    "label": "Turkmenistan 2021-01-01 (L2A, pipeline validation)",
+    "status": "error",
+    "error": "Required data file not found: /Users/vincentcornelius/Downloads/methane-api/data/npy_cache/S2B_T40SBE_20210101_Turkmenistan.npy"
   }
 ]

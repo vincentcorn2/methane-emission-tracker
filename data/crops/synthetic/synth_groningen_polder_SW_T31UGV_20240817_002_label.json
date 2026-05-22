@@ -1,0 +1,21 @@
+{
+  "site": "synth_groningen_polder_SW_T31UGV_20240817",
+  "source_site": "groningen_polder_SW_T31UGV_20240817",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 30,
+    "centre_x": 161,
+    "sigma": 23.433970125198968,
+    "alpha": 0.1184136898617229,
+    "aspect": 1.2817788704874342,
+    "angle_rad": 0.4815568830180423,
+    "b12_mean_attenuation_dn": 0.9982500076293945,
+    "b12_max_attenuation_dn": 7.0
+  },
+  "plume_centre_y": 30,
+  "plume_centre_x": 161,
+  "enhancement_ppb": 23.7,
+  "extracted": "2026-04-10T01:58:42.757035+00:00"
+}

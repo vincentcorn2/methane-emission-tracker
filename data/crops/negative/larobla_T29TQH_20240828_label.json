@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "larobla",
+  "lat": 42.784,
+  "lon": -5.618,
+  "country": "ES",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 0.2957,
+  "tile_id": "T29TQH",
+  "s2_date": "20240828",
+  "note": "Confirmed non-emitter: SC=0.296 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 5762,
+  "pixel_col": 7667,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240828T110619_N0511_R137_T29TQH_20240828T120314.npy",
+  "extracted": "2026-04-06T03:51:29.940782Z",
+  "b11_mean": 54.16,
+  "b12_mean": 40.37,
+  "b12_b11_ratio": 0.7454
+}

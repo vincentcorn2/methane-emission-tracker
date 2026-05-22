@@ -1,0 +1,33 @@
+{
+  "split": "train",
+  "label_type": "positive",
+  "site": "de_bad_lauchstaedt",
+  "country": "DE",
+  "source_type": "gas_compressor",
+  "lat": 51.39,
+  "lon": 11.88,
+  "tile_id": "T32UQC",
+  "tropomi_date": "2023-01-09",
+  "enhancement_ppb": 12.25,
+  "max_near_ppb": 1871.95,
+  "background_ppb": 1852.71,
+  "n_near_pixels": 2,
+  "qa_threshold": 0.3,
+  "tropomi_product": "S5P_OFFL_L2__CH4____20230109T110326_20230109T124456_27156_03_020400_20230111T032118.nc",
+  "s2_product": "S2A_MSIL1C_20230103T101411_N0510_R022_T32UQC_20240812T052231.SAFE",
+  "created": "2026-04-06T04:15:24.585620Z",
+  "note": "TROPOMI-confirmed emission. S2 tile acquired within \u00b17 days of TROPOMI overpass. Use centroid (lat, lon) to extract 160\u00d7160 or 200\u00d7200 training crop.",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    141,
+    12
+  ],
+  "pixel_row": 10288,
+  "pixel_col": 41,
+  "npy_source": "data/npy_cache/training/S2B_MSIL1C_20230207T101109_N0510_R022_T32UQC_20240812T220711.npy",
+  "extracted": "2026-04-08T17:20:30.513435Z",
+  "b11_mean": 0.0,
+  "b12_mean": 0.0,
+  "b12_b11_ratio": 0.0
+}

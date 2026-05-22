@@ -6,13 +6,9 @@
   "n_real_positives": 14,
   "n_real_negatives": 22,
   "score_field": "prob_mean",
-  "note": "Restricted to 14 TROPOMI-confirmed real positive crops and 22 verified-negative crops. Synthetic crops excluded. Stratified bootstrap: resampling within each class preserves class ratio. Addresses Reviewer 2 concern: 'effective positive real dataset is still tiny' \u2014 reporting CIs rather than point estimates only.",
-  "point_estimates": {
-    "auroc": 0.785714,
-    "average_precision": 0.754301
-  },
+  "note": "Restricted to 14 TROPOMI-confirmed real positive crops and 22 verified-negative crops.  Synthetic crops excluded.  Stratified bootstrap resamples within each class to preserve class ratio.  Addresses Reviewer 2: 'effective positive real dataset is still tiny' \u2014 reporting CIs rather than point estimates only.",
   "auroc": {
-    "point": 0.7857,
+    "point": 0.785714,
     "ci_90_lo": 0.6558,
     "ci_90_hi": 0.8929,
     "ci_95_lo": 0.6266,
@@ -21,7 +17,7 @@
     "boot_std": 0.0729
   },
   "average_precision": {
-    "point": 0.7543,
+    "point": 0.754301,
     "ci_90_lo": 0.5963,
     "ci_90_hi": 0.9039,
     "ci_95_lo": 0.5659,

@@ -122,7 +122,7 @@ DETECTIONS = [
         "label":          "Bełchatów 2024-07-10",
         "scene_id":       "S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148",
         "acquisition_ts": "2024-07-10T09:50:31Z",
-        "lat": 51.264, "lon": 19.331,
+        "lat": 51.242, "lon": 19.275,   # mine centroid (ClimateTrace asset 16168); was 51.264/19.331 (power station — wrong)
         "site_row": 1949, "site_col": 8356,   # T34UCB pixel coords
         "prob_thresh": 0.002,                  # 5× ctrl_mu=0.000499
         "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240710T095031_N0510_R079_T34UCB_20240710T133148.tif",
@@ -150,7 +150,7 @@ DETECTIONS = [
         "label":          "Bełchatów 2024-08-24",
         "scene_id":       "S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611",
         "acquisition_ts": "2024-08-24T09:45:49Z",
-        "lat": 51.264, "lon": 19.331,
+        "lat": 51.242, "lon": 19.275,   # mine centroid (ClimateTrace asset 16168); was 51.264/19.331 (power station — wrong)
         "site_row": 1949, "site_col": 8356,
         "prob_thresh": 0.0002,                 # 5× ctrl_mean=3.9e-05
         "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.tif",

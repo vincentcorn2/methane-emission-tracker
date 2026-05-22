@@ -1,0 +1,684 @@
+"""
+finance_transition_risk.py
+==========================
+Transition-Risk Financial Scenario Analysis
+Facility: KWB Belchatow lignite mine  |  Issuer: PGE Polska Grupa Energetyczna S.A.
+
+Class hierarchy
+---------------
+BaseTransmissionChannel       Abstract base — defines the P&L computation contract.
+    CarbonCostChannel         Channel 1: Implied carbon-cost exposure under EU ETS pricing.
+    CreditSpreadChannel       Channel 2: Bond mark-to-market from credit spread widening.
+    EquityRepricingChannel    Channel 3: Equity P&L from a share-price shock.
+
+TransitionRiskAnalyzer        Top-level orchestrator. Accepts evidence, issuer, channels,
+                              price cases, and stress tiers; builds the full payload;
+                              prints the scenario report; and saves JSON output.
+
+This module is a stylized scenario analysis, not a predictive market forecast.
+Equity and credit-spread shocks are illustrative stress tiers from the academic
+transition-risk literature. They are not calibrated to PGE's historical return
+distribution or implied volatility surface.
+
+Usage
+-----
+    cd methane-api
+    python scripts/finance/finance_transition_risk.py
+
+Output
+------
+    scripts/results_analysis/finance_transition_risk.json
+
+References
+----------
+Reinders, Schoenmaker & van Dijk (2025): "A finance approach to climate stress testing"
+EU Regulation 2024/1787 on methane emissions in the energy sector.
+IPCC AR5 / AR6 GWP factors for methane.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+from abc import ABC, abstractmethod
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Iterable, List
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-7s  %(message)s",
+    datefmt="%H:%M:%S",
+)
+log = logging.getLogger("finance_transition_risk")
+
+# ---------------------------------------------------------------------------
+# Global constants
+# ---------------------------------------------------------------------------
+
+ROOT     = Path(__file__).resolve().parent.parent
+OUT_PATH = ROOT / "results_analysis" / "finance_transition_risk.json"
+
+GWP100_METHANE = 28    # IPCC AR5 — EU MRV regulatory conversion (tCO2e per tCH4)
+GWP20_METHANE  = 83    # IPCC AR6 — near-term investor horizon
+
+HYPOTHETICAL_BOND_NOTIONAL_EUR   = 10_000_000.0
+HYPOTHETICAL_EQUITY_NOTIONAL_EUR = 10_000_000.0
+
+
+# ---------------------------------------------------------------------------
+# Configuration dataclasses
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class MethaneEvidence:
+    """
+    Annualised CH4 estimate produced by the CH4Net + CEMF pipeline.
+
+    Attributes
+    ----------
+    site_label : str
+        Human-readable site identifier including Climate TRACE asset ID.
+    annual_ch4_t_mean : float
+        Central annualised estimate in t CH4/yr.
+    annual_ch4_t_lower : float
+        95% CI lower bound in t CH4/yr.
+    annual_ch4_t_upper : float
+        95% CI upper bound in t CH4/yr.
+    detection_overpasses : int
+        Number of quantification-supporting CH4Net overpasses.
+    source : str
+        Provenance string for audit trail.
+    """
+    site_label:           str
+    annual_ch4_t_mean:    float
+    annual_ch4_t_lower:   float
+    annual_ch4_t_upper:   float
+    detection_overpasses: int
+    source:               str
+
+
+@dataclass(frozen=True)
+class CarbonPriceCase:
+    """
+    A single EUA carbon price scenario.
+
+    Attributes
+    ----------
+    name : str
+        Scenario label (e.g. 'Low', 'Central', 'Upper').
+    eur_per_tco2e : float
+        Carbon price in EUR per tonne CO2-equivalent.
+    rationale : str
+        Brief justification for the price level.
+    """
+    name:          str
+    eur_per_tco2e: float
+    rationale:     str
+
+
+@dataclass(frozen=True)
+class IssuerProfile:
+    """
+    Public information for the bond/equity issuer (PGE).
+
+    Attributes
+    ----------
+    name : str
+        Full legal name of the issuer.
+    ticker : str
+        Exchange ticker symbol.
+    market_cap_usd_b_2026 : float
+        Market capitalisation in USD billions as of 2026.
+    fx_usd_per_eur : float
+        USD per EUR exchange rate used for conversion.
+    moodys_rating : str
+        Moody's credit rating at time of analysis.
+    fitch_rating : str
+        Fitch credit rating at time of analysis.
+    rating_outlook : str
+        Rating outlook text.
+    bond_duration_yrs : float
+        Modified duration used for credit-spread stress (years).
+    """
+    name:                   str
+    ticker:                 str
+    market_cap_usd_b_2026:  float
+    fx_usd_per_eur:         float
+    moodys_rating:          str
+    fitch_rating:           str
+    rating_outlook:         str
+    bond_duration_yrs:      float
+
+
+@dataclass(frozen=True)
+class StressTier:
+    """
+    One Mild/Moderate/Severe stress scenario.
+
+    Attributes
+    ----------
+    name : str
+        Tier label (e.g. 'Mild', 'Moderate', 'Severe').
+    equity_shock_pct : float
+        Equity price shock as a percentage (negative = drawdown).
+    spread_widening_bp : float
+        Credit spread widening in basis points (positive = widening).
+    narrative : str
+        Plain-language description of what triggers this tier.
+    """
+    name:               str
+    equity_shock_pct:   float
+    spread_widening_bp: float
+    narrative:          str
+
+
+# ---------------------------------------------------------------------------
+# Default instances
+# ---------------------------------------------------------------------------
+
+BELCHATOW_EVIDENCE = MethaneEvidence(
+    site_label="KWB Belchatow (Climate TRACE asset 16168)",
+    annual_ch4_t_mean=4_174.0,
+    annual_ch4_t_lower=2_987.0,
+    annual_ch4_t_upper=5_360.0,
+    detection_overpasses=30,
+    source="MBSP 2019-2024 mine-centroid crop; corrected 30-record set (June 2022 excluded)",
+)
+
+DEFAULT_PRICE_CASES: List[CarbonPriceCase] = [
+    CarbonPriceCase("Low",     50.0, "Lower-band EUA realised price, 2023"),
+    CarbonPriceCase("Central", 70.0, "EUA central reference, 2024-2025"),
+    CarbonPriceCase("Upper",   95.0, "Forward-curve estimate, post-2027 MSR tightening"),
+]
+
+PGE_PROFILE = IssuerProfile(
+    name="PGE Polska Grupa Energetyczna S.A.",
+    ticker="WSE:PGE",
+    market_cap_usd_b_2026=6.34,
+    fx_usd_per_eur=1.08,
+    moodys_rating="Baa1",
+    fitch_rating="BBB",
+    rating_outlook="Stable (both agencies)",
+    bond_duration_yrs=5.0,
+)
+
+DEFAULT_STRESS_TIERS: List[StressTier] = [
+    StressTier(
+        name="Mild",
+        equity_shock_pct=-3.0,
+        spread_widening_bp=15.0,
+        narrative="ESG-rating downgrade; transition risk priced gradually",
+    ),
+    StressTier(
+        name="Moderate",
+        equity_shock_pct=-7.0,
+        spread_widening_bp=35.0,
+        narrative="EU Methane Regulation enforcement action; provisional fines",
+    ),
+    StressTier(
+        name="Severe",
+        equity_shock_pct=-10.0,
+        spread_widening_bp=50.0,
+        narrative="Sustained inventory-vs-satellite gap publicised; credit-watch negative",
+    ),
+]
+
+
+# ---------------------------------------------------------------------------
+# Abstract base transmission channel
+# ---------------------------------------------------------------------------
+
+class BaseTransmissionChannel(ABC):
+    """
+    Abstract base class for transition-risk transmission channels.
+
+    Each channel translates a physical methane finding into a financial P&L
+    impact through a distinct mechanism (carbon cost, credit spread, equity price).
+    Subclasses must implement ComputePnl() and Describe().
+    """
+
+    @abstractmethod
+    def ComputePnl(self, **kwargs) -> float:
+        """
+        Compute the financial P&L impact for this channel.
+
+        Return
+        ------
+        float representing P&L in EUR (losses are negative).
+        """
+
+    @abstractmethod
+    def Describe(self) -> str:
+        """
+        Return a one-line human-readable description of the channel mechanism.
+
+        Return
+        ------
+        str
+        """
+
+
+# ---------------------------------------------------------------------------
+# Concrete transmission channels
+# ---------------------------------------------------------------------------
+
+class CarbonCostChannel(BaseTransmissionChannel):
+    """
+    Channel 1: Implied annual carbon-cost exposure under EU ETS-equivalent pricing.
+
+    Converts physical methane tonnes to CO2-equivalent and prices at the given
+    EUA rate. This is an order-of-magnitude exposure proxy, not a booked ETS
+    liability. Coal-mine methane is not currently a covered emission under
+    EU ETS Phase IV; the figures illustrate the transmission channel under the
+    EU Methane Regulation (2024/1787) trajectory.
+    """
+
+    def __init__(self, gwp: int = GWP100_METHANE):
+        """
+        Parameters
+        ----------
+        gwp : int
+            GWP conversion factor to use (28 for GWP100, 83 for GWP20).
+        """
+        self._gwp = gwp
+
+    def ComputePnl(self, t_ch4: float, eur_per_tco2e: float) -> float:
+        """
+        Compute implied annual carbon-cost exposure.
+
+        Parameters
+        ----------
+        t_ch4 : float
+            Annual methane emission in tonnes CH4.
+        eur_per_tco2e : float
+            Carbon price in EUR per tonne CO2-equivalent.
+
+        Return
+        ------
+        float — implied annual exposure in EUR (positive = cost to operator).
+        """
+        return t_ch4 * self._gwp * eur_per_tco2e
+
+    def Describe(self) -> str:
+        """
+        Return
+        ------
+        str describing this channel.
+        """
+        return f"Carbon cost exposure (GWP{100 if self._gwp == 28 else 20}={self._gwp})"
+
+
+class CreditSpreadChannel(BaseTransmissionChannel):
+    """
+    Channel 2: Bond mark-to-market P&L from credit-spread widening.
+
+    Uses the linear duration approximation (CR01 = duration x notional x 1bp)
+    to compute bondholder mark-to-market loss for a parallel spread move.
+    """
+
+    def __init__(self, position_notional_eur: float, duration_yrs: float):
+        """
+        Parameters
+        ----------
+        position_notional_eur : float
+            Hypothetical bond position notional in EUR.
+        duration_yrs : float
+            Modified duration of the bond in years.
+        """
+        self._notional = position_notional_eur
+        self._duration = duration_yrs
+        self._cr01     = position_notional_eur * duration_yrs * 1e-4
+
+    def ComputePnl(self, spread_widening_bp: float) -> float:
+        """
+        Compute bondholder mark-to-market P&L for a given spread move.
+
+        Parameters
+        ----------
+        spread_widening_bp : float
+            Credit spread widening in basis points (positive = widening).
+
+        Return
+        ------
+        float — P&L in EUR (loss = negative).
+        """
+        return -self._cr01 * spread_widening_bp
+
+    def Cr01(self) -> float:
+        """
+        Return the CR01 (change in market value per 1 basis point) in EUR.
+
+        Return
+        ------
+        float in EUR.
+        """
+        return self._cr01
+
+    def Describe(self) -> str:
+        """
+        Return
+        ------
+        str describing this channel.
+        """
+        return (f"Credit spread stress (notional={self._notional/1e6:.0f}M EUR, "
+                f"duration={self._duration:.1f}yr, CR01={self._cr01:.0f} EUR/bp)")
+
+
+class EquityRepricingChannel(BaseTransmissionChannel):
+    """
+    Channel 3: Long-equity P&L from a share-price shock.
+
+    Simple percentage-of-notional repricing. Shocks are stylized illustrative
+    tiers and are not calibrated to PGE's implied volatility surface.
+    """
+
+    def __init__(self, position_notional_eur: float):
+        """
+        Parameters
+        ----------
+        position_notional_eur : float
+            Hypothetical equity position notional in EUR.
+        """
+        self._notional = position_notional_eur
+
+    def ComputePnl(self, equity_shock_pct: float) -> float:
+        """
+        Compute equity P&L for a given percentage shock.
+
+        Parameters
+        ----------
+        equity_shock_pct : float
+            Price shock as a percentage (negative = drawdown, e.g. -7.0 for -7%).
+
+        Return
+        ------
+        float — P&L in EUR (loss = negative).
+        """
+        return self._notional * (equity_shock_pct / 100.0)
+
+    def Describe(self) -> str:
+        """
+        Return
+        ------
+        str describing this channel.
+        """
+        return f"Equity repricing (notional={self._notional/1e6:.0f}M EUR)"
+
+
+# ---------------------------------------------------------------------------
+# Main analyzer
+# ---------------------------------------------------------------------------
+
+class TransitionRiskAnalyzer:
+    """
+    Top-level orchestrator for multi-channel transition risk scenario analysis.
+
+    Accepts methane evidence, an issuer profile, transmission channels, carbon
+    price cases, and stress tiers. Builds a JSON-serialisable results payload
+    and prints a formatted scenario report.
+
+    Typical usage
+    -------------
+        analyzer = TransitionRiskAnalyzer()
+        payload  = analyzer.Run()
+        analyzer.PrintReport(payload)
+        analyzer.SaveResults(payload)
+
+    To customise any input, pass replacement instances to the constructor.
+    """
+
+    def __init__(
+        self,
+        evidence:     MethaneEvidence          = None,
+        issuer:       IssuerProfile             = None,
+        price_cases:  List[CarbonPriceCase]     = None,
+        stress_tiers: List[StressTier]          = None,
+        bond_notional_eur:   float              = HYPOTHETICAL_BOND_NOTIONAL_EUR,
+        equity_notional_eur: float              = HYPOTHETICAL_EQUITY_NOTIONAL_EUR,
+    ):
+        """
+        Parameters
+        ----------
+        evidence : MethaneEvidence, optional
+            CH4 pipeline output. Defaults to BELCHATOW_EVIDENCE.
+        issuer : IssuerProfile, optional
+            Issuer credit/equity profile. Defaults to PGE_PROFILE.
+        price_cases : list of CarbonPriceCase, optional
+            EUA scenarios. Defaults to Low/Central/Upper.
+        stress_tiers : list of StressTier, optional
+            Mild/Moderate/Severe stress tiers. Defaults to DEFAULT_STRESS_TIERS.
+        bond_notional_eur : float, optional
+            Hypothetical bond position notional in EUR (default 10M).
+        equity_notional_eur : float, optional
+            Hypothetical equity position notional in EUR (default 10M).
+        """
+        self._evidence     = evidence     or BELCHATOW_EVIDENCE
+        self._issuer       = issuer       or PGE_PROFILE
+        self._price_cases  = price_cases  or DEFAULT_PRICE_CASES
+        self._stress_tiers = stress_tiers or DEFAULT_STRESS_TIERS
+
+        self._carbon_channel  = CarbonCostChannel(gwp=GWP100_METHANE)
+        self._credit_channel  = CreditSpreadChannel(bond_notional_eur, issuer.bond_duration_yrs if issuer else PGE_PROFILE.bond_duration_yrs)
+        self._equity_channel  = EquityRepricingChannel(equity_notional_eur)
+
+    def Run(self) -> dict:
+        """
+        Build the full transition-risk results payload.
+
+        Return
+        ------
+        dict with keys: schema_version, framing, methane_evidence, gwp_factors,
+        co2e estimates, carbon_cost_table, issuer_profile, stress_table.
+        """
+        log.info("Building transition-risk payload for %s", self._evidence.site_label)
+
+        co2e_mean      = self._evidence.annual_ch4_t_mean   * GWP100_METHANE
+        co2e_lower     = self._evidence.annual_ch4_t_lower  * GWP100_METHANE
+        co2e_upper     = self._evidence.annual_ch4_t_upper  * GWP100_METHANE
+        co2e_gwp20     = self._evidence.annual_ch4_t_mean   * GWP20_METHANE
+
+        payload = {
+            "schema_version": "1.1.0",
+            "framing": (
+                "Stylized scenario analysis. Equity and spread shocks are "
+                "illustrative stress tiers, not predictive forecasts."
+            ),
+            "methane_evidence": asdict(self._evidence),
+            "gwp_factors":      {"GWP100": GWP100_METHANE, "GWP20": GWP20_METHANE},
+            "co2e_t_mean":      round(co2e_mean,  0),
+            "co2e_t_lower":     round(co2e_lower, 0),
+            "co2e_t_upper":     round(co2e_upper, 0),
+            "co2e_t_mean_gwp20": round(co2e_gwp20, 0),
+            "carbon_cost_table": self._BuildCarbonCostTable(),
+            "issuer_profile":    asdict(self._issuer),
+            "hypothetical_bond_notional_eur":   self._credit_channel._notional,
+            "hypothetical_equity_notional_eur": self._equity_channel._notional,
+            "stress_table":      self._BuildStressTable(),
+            "channel_descriptions": [
+                self._carbon_channel.Describe(),
+                self._credit_channel.Describe(),
+                self._equity_channel.Describe(),
+            ],
+        }
+        return payload
+
+    def _BuildCarbonCostTable(self) -> list:
+        """
+        Build carbon-cost exposure rows for each price case and CI bound.
+
+        Return
+        ------
+        list of dicts, one per CarbonPriceCase.
+        """
+        rows = []
+        for p in self._price_cases:
+            rows.append({
+                "price_case":        p.name,
+                "eur_per_tco2e":     p.eur_per_tco2e,
+                "exposure_eur_mean": round(
+                    self._carbon_channel.ComputePnl(
+                        self._evidence.annual_ch4_t_mean, p.eur_per_tco2e), 0),
+                "exposure_eur_lower": round(
+                    self._carbon_channel.ComputePnl(
+                        self._evidence.annual_ch4_t_lower, p.eur_per_tco2e), 0),
+                "exposure_eur_upper": round(
+                    self._carbon_channel.ComputePnl(
+                        self._evidence.annual_ch4_t_upper, p.eur_per_tco2e), 0),
+                "rationale": p.rationale,
+            })
+        return rows
+
+    def _BuildStressTable(self) -> dict:
+        """
+        Build the Mild/Moderate/Severe stress table.
+
+        Return
+        ------
+        dict with cr01_per_bp_eur and a list of per-tier P&L rows.
+        """
+        rows = []
+        for tier in self._stress_tiers:
+            equity_pnl = self._equity_channel.ComputePnl(tier.equity_shock_pct)
+            spread_pnl = self._credit_channel.ComputePnl(tier.spread_widening_bp)
+            rows.append({
+                "tier":              tier.name,
+                "equity_shock_pct":  tier.equity_shock_pct,
+                "spread_widening_bp": tier.spread_widening_bp,
+                "equity_pnl_eur":    round(equity_pnl, 0),
+                "spread_pnl_eur":    round(spread_pnl, 0),
+                "combined_pnl_eur":  round(equity_pnl + spread_pnl, 0),
+                "narrative":         tier.narrative,
+            })
+        return {"cr01_per_bp_eur": round(self._credit_channel.Cr01(), 2), "rows": rows}
+
+    def PrintReport(self, payload: dict) -> None:
+        """
+        Print the formatted transition-risk scenario report to stdout.
+
+        Parameters
+        ----------
+        payload : dict
+            Output dict returned by Run().
+
+        Return
+        ------
+        None
+        """
+        e  = payload["methane_evidence"]
+        st = payload["stress_table"]
+        bar = "=" * 78
+
+        print(bar)
+        print(f"PGE / {e['site_label']} — transition-risk scenarios")
+        print(bar)
+        print(f"Annualised CH4 (mean):  {e['annual_ch4_t_mean']:>10,.0f} t  "
+              f"(95% CI {e['annual_ch4_t_lower']:,.0f}–{e['annual_ch4_t_upper']:,.0f})")
+        print(f"CO2e (GWP100={GWP100_METHANE}): {payload['co2e_t_mean']:>10,.0f} t CO2e  "
+              f"(GWP20={GWP20_METHANE} -> {payload['co2e_t_mean_gwp20']:,.0f} t CO2e)")
+
+        print()
+        print("Channel 1 — Implied carbon-cost exposure (EU ETS-equivalent pricing)")
+        print("-" * 78)
+        print(f"{'Price case':<10} {'EUR/tCO2e':>9}  {'Mean':>14}  "
+              f"{'Lower (CI)':>14}  {'Upper (CI)':>14}")
+        for r in payload["carbon_cost_table"]:
+            print(f"{r['price_case']:<10} {r['eur_per_tco2e']:>9.0f}  "
+                  f"{self._fmt_eur(r['exposure_eur_mean']):>14}  "
+                  f"{self._fmt_eur(r['exposure_eur_lower']):>14}  "
+                  f"{self._fmt_eur(r['exposure_eur_upper']):>14}")
+
+        print()
+        print("Channels 2 & 3 — Hypothetical position stress test")
+        print("-" * 78)
+        ip = payload["issuer_profile"]
+        print(f"Issuer:          {ip['name']}")
+        print(f"Ratings:         Moody's {ip['moodys_rating']}, "
+              f"Fitch {ip['fitch_rating']} ({ip['rating_outlook']})")
+        print(f"Bond position:   {self._fmt_eur(payload['hypothetical_bond_notional_eur'])} notional, "
+              f"{ip['bond_duration_yrs']:.1f}yr modified duration")
+        print(f"  CR01:          {self._fmt_eur(st['cr01_per_bp_eur'])} per +1 bp spread move")
+        print(f"Equity position: {self._fmt_eur(payload['hypothetical_equity_notional_eur'])} notional")
+        print()
+        print(f"{'Tier':<10} {'Delta Eq (%)':>12} {'Delta Spr (bp)':>14}  "
+              f"{'Equity P&L':>14}  {'Bond P&L':>14}  {'Combined':>14}")
+        for r in st["rows"]:
+            print(f"{r['tier']:<10} {r['equity_shock_pct']:>+12.1f} "
+                  f"{r['spread_widening_bp']:>+14.1f}  "
+                  f"{self._fmt_eur(r['equity_pnl_eur']):>14}  "
+                  f"{self._fmt_eur(r['spread_pnl_eur']):>14}  "
+                  f"{self._fmt_eur(r['combined_pnl_eur']):>14}")
+        print()
+        print("Notes:")
+        print("  * Position sizes are hypothetical, not held positions.")
+        print("  * Equity and spread shocks are illustrative tiers, not calibrated forecasts.")
+        print("  * Coal-mine methane is not a covered EU ETS emission; carbon-cost")
+        print("    figures are order-of-magnitude exposure proxies, not booked liabilities.")
+        print(bar)
+
+    def SaveResults(self, payload: dict, path: Path = OUT_PATH) -> None:
+        """
+        Serialise the results payload to JSON.
+
+        Parameters
+        ----------
+        payload : dict
+            Output dict returned by Run().
+        path : Path, optional
+            Output path. Defaults to OUT_PATH.
+
+        Return
+        ------
+        None
+        """
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2))
+        log.info("Wrote %s", path)
+
+    @staticmethod
+    def _fmt_eur(x: float) -> str:
+        """
+        Format a EUR amount as a compact string (M, K, or plain).
+
+        Parameters
+        ----------
+        x : float
+            Amount in EUR.
+
+        Return
+        ------
+        str formatted as e.g. 'EUR 8.18M', 'EUR 250.0K', 'EUR 500'.
+        """
+        if abs(x) >= 1e6:
+            return f"EUR {x/1e6:,.2f}M"
+        if abs(x) >= 1e3:
+            return f"EUR {x/1e3:,.1f}K"
+        return f"EUR {x:,.0f}"
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+def main() -> dict:
+    """
+    Command-line entry point. Instantiates TransitionRiskAnalyzer with default
+    parameters, runs the analysis, prints the report, and saves JSON output.
+
+    Return
+    ------
+    dict — the full results payload.
+    """
+    analyzer = TransitionRiskAnalyzer()
+    payload  = analyzer.Run()
+    analyzer.PrintReport(payload)
+    analyzer.SaveResults(payload)
+    return payload
+
+
+if __name__ == "__main__":
+    main()

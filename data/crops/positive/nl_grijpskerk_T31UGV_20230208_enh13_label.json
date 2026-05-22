@@ -1,0 +1,33 @@
+{
+  "split": "train",
+  "label_type": "positive",
+  "site": "nl_grijpskerk",
+  "country": "NL",
+  "source_type": "gas_compressor",
+  "lat": 53.27,
+  "lon": 6.26,
+  "tile_id": "T31UGV",
+  "tropomi_date": "2023-02-08",
+  "enhancement_ppb": 13.89,
+  "max_near_ppb": 1919.98,
+  "background_ppb": 1888.02,
+  "n_near_pixels": 6,
+  "qa_threshold": 0.5,
+  "tropomi_product": "S5P_OFFL_L2__CH4____20230208T114346_20230208T132516_27582_03_020400_20230210T035927.nc",
+  "s2_product": "S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.SAFE",
+  "created": "2026-04-06T03:43:21.673745Z",
+  "note": "TROPOMI-confirmed emission. S2 tile acquired within \u00b17 days of TROPOMI overpass. Use centroid (lat, lon) to extract 160\u00d7160 or 200\u00d7200 training crop.",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9273,
+  "pixel_col": 1741,
+  "npy_source": "data/npy_cache/training/S2B_MSIL1C_20230206T104129_N0510_R008_T31UGV_20240814T222004.npy",
+  "extracted": "2026-04-08T17:20:31.507787Z",
+  "b11_mean": 62.01,
+  "b12_mean": 42.78,
+  "b12_b11_ratio": 0.6899
+}

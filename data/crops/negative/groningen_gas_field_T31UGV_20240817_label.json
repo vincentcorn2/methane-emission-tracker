@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_gas_field",
+  "lat": 53.252,
+  "lon": 6.682,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240817",
+  "note": "Confirmed non-emitter: TROPOMI -0.99 ppb. FP in v5\u2013v8 and image-level. Centre crop on gas field site (polder agricultural terrain).",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9336,
+  "pixel_col": 4565,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy",
+  "extracted": "2026-04-10T00:08:21.003924+00:00",
+  "b11_mean": 77.07,
+  "b12_mean": 49.48,
+  "b12_b11_ratio": 0.6421
+}

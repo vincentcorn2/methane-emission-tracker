@@ -1,45 +1,45 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "framing": "Stylized scenario analysis. Equity and spread shocks are illustrative stress tiers, not predictive forecasts.",
   "methane_evidence": {
-    "site_label": "KWB Be\u0142chat\u00f3w (Climate TRACE asset 16168)",
-    "annual_ch4_t_mean": 16486.0,
-    "annual_ch4_t_lower": 6781.0,
-    "annual_ch4_t_upper": 26191.0,
-    "detection_overpasses": 26,
-    "source": "results_analysis/belchatow_annual_timeseries_mbsp.json"
+    "site_label": "KWB Belchatow (Climate TRACE asset 16168)",
+    "annual_ch4_t_mean": 4174.0,
+    "annual_ch4_t_lower": 2987.0,
+    "annual_ch4_t_upper": 5360.0,
+    "detection_overpasses": 30,
+    "source": "MBSP 2019-2024 mine-centroid crop; corrected 30-record set (June 2022 excluded)"
   },
   "gwp_factors": {
     "GWP100": 28,
     "GWP20": 83
   },
-  "co2e_t_mean": 461608.0,
-  "co2e_t_lower": 189868.0,
-  "co2e_t_upper": 733348.0,
-  "co2e_t_mean_gwp20": 1368338.0,
+  "co2e_t_mean": 116872.0,
+  "co2e_t_lower": 83636.0,
+  "co2e_t_upper": 150080.0,
+  "co2e_t_mean_gwp20": 346442.0,
   "carbon_cost_table": [
     {
       "price_case": "Low",
       "eur_per_tco2e": 50.0,
-      "exposure_eur_mean": 23080400.0,
-      "exposure_eur_lower": 9493400.0,
-      "exposure_eur_upper": 36667400.0,
+      "exposure_eur_mean": 5843600.0,
+      "exposure_eur_lower": 4181800.0,
+      "exposure_eur_upper": 7504000.0,
       "rationale": "Lower-band EUA realised price, 2023"
     },
     {
       "price_case": "Central",
       "eur_per_tco2e": 70.0,
-      "exposure_eur_mean": 32312560.0,
-      "exposure_eur_lower": 13290760.0,
-      "exposure_eur_upper": 51334360.0,
+      "exposure_eur_mean": 8181040.0,
+      "exposure_eur_lower": 5854520.0,
+      "exposure_eur_upper": 10505600.0,
       "rationale": "EUA central reference, 2024-2025"
     },
     {
       "price_case": "Upper",
       "eur_per_tco2e": 95.0,
-      "exposure_eur_mean": 43852760.0,
-      "exposure_eur_lower": 18037460.0,
-      "exposure_eur_upper": 69668060.0,
+      "exposure_eur_mean": 11102840.0,
+      "exposure_eur_lower": 7945420.0,
+      "exposure_eur_upper": 14257600.0,
       "rationale": "Forward-curve estimate, post-2027 MSR tightening"
     }
   ],
@@ -86,5 +86,10 @@
         "narrative": "Sustained inventory-vs-satellite gap publicised; credit-watch negative"
       }
     ]
-  }
+  },
+  "channel_descriptions": [
+    "Carbon cost exposure (GWP100=28)",
+    "Credit spread stress (notional=10M EUR, duration=5.0yr, CR01=5000 EUR/bp)",
+    "Equity repricing (notional=10M EUR)"
+  ]
 }

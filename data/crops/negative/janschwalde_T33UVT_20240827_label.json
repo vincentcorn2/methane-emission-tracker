@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "janschwalde",
+  "lat": 51.834,
+  "lon": 14.456,
+  "country": "DE",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 1.0,
+  "tile_id": "T33UVT",
+  "s2_date": "20240827",
+  "note": "Confirmed non-emitter: SC=1.000 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 5730,
+  "pixel_col": 6255,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240827T095549_N0511_R122_T33UVT_20240827T123222.npy",
+  "extracted": "2026-04-06T03:51:29.432131Z",
+  "b11_mean": 0.0,
+  "b12_mean": 0.0,
+  "b12_b11_ratio": 0.0
+}

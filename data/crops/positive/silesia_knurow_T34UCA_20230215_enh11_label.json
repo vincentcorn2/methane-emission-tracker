@@ -1,0 +1,33 @@
+{
+  "split": "val",
+  "label_type": "positive",
+  "site": "silesia_knurow",
+  "country": "PL",
+  "source_type": "coal_mine",
+  "lat": 50.22,
+  "lon": 18.67,
+  "tile_id": "T34UCA",
+  "tropomi_date": "2023-02-15",
+  "enhancement_ppb": 11.79,
+  "max_near_ppb": 1896.64,
+  "background_ppb": 1860.64,
+  "n_near_pixels": 27,
+  "qa_threshold": 0.0,
+  "tropomi_product": "S5P_OFFL_L2__CH4____20230215T093113_20230215T111243_27680_03_020400_20230217T015806.nc",
+  "s2_product": "S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.SAFE",
+  "created": "2026-04-06T03:24:06.888073Z",
+  "note": "TROPOMI-confirmed emission. S2 tile acquired within \u00b17 days of TROPOMI overpass. Use centroid (lat, lon) to extract 160\u00d7160 or 200\u00d7200 training crop.",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 3435,
+  "pixel_col": 3378,
+  "npy_source": "data/npy_cache/training/S2A_MSIL1C_20230209T100151_N0510_R122_T34UCA_20240813T112425.npy",
+  "extracted": "2026-04-08T17:20:30.954108Z",
+  "b11_mean": 0.0,
+  "b12_mean": 0.0,
+  "b12_b11_ratio": 0.0
+}

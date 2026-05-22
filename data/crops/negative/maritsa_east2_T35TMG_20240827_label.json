@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "maritsa_east2",
+  "lat": 42.255,
+  "lon": 26.135,
+  "country": "BG",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 0.6985,
+  "tile_id": "T35TMG",
+  "s2_date": "20240827",
+  "note": "Confirmed non-emitter: SC=0.699 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 2158,
+  "pixel_col": 2868,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240827T090551_N0511_R050_T35TMG_20240827T111107.npy",
+  "extracted": "2026-04-06T03:51:29.612932Z",
+  "b11_mean": 67.22,
+  "b12_mean": 55.1,
+  "b12_b11_ratio": 0.8197
+}

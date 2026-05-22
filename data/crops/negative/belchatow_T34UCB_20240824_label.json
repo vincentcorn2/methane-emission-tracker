@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "belchatow",
+  "lat": 51.263,
+  "lon": 19.332,
+  "country": "PL",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 0.9592,
+  "tile_id": "T34UCB",
+  "s2_date": "20240824",
+  "note": "Confirmed non-emitter: SC=0.959 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 1960,
+  "pixel_col": 8362,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240824T094549_N0511_R079_T34UCB_20240824T115611.npy",
+  "extracted": "2026-04-06T03:51:29.783296Z",
+  "b11_mean": 64.37,
+  "b12_mean": 51.18,
+  "b12_b11_ratio": 0.7951
+}

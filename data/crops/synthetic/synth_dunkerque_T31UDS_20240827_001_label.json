@@ -1,0 +1,21 @@
+{
+  "site": "synth_dunkerque_T31UDS_20240827",
+  "source_site": "dunkerque_T31UDS_20240827",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 109,
+    "centre_x": 107,
+    "sigma": 34.57225062608947,
+    "alpha": 0.14559251470939183,
+    "aspect": 0.7215724841975575,
+    "angle_rad": 1.3719881417073039,
+    "b12_mean_attenuation_dn": 1.8270750045776367,
+    "b12_max_attenuation_dn": 10.0
+  },
+  "plume_centre_y": 109,
+  "plume_centre_x": 107,
+  "enhancement_ppb": 29.1,
+  "extracted": "2026-04-10T01:58:42.695451+00:00"
+}

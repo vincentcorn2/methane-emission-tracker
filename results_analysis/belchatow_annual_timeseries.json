@@ -1,14 +1,13 @@
 {
+  "site": "belchatow",
   "years": [
     2019,
     2020,
     2021,
     2022,
     2023,
-    2024,
-    2025
+    2024
   ],
-  "site": "belchatow",
   "records": [
     {
       "month": "2021-01",
@@ -124,8 +123,21 @@
         "cfar_margin": -0.9554
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.4351
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 1064.38,
+        "flow_rate_lower_kgh": 745.07,
+        "flow_rate_upper_kgh": 1383.69,
+        "sc_ratio": 8.7846,
+        "n_plume_pixels": 58062,
+        "total_mass_kg": 1810.2694,
+        "wind_speed_ms": 1.2478,
+        "wind_dir_deg": 134.0,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 9323.9688,
+        "flow_rate_kgh_old": 1183.45
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -184,8 +196,21 @@
         "cfar_margin": -1.7697
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.2903
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 371.64,
+        "flow_rate_lower_kgh": 260.15,
+        "flow_rate_upper_kgh": 483.13,
+        "sc_ratio": 305.5926,
+        "n_plume_pixels": 6869,
+        "total_mass_kg": 182.3083,
+        "wind_speed_ms": 4.2016,
+        "wind_dir_deg": 131.1,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 3255.5663999999997,
+        "flow_rate_kgh_old": 188.61
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -364,18 +389,7 @@
         "cfar_margin": 0.5915
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.8653,
-        "flow_rate_kgh": 1437.87,
-        "flow_rate_lower_kgh": 1006.51,
-        "flow_rate_upper_kgh": 1869.23,
-        "wind_speed_ms": 5.5066,
-        "wind_dir_deg": 234.4,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 12595.7412,
-        "n_plume_pixels": 134896,
-        "governance_flags": []
+        "status": "below_threshold"
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -764,18 +778,7 @@
         "cfar_margin": -0.1762
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.4013,
-        "flow_rate_kgh": 3083.56,
-        "flow_rate_lower_kgh": 2158.49,
-        "flow_rate_upper_kgh": 4008.63,
-        "wind_speed_ms": 4.6399,
-        "wind_dir_deg": 215.6,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 27011.9856,
-        "n_plume_pixels": 199870,
-        "governance_flags": []
+        "status": "below_threshold"
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -844,8 +847,21 @@
         "cfar_margin": -2.4865
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.239
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 71.51,
+        "flow_rate_lower_kgh": 50.06,
+        "flow_rate_upper_kgh": 92.96,
+        "sc_ratio": 101.7683,
+        "n_plume_pixels": 6423,
+        "total_mass_kg": 148.2434,
+        "wind_speed_ms": 0.9996,
+        "wind_dir_deg": 128.2,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 626.4276000000001,
+        "flow_rate_kgh_old": 81.66
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -874,8 +890,21 @@
         "cfar_margin": -1.9208
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.8401
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 340.31,
+        "flow_rate_lower_kgh": 238.22,
+        "flow_rate_upper_kgh": 442.4,
+        "sc_ratio": 411.0314,
+        "n_plume_pixels": 6995,
+        "total_mass_kg": 187.6224,
+        "wind_speed_ms": 3.4059,
+        "wind_dir_deg": 39.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 2981.1156,
+        "flow_rate_kgh_old": 307.66
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -904,8 +933,21 @@
         "cfar_margin": -3.3341
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.5722
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 622.02,
+        "flow_rate_lower_kgh": 435.41,
+        "flow_rate_upper_kgh": 808.63,
+        "sc_ratio": 356.3333,
+        "n_plume_pixels": 6399,
+        "total_mass_kg": 163.9303,
+        "wind_speed_ms": 5.7127,
+        "wind_dir_deg": 63.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5448.8952,
+        "flow_rate_kgh_old": 604.83
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -994,8 +1036,21 @@
         "cfar_margin": -1.8621
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.8782
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 550.99,
+        "flow_rate_lower_kgh": 385.69,
+        "flow_rate_upper_kgh": 716.29,
+        "sc_ratio": 182.956,
+        "n_plume_pixels": 7555,
+        "total_mass_kg": 222.3542,
+        "wind_speed_ms": 4.5705,
+        "wind_dir_deg": 205.8,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 4826.6724,
+        "flow_rate_kgh_old": 496.05
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1034,18 +1089,7 @@
         "cfar_margin": -0.7347
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.7077,
-        "flow_rate_kgh": 6240.39,
-        "flow_rate_lower_kgh": 4368.27,
-        "flow_rate_upper_kgh": 8112.51,
-        "wind_speed_ms": 4.632,
-        "wind_dir_deg": 270.7,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 54665.8164,
-        "n_plume_pixels": 181634,
-        "governance_flags": []
+        "status": "below_threshold"
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1074,18 +1118,7 @@
         "cfar_margin": -0.9893
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.9291,
-        "flow_rate_kgh": 1612.73,
-        "flow_rate_lower_kgh": 1128.91,
-        "flow_rate_upper_kgh": 2096.55,
-        "wind_speed_ms": 5.3321,
-        "wind_dir_deg": 262.0,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 14127.5148,
-        "n_plume_pixels": 198163,
-        "governance_flags": []
+        "status": "below_threshold"
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1144,18 +1177,7 @@
         "cfar_margin": -0.6488
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.4769,
-        "flow_rate_kgh": 281.9,
-        "flow_rate_lower_kgh": 197.33,
-        "flow_rate_upper_kgh": 366.47,
-        "wind_speed_ms": 4.6042,
-        "wind_dir_deg": 172.7,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2469.444,
-        "n_plume_pixels": 73360,
-        "governance_flags": []
+        "status": "below_threshold"
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1214,8 +1236,21 @@
         "cfar_margin": -4.926
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.0271
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 300.96,
+        "flow_rate_lower_kgh": 210.67,
+        "flow_rate_upper_kgh": 391.25,
+        "sc_ratio": 10.9319,
+        "n_plume_pixels": 23908,
+        "total_mass_kg": 499.7286,
+        "wind_speed_ms": 1.2647,
+        "wind_dir_deg": 263.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 2636.4095999999995,
+        "flow_rate_kgh_old": 1852.94
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1245,17 +1280,20 @@
       },
       "quantification": {
         "status": "quantified",
-        "sc_ratio": 1.8814,
-        "flow_rate_kgh": 48.96,
-        "flow_rate_lower_kgh": 34.27,
-        "flow_rate_upper_kgh": 63.65,
-        "wind_speed_ms": 2.2018,
-        "wind_dir_deg": 90.6,
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 133.56,
+        "flow_rate_lower_kgh": 93.49,
+        "flow_rate_upper_kgh": 173.63,
+        "sc_ratio": 187.0703,
+        "n_plume_pixels": 5518,
+        "total_mass_kg": 154.6135,
+        "wind_speed_ms": 1.7997,
+        "wind_dir_deg": 99.5,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 428.8896,
-        "n_plume_pixels": 12031,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1169.9856000000002,
+        "flow_rate_kgh_old": 189.79
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1314,8 +1352,21 @@
         "cfar_margin": -3.6246
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.4703
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 682.71,
+        "flow_rate_lower_kgh": 477.9,
+        "flow_rate_upper_kgh": 887.52,
+        "sc_ratio": 1007.2355,
+        "n_plume_pixels": 5636,
+        "total_mass_kg": 235.5783,
+        "wind_speed_ms": 3.542,
+        "wind_dir_deg": 295.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5980.539600000001,
+        "flow_rate_kgh_old": 505.07
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1404,8 +1455,21 @@
         "cfar_margin": -3.6437
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.1884
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 1578.27,
+        "flow_rate_lower_kgh": 1104.79,
+        "flow_rate_upper_kgh": 2051.75,
+        "sc_ratio": 16.6146,
+        "n_plume_pixels": 47631,
+        "total_mass_kg": 1259.1218,
+        "wind_speed_ms": 2.6671,
+        "wind_dir_deg": 245.4,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 13825.645199999999,
+        "flow_rate_kgh_old": 4029.91
       },
       "swath_valid_frac": 1.0,
       "partial_swath": false
@@ -1535,17 +1599,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 142.98,
+        "flow_rate_lower_kgh": 100.09,
+        "flow_rate_upper_kgh": 185.87,
         "sc_ratio": 2.4259,
-        "flow_rate_kgh": 137.95,
-        "flow_rate_lower_kgh": 96.56,
-        "flow_rate_upper_kgh": 179.33,
+        "n_plume_pixels": 14236,
+        "total_mass_kg": 164.5396,
         "wind_speed_ms": 3.0462,
         "wind_dir_deg": 273.7,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1208.442,
-        "n_plume_pixels": 25121,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1252.5047999999997,
+        "flow_rate_kgh_old": 137.95
       }
     },
     {
@@ -1722,17 +1789,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 671.77,
+        "flow_rate_lower_kgh": 470.24,
+        "flow_rate_upper_kgh": 873.3,
         "sc_ratio": 42.7822,
-        "flow_rate_kgh": 1847.81,
-        "flow_rate_lower_kgh": 1293.47,
-        "flow_rate_upper_kgh": 2402.15,
+        "n_plume_pixels": 99498,
+        "total_mass_kg": 1558.2,
         "wind_speed_ms": 1.5161,
         "wind_dir_deg": 94.9,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 16186.8156,
-        "n_plume_pixels": 53065,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 5884.7052,
+        "flow_rate_kgh_old": 1847.81
       }
     },
     {
@@ -1820,18 +1890,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 4.763,
-        "flow_rate_kgh": 220.65,
-        "flow_rate_lower_kgh": 154.45,
-        "flow_rate_upper_kgh": 286.85,
-        "wind_speed_ms": 6.5037,
-        "wind_dir_deg": 316.2,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1932.894,
-        "n_plume_pixels": 14448,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -1860,18 +1919,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 3.8031,
-        "flow_rate_kgh": 34.32,
-        "flow_rate_lower_kgh": 24.02,
-        "flow_rate_upper_kgh": 44.62,
-        "wind_speed_ms": 3.0605,
-        "wind_dir_deg": 352.6,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 300.6432,
-        "n_plume_pixels": 9572,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -2016,18 +2064,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 2.0074,
-        "flow_rate_kgh": 9402.36,
-        "flow_rate_lower_kgh": 6581.65,
-        "flow_rate_upper_kgh": 12223.07,
-        "wind_speed_ms": 5.2951,
-        "wind_dir_deg": 285.5,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 82364.6736,
-        "n_plume_pixels": 113355,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -2057,17 +2094,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 366.97,
+        "flow_rate_lower_kgh": 256.88,
+        "flow_rate_upper_kgh": 477.06,
         "sc_ratio": 557.1804,
-        "flow_rate_kgh": 260.0,
-        "flow_rate_lower_kgh": 182.0,
-        "flow_rate_upper_kgh": 338.0,
+        "n_plume_pixels": 15493,
+        "total_mass_kg": 279.6596,
         "wind_speed_ms": 4.5708,
         "wind_dir_deg": 130.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2277.6,
-        "n_plume_pixels": 26897,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 3214.6572,
+        "flow_rate_kgh_old": 260.0
       }
     },
     {
@@ -2242,17 +2282,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 107.62,
+        "flow_rate_lower_kgh": 75.33,
+        "flow_rate_upper_kgh": 139.91,
         "sc_ratio": 48.3586,
-        "flow_rate_kgh": 45.41,
-        "flow_rate_lower_kgh": 31.79,
-        "flow_rate_upper_kgh": 59.03,
+        "n_plume_pixels": 4129,
+        "total_mass_kg": 105.1507,
         "wind_speed_ms": 3.5481,
         "wind_dir_deg": 227.4,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 397.7916,
-        "n_plume_pixels": 11583,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 942.7512,
+        "flow_rate_kgh_old": 45.41
       }
     },
     {
@@ -2311,17 +2354,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 123.51,
+        "flow_rate_lower_kgh": 86.46,
+        "flow_rate_upper_kgh": 160.56,
         "sc_ratio": 2.404,
-        "flow_rate_kgh": 48.15,
-        "flow_rate_lower_kgh": 33.7,
-        "flow_rate_upper_kgh": 62.6,
+        "n_plume_pixels": 9169,
+        "total_mass_kg": 142.1303,
         "wind_speed_ms": 3.0464,
         "wind_dir_deg": 194.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 421.794,
-        "n_plume_pixels": 14325,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1081.9476000000002,
+        "flow_rate_kgh_old": 48.15
       }
     },
     {
@@ -2655,17 +2701,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 818.79,
+        "flow_rate_lower_kgh": 573.15,
+        "flow_rate_upper_kgh": 1064.43,
         "sc_ratio": 4.499,
-        "flow_rate_kgh": 178.77,
-        "flow_rate_lower_kgh": 125.14,
-        "flow_rate_upper_kgh": 232.4,
+        "n_plume_pixels": 12199,
+        "total_mass_kg": 451.6511,
         "wind_speed_ms": 6.1336,
         "wind_dir_deg": 56.5,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1566.0252,
-        "n_plume_pixels": 13995,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 7172.600399999999,
+        "flow_rate_kgh_old": 178.77
       }
     },
     {
@@ -3018,18 +3067,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 28.9664,
-        "flow_rate_kgh": 151.24,
-        "flow_rate_lower_kgh": 105.87,
-        "flow_rate_upper_kgh": 196.61,
-        "wind_speed_ms": 4.8047,
-        "wind_dir_deg": 294.4,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1324.8624,
-        "n_plume_pixels": 16158,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3118,17 +3156,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 155.78,
+        "flow_rate_lower_kgh": 109.05,
+        "flow_rate_upper_kgh": 202.51,
         "sc_ratio": 6.0768,
-        "flow_rate_kgh": 166.86,
-        "flow_rate_lower_kgh": 116.8,
-        "flow_rate_upper_kgh": 216.92,
+        "n_plume_pixels": 9102,
+        "total_mass_kg": 182.2272,
         "wind_speed_ms": 2.9731,
         "wind_dir_deg": 235.3,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1461.6936,
-        "n_plume_pixels": 15546,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1364.6328,
+        "flow_rate_kgh_old": 166.86
       }
     },
     {
@@ -3186,18 +3227,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 42.1469,
-        "flow_rate_kgh": 2030.41,
-        "flow_rate_lower_kgh": 1421.29,
-        "flow_rate_upper_kgh": 2639.53,
-        "wind_speed_ms": 2.7559,
-        "wind_dir_deg": 302.8,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 17786.3916,
-        "n_plume_pixels": 78891,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3313,18 +3343,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 6.605,
-        "flow_rate_kgh": 1880.68,
-        "flow_rate_lower_kgh": 1316.48,
-        "flow_rate_upper_kgh": 2444.88,
-        "wind_speed_ms": 3.8014,
-        "wind_dir_deg": 230.1,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 16474.7568,
-        "n_plume_pixels": 90130,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3383,17 +3402,20 @@
       },
       "quantification": {
         "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 72.25,
+        "flow_rate_lower_kgh": 50.58,
+        "flow_rate_upper_kgh": 93.92,
         "sc_ratio": 5.315,
-        "flow_rate_kgh": 32.46,
-        "flow_rate_lower_kgh": 22.72,
-        "flow_rate_upper_kgh": 42.2,
+        "n_plume_pixels": 4768,
+        "total_mass_kg": 110.6819,
         "wind_speed_ms": 2.1833,
         "wind_dir_deg": 241.1,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 284.3496,
-        "n_plume_pixels": 7039,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 632.91,
+        "flow_rate_kgh_old": 32.46
       }
     },
     {
@@ -3597,18 +3619,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 1.2423,
-        "flow_rate_kgh": 3412.55,
-        "flow_rate_lower_kgh": 2388.78,
-        "flow_rate_upper_kgh": 4436.32,
-        "wind_speed_ms": 5.2235,
-        "wind_dir_deg": 121.8,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 29893.938,
-        "n_plume_pixels": 177220,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3637,18 +3648,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 5.0455,
-        "flow_rate_kgh": 259.94,
-        "flow_rate_lower_kgh": 181.96,
-        "flow_rate_upper_kgh": 337.92,
-        "wind_speed_ms": 1.2983,
-        "wind_dir_deg": 220.0,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 2277.0744,
-        "n_plume_pixels": 52594,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3678,17 +3678,20 @@
       },
       "quantification": {
         "status": "quantified",
-        "sc_ratio": 12.6879,
-        "flow_rate_kgh": 67.3,
-        "flow_rate_lower_kgh": 47.11,
-        "flow_rate_upper_kgh": 87.49,
-        "wind_speed_ms": 1.5994,
-        "wind_dir_deg": 331.8,
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 134.81,
+        "flow_rate_lower_kgh": 94.37,
+        "flow_rate_upper_kgh": 175.25,
+        "sc_ratio": 5.8046,
+        "n_plume_pixels": 14680,
+        "total_mass_kg": 165.9954,
+        "wind_speed_ms": 1.6964,
+        "wind_dir_deg": 317.5,
         "wind_source": "ERA5_reanalysis",
         "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 589.548,
-        "n_plume_pixels": 21586,
-        "governance_flags": []
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 1180.9356,
+        "flow_rate_kgh_old": 864.17
       }
     },
     {
@@ -3783,18 +3786,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 6231.6379,
-        "flow_rate_kgh": 4900.93,
-        "flow_rate_lower_kgh": 3430.65,
-        "flow_rate_upper_kgh": 6371.21,
-        "wind_speed_ms": 2.1207,
-        "wind_dir_deg": 37.4,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 42932.1468,
-        "n_plume_pixels": 121722,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -3823,7 +3815,21 @@
         "uniform_field": true
       },
       "quantification": {
-        "status": "uniform_field_excluded"
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 390.55,
+        "flow_rate_lower_kgh": 273.38,
+        "flow_rate_upper_kgh": 507.72,
+        "sc_ratio": 25.0416,
+        "n_plume_pixels": 8818,
+        "total_mass_kg": 187.885,
+        "wind_speed_ms": 2.7831,
+        "wind_dir_deg": 53.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 3421.218,
+        "flow_rate_kgh_old": 806.13
       }
     },
     {
@@ -3940,7 +3946,21 @@
         "uniform_field": true
       },
       "quantification": {
-        "status": "uniform_field_excluded"
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 264.54,
+        "flow_rate_lower_kgh": 185.18,
+        "flow_rate_upper_kgh": 343.9,
+        "sc_ratio": 414.1344,
+        "n_plume_pixels": 4776,
+        "total_mass_kg": 128.5697,
+        "wind_speed_ms": 4.2066,
+        "wind_dir_deg": 193.5,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 2317.3704000000002,
+        "flow_rate_kgh_old": 175.64
       }
     },
     {
@@ -3981,8 +4001,21 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "below_threshold",
-        "sc_ratio": 0.0805
+        "status": "quantified",
+        "method": "CEMF+IME_MBSP_v2",
+        "flow_rate_kgh": 839.02,
+        "flow_rate_lower_kgh": 587.31,
+        "flow_rate_upper_kgh": 1090.73,
+        "sc_ratio": 3.87,
+        "n_plume_pixels": 15004,
+        "total_mass_kg": 493.6403,
+        "wind_speed_ms": 3.5976,
+        "wind_dir_deg": 169.1,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "governance_flags": [],
+        "annual_tonnes_if_continuous": 7349.8152,
+        "flow_rate_kgh_old": 577.12
       }
     },
     {
@@ -4011,18 +4044,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 7.3283,
-        "flow_rate_kgh": 146.54,
-        "flow_rate_lower_kgh": 102.58,
-        "flow_rate_upper_kgh": 190.5,
-        "wind_speed_ms": 4.6294,
-        "wind_dir_deg": 94.1,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 1283.6904,
-        "n_plume_pixels": 18537,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -4080,18 +4102,7 @@
         "uniform_field": false
       },
       "quantification": {
-        "status": "quantified",
-        "sc_ratio": 29.6769,
-        "flow_rate_kgh": 1112.75,
-        "flow_rate_lower_kgh": 778.92,
-        "flow_rate_upper_kgh": 1446.58,
-        "wind_speed_ms": 4.1283,
-        "wind_dir_deg": 217.8,
-        "wind_source": "ERA5_reanalysis",
-        "uncertainty_pct": 30,
-        "annual_tonnes_if_continuous": 9747.69,
-        "n_plume_pixels": 91584,
-        "governance_flags": []
+        "status": "below_threshold"
       }
     },
     {
@@ -4272,102 +4283,367 @@
         "status": "below_threshold",
         "sc_ratio": 0.563
       }
+    },
+    {
+      "month": "2022-07",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2022-07-01T09:50:41.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2A_MSIL1C_20220701T095041_N0510_R079_T34UCB_20240702T075832.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20220701T095041_N0510_R079_T34UCB_20240702T075832.tif",
+        "sc_ratio": 226.6399,
+        "sc_cfar": 33.167,
+        "site_mean": 0.012663,
+        "ctrl_mean": 5.6e-05,
+        "ctrl_mu": 0.000382,
+        "ctrl_sigma": 0.00046,
+        "cv_ctrl": 1.2057,
+        "cfar_thresh_ratio": 4.7671,
+        "cfar_detect": true,
+        "cfar_margin": 28.3999
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 226.6399,
+        "flow_rate_kgh": 250.39,
+        "flow_rate_lower_kgh": 175.27,
+        "flow_rate_upper_kgh": 325.51,
+        "wind_speed_ms": 3.5196,
+        "wind_dir_deg": 155.8,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 2193.4164,
+        "n_plume_pixels": 29213,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566653Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2022-08",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2022-08-25T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2B_MSIL1C_20220825T094549_N0510_R079_T34UCB_20240704T201134.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20220825T094549_N0510_R079_T34UCB_20240704T201134.tif",
+        "sc_ratio": 7047.7156,
+        "sc_cfar": 515.0106,
+        "site_mean": 0.245151,
+        "ctrl_mean": 3.5e-05,
+        "ctrl_mu": 0.000476,
+        "ctrl_sigma": 0.000617,
+        "cv_ctrl": 1.2959,
+        "cfar_thresh_ratio": 5.0376,
+        "cfar_detect": true,
+        "cfar_margin": 509.9729
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 7047.7156,
+        "flow_rate_kgh": 242.47,
+        "flow_rate_lower_kgh": 169.73,
+        "flow_rate_upper_kgh": 315.21,
+        "wind_speed_ms": 1.7631,
+        "wind_dir_deg": 73.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 2124.0372,
+        "n_plume_pixels": 62839,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566666Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-05",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2023-05-12T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2B_MSIL1C_20230512T094549_N0510_R079_T34UCB_20240908T075210.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20230512T094549_N0510_R079_T34UCB_20240908T075210.tif",
+        "sc_ratio": 309.4584,
+        "sc_cfar": 123.6368,
+        "site_mean": 0.053658,
+        "ctrl_mean": 0.000173,
+        "ctrl_mu": 0.000434,
+        "ctrl_sigma": 0.000261,
+        "cv_ctrl": 0.6009,
+        "cfar_thresh_ratio": 2.9526,
+        "cfar_detect": true,
+        "cfar_margin": 120.6842
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 309.4584,
+        "flow_rate_kgh": 617.63,
+        "flow_rate_lower_kgh": 432.34,
+        "flow_rate_upper_kgh": 802.92,
+        "wind_speed_ms": 6.5493,
+        "wind_dir_deg": 110.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 5410.4388,
+        "n_plume_pixels": 19463,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566693Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2023-08",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2023-08-15T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2A_MSIL1C_20230815T095031_N0510_R079_T34UCB_20241014T180859.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20230815T095031_N0510_R079_T34UCB_20241014T180859.tif",
+        "sc_ratio": 1033.4831,
+        "sc_cfar": 162.2144,
+        "site_mean": 0.058571,
+        "ctrl_mean": 5.7e-05,
+        "ctrl_mu": 0.000361,
+        "ctrl_sigma": 0.000452,
+        "cv_ctrl": 1.2522,
+        "cfar_thresh_ratio": 4.9067,
+        "cfar_detect": true,
+        "cfar_margin": 157.3077
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 1033.4831,
+        "flow_rate_kgh": 409.03,
+        "flow_rate_lower_kgh": 286.32,
+        "flow_rate_upper_kgh": 531.74,
+        "wind_speed_ms": 3.5094,
+        "wind_dir_deg": 191.6,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 3583.1027999999997,
+        "n_plume_pixels": 29217,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566712Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-05",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2024-05-16T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2B_MSIL1C_20240516T094549_N0510_R079_T34UCB_20240516T114959.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240516T094549_N0510_R079_T34UCB_20240516T114959.tif",
+        "sc_ratio": 126.6698,
+        "sc_cfar": 150.9549,
+        "site_mean": 0.051828,
+        "ctrl_mean": 0.000409,
+        "ctrl_mu": 0.000343,
+        "ctrl_sigma": 0.000228,
+        "cv_ctrl": 0.6632,
+        "cfar_thresh_ratio": 3.1397,
+        "cfar_detect": true,
+        "cfar_margin": 147.8152
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 126.6698,
+        "flow_rate_kgh": 1200.9,
+        "flow_rate_lower_kgh": 840.63,
+        "flow_rate_upper_kgh": 1561.17,
+        "wind_speed_ms": 6.2579,
+        "wind_dir_deg": 113.2,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 10519.884,
+        "n_plume_pixels": 31512,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566763Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-08",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2024-08-14T09:45:49.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2B_MSIL1C_20240814T094549_N0511_R079_T34UCB_20240814T114912.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2B_MSIL1C_20240814T094549_N0511_R079_T34UCB_20240814T114912.tif",
+        "sc_ratio": 773.9999,
+        "sc_cfar": 91.4462,
+        "site_mean": 0.027071,
+        "ctrl_mean": 3.5e-05,
+        "ctrl_mu": 0.000296,
+        "ctrl_sigma": 0.000353,
+        "cv_ctrl": 1.1908,
+        "cfar_thresh_ratio": 4.7224,
+        "cfar_detect": true,
+        "cfar_margin": 86.7238
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 773.9999,
+        "flow_rate_kgh": 715.31,
+        "flow_rate_lower_kgh": 500.72,
+        "flow_rate_upper_kgh": 929.9,
+        "wind_speed_ms": 5.8823,
+        "wind_dir_deg": 113.1,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 6266.115599999999,
+        "n_plume_pixels": 19055,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566790Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-09",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2024-09-18T09:50:31.025000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2A_MSIL1C_20240918T095031_N0511_R079_T34UCB_20240918T133132.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20240918T095031_N0511_R079_T34UCB_20240918T133132.tif",
+        "sc_ratio": 546.3116,
+        "sc_cfar": 57.0429,
+        "site_mean": 0.04352,
+        "ctrl_mean": 8e-05,
+        "ctrl_mu": 0.000763,
+        "ctrl_sigma": 0.000989,
+        "cv_ctrl": 1.2965,
+        "cfar_thresh_ratio": 5.0396,
+        "cfar_detect": true,
+        "cfar_margin": 52.0033
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 546.3116,
+        "flow_rate_kgh": 420.37,
+        "flow_rate_lower_kgh": 294.26,
+        "flow_rate_upper_kgh": 546.48,
+        "wind_speed_ms": 3.2683,
+        "wind_dir_deg": 63.0,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 3682.4412,
+        "n_plume_pixels": 26804,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566796Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
+    },
+    {
+      "month": "2024-10",
+      "search": {
+        "status": "downloaded",
+        "cloud_cover": null,
+        "acquisition_date": "2024-10-18T09:50:31.024000Z"
+      },
+      "ct_ch4_t_month": null,
+      "npy": "S2A_MSIL1C_20241018T095031_N0511_R079_T34UCB_20241018T104313.npy",
+      "detection": {
+        "tif": "results_bitemporal/belchatow/original_S2A_MSIL1C_20241018T095031_N0511_R079_T34UCB_20241018T104313.tif",
+        "sc_ratio": 630.7583,
+        "sc_cfar": 110.7504,
+        "site_mean": 0.086242,
+        "ctrl_mean": 0.000137,
+        "ctrl_mu": 0.000779,
+        "ctrl_sigma": 0.00095,
+        "cv_ctrl": 1.2194,
+        "cfar_thresh_ratio": 4.8082,
+        "cfar_detect": true,
+        "cfar_margin": 105.9422
+      },
+      "quantification": {
+        "status": "quantified",
+        "sc_ratio": 630.7583,
+        "flow_rate_kgh": 632.42,
+        "flow_rate_lower_kgh": 442.69,
+        "flow_rate_upper_kgh": 822.15,
+        "wind_speed_ms": 3.7318,
+        "wind_dir_deg": 121.7,
+        "wind_source": "ERA5_reanalysis",
+        "uncertainty_pct": 30,
+        "annual_tonnes_if_continuous": 5539.999199999999,
+        "n_plume_pixels": 28131,
+        "governance_flags": [],
+        "crop_px_used": 750,
+        "source": "requant_fallback_v2",
+        "merged_at": "2026-05-17T21:45:19.566810Z"
+      },
+      "swath_valid_frac": 1.0,
+      "partial_swath": false
     }
   ],
   "summary": {
+    "site": "belchatow",
     "years": [
+      2019,
+      2020,
       2021,
       2022,
       2023,
       2024
     ],
-    "site": "belchatow",
-    "acquisitions_processed": 46,
-    "detections_above_threshold": 6,
-    "detections_above_tau": 0,
-    "detections_cfar_pass": 2,
-    "detection_rate": 0.125,
-    "quantification_boundary": "KWB mine polygon (~21km \u00d7 4.2km)",
-    "mean_flow_kg_h": 2117.568333333333,
-    "median_flow_kg_h": 1525.3,
-    "min_flow_kg_h": 48.96,
-    "max_flow_kg_h": 6240.39,
-    "annualised_t_per_yr_upper": 18549.898599999997,
-    "annualised_t_per_yr_floor_imputed": 4704.769382608695,
-    "detection_floor_kgh_assumed": 300.0,
-    "annualised_t_per_yr_lower_bound": 2419.551991304347,
-    "n_detections": 6,
-    "n_non_detections": 40,
-    "n_observations": 46,
-    "ct_ch4_annual_t_by_year": {
-      "2021": 36666.96580097842,
-      "2022": 39735.56403582843,
-      "2023": 29635.58447407809,
-      "2024": 29635.58447407809
-    },
-    "ct_ch4_monthly_reference": {
-      "2021-01": 4053.99,
-      "2021-02": 3755.89,
-      "2021-03": 3369.33,
-      "2021-04": 3255.65,
-      "2021-05": 2737.61,
-      "2021-06": 2331.6,
-      "2021-07": 2222.6,
-      "2021-08": 2183.7,
-      "2021-09": 2455.64,
-      "2021-10": 3028.12,
-      "2021-11": 3444.73,
-      "2021-12": 3828.11,
-      "2022-01": 4393.26,
-      "2022-02": 4070.21,
-      "2022-03": 3651.3,
-      "2022-04": 3528.11,
-      "2022-05": 2966.72,
-      "2022-06": 2526.73,
-      "2022-07": 2408.6,
-      "2022-08": 2366.45,
-      "2022-09": 2661.15,
-      "2022-10": 3281.54,
-      "2022-11": 3733.02,
-      "2022-12": 4148.48,
-      "2023-01": 3276.58,
-      "2023-02": 3035.64,
-      "2023-03": 2723.22,
-      "2023-04": 2631.34,
-      "2023-05": 2212.64,
-      "2023-06": 1884.48,
-      "2023-07": 1796.39,
-      "2023-08": 1764.95,
-      "2023-09": 1984.74,
-      "2023-10": 2447.44,
-      "2023-11": 2784.16,
-      "2023-12": 3094.02,
-      "2024-01": 3276.58,
-      "2024-02": 3035.64,
-      "2024-03": 2723.22,
-      "2024-04": 2631.34,
-      "2024-05": 2212.64,
-      "2024-06": 1884.48,
-      "2024-07": 1796.39,
-      "2024-08": 1764.95,
-      "2024-09": 1984.74,
-      "2024-10": 2447.44,
-      "2024-11": 2784.16,
-      "2024-12": 3094.02
-    },
-    "swath_corrected": {
-      "n_valid_observations": 23,
-      "n_partial_swath_excluded": 23,
-      "n_detections": 6,
-      "n_non_detections": 17,
-      "detection_rate": 0.2609,
-      "mean_flow_kg_h": 2117.6,
-      "min_flow_kg_h": 49.0,
-      "max_flow_kg_h": 6240.4,
-      "annualised_t_per_yr_upper": 18549.9,
-      "annualised_t_per_yr_floor_imputed": 6781.5,
-      "annualised_t_per_yr_lower_bound": 4839.1,
-      "detection_floor_kgh_assumed": 300.0
-    }
+    "acquisitions_processed": 147,
+    "n_quantification_supporting": 30,
+    "n_non_detections": 117,
+    "detection_rate": 0.2041,
+    "mean_flow_kg_h": 476.449,
+    "median_flow_kg_h": 381.095,
+    "min_flow_kg_h": 71.51,
+    "max_flow_kg_h": 1578.27,
+    "annualised_t_per_yr": 4174,
+    "annualised_ci_lo": 2987,
+    "annualised_ci_hi": 5360,
+    "ci_method": "detection-weighted mean, t-distribution df=29, 95%",
+    "mean_flow_ci_lo_kg_h": 341,
+    "mean_flow_ci_hi_kg_h": 612
   }
 }

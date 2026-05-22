@@ -1,0 +1,21 @@
+{
+  "site": "synth_maritsa_east2_T35TMG_20240827",
+  "source_site": "maritsa_east2_T35TMG_20240827",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 159,
+    "centre_x": 127,
+    "sigma": 35.33908132273159,
+    "alpha": 0.12996634774900864,
+    "aspect": 1.262887168327584,
+    "angle_rad": 2.2475177827267636,
+    "b12_mean_attenuation_dn": 2.065150022506714,
+    "b12_max_attenuation_dn": 14.0
+  },
+  "plume_centre_y": 159,
+  "plume_centre_x": 127,
+  "enhancement_ppb": 26.0,
+  "extracted": "2026-04-10T01:58:42.768820+00:00"
+}

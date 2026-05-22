@@ -1,0 +1,21 @@
+{
+  "site": "synth_groningen_gas_field_T31UGV_20240817",
+  "source_site": "groningen_gas_field_T31UGV_20240817",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 81,
+    "centre_x": 157,
+    "sigma": 39.48974968337623,
+    "alpha": 0.13988049421892795,
+    "aspect": 1.3784234641434066,
+    "angle_rad": 2.4465181188753506,
+    "b12_mean_attenuation_dn": 2.45597505569458,
+    "b12_max_attenuation_dn": 10.0
+  },
+  "plume_centre_y": 81,
+  "plume_centre_x": 157,
+  "enhancement_ppb": 28.0,
+  "extracted": "2026-04-10T01:58:42.711927+00:00"
+}

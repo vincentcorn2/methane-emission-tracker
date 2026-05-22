@@ -1,0 +1,33 @@
+{
+  "split": "train",
+  "label_type": "positive",
+  "site": "nl_bergermeer",
+  "country": "NL",
+  "source_type": "gas_storage",
+  "lat": 52.68,
+  "lon": 4.7,
+  "tile_id": "T31UFU",
+  "tropomi_date": "2023-01-26",
+  "enhancement_ppb": 16.19,
+  "max_near_ppb": 1864.28,
+  "background_ppb": 1832.75,
+  "n_near_pixels": 5,
+  "qa_threshold": 0.3,
+  "tropomi_product": "S5P_OFFL_L2__CH4____20230126T104533_20230126T122703_27397_03_020400_20230128T030404.nc",
+  "s2_product": "S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.SAFE",
+  "created": "2026-04-06T03:46:18.607550Z",
+  "note": "TROPOMI-confirmed emission. S2 tile acquired within \u00b17 days of TROPOMI overpass. Use centroid (lat, lon) to extract 160\u00d7160 or 200\u00d7200 training crop.",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 6200,
+  "pixel_col": 1492,
+  "npy_source": "data/npy_cache/training/S2A_MSIL1C_20230128T110321_N0510_R094_T31UFU_20240810T063245.npy",
+  "extracted": "2026-04-08T17:20:30.829054Z",
+  "b11_mean": 0.0,
+  "b12_mean": 0.0,
+  "b12_b11_ratio": 0.0
+}

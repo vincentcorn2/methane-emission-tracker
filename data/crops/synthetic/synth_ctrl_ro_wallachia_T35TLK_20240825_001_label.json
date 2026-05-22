@@ -1,0 +1,21 @@
+{
+  "site": "synth_ctrl_ro_wallachia_T35TLK_20240825",
+  "source_site": "ctrl_ro_wallachia_T35TLK_20240825",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 146,
+    "centre_x": 57,
+    "sigma": 15.257679441285193,
+    "alpha": 0.21803865662532076,
+    "aspect": 1.1653955996144223,
+    "angle_rad": 2.2153423730583595,
+    "b12_mean_attenuation_dn": 1.1661250591278076,
+    "b12_max_attenuation_dn": 20.0
+  },
+  "plume_centre_y": 146,
+  "plume_centre_x": 57,
+  "enhancement_ppb": 43.6,
+  "extracted": "2026-04-10T01:58:42.686343+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32632",
+  "transform": [
+    10.0,
+    0.0,
+    499980.0,
+    0.0,
+    -10.0,
+    6000000.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "32UNE",
+  "acquisition_date": "2024-06-25T10:36:31.024000Z",
+  "satellite": "S2A",
+  "source_product": "S2A_MSIL1C_20240625T103631_N0510_R008_T32UNE_20240625T142035"
+}

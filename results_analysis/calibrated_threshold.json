@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "method": "split_conformal_prediction",
   "reference": "Angelopoulos & Bates (2021) arXiv:2107.07511",
   "n_calibration": 35,
@@ -40,24 +40,32 @@
     4.1052,
     4.3384
   ],
+  "score_stats": {
+    "n": 35,
+    "min": 0.0008,
+    "max": 4.3384,
+    "mean": 1.1493,
+    "median": 0.9984,
+    "std": 1.2064
+  },
   "global_thresholds": {
     "tau_alpha_05": {
       "alpha": 0.05,
       "tau": 4.3384,
-      "guarantee": "FPR \u2264 5% with finite-sample guarantee",
-      "empirical_fpr_nonems": 0.0
+      "guarantee": "FPR <= 5% finite-sample guarantee",
+      "empirical_fpr": 0.0
     },
     "tau_alpha_10": {
       "alpha": 0.1,
       "tau": 3.5796,
-      "guarantee": "FPR \u2264 10% with finite-sample guarantee",
-      "empirical_fpr_nonems": 0.0571
+      "guarantee": "FPR <= 10% finite-sample guarantee",
+      "empirical_fpr": 0.0571
     },
     "tau_alpha_20": {
       "alpha": 0.2,
       "tau": 2.1726,
-      "guarantee": "FPR \u2264 20% with finite-sample guarantee",
-      "empirical_fpr_nonems": 0.1714
+      "guarantee": "FPR <= 20% finite-sample guarantee",
+      "empirical_fpr": 0.1714
     }
   },
   "primary_threshold": {
@@ -66,7 +74,7 @@
     "production_threshold": 1.15,
     "empirical_fpr_at_production": 0.4571,
     "empirical_fpr_at_calibrated": 0.0571,
-    "recommended_action": "REPLACE production threshold 1.15 with \u03c4_calibrated"
+    "recommended_action": "Replace production threshold with tau_calibrated"
   },
   "bootstrap_ci": {
     "tau_boot_mean": 3.3406,
@@ -81,8 +89,9 @@
     "conformal_rank": 33,
     "min_n_nontrivial": 9,
     "n_adequate": true,
-    "note": "Conformal guarantee is valid for any n \u2265 1 (finite-sample exact), but the threshold is the k-th largest score; for very small n the threshold equals the maximum, giving a loose (conservative) bound."
+    "note": "Conformal guarantee is valid for any n >= 1 (finite-sample exact). For n < min_n_nontrivial the threshold equals the sample maximum, giving a valid but conservative bound."
   },
+  "interpretation": "On n=35 non-emitter locations, S/C scores ranged from 0.0008 to 4.3384. The production threshold 1.15 gives empirical FPR 45.7%. The conformal threshold at alpha=0.1 is tau=3.5796, guaranteeing FPR <= 10% on exchangeable test scenes.",
   "mondrian_by_ecoregion": {
     "Atlantic": {
       "tau": 1.3331,
@@ -299,6 +308,5 @@
       "empirical_fpr_at_production": 1.0,
       "small_n_warning": true
     }
-  },
-  "interpretation": "On n=35 non-emitter locations, the S/C scores ranged from 0.0008 to 4.3384. The production threshold of 1.15 yields an empirical FPR of 45.7% on this calibration set. The conformal threshold at \u03b1=0.1 is \u03c4=3.5796, providing a finite-sample guarantee that FPR \u2264 10% on exchangeable test scenes."
+  }
 }

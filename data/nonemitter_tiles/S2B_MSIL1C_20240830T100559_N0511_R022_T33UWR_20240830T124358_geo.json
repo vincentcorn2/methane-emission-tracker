@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32633",
+  "transform": [
+    10.0,
+    0.0,
+    499980.0,
+    0.0,
+    -10.0,
+    5600040.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "T33UWR",
+  "acquisition_date": "2024-08-30T10:05:59.024000Z",
+  "satellite": "S2B",
+  "source_product": "S2B_MSIL1C_20240830T100559_N0511_R022_T33UWR_20240830T124358"
+}

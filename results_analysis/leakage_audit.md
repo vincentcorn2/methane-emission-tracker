@@ -17,7 +17,7 @@ Three checks: site-level training overlap, temporal proximity between training a
 
 ## (2) Temporal proximity between evaluation and training dates
 
-Same-site training crops within 14 days of an evaluation acquisition are flagged as potential leakage. Within-tile crops from other dates do not leak per-pixel labels.
+Same-site training crops within 14 days of an evaluation acquisition are flagged as potential leakage.
 
 | Site | Eval date | Nearest training crop | Days apart | Flag |
 |---|---|---|---|---|
@@ -35,11 +35,11 @@ Same-site training crops within 14 days of an evaluation acquisition are flagged
 
 ## (3) Conformal calibration set independence
 
-Checked 28 OK-status calibration sites for proximity (< 50 km) to any candidate site.
+Checked 35 OK-status calibration sites for proximity (< 50 km) to any candidate site.
 
-**No conformal calibration sites within 50 km of any candidate site.** The threshold τ = 4.1052 is calibrated on a set that is spatially independent of the evaluation sites.
+**No conformal calibration sites within 50 km of any candidate site.**  The threshold τ is calibrated on a set that is spatially independent of the evaluation sites.
 
 
 ## (4) Threshold selection methodology
 
-The conformal threshold τ = 4.1052 was computed by the split conformal prediction quantile on the non-emitter calibration set scores, without reference to the candidate-site backfill outcomes. The retraining hyperparameter selection (v1-v11) used a small held-out set of training crops (3 negatives) for validation loss monitoring, not the candidate-site evaluation outcomes. The candidate-site results were computed only after v8 was fixed and τ was calibrated.
+The conformal threshold τ was computed by the split conformal prediction quantile on the non-emitter calibration set scores, without reference to the candidate-site backfill outcomes.  The retraining hyperparameter selection (v1-v11) used a small held-out set of training crops (3 negatives) for validation-loss monitoring, not the candidate-site evaluation outcomes.  The candidate-site results were computed only after v8 was fixed and τ was calibrated.

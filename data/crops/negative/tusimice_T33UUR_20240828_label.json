@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "tusimice",
+  "lat": 50.458,
+  "lon": 13.332,
+  "country": "CZ",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 0.1003,
+  "tile_id": "T33UUR",
+  "s2_date": "20240828",
+  "note": "Confirmed non-emitter: SC=0.100 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 915,
+  "pixel_col": 8160,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240828T102021_N0511_R065_T33UUR_20240828T130205.npy",
+  "extracted": "2026-04-06T03:51:29.696078Z",
+  "b11_mean": 58.5,
+  "b12_mean": 39.24,
+  "b12_b11_ratio": 0.6707
+}

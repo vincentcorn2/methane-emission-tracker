@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_gas_field",
+  "lat": 53.252,
+  "lon": 6.682,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240628",
+  "note": "June seasonal counterpart to August crop. Confirmed non-emitter: TROPOMI -0.99 ppb. Centre crop on gas field site (polder agricultural terrain).",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9336,
+  "pixel_col": 4565,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.npy",
+  "extracted": "2026-04-10T01:58:42.019175+00:00",
+  "b11_mean": 87.14,
+  "b12_mean": 57.06,
+  "b12_b11_ratio": 0.6548
+}

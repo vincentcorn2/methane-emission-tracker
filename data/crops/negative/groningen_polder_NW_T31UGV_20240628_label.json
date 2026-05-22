@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_polder_NW",
+  "lat": 53.292,
+  "lon": 6.622,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240628",
+  "note": "New June-only crop NW of gas field. Adds spatial diversity to the training set for Dutch polder terrain at ~4.5 km NW.",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 8912,
+  "pixel_col": 4142,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240628T105031_N0510_R051_T31UGV_20240628T125124.npy",
+  "extracted": "2026-04-10T01:58:42.123331+00:00",
+  "b11_mean": 91.47,
+  "b12_mean": 64.29,
+  "b12_b11_ratio": 0.7028
+}

@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "dunkerque",
+  "lat": 51.033,
+  "lon": 2.377,
+  "country": "FR",
+  "fuel": "mixed",
+  "site_type": "emitter",
+  "sc_ratio": 0.7406,
+  "tile_id": "T31UDS",
+  "s2_date": "20240827",
+  "note": "Confirmed non-emitter: SC=0.741 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 4632,
+  "pixel_col": 5635,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240827T105021_N0511_R051_T31UDS_20240827T132431.npy",
+  "extracted": "2026-04-06T03:51:29.857822Z",
+  "b11_mean": 64.61,
+  "b12_mean": 54.19,
+  "b12_b11_ratio": 0.8387
+}

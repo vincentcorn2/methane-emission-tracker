@@ -37,7 +37,7 @@ logging.basicConfig(
 log = logging.getLogger("belchatow_bt_historical")
 
 SITE_NAME = "belchatow"
-LAT, LON  = 51.266, 19.315
+LAT, LON  = 51.242, 19.275   # mine centroid (ClimateTrace asset 16168); was 51.266/19.315 (power station — wrong)
 TILE_ID   = "T34UCB"
 REF_NPY   = NPY_CACHE / "T34UCB_ref_20231218.npy"
 

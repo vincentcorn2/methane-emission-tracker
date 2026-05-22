@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_polder_E",
+  "lat": 53.252,
+  "lon": 6.742,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240817",
+  "note": "Groningen polder agricultural terrain east offset (~4 km). Adds variety in land-parcel patterns within same FP-prone region.",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9316,
+  "pixel_col": 4965,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy",
+  "extracted": "2026-04-10T00:08:21.009882+00:00",
+  "b11_mean": 76.26,
+  "b12_mean": 49.11,
+  "b12_b11_ratio": 0.644
+}

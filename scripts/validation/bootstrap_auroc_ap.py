@@ -30,7 +30,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).parent.parent.parent
 METRICS_PATH = ROOT / "results_analysis" / "ml_metrics.json"
 OUT_PATH = ROOT / "results_analysis" / "bootstrap_auroc_ap.json"
 

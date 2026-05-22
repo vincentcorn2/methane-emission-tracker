@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "groningen_polder_SW",
+  "lat": 53.212,
+  "lon": 6.622,
+  "country": "NL",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": null,
+  "tile_id": "T31UGV",
+  "s2_date": "20240817",
+  "note": "Groningen polder agricultural terrain SW offset (~4.5 km). Targets the mixed grassland/cropland that drives model over-activation.",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9802,
+  "pixel_col": 4187,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240817T105031_N0511_R051_T31UGV_20240817T125303.npy",
+  "extracted": "2026-04-10T00:08:21.012205+00:00",
+  "b11_mean": 71.53,
+  "b12_mean": 52.99,
+  "b12_b11_ratio": 0.7408
+}

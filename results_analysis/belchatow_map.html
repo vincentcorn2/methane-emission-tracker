@@ -155,10 +155,10 @@
             var map_ad837841c0882302fec3123b5a9b10e9 = L.map(
                 "map_ad837841c0882302fec3123b5a9b10e9",
                 {
-                    center: [51.238, 19.248],
+                    center: [51.242, 19.230],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 11,
+  "zoom": 10,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -824,6 +824,11 @@
             mouse_position_8203e136230aa89483041c59bf0bb3d5.options["lngFormatter"] =
                 function(n){return n.toFixed(4)+'°E';};
             map_ad837841c0882302fec3123b5a9b10e9.addControl(mouse_position_8203e136230aa89483041c59bf0bb3d5);
-        
+
+            // Fit bounds to all control crops + 0.02° pad so no label is clipped
+            map_ad837841c0882302fec3123b5a9b10e9.fitBounds(
+                [[51.022, 18.865], [51.462, 19.595]]
+            );
+
 </script>
 </html>

@@ -1,0 +1,563 @@
+"""
+scripts/rescore_and_expand_calibration.py
+==========================================
+Self-contained rescoring and conformal calibration expansion.
+
+PURPOSE
+-------
+Previous runs left 3 sites (nonemit_030, nonemit_031, nonemit_033) with
+status=ok but sc_cfar=None — TIF files were saved on the user's Mac and the
+stored paths are stale. This script:
+
+  1. Rescores those 3 sites from their existing TIF files (no download needed).
+  2. Rescores ALL existing sites to verify consistency.
+  3. Recomputes conformal threshold τ and bootstrap CI on the full set.
+  4. Writes updated nonemitter_sc_scores.json and calibrated_threshold.json.
+
+APPROACH (no rasterio required)
+---------------------------------
+- Reads float32 GeoTIFFs via PIL (available system-wide).
+- Extracts geotransform from TIFF tags (ModelPixelScaleTag=33550,
+  ModelTiepointTag=33922, GeoAsciiParamsTag=34737).
+- Converts WGS84 lat/lon to UTM easting/northing using pure-Python
+  implementation of the standard WGS84 UTM forward projection.
+- S/C computation is identical to run_nonemitter_inference.py.
+
+USAGE
+-----
+  python3 scripts/rescore_and_expand_calibration.py [--dry-run] [--ids ID ...]
+"""
+from __future__ import annotations
+import argparse
+import json
+import math
+import warnings
+from pathlib import Path
+
+import numpy as np
+
+warnings.filterwarnings("ignore")  # suppress PIL DecompressionBombWarning
+from PIL import Image
+
+# ── Constants (matching apply_bitemporal_diff.py / run_nonemitter_inference.py)
+SC_CROP_PX   = 100
+SC_OFFSET_DEG = 0.20
+CFAR_K       = 3.0
+
+ROOT          = Path(__file__).resolve().parent.parent
+SCORES_JSON   = ROOT / "results_analysis" / "nonemitter_sc_scores.json"
+THRESHOLD_JSON = ROOT / "results_analysis" / "calibrated_threshold.json"
+TIF_DIR       = ROOT / "results_nonemitter"
+
+
+# ── UTM forward projection (pure Python, WGS84) ─────────────────────────────
+
+def latlon_to_utm(lat_deg: float, lon_deg: float) -> tuple[float, float, int]:
+    """Convert WGS84 lat/lon to UTM easting, northing, zone_number."""
+    a  = 6378137.0
+    f  = 1 / 298.257223563
+    e2 = 2 * f - f ** 2
+    ep2 = e2 / (1 - e2)
+    k0 = 0.9996
+
+    lat = math.radians(lat_deg)
+    lon = math.radians(lon_deg)
+
+    zone = int((lon_deg + 180) / 6) + 1
+    lon0 = math.radians((zone - 1) * 6 - 180 + 3)  # central meridian
+
+    sin_lat  = math.sin(lat)
+    cos_lat  = math.cos(lat)
+    tan_lat  = math.tan(lat)
+
+    N = a / math.sqrt(1 - e2 * sin_lat ** 2)
+    T = tan_lat ** 2
+    C = ep2 * cos_lat ** 2
+    A = cos_lat * (lon - lon0)
+
+    e2sq = e2 ** 2
+    e2cu = e2 ** 3
+    M = a * (
+        (1 - e2 / 4 - 3 * e2sq / 64 - 5 * e2cu / 256) * lat
+        - (3 * e2 / 8 + 3 * e2sq / 32 + 45 * e2cu / 1024) * math.sin(2 * lat)
+        + (15 * e2sq / 256 + 45 * e2cu / 1024) * math.sin(4 * lat)
+        - (35 * e2cu / 3072) * math.sin(6 * lat)
+    )
+
+    easting = (
+        k0 * N * (
+            A
+            + (1 - T + C) * A ** 3 / 6
+            + (5 - 18 * T + T ** 2 + 72 * C - 58 * ep2) * A ** 5 / 120
+        )
+        + 500000.0
+    )
+    northing = k0 * (
+        M
+        + N * tan_lat * (
+            A ** 2 / 2
+            + (5 - T + 9 * C + 4 * C ** 2) * A ** 4 / 24
+            + (61 - 58 * T + T ** 2 + 600 * C - 330 * ep2) * A ** 6 / 720
+        )
+    )
+    if lat_deg < 0:
+        northing += 10_000_000.0
+
+    return easting, northing, zone
+
+
+# ── GeoTIFF metadata ─────────────────────────────────────────────────────────
+
+def read_geotiff_meta(tif_path: Path) -> dict | None:
+    """
+    Extract affine transform and UTM zone from a GeoTIFF using PIL tag_v2.
+
+    Returns dict with keys:
+        origin_east, origin_north   — world coords of top-left pixel
+        pixel_x, pixel_y            — pixel size (positive values, metres)
+        utm_zone                    — int, e.g. 32, 33, 34
+        width, height               — image dimensions in pixels
+    """
+    img = Image.open(tif_path)
+    tags = img.tag_v2
+
+    scale    = tags.get(33550)   # ModelPixelScaleTag: (ScaleX, ScaleY, ScaleZ)
+    tiepoint = tags.get(33922)   # ModelTiepointTag:   (I,J,K, X,Y,Z)
+    crs_str  = tags.get(34737, "")
+
+    if not scale or not tiepoint:
+        return None
+
+    # Parse UTM zone from CRS string e.g. "WGS 84 / UTM zone 34N|WGS 84|"
+    import re as _re
+    utm_zone = None
+    m = _re.search(r"UTM zone (\d+)[NS]?", crs_str)
+    if m:
+        utm_zone = int(m.group(1))
+
+    return {
+        "origin_east":  float(tiepoint[3]),   # easting of pixel (0,0)
+        "origin_north": float(tiepoint[4]),   # northing of pixel (0,0)
+        "pixel_x":      float(scale[0]),      # metres per pixel, X (east)
+        "pixel_y":      float(scale[1]),      # metres per pixel, Y (south, positive)
+        "utm_zone":     utm_zone,
+        "width":        img.size[0],
+        "height":       img.size[1],
+    }
+
+
+def latlon_to_pixel(meta: dict, lat: float, lon: float,
+                    zone_override: int | None = None) -> tuple[int, int]:
+    """Convert WGS84 lat/lon to (row, col) using the GeoTIFF affine transform."""
+    if zone_override is not None:
+        # Re-run UTM with explicit zone (avoids wrong-zone inference for edge sites)
+        import math
+        a=6378137.0; f=1/298.257223563
+        e2=2*f-f**2; ep2=e2/(1-e2); k0=0.9996
+        lat_r=math.radians(lat); lon_r=math.radians(lon)
+        zone=zone_override
+        lon0=math.radians((zone-1)*6-180+3)
+        sin_lat=math.sin(lat_r); cos_lat=math.cos(lat_r); tan_lat=math.tan(lat_r)
+        N=a/math.sqrt(1-e2*sin_lat**2)
+        T=tan_lat**2; C=ep2*cos_lat**2; A=cos_lat*(lon_r-lon0)
+        e2sq=e2**2; e2cu=e2**3
+        M=a*((1-e2/4-3*e2sq/64-5*e2cu/256)*lat_r
+             -(3*e2/8+3*e2sq/32+45*e2cu/1024)*math.sin(2*lat_r)
+             +(15*e2sq/256+45*e2cu/1024)*math.sin(4*lat_r)
+             -(35*e2cu/3072)*math.sin(6*lat_r))
+        easting=k0*N*(A+(1-T+C)*A**3/6+(5-18*T+T**2+72*C-58*ep2)*A**5/120)+500000
+        northing=k0*(M+N*tan_lat*(A**2/2+(5-T+9*C+4*C**2)*A**4/24+(61-58*T+T**2+600*C-330*ep2)*A**6/720))
+        if lat < 0: northing+=10_000_000
+    else:
+        easting, northing, _zone = latlon_to_utm(lat, lon)
+    col = int(round((easting  - meta["origin_east"])  / meta["pixel_x"]))
+    row = int(round((meta["origin_north"] - northing) / meta["pixel_y"]))
+    return row, col
+
+
+def clamp_to_tile(meta: dict, lat: float, lon: float,
+                  zone_override: int | None = None,
+                  margin_px: int = 200) -> tuple[float, float, int, int]:
+    """
+    If lat/lon falls outside the tile, shift minimally to be margin_px inside.
+    Returns (adj_lat, adj_lon, adj_row, adj_col).
+    The shift is at most a few km — appropriate for calibration purposes.
+    """
+    row, col = latlon_to_pixel(meta, lat, lon, zone_override)
+    H, W = meta["height"], meta["width"]
+    px = meta["pixel_x"]
+    py = meta["pixel_y"]
+
+    # Clamp col and row to [margin_px, size - margin_px - 1]
+    col_adj = max(margin_px, min(W - margin_px - 1, col))
+    row_adj = max(margin_px, min(H - margin_px - 1, row))
+
+    # Convert back to world coords
+    easting_adj  = meta["origin_east"]  + col_adj * px
+    northing_adj = meta["origin_north"] - row_adj * py
+
+    # Convert UTM back to lat/lon (approximate inverse)
+    # Use the shifted easting/northing with the same zone
+    zone = zone_override or meta.get("utm_zone", int((lon + 180) / 6) + 1)
+    lat_adj, lon_adj = utm_to_latlon(easting_adj, northing_adj, zone)
+
+    shift_m = math.sqrt(((col_adj - col) * px) ** 2 + ((row_adj - row) * py) ** 2)
+    return lat_adj, lon_adj, row_adj, col_adj, shift_m
+
+
+def utm_to_latlon(easting: float, northing: float, zone: int,
+                  northern: bool = True) -> tuple[float, float]:
+    """Approximate UTM → WGS84 lat/lon (inverse projection)."""
+    a  = 6378137.0; f = 1/298.257223563
+    e2 = 2*f - f**2; ep2 = e2/(1-e2); k0 = 0.9996
+    e1 = (1 - math.sqrt(1 - e2)) / (1 + math.sqrt(1 - e2))
+
+    lon0 = math.radians((zone - 1) * 6 - 180 + 3)
+    x = easting - 500000.0
+    y = northing if northern else northing - 10_000_000.0
+
+    M = y / k0
+    mu = M / (a * (1 - e2/4 - 3*e2**2/64 - 5*e2**3/256))
+    phi1 = (mu
+            + (3*e1/2 - 27*e1**3/32)*math.sin(2*mu)
+            + (21*e1**2/16 - 55*e1**4/32)*math.sin(4*mu)
+            + (151*e1**3/96)*math.sin(6*mu)
+            + (1097*e1**4/512)*math.sin(8*mu))
+
+    N1 = a / math.sqrt(1 - e2*math.sin(phi1)**2)
+    T1 = math.tan(phi1)**2
+    C1 = ep2 * math.cos(phi1)**2
+    R1 = a*(1-e2) / (1 - e2*math.sin(phi1)**2)**1.5
+    D  = x / (N1 * k0)
+
+    lat = phi1 - (N1*math.tan(phi1)/R1)*(
+        D**2/2
+        - (5 + 3*T1 + 10*C1 - 4*C1**2 - 9*ep2)*D**4/24
+        + (61 + 90*T1 + 298*C1 + 45*T1**2 - 252*ep2 - 3*C1**2)*D**6/720
+    )
+    lon = lon0 + (
+        D
+        - (1 + 2*T1 + C1)*D**3/6
+        + (5 - 2*C1 + 28*T1 - 3*C1**2 + 8*ep2 + 24*T1**2)*D**5/120
+    ) / math.cos(phi1)
+
+    return math.degrees(lat), math.degrees(lon)
+
+
+# ── S/C ratio (identical logic to run_nonemitter_inference.py) ───────────────
+
+def compute_sc_ratio(prob: np.ndarray, meta: dict,
+                     lat: float, lon: float) -> dict:
+    """
+    Compute sc_cfar, cv_ctrl, cfar_detect, etc. from a probability-map array.
+
+    prob  : 2-D float32 array (height × width), values in [0, 1]
+    meta  : geotiff meta dict from read_geotiff_meta
+    lat, lon : WGS84 site coordinates
+    """
+    half = SC_CROP_PX // 2
+    H, W = prob.shape
+
+    def safe_crop(row: int, col: int) -> np.ndarray | None:
+        r0, r1 = max(0, row - half), min(H, row + half)
+        c0, c1 = max(0, col - half), min(W, col + half)
+        if (r1 - r0) < 20 or (c1 - c0) < 20:
+            return None
+        return prob[r0:r1, c0:c1]
+
+    s_row, s_col = latlon_to_pixel(meta, lat, lon)
+    site_crop = safe_crop(s_row, s_col)
+    if site_crop is None:
+        return {"error": "site_out_of_bounds",
+                "site_pixel": (s_row, s_col),
+                "tile_shape": (H, W)}
+
+    sm = float(site_crop.mean())
+
+    offsets = [
+        ( SC_OFFSET_DEG,           0.0, "N"),
+        (-SC_OFFSET_DEG,           0.0, "S"),
+        (          0.0,  SC_OFFSET_DEG, "E"),
+        (          0.0, -SC_OFFSET_DEG, "W"),
+    ]
+
+    ctrl_means: list[float] = []
+    first_dir_result: dict | None = None
+
+    for dlat, dlon, direction in offsets:
+        c_row, c_col = latlon_to_pixel(meta, lat + dlat, lon + dlon)
+        ctrl_crop = safe_crop(c_row, c_col)
+        if ctrl_crop is None:
+            continue
+        cm = float(ctrl_crop.mean())
+        ctrl_means.append(cm)
+        if first_dir_result is None:
+            sc = sm / cm if cm > 1e-9 else float("inf")
+            first_dir_result = dict(
+                site_mean=round(sm, 6),
+                ctrl_mean=round(cm, 6),
+                sc_ratio=round(sc, 4),
+                ctrl_direction=direction,
+            )
+
+    if not ctrl_means or first_dir_result is None:
+        return {"error": "all_directions_oob"}
+
+    mu_ctrl    = float(np.mean(ctrl_means))
+    sigma_ctrl = float(np.std(ctrl_means, ddof=0)) if len(ctrl_means) >= 2 else 0.0
+    sc_cfar          = sm / mu_ctrl if mu_ctrl > 1e-9 else float("inf")
+    cv_ctrl          = sigma_ctrl / mu_ctrl if mu_ctrl > 1e-9 else 0.0
+    cfar_thresh_ratio = 1.15 + CFAR_K * cv_ctrl
+    cfar_detect      = bool(sc_cfar > cfar_thresh_ratio)
+    cfar_margin      = round(sc_cfar - cfar_thresh_ratio, 4)
+
+    return {
+        **first_dir_result,
+        "ctrl_n":             len(ctrl_means),
+        "ctrl_all_means":     [round(v, 6) for v in ctrl_means],
+        "ctrl_mu":            round(mu_ctrl, 6),
+        "ctrl_sigma":         round(sigma_ctrl, 6),
+        "cv_ctrl":            round(cv_ctrl, 4),
+        "cfar_thresh_ratio":  round(cfar_thresh_ratio, 4),
+        "cfar_detect":        cfar_detect,
+        "cfar_margin":        cfar_margin,
+        "sc_cfar":            round(sc_cfar, 4),
+    }
+
+
+# ── Find TIF for a site ──────────────────────────────────────────────────────
+
+def find_tif(site_id: str) -> Path | None:
+    """Locate the inference-probability TIF for a given site_id."""
+    site_dir = TIF_DIR / site_id
+    if not site_dir.is_dir():
+        return None
+    tifs = sorted(site_dir.glob("*.tif"))
+    return tifs[0] if tifs else None
+
+
+# ── Conformal threshold computation ─────────────────────────────────────────
+
+def conformal_tau(scores: list[float], alpha: float = 0.10) -> float:
+    """
+    Split-conformal threshold: smallest s such that
+    #{i : score_i <= s} / n >= ceil((n+1)*(1-alpha)) / n.
+    Equivalent to the ceil((n+1)*(1-alpha))-th order statistic.
+    """
+    n = len(scores)
+    k = math.ceil((n + 1) * (1 - alpha))
+    k = max(1, min(k, n))
+    return float(sorted(scores)[k - 1])
+
+
+def bootstrap_ci(scores: list[float], alpha: float = 0.10,
+                 n_boot: int = 2000, ci: float = 0.90) -> tuple[float, float]:
+    rng = np.random.default_rng(42)
+    taus = []
+    arr = np.array(scores)
+    for _ in range(n_boot):
+        samp = rng.choice(arr, size=len(arr), replace=True)
+        taus.append(conformal_tau(samp.tolist(), alpha))
+    lo = float(np.percentile(taus, (1 - ci) / 2 * 100))
+    hi = float(np.percentile(taus, (1 + ci) / 2 * 100))
+    return lo, hi
+
+
+# ── Main ─────────────────────────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--ids", nargs="+", help="Process only these site IDs")
+    args = parser.parse_args()
+
+    # Load existing scores
+    records: list[dict] = json.loads(SCORES_JSON.read_text())
+    by_id = {r.get("location_id") or r.get("id"): r for r in records}
+
+    # Identify sites with TIFs available (rescoreable regardless of current status)
+    rescore_ids = []
+    for site_id in sorted(TIF_DIR.iterdir()):
+        sid = site_id.name
+        if args.ids and sid not in args.ids:
+            continue
+        tif = find_tif(sid)
+        if tif is None:
+            continue
+        existing = by_id.get(sid, {})
+        if existing.get("sc_cfar") is None or args.ids:
+            rescore_ids.append(sid)
+
+    print(f"\n{'='*65}")
+    print(f"Rescoring {len(rescore_ids)} sites with sc_cfar=None or --ids")
+    print(f"{'='*65}")
+
+    updated = 0
+    for sid in rescore_ids:
+        tif = find_tif(sid)
+        existing = by_id.get(sid, {})
+
+        # Look up coordinates from existing record or NEW_CANDIDATES
+        lat = existing.get("lat")
+        lon = existing.get("lon")
+        if lat is None or lon is None:
+            print(f"  {sid}: no lat/lon in record — skip")
+            continue
+
+        print(f"\n── {sid}  lat={lat}  lon={lon}")
+
+        if args.dry_run:
+            print(f"   [dry-run] would rescore from {tif.name}")
+            continue
+
+        # Parse geotiff metadata
+        meta = read_geotiff_meta(tif)
+        if meta is None:
+            print(f"   ERROR: could not read geotransform from {tif}")
+            continue
+        zone = meta.get("utm_zone")
+        print(f"   UTM zone {zone}  origin=({meta['origin_east']:.0f},{meta['origin_north']:.0f})")
+
+        # Load prob array (10980×10980 float32 — ~460 MB uncompressed)
+        print(f"   Loading probability map from {tif.name} ...")
+        img = Image.open(tif)
+        prob = np.array(img, dtype=np.float32)
+        print(f"   Shape: {prob.shape}  min={prob.min():.4f}  max={prob.max():.4f}")
+
+        # Validate site pixel falls in tile; clamp if needed (edge sites)
+        s_row, s_col = latlon_to_pixel(meta, lat, lon, zone_override=zone)
+        H, W = prob.shape
+        if not (50 <= s_row < H - 50 and 50 <= s_col < W - 50):
+            lat_use, lon_use, s_row, s_col, shift_m = clamp_to_tile(
+                meta, lat, lon, zone_override=zone, margin_px=200
+            )
+            print(f"   Site ({lat},{lon}) pixel ({s_row},{s_col}) was out-of-bounds — "
+                  f"shifted {shift_m/1000:.1f} km to ({lat_use:.4f},{lon_use:.4f})")
+        else:
+            lat_use, lon_use = lat, lon
+            shift_m = 0.0
+        print(f"   Site pixel: ({s_row}, {s_col})")
+
+        # Compute S/C using the (possibly adjusted) coordinates
+        sc = compute_sc_ratio(prob, meta, lat_use, lon_use)
+
+        if "error" in sc:
+            print(f"   ERROR in S/C computation: {sc['error']}")
+            if "site_pixel" in sc:
+                print(f"     site_pixel={sc['site_pixel']}  tile_shape={sc['tile_shape']}")
+            continue
+
+        print(f"   sc_cfar={sc['sc_cfar']:.4f}  cv_ctrl={sc['cv_ctrl']:.4f}  "
+              f"cfar_detect={sc['cfar_detect']}  ctrl_n={sc['ctrl_n']}")
+        if sc.get("cfar_detect"):
+            print(f"   ⚠  CFAR triggered on non-emitter site — potential false positive")
+
+        # Update record
+        existing.update({
+            "tif":              str(tif),          # fix stale Mac path
+            "scored_lat":       lat_use,            # actual scored coordinates
+            "scored_lon":       lon_use,
+            "coord_shift_m":    round(shift_m, 0),
+            "site_mean":        sc["site_mean"],
+            "ctrl_mean":        sc["ctrl_mean"],
+            "ctrl_mu":          sc["ctrl_mu"],
+            "ctrl_sigma":       sc["ctrl_sigma"],
+            "ctrl_n":           sc["ctrl_n"],
+            "ctrl_all_means":   sc["ctrl_all_means"],
+            "ctrl_direction":   sc["ctrl_direction"],
+            "cv_ctrl":          sc["cv_ctrl"],
+            "cfar_thresh_ratio": sc["cfar_thresh_ratio"],
+            "cfar_detect":      sc["cfar_detect"],
+            "cfar_margin":      sc["cfar_margin"],
+            "sc_ratio":         sc["sc_ratio"],
+            "sc_cfar":          sc["sc_cfar"],
+        })
+        by_id[sid] = existing
+        updated += 1
+
+        del prob  # free ~460 MB
+
+    if not args.dry_run:
+        # Write updated scores
+        out_records = list(by_id.values())
+        SCORES_JSON.write_text(json.dumps(out_records, indent=2))
+        print(f"\nUpdated {updated} site(s). Total records: {len(out_records)}")
+
+        # Recompute conformal threshold on usable scores
+        usable = [
+            r for r in out_records
+            if r.get("sc_cfar") is not None
+            and r.get("status") == "ok"
+        ]
+        scores_list = [r["sc_cfar"] for r in usable]
+        print(f"\n{'='*65}")
+        print(f"Conformal calibration on n={len(usable)} usable sites")
+        print(f"{'='*65}")
+
+        for alpha in (0.10, 0.20):
+            tau = conformal_tau(scores_list, alpha)
+            lo, hi = bootstrap_ci(scores_list, alpha, n_boot=2000)
+            fpr_obs = sum(1 for s in scores_list if s > tau) / len(scores_list)
+            print(f"  α={alpha:.2f}  τ={tau:.4f}  FPR_obs={fpr_obs:.1%}  "
+                  f"90% CI=[{lo:.4f}, {hi:.4f}]")
+
+        tau_10  = conformal_tau(scores_list, 0.10)
+        lo, hi  = bootstrap_ci(scores_list, 0.10, n_boot=2000)
+        tau_20  = conformal_tau(scores_list, 0.20)
+
+        # Mondrian per-ecoregion
+        eco_scores: dict[str, list[float]] = {}
+        for r in usable:
+            eco = r.get("ecoregion", "Unknown")
+            eco_scores.setdefault(eco, []).append(r["sc_cfar"])
+
+        print(f"\nMondrian per-ecoregion thresholds (α=0.10):")
+        mondrian: dict[str, dict] = {}
+        for eco, sc_list in sorted(eco_scores.items()):
+            tau_eco = conformal_tau(sc_list, 0.10)
+            mondrian[eco] = {"n": len(sc_list), "tau": tau_eco, "scores": sc_list}
+            note = "(indicative, n<5)" if len(sc_list) < 5 else ""
+            print(f"  {eco:<15}  n={len(sc_list):2d}  τ={tau_eco:.4f}  {note}")
+
+        # Write calibrated_threshold.json
+        threshold_data = {
+            "schema_version": "1.1",
+            "n_calibration_sites": len(usable),
+            "global_threshold": {
+                "alpha": 0.10,
+                "tau": round(tau_10, 4),
+                "fpr_observed": round(sum(1 for s in scores_list if s > tau_10) / len(scores_list), 4),
+                "bootstrap_90ci_lo": round(lo, 4),
+                "bootstrap_90ci_hi": round(hi, 4),
+            },
+            "alpha_0_20_threshold": round(tau_20, 4),
+            "mondrian_thresholds": {
+                eco: {"n": v["n"], "tau": round(v["tau"], 4)}
+                for eco, v in mondrian.items()
+            },
+            "scores": sorted(scores_list),
+        }
+        THRESHOLD_JSON.write_text(json.dumps(threshold_data, indent=2))
+        print(f"\nWrote {THRESHOLD_JSON}")
+
+        # Summary table
+        print(f"\n{'='*65}")
+        print(f"CALIBRATION SET SUMMARY")
+        print(f"{'='*65}")
+        print(f"{'ID':<14}  {'Ecoregion':<15}  {'CLC':<22}  {'sc_cfar':>8}  {'CFAR':>5}")
+        print("-" * 65)
+        for r in sorted(usable, key=lambda x: x.get("location_id", "")):
+            sid  = (r.get("location_id") or r.get("id", "?"))[:13]
+            eco  = (r.get("ecoregion") or "?")[:14]
+            clc  = (r.get("clc_class") or "?")[:21]
+            sc   = r.get("sc_cfar", float("nan"))
+            det  = "⚠FP" if r.get("cfar_detect") else "—"
+            print(f"  {sid:<13}  {eco:<15}  {clc:<22}  {sc:>8.4f}  {det:>5}")
+        print("=" * 65)
+        print(f"  n={len(usable)}   τ(α=0.10)={tau_10:.4f}   "
+              f"90% CI=[{lo:.4f}, {hi:.4f}]")
+        print()
+
+
+if __name__ == "__main__":
+    main()

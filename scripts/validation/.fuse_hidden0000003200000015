@@ -1,0 +1,254 @@
+"""
+belchatow_bt_historical.py
+==========================
+Run BT (bitemporal difference) inference on Bełchatów historical tiles
+that already show strong CFAR detections in baseline mode:
+
+  • 2020-06-01  S/C=849  CFAR=True  (baseline)
+  • 2021-06-06  S/C=18.5 CFAR=True  (baseline)
+
+Question: does v8 + BT confirm or destroy these signals?
+  - If BT S/C >> 1.15 → real methane, not terrain artifact → Bełchatów is a
+    clean presentation site.
+  - If BT S/C collapses → BT over-suppresses year-round industrial emitters →
+    skip_bitemporal=True is confirmed as the right setting; use baseline results.
+
+Reference tile: T34UCB_ref_20231218.npy  (Dec 2023 winter scene)
+Note: using a ~3-year-later reference for 2020/2021 targets is intentional —
+      the question is whether the methane signal is strong enough to survive the
+      BT diff even with an imperfect reference.
+
+Usage:
+    cd ~/Downloads/methane-api
+    conda activate methane
+    python scripts/belchatow_bt_historical.py
+
+Output:
+    results_analysis/belchatow_bt_historical.json
+    results_bitemporal/belchatow_historical/bitemporal_<tile>.tif  (per date)
+    results_bitemporal/belchatow_historical/original_<tile>.tif    (per date)
+"""
+
+import sys
+import json
+import logging
+from pathlib import Path
+
+# ── Path setup ────────────────────────────────────────────────────────────────
+ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(ROOT))
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-7s  %(message)s",
+    datefmt="%H:%M:%S",
+    handlers=[logging.StreamHandler(sys.stdout)],
+)
+log = logging.getLogger(__name__)
+
+# ── Import infrastructure from apply_bitemporal_diff ─────────────────────────
+import apply_bitemporal_diff as bt_mod
+
+# ── Configuration ─────────────────────────────────────────────────────────────
+NPY_CACHE = ROOT / "data" / "npy_cache"
+OUT_DIR   = ROOT / "results_bitemporal" / "belchatow_historical"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+BELCHATOW_LAT = 51.242   # mine centroid (ClimateTrace asset 16168); was 51.266 (power station — wrong)
+BELCHATOW_LON = 19.275   # mine centroid (ClimateTrace asset 16168); was 19.315 (power station — wrong)
+
+TARGET_TILES = [
+    {
+        "label":    "2020-06-01",
+        "npy_name": "S2A_MSIL1C_20200601T095041_N0500_R079_T34UCB_20230402T070951.npy",
+        "baseline_sc": 849.08,
+        "baseline_cfar": True,
+    },
+    {
+        "label":    "2021-06-06",
+        "npy_name": "S2A_MSIL1C_20210606T095031_N0500_R079_T34UCB_20230313T135138.npy",
+        "baseline_sc": 18.53,
+        "baseline_cfar": True,
+    },
+]
+
+REFERENCE_NPY = "T34UCB_ref_20231218.npy"
+
+SITE_META = dict(
+    lat=BELCHATOW_LAT,
+    lon=BELCHATOW_LON,
+    tile_id="T34UCB",
+    note="858 MW lignite — Europe's #1 CO2 emitter. Historical BT confirmation run.",
+    skip_bitemporal=True,   # normally True; overridden via force_bt below
+)
+
+# ── Load model once ────────────────────────────────────────────────────────────
+log.info("Loading CH4Net v8 weights...")
+detector = bt_mod.CH4NetDetector(str(ROOT / "weights" / "european_model_v8.pth"),
+                                 threshold=bt_mod.THRESHOLD)
+log.info("Model loaded on device: %s", detector.device)
+
+# ── Reference tile ────────────────────────────────────────────────────────────
+ref_path = NPY_CACHE / REFERENCE_NPY
+if not ref_path.exists():
+    log.error("Reference tile not found: %s", ref_path)
+    sys.exit(1)
+log.info("Reference tile: %s", ref_path.name)
+
+# ── Run each target date ───────────────────────────────────────────────────────
+all_results = {}
+
+for tdef in TARGET_TILES:
+    label    = tdef["label"]
+    npy_name = tdef["npy_name"]
+    target_path = NPY_CACHE / npy_name
+
+    log.info("\n" + "=" * 65)
+    log.info("DATE: %s", label)
+    log.info("Target: %s", npy_name)
+
+    if not target_path.exists():
+        log.error("Target tile not found: %s", target_path)
+        all_results[label] = {"status": "file_not_found", "npy": npy_name}
+        continue
+
+    # ── Geo metadata ──────────────────────────────────────────────────────────
+    geo_meta = bt_mod.find_geo_meta(target_path)
+    if geo_meta is None:
+        log.error("No geo metadata found for %s", npy_name)
+        all_results[label] = {"status": "no_geo_meta", "npy": npy_name}
+        continue
+
+    site_dir = OUT_DIR
+    stem = target_path.stem
+
+    results = {
+        "label":     label,
+        "npy":       npy_name,
+        "ref_npy":   REFERENCE_NPY,
+        "status":    "ok",
+        "baseline_sc_from_backfill":   tdef["baseline_sc"],
+        "baseline_cfar_from_backfill": tdef["baseline_cfar"],
+    }
+
+    import numpy as np
+
+    # ── Baseline inference (re-run to confirm, or reuse existing TIF) ─────────
+    out_tif_orig = site_dir / f"original_{stem}.tif"
+    if out_tif_orig.exists():
+        log.info("[baseline] Reusing existing TIF: %s", out_tif_orig.name)
+    else:
+        log.info("[baseline] Loading target array...")
+        target_arr = np.load(target_path)
+        log.info("[baseline] Running inference...")
+        bt_mod.run_inference(target_arr, detector, geo_meta, out_tif_orig)
+        del target_arr
+
+    sc_orig = bt_mod.compute_sc_ratio(out_tif_orig, BELCHATOW_LAT, BELCHATOW_LON)
+    results["baseline"] = {
+        "tif":               str(out_tif_orig.relative_to(ROOT)),
+        "sc_ratio":          sc_orig.get("sc_ratio"),
+        "cfar_detect":       sc_orig.get("cfar_detect"),
+        "cfar_thresh_ratio": sc_orig.get("cfar_thresh_ratio"),
+        "cv_ctrl":           sc_orig.get("cv_ctrl"),
+        "site_mean":         sc_orig.get("site_mean"),
+        "ctrl_mu":           sc_orig.get("ctrl_mu"),
+    }
+    log.info("[baseline] S/C=%.3f  CFAR=%s  cv=%.3f",
+             sc_orig.get("sc_ratio") or 0,
+             "DETECT" if sc_orig.get("cfar_detect") else "no",
+             sc_orig.get("cv_ctrl") or 0)
+
+    # ── BT inference ──────────────────────────────────────────────────────────
+    out_tif_bt = site_dir / f"bitemporal_{stem}.tif"
+    if out_tif_bt.exists():
+        log.info("[bitemporal] Reusing existing TIF: %s", out_tif_bt.name)
+    else:
+        log.info("[bitemporal] Loading target + reference arrays...")
+        target_arr = np.load(target_path)
+        ref_arr    = np.load(ref_path)
+
+        if target_arr.shape != ref_arr.shape:
+            log.error("Shape mismatch: target=%s ref=%s", target_arr.shape, ref_arr.shape)
+            results["bitemporal"] = {"error": "shape_mismatch",
+                                     "target_shape": str(target_arr.shape),
+                                     "ref_shape":    str(ref_arr.shape)}
+            all_results[label] = results
+            del target_arr, ref_arr
+            continue
+
+        log.info("[bitemporal] Applying B12-only BT difference...")
+        bt_array = bt_mod.apply_bitemporal_difference(
+            target_arr, ref_arr, replace_channels=[bt_mod.B12_IDX]
+        )
+        del target_arr, ref_arr
+
+        log.info("[bitemporal] Running inference on BT array...")
+        bt_mod.run_inference(bt_array, detector, geo_meta, out_tif_bt)
+        del bt_array
+
+    sc_bt = bt_mod.compute_sc_ratio(out_tif_bt, BELCHATOW_LAT, BELCHATOW_LON)
+    results["bitemporal"] = {
+        "tif":               str(out_tif_bt.relative_to(ROOT)),
+        "sc_ratio":          sc_bt.get("sc_ratio"),
+        "cfar_detect":       sc_bt.get("cfar_detect"),
+        "cfar_thresh_ratio": sc_bt.get("cfar_thresh_ratio"),
+        "cv_ctrl":           sc_bt.get("cv_ctrl"),
+        "site_mean":         sc_bt.get("site_mean"),
+        "ctrl_mu":           sc_bt.get("ctrl_mu"),
+    }
+    log.info("[bitemporal] S/C=%.3f  CFAR=%s  cv=%.3f",
+             sc_bt.get("sc_ratio") or 0,
+             "DETECT" if sc_bt.get("cfar_detect") else "no",
+             sc_bt.get("cv_ctrl") or 0)
+
+    # ── Delta summary ─────────────────────────────────────────────────────────
+    sc_o = sc_orig.get("sc_ratio")
+    sc_b = sc_bt.get("sc_ratio")
+    if sc_o and sc_b:
+        delta = sc_b - sc_o
+        results["delta_sc"] = round(delta, 4)
+        log.info("DELTA S/C = %.3f (%.1f%% change)", delta,
+                 100.0 * delta / sc_o if sc_o else 0)
+
+    all_results[label] = results
+
+# ── Print summary table ────────────────────────────────────────────────────────
+print("\n")
+print("=" * 80)
+print("  BEŁCHATÓW BT HISTORICAL EXPERIMENT — CH4Net v8")
+print("  Reference: T34UCB_ref_20231218.npy  (Dec 2023 winter)")
+print("=" * 80)
+print(f"  {'Date':<14} {'Baseline S/C':>14} {'BT S/C':>10} {'CFAR BT':>10} {'Delta':>10}  Verdict")
+print("  " + "-" * 75)
+
+for label, r in all_results.items():
+    if r.get("status") != "ok":
+        print(f"  {label:<14}  ERROR: {r.get('status')}")
+        continue
+    sc_o = r.get("baseline", {}).get("sc_ratio")
+    sc_b = r.get("bitemporal", {}).get("sc_ratio")
+    cfar_bt = r.get("bitemporal", {}).get("cfar_detect")
+    delta = r.get("delta_sc")
+
+    cfar_bt_flag = r.get("bitemporal", {}).get("cfar_detect")
+    if sc_b and sc_b > sc_o * 10:
+        verdict = "BT AMPLIFIES (ref under-emitting) — uninformative"
+    elif sc_b and sc_b > 1.15 and cfar_bt_flag:
+        verdict = "signal survives BT ✓ (CFAR confirms)"
+    elif sc_b and sc_b > 1.15 and not cfar_bt_flag:
+        verdict = "marginal survival, CFAR=no — BT suppresses"
+    else:
+        verdict = "BT collapses signal"
+
+    print(f"  {label:<14} {sc_o:>14.3f} {sc_b:>10.3f} {'DETECT' if cfar_bt else 'no':>10} "
+          f"{delta:>+10.3f}  {verdict}")
+
+print()
+
+# ── Save JSON ──────────────────────────────────────────────────────────────────
+out_path = ROOT / "results_analysis" / "belchatow_bt_historical.json"
+with open(out_path, "w") as f:
+    json.dump(all_results, f, indent=2, default=str)
+log.info("Results saved → %s", out_path)
+print(f"\n  Full results → {out_path.relative_to(ROOT)}\n")

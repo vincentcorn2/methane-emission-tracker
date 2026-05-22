@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32630",
+  "transform": [
+    10.0,
+    0.0,
+    600000.0,
+    0.0,
+    -10.0,
+    4700040.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "T30TXM",
+  "acquisition_date": "2024-08-27T10:50:21.024000Z",
+  "satellite": "S2A",
+  "source_product": "S2A_MSIL1C_20240827T105021_N0511_R051_T30TXM_20240827T132431"
+}

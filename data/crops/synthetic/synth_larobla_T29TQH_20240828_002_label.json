@@ -1,0 +1,21 @@
+{
+  "site": "synth_larobla_T29TQH_20240828",
+  "source_site": "larobla_T29TQH_20240828",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 54,
+    "centre_x": 62,
+    "sigma": 19.613777622528236,
+    "alpha": 0.20164880104192862,
+    "aspect": 0.7852827532399718,
+    "angle_rad": 1.590682393472003,
+    "b12_mean_attenuation_dn": 0.848550021648407,
+    "b12_max_attenuation_dn": 14.0
+  },
+  "plume_centre_y": 54,
+  "plume_centre_x": 62,
+  "enhancement_ppb": 40.3,
+  "extracted": "2026-04-10T01:58:42.765826+00:00"
+}

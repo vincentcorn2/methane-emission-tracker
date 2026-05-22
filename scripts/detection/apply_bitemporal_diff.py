@@ -164,7 +164,7 @@ SITES = {
                        note="924 MW lignite — Rhineland cluster, same tile as Neurath",
                        skip_bitemporal=True),
 
-    "belchatow":  dict(lat=51.266, lon=19.315, tile_id="T34UCB",
+    "belchatow":  dict(lat=51.242, lon=19.275, tile_id="T34UCB",   # mine centroid (ClimateTrace asset 16168); was 51.266/19.315 (power station — wrong)
                        note="858 MW lignite — Europe's #1 CO2 emitter (Poland); T34UCB confirmed via catalog discovery",
                        skip_bitemporal=True),
 

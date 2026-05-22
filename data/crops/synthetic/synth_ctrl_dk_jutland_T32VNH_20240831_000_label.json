@@ -1,0 +1,21 @@
+{
+  "site": "synth_ctrl_dk_jutland_T32VNH_20240831",
+  "source_site": "ctrl_dk_jutland_T32VNH_20240831",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 93,
+    "centre_x": 61,
+    "sigma": 34.41046754555422,
+    "alpha": 0.10957258841562631,
+    "aspect": 1.2793418203948073,
+    "angle_rad": 1.98443223581609,
+    "b12_mean_attenuation_dn": 0.5669249892234802,
+    "b12_max_attenuation_dn": 4.0
+  },
+  "plume_centre_y": 93,
+  "plume_centre_x": 61,
+  "enhancement_ppb": 21.9,
+  "extracted": "2026-04-10T01:58:42.669584+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "split": "train",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "ctrl_dk_jutland",
+  "lat": 56.3,
+  "lon": 9.2,
+  "country": "DK",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": 0.8327,
+  "tile_id": "T32VNH",
+  "s2_date": "20240831",
+  "note": "Confirmed non-emitter: SC=0.833 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 6051,
+  "pixel_col": 1239,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240831T103021_N0511_R108_T32VNH_20240831T130645.npy",
+  "extracted": "2026-04-06T03:51:30.197850Z",
+  "b11_mean": 32.84,
+  "b12_mean": 23.62,
+  "b12_b11_ratio": 0.7192
+}

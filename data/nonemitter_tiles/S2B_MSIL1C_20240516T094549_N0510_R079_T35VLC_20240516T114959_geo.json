@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32635",
+  "transform": [
+    10.0,
+    0.0,
+    300000.0,
+    0.0,
+    -10.0,
+    6300000.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "35VLC",
+  "acquisition_date": "2024-05-16T09:45:49.024000Z",
+  "satellite": "S2B",
+  "source_product": "S2B_MSIL1C_20240516T094549_N0510_R079_T35VLC_20240516T114959"
+}

@@ -1,0 +1,21 @@
+{
+  "site": "synth_tusimice_T33UUR_20240828",
+  "source_site": "tusimice_T33UUR_20240828",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 70,
+    "centre_x": 146,
+    "sigma": 42.88859809138066,
+    "alpha": 0.13489611129496507,
+    "aspect": 1.0715387134193373,
+    "angle_rad": 1.9038548502703436,
+    "b12_mean_attenuation_dn": 1.917449951171875,
+    "b12_max_attenuation_dn": 7.0
+  },
+  "plume_centre_y": 70,
+  "plume_centre_x": 146,
+  "enhancement_ppb": 27.0,
+  "extracted": "2026-04-10T01:58:42.785507+00:00"
+}

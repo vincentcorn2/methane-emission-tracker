@@ -1,0 +1,33 @@
+{
+  "split": "train",
+  "label_type": "positive",
+  "site": "silesia_zofiowka",
+  "country": "PL",
+  "source_type": "coal_mine",
+  "lat": 49.98,
+  "lon": 18.6,
+  "tile_id": "T34UCB",
+  "tropomi_date": "2023-03-01",
+  "enhancement_ppb": 16.85,
+  "max_near_ppb": 1939.64,
+  "background_ppb": 1877.39,
+  "n_near_pixels": 52,
+  "qa_threshold": 0.5,
+  "tropomi_product": "S5P_OFFL_L2__CH4____20230301T101042_20230301T115212_27879_03_020400_20230303T023220.nc",
+  "s2_product": "S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908",
+  "created": "2026-04-06T03:34:53.109805Z",
+  "note": "TROPOMI-confirmed emission. S2 tile acquired within \u00b17 days of TROPOMI overpass. Use centroid (lat, lon) to extract 160\u00d7160 or 200\u00d7200 training crop.",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 6087,
+  "pixel_col": 2793,
+  "npy_source": "data/npy_cache/training/S2A_MSIL1C_20230226T095031_N0510_R079_T34UCA_20240818T133908.npy",
+  "extracted": "2026-04-08T17:20:31.196829Z",
+  "b11_mean": 52.54,
+  "b12_mean": 48.0,
+  "b12_b11_ratio": 0.9137
+}

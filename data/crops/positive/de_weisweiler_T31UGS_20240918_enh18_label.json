@@ -1,0 +1,28 @@
+{
+  "site": "de_weisweiler",
+  "lat": 50.837,
+  "lon": 6.322,
+  "country": "DE",
+  "fuel": "lignite",
+  "site_type": "power_plant",
+  "enhancement_ppb": 18,
+  "tile_id": "T31UGS",
+  "s2_date": "2024-09-18",
+  "s2_product": "S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046",
+  "tropomi_note": "Confirmed emitter: S/C=2.091 on two dates. Correct tile/orbit R008 covering western position.",
+  "split": "train",
+  "label_type": "positive",
+  "label_value": 1,
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 6304,
+  "pixel_col": 3393,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240918T103619_N0511_R008_T31UGS_20240918T142046.npy",
+  "extracted": "2026-04-09T03:53:18.154854Z",
+  "b11_mean": 71.41,
+  "b12_mean": 56.21,
+  "b12_b11_ratio": 0.7871
+}

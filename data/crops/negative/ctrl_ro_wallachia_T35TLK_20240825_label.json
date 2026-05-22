@@ -1,0 +1,27 @@
+{
+  "split": "val",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "ctrl_ro_wallachia",
+  "lat": 44.3,
+  "lon": 25.5,
+  "country": "RO",
+  "fuel": null,
+  "site_type": "control",
+  "sc_ratio": 0.3578,
+  "tile_id": "T35TLK",
+  "s2_date": "20240825",
+  "note": "Confirmed non-emitter: SC=0.358 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 9375,
+  "pixel_col": 8034,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240825T091549_N0511_R093_T35TLK_20240826T142108.npy",
+  "extracted": "2026-04-06T03:45:42.735252Z",
+  "b11_mean": 107.92,
+  "b12_mean": 87.36,
+  "b12_b11_ratio": 0.8094
+}

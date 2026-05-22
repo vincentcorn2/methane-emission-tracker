@@ -1,0 +1,21 @@
+{
+  "site": "synth_ctrl_nl_flevoland_T31UFU_20240819",
+  "source_site": "ctrl_nl_flevoland_T31UFU_20240819",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 141,
+    "centre_x": 56,
+    "sigma": 19.54725268674151,
+    "alpha": 0.17135573893389006,
+    "aspect": 0.8588365443356188,
+    "angle_rad": 2.104282724966207,
+    "b12_mean_attenuation_dn": 0.9384999871253967,
+    "b12_max_attenuation_dn": 12.0
+  },
+  "plume_centre_y": 141,
+  "plume_centre_x": 56,
+  "enhancement_ppb": 34.3,
+  "extracted": "2026-04-10T01:58:42.679695+00:00"
+}

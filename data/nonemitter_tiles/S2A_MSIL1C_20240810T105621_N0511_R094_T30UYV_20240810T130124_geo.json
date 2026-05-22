@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32630",
+  "transform": [
+    10.0,
+    0.0,
+    699960.0,
+    0.0,
+    -10.0,
+    5500020.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "T30UYV",
+  "acquisition_date": "2024-08-10T10:56:21.024000Z",
+  "satellite": "S2A",
+  "source_product": "S2A_MSIL1C_20240810T105621_N0511_R094_T30UYV_20240810T130124"
+}

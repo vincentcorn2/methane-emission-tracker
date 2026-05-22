@@ -1,0 +1,21 @@
+{
+  "site": "synth_rovinari_T34TFQ_20240825",
+  "source_site": "rovinari_T34TFQ_20240825",
+  "label_value": 1,
+  "split": "train",
+  "synthetic": true,
+  "plume_params": {
+    "centre_y": 131,
+    "centre_x": 49,
+    "sigma": 29.669001176070633,
+    "alpha": 0.24493478682147726,
+    "aspect": 1.1172297872640609,
+    "angle_rad": 2.931178898607905,
+    "b12_mean_attenuation_dn": 2.5399999618530273,
+    "b12_max_attenuation_dn": 14.0
+  },
+  "plume_centre_y": 131,
+  "plume_centre_x": 49,
+  "enhancement_ppb": 49.0,
+  "extracted": "2026-04-10T01:58:42.780027+00:00"
+}

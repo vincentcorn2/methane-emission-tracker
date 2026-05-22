@@ -1,8 +1,6 @@
 # Held-out evaluation of CH4Net v8
 
-This file reports v8 performance on candidate sites that were either 
-never seen during training (TRULY HELD-OUT) or seen as NEGATIVE only 
-(positive detection at test time = model overrides its training label).
+This file reports v8 performance on candidate sites that were either never seen during training (TRULY HELD-OUT) or seen as NEGATIVE only (positive detection at test time = model overrides its training label).
 
 All thresholds: conformal τ = 4.1052 at α = 0.10; CFAR ratio rule per Section 2.2.
 
@@ -49,6 +47,7 @@ All thresholds: conformal τ = 4.1052 at α = 0.10; CFAR ratio rule per Section 
 | None | 0.6664 | 0.2023 | · | · |
 | None | 0.2096 | 0.5655 | · | · |
 
+
 ## Trained as NEGATIVE (positive detection overrides training label)
 
 | Site | Total records | Valid records | Above τ | CFAR detect |
@@ -65,6 +64,7 @@ All thresholds: conformal τ = 4.1052 at α = 0.10; CFAR ratio rule per Section 
 | None | 23.0392 | 0.9924 | ✓ | ✓ |
 | None | 1.1235 | 0.4711 | · | · |
 | None | 67.2048 | 0.2879 | ✓ | ✓ |
+
 
 ## Trained as NEGATIVE + used as synthetic substrate
 
@@ -96,6 +96,6 @@ All thresholds: conformal τ = 4.1052 at α = 0.10; CFAR ratio rule per Section 
 
 ## Section 1.5 / Section 3 — proposed text
 
-**Truly held-out test set.** The model never saw the following sites in any form during training: lippendorf (valid n = 8, above-τ = 2, CFAR = 1), boxberg (valid n = 7, above-τ = 1, CFAR = 0), maasvlakte (valid n = 7, above-τ = 0, CFAR = 0). Their performance is an independent test of the v8 model and the conformal threshold τ = 4.1052.
+**Truly held-out test set.**  The model never saw the following sites in any form during training: lippendorf (valid n = 8, above-τ = 2, CFAR = 1), boxberg (valid n = 7, above-τ = 1, CFAR = 0), maasvlakte (valid n = 7, above-τ = 0, CFAR = 0).  Their performance is an independent test of the v8 model and the conformal threshold τ = 4.1052.
 
-**Model overrides its own training labels.** The following candidate sites were in training as NEGATIVE crops (the model was told they were not methane), but the production pipeline produces above-threshold detections on subsequent acquisitions: belchatow (n_records = 8, positive detections at test time: above-τ = 5, CFAR = 3), neurath (n_records = 8, positive detections at test time: above-τ = 2, CFAR = 2), groningen (n_records = 6, positive detections at test time: above-τ = 3, CFAR = 2). This is a stronger result than a held-out test because the model is contradicting a training label on the basis of the spectral signature it learned from the synthetic-positive distribution.
+**Model overrides its own training labels.**  The following candidate sites were in training as NEGATIVE crops, but the production pipeline produces above-threshold detections on subsequent acquisitions: belchatow (n_records = 8, positive detections at test time: above-τ = 5, CFAR = 3), neurath (n_records = 8, positive detections at test time: above-τ = 2, CFAR = 2), groningen (n_records = 6, positive detections at test time: above-τ = 3, CFAR = 2).  This is a stronger result than a held-out test because the model is contradicting a training label on the basis of the spectral signature it learned from the synthetic-positive distribution.

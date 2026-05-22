@@ -1,0 +1,17 @@
+{
+  "crs": "EPSG:32632",
+  "transform": [
+    10.0,
+    0.0,
+    600000.0,
+    0.0,
+    -10.0,
+    5000040.0
+  ],
+  "width": 10980,
+  "height": 10980,
+  "tile_id": "32TPQ",
+  "acquisition_date": "2024-04-17T10:06:01.024000Z",
+  "satellite": "S2A",
+  "source_product": "S2A_MSIL1C_20240417T100601_N0510_R022_T32TPQ_20240417T153055"
+}

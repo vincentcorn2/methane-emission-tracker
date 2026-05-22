@@ -1,0 +1,27 @@
+{
+  "split": "val",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "rovinari",
+  "lat": 44.907,
+  "lon": 23.138,
+  "country": "RO",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 0.3945,
+  "tile_id": "T34TFQ",
+  "s2_date": "20240825",
+  "note": "Confirmed non-emitter: SC=0.395 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 2519,
+  "pixel_col": 6877,
+  "npy_source": "data/npy_cache/S2B_MSIL1C_20240825T091549_N0511_R093_T34TFQ_20240826T142108.npy",
+  "extracted": "2026-04-06T03:51:29.524185Z",
+  "b11_mean": 78.0,
+  "b12_mean": 56.92,
+  "b12_b11_ratio": 0.7298
+}

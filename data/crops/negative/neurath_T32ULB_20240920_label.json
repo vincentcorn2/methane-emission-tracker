@@ -1,0 +1,27 @@
+{
+  "split": "val",
+  "label_type": "negative",
+  "label_value": 0,
+  "site": "neurath",
+  "lat": 51.038,
+  "lon": 6.612,
+  "country": "DE",
+  "fuel": "coal",
+  "site_type": "emitter",
+  "sc_ratio": 1.0,
+  "tile_id": "T32ULB",
+  "s2_date": "20240920",
+  "note": "Confirmed non-emitter: SC=1.000 < 1.15 threshold",
+  "crop_size": [
+    200,
+    200,
+    12
+  ],
+  "pixel_row": 4323,
+  "pixel_col": 3258,
+  "npy_source": "data/npy_cache/S2A_MSIL1C_20240920T102721_N0511_R108_T32ULB_20240920T123207.npy",
+  "extracted": "2026-04-06T03:51:29.337311Z",
+  "b11_mean": 0.0,
+  "b12_mean": 0.0,
+  "b12_b11_ratio": 0.0
+}
