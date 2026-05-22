@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-approach_c_retrain.py — Fine-tune CH4Net v2 on European TROPOMI-confirmed sites.
+approach_c_retrain.py — Fine-tune CH4Net v8 on European TROPOMI-confirmed sites.
 
 Training data
 -------------
@@ -14,7 +14,7 @@ Model
 -----
   Architecture : CH4Net U-Net (div_factor auto-detected from checkpoint)
   Starting weights : weights/best_model.pth  (with flat->net key remap)
-  Output weights   : weights/european_model.pth
+  Output weights   : weights/european_model_v8.pth
 
 Target masks
 ------------
@@ -30,7 +30,7 @@ Usage
   python approach_c_retrain.py                      # default settings
   python approach_c_retrain.py --epochs 100 --lr 5e-5
   python approach_c_retrain.py --dry-run            # 1 epoch, no save
-  python approach_c_retrain.py --weights-in weights/european_model.pth  # resume
+  python approach_c_retrain.py --weights-in weights/european_model_v8.pth  # resume
 """
 
 import os
@@ -52,7 +52,7 @@ except ImportError:
     print("ERROR: PyTorch not found. Run: conda activate methane")
     sys.exit(1)
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.detection.ch4net_model import Unet
 
 # ── Config ─────────────────────────────────────────────────────────────────────
@@ -72,7 +72,7 @@ WEIGHT_DECAY = 1e-4     # L2 regularization — mild pull toward global pretrain
 PATIENCE    = 20        # more patience — frozen encoder converges more slowly
 CROPS_DIR   = Path("data/crops")
 WEIGHTS_IN  = "weights/best_model.pth"   # always start from global base, not collapsed v3
-WEIGHTS_OUT = "weights/european_model.pth"
+WEIGHTS_OUT = "weights/european_model_v8.pth"
 LOG_FILE    = "results_analysis/retrain.log"
 
 # Encoder blocks in order of depth — freeze the first N to preserve global SWIR features.
@@ -197,7 +197,8 @@ def load_model(weights_path, device, prob_output=False):
         sd = sd["model_state_dict"]
 
     # Detect div_factor from out.weight shape [1, 128//d, 1, 1]
-    div_factor = 8
+    # european_model_v8.pth uses div_factor=1 (13.5M params)
+    div_factor = 1
     if "out.weight" in sd:
         in_ch      = sd["out.weight"].shape[1]
         div_factor = max(1, 128 // in_ch)
