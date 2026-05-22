@@ -755,7 +755,7 @@ class ModelValidator:
 
         lines = []
         lines.append("=" * 80)
-        lines.append("MODEL VALIDATION REPORT — CH₄Net v2 (SR 11-7 Framework)")
+        lines.append("MODEL VALIDATION REPORT — CH₄Net v8 (SR 11-7 Framework)")
         lines.append("=" * 80)
 
         lines.append(f"\nDATA SUMMARY")

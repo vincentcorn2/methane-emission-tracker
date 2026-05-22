@@ -12,7 +12,7 @@ For each key analysis site this script:
      Shifted to [0, 255] by adding 128 (neutral = no seasonal change)
   4. Substitutes the difference channels back into position [10] and [11]
      of the target array — all other 10 bands remain unchanged.
-  5. Runs CH4Net v2 inference on both the original and bi-temporal arrays.
+  5. Runs CH4Net v8 inference on both the original and bi-temporal arrays.
   6. Saves GeoTIFFs and computes S/C ratio + ring profile for each.
   7. Prints a side-by-side comparison table.
 
@@ -680,7 +680,7 @@ def print_comparison(all_results: dict):
     """Print a side-by-side comparison table with CFAR detection column."""
     print("\n")
     print("=" * 100)
-    print("  BI-TEMPORAL ZERO-SHOT COMPARISON — CH4Net v2")
+    print("  BI-TEMPORAL ZERO-SHOT COMPARISON — CH4Net v8")
     print("=" * 100)
     print(f"  {'Site':<15} {'Orig S/C':>10}  {'CFAR':>6}  {'thr_ratio':>9}  "
           f"{'BT S/C':>10}  {'CFAR BT':>7}  {'Delta S/C':>10}  {'Assessment'}")
@@ -790,7 +790,7 @@ def main():
     Path("results_analysis").mkdir(exist_ok=True)
 
     print("=" * 65)
-    print("  Bi-temporal Difference Evaluation — CH4Net v2")
+    print("  Bi-temporal Difference Evaluation — CH4Net v8")
     print(f"  Sites: {', '.join(args.sites)}")
     print(f"  Weights: {args.weights}")
     print(f"  Threshold: {THRESHOLD}")
@@ -819,7 +819,7 @@ def main():
         print("(Baseline/original mode will still run.)\n")
 
     # Load model
-    print(f"\n[1] Loading CH4Net v2 weights from {args.weights}...")
+    print(f"\n[1] Loading CH4Net v8 weights from {args.weights}...")
     try:
         detector = CH4NetDetector(args.weights, threshold=THRESHOLD)
         print(f"    OK (device: {detector.device})")

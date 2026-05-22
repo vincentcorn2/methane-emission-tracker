@@ -4,8 +4,8 @@ generate_synthetic_plumes.py — Physics-informed synthetic methane plume augmen
 
 Problem
 -------
-CH4Net v2 has 13.5M parameters but only 21 European training crops. All fine-tuning
-attempts (v1-v4) fail: either catastrophic overfitting or the all-zero plateau.
+CH4Net v8 has 13.5M parameters but only 21 European training crops. All fine-tuning
+attempts prior to v8 faced either catastrophic overfitting or the all-zero plateau.
 Synthetic augmentation is the standard approach in the methane detection literature
 (Vaughan et al. 2024, AMT) to overcome data scarcity.
 
