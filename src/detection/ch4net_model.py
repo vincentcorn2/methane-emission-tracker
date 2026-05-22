@@ -1,19 +1,20 @@
 """
-CH4Net: U-Net architecture for methane plume segmentation.
+CH4Net v8: U-Net architecture for methane plume segmentation.
 
-Extracted from the Colab notebook implementation and made production-ready.
-Architecture matches the paper (Vaughan et al., 2024, AMT):
+Production model for European coal mine methane detection.
   - 4 encoder blocks, 4 decoder blocks, skip connections
   - Input: 12-band Sentinel-2 imagery (160x160 crop)
   - Output: pixel-wise probability mask
 
 Key notes:
-  1. div_factor=8 (paper architecture, ~214K params) — retrained on official
-     Vaughan et al. dataset (av555/ch4net on HuggingFace, 8255 train samples)
-  2. div_factor=1 (13.5M params) was the original broken config — massively
-     overfit on 925 samples, acted as a terrain detector not a methane detector
-  3. prob_output=False during training (BCEWithLogitsLoss expects logits)
-  4. Separate inference method that applies sigmoid + threshold
+  1. div_factor=1 (13.5M params) — production architecture used throughout
+     the paper; base weights from Vaughan et al. (2024, AMT) global pretrain,
+     fine-tuned on European coal terrain (14 TROPOMI-confirmed positives,
+     51 synthetic, 22 verified negatives) across 11 retraining experiments
+  2. prob_output=False during training (BCEWithLogitsLoss expects logits)
+  3. Separate inference method that applies sigmoid + threshold
+  4. CH4NetDetector auto-detects div_factor from the loaded state dict,
+     so weights always load correctly regardless of the default here
 """
 import numpy as np
 import torch
@@ -82,7 +83,7 @@ class Unet(nn.Module):
     load without key remapping. Uses named sub-modules (_DoubleConv, _Down, _Up)
     which produce state_dict keys like 'inc.net.0.weight', 'down1.net.1.net.0.weight'.
 
-    div_factor=8 → ~214K params (paper architecture, Vaughan et al. 2024 AMT).
+    div_factor=1 → 13.5M params (CH4Net v8, production architecture).
     prob_output=True applies sigmoid for inference; False returns raw logits for training.
     """
 
@@ -90,7 +91,7 @@ class Unet(nn.Module):
         self,
         in_channels: int = 12,
         out_channels: int = 1,
-        div_factor: int = 8,
+        div_factor: int = 1,
         prob_output: bool = True,
     ):
         super().__init__()
@@ -167,8 +168,9 @@ class CH4NetDetector:
 
         # Auto-detect div_factor from out.weight shape: out=Conv2d(128//d, 1, 1)
         # so out.weight has shape [1, 128//d, 1, 1] → d = 128 // in_channels
+        # european_model_v8.pth uses div_factor=1 (13.5M params)
         _out_key = "out.weight"
-        _div_factor = 8  # default (paper architecture, ~214K params)
+        _div_factor = 1  # default: CH4Net v8 production weights
         if _out_key in state_dict:
             _in_ch = state_dict[_out_key].shape[1]
             _div_factor = max(1, 128 // _in_ch)

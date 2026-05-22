@@ -20,23 +20,25 @@ The pipeline detects methane plumes using a domain-adapted deep learning model (
 
 | Metric | Value |
 |---|---|
-| Above-threshold detections | 30 total (2019–2025); 26 with full CEMF+IME quantification |
-| Detection-weighted annual estimate | 16,486 t CH₄/yr (cloud-free-conditioned; not a full annual mass balance) |
-| 95% sampling CI | [6,781 – 26,191] t/yr |
-| Recovery vs. Climate TRACE inventory | 56% (95% CI: 23%–88%; consistent with published 30–70% range) |
+| Above-threshold detections | 31 (2019–2024) |
+| Quantification-supporting | 30 (sc_cfar > τ, full CEMF+IME) |
+| Detection-weighted mean flow | 476 kg/hr (95% CI: 341–612 kg/hr) |
+| Annual emission estimate | 4,174 t CH₄/yr |
+| 95% bootstrap CI | [2,987 – 5,360] t/yr |
+| Recovery vs. Climate TRACE 2024 | 14.1% (95% CI: 10.1%–18.1%) |
 | TROPOMI cross-validation | Sept 9 2021 — +12.7 ppb same-day confirmation |
-| Conformal threshold τ (α=0.10) | 3.5796 (n=35 calibration sites, FPR ≤ 10%) |
+| Conformal threshold τ (α=0.10) | 3.5796 (n=35 calibration sites, empirical FPR 5.7%) |
 
-**Monte Carlo Climate VaR (10,000 simulations, MBSP emission inputs):**
+**Monte Carlo Climate VaR (10,000 simulations):**
 
 | Risk Metric | GWP100 (M€) | GWP20 (M€) |
 |---|---|---|
-| Mean expected liability | 29.03 | 86.04 |
-| 95% Climate VaR | 55.01 | 163.05 |
-| 99% Climate VaR | 71.50 | 211.96 |
-| 99% Expected Shortfall | 81.44 | 241.41 |
+| Mean expected liability | 7.51 | 22.25 |
+| 99% Value-at-Risk | 17.77 | — |
+| 99% Expected Shortfall | 20.22 | — |
+| CO₂e (GWP100, deterministic) | 116,872 t/yr | — |
 
-**Rybnik finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. Sub-threshold signals are present (January 2023: 2,596 kg/hr, within Carbon Mapper range) but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses them below τ. The cause is a training distribution gap, not an absence of model response.
+**Rybnik–Chwałowice finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. Sub-threshold signals are present but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses them below τ. The cause is a training distribution gap, not an absence of model response.
 
 ---
 
@@ -48,94 +50,113 @@ methane-api/
 ├── report.md                     # Main paper
 ├── technical_appendix.md         # Full methodology and validation details
 ├── requirements.txt
+├── download_weights.py           # Fetch CH4Net weights from cloud storage
+├── verify_outputs.py             # Sanity-check all pipeline outputs vs. paper
 │
-├── src/                          # Core library modules
+├── src/                          # Core OOP library modules
 │   ├── detection/
 │   │   └── ch4net_model.py       # CH4Net U-Net inference
 │   ├── ingestion/
 │   │   ├── copernicus_client.py  # Sentinel-2 download via CDSE API
 │   │   ├── era5_client.py        # ERA5 wind retrieval (CDS API)
-│   │   └── preprocessing.py      # Tile → .npy pipeline
+│   │   └── preprocessing.py     # Tile → .npy pipeline
 │   ├── quantification/
 │   │   ├── cemf.py               # CEMF spectral retrieval (Varon 2021)
 │   │   ├── ime.py                # IME inversion: Q = (M × U) / L
 │   │   ├── governance.py         # Uncertainty flags and penalty budget
 │   │   ├── canonical_writer.py   # Structured quantification record writer
 │   │   └── uncertainty.py        # Per-source uncertainty budget
-│   └── stress_testing/           # Financial scenario modules
+│   ├── validation/               # Model validation and sensitivity analysis
+│   ├── entity_resolution/        # Credit exposure and entity resolver
+│   ├── stress_testing/           # Financial scenario modules
+│   └── api/                      # FastAPI endpoints and risk schemas
 │
-├── scripts/
-│   ├── detection/                # CH4Net inference and production rule audit
-│   ├── calibration/              # Conformal threshold, non-emitter expansion
-│   ├── timeseries/               # Bełchatów / site annual timeseries runs
-│   ├── quantification/           # CEMF+IME, ERA5 fetch, recompute annualisation
-│   ├── finance/                  # Monte Carlo CVaR, deterministic stress scenarios
-│   ├── validation/               # Bootstrap AUROC/AP, leakage audit, LOO stability
-│   ├── analysis/                 # Site-specific: Rybnik wind test, TROPOMI co-location
-│   └── archive/                  # Superseded one-off scripts
+├── scripts/                      # Module scripts + demo notebooks
+│   ├── calibration/              # demo_calibration.ipynb — conformal threshold
+│   ├── detection/                # Bitemporal diff and production rule audit
+│   ├── finance/                  # demo_finance.ipynb — Monte Carlo CVaR
+│   ├── quantification/           # demo_quantification.ipynb — CEMF+IME
+│   ├── timeseries/               # demo_timeseries.ipynb — annual timeseries
+│   └── validation/               # demo_validation.ipynb — AUROC, leakage, LOO
 │
-├── results_analysis/             # All pipeline outputs (JSON, MD, PNG)
-│   ├── belchatow_annual_timeseries.json
-│   ├── production_rule_audit.json
-│   ├── calibrated_threshold.json
-│   ├── quantification.json
-│   ├── finance_climate_var.json
-│   └── ...
+├── figures/                      # Paper figures (figure1–3, .py + .png)
 │
 ├── data/
-│   ├── npy_cache/                # Sentinel-2 tile cache (.npy)
-│   ├── crops/                    # Training crops (positive / negative / synthetic)
-│   └── nonemitter_tiles/         # Conformal calibration site tiles
+│   ├── crops/                    # Training crops (positive / negative / synthetic, 41 MB)
+│   ├── nonemitter_tiles/         # Conformal calibration site tiles (116 KB)
+│   ├── 16168_climate_trace_ch4.csv
+│   └── rybnik_chwalowice_carbon_mapper.csv
+│   # Excluded from git (re-downloadable):
+│   # data/npy_cache/   — Sentinel-2 tile cache (211 GB, re-download via CDSE)
+│   # data/downloads/   — TROPOMI NetCDF files (7.2 GB, re-download from Copernicus)
 │
-├── weights/
-│   └── european_model_v8.pth     # Production CH4Net weights (European fine-tune)
+├── weights/                      # CH4Net model weights (excluded from git, ~52 MB each)
+│   # Run: python download_weights.py
 │
-├── results/                      # Detection TIFs (bitemporal, nonemitter)
-├── archive/                      # Early experiments, meeting docs, legacy pipeline
-└── config/                       # Environment and API settings
+├── results_analysis/             # Canonical pipeline outputs (JSON, PNG, MD, HTML)
+│   ├── calibrated_threshold.json
+│   ├── belchatow_annual_timeseries.json
+│   ├── finance_climate_var.json
+│   ├── finance_transition_risk.json
+│   ├── bootstrap_auroc_ap.json
+│   ├── leakage_audit.json
+│   ├── loo_detection_stability.json
+│   ├── held_out_evaluation.json
+│   ├── nonemitter_sc_scores.json
+│   └── ...
+│
+├── config/                       # Environment and API settings
+├── tests/                        # Integration test runner
+└── archive/                      # Legacy scripts, experiments, old results
+    ├── docs/                     # Meeting notes and internal reports
+    ├── scripts_analysis/         # Old one-off analysis scripts
+    ├── scripts_archived/         # Superseded pipeline versions
+    ├── experiments/              # Ablation and approach experiments
+    ├── early_pipeline/           # Pre-OOP pipeline versions
+    ├── legacy_results/           # v5–v7 model evaluations, intermediate outputs
+    └── results_analysis_clutter/ # Old backup files and run logs
 ```
 
 ---
 
-## Running the Pipeline
+## Reproducing Results
 
 ```bash
 conda activate methane
 cd ~/Downloads/methane-api
+python verify_outputs.py --verbose   # confirm all outputs match paper
 ```
 
-**Run detection and production rule audit (uses τ=3.5796 auto-read from calibrated_threshold.json):**
+**Download model weights (required for inference):**
 ```bash
+python download_weights.py   # downloads european_model_v8.pth
+```
+
+**Demo notebooks (no data download needed — reads pre-computed results):**
+```bash
+jupyter nbconvert --to notebook --execute scripts/calibration/demo_calibration.ipynb
+jupyter nbconvert --to notebook --execute scripts/finance/demo_finance.ipynb
+jupyter nbconvert --to notebook --execute scripts/validation/demo_validation.ipynb
+jupyter nbconvert --to notebook --execute scripts/quantification/demo_quantification.ipynb
+jupyter nbconvert --to notebook --execute scripts/timeseries/demo_timeseries.ipynb
+```
+
+**Full pipeline re-run (requires CDSE credentials and 211 GB tile cache):**
+```bash
+# Detection
 python scripts/detection/apply_bitemporal_diff.py --sites belchatow
-python scripts/detection/audit_production_rule.py
-```
 
-**Bełchatów annual timeseries + annualisation:**
-```bash
-caffeinate -i python scripts/timeseries/belchatow_annual_timeseries.py
-python scripts/quantification/recompute_annualisation.py
-```
-
-**Run new site timeseries (e.g. Turów):**
-```bash
-python scripts/timeseries/run_new_site_timeseries.py --site turow --dry-run
-caffeinate -i python scripts/timeseries/run_new_site_timeseries.py --site turow
-```
-
-**Conformal calibration (n=35):**
-```bash
+# Conformal calibration (n=35)
 python scripts/calibration/run_mac_inference.py --phase 2
 python scripts/calibration/run_mac_inference.py --phase 3
-```
 
-**Monte Carlo Climate VaR:**
-```bash
+# Annual timeseries
+caffeinate -i python scripts/timeseries/belchatow_annual_timeseries.py
+
+# Monte Carlo Climate VaR
 python scripts/finance/finance_climate_var.py
-# Output → results_analysis/finance_climate_var.json
-```
 
-**Bootstrap AUROC/AP (real crops only):**
-```bash
+# Bootstrap AUROC/AP
 python scripts/validation/bootstrap_auroc_ap.py
 ```
 
@@ -143,23 +164,28 @@ python scripts/validation/bootstrap_auroc_ap.py
 
 ## Model
 
-**CH4Net v8** — U-Net, 13.5M parameters, fine-tuned on European coal terrain
+**CH4Net v8** — U-Net, div_factor=1, 13.5M parameters, fine-tuned on European coal terrain
 
 - Base weights: Vaughan et al. (2024) global pretrain
 - Fine-tuning: 11 retraining experiments on European-specific dataset (14 TROPOMI-confirmed positives, 51 synthetic, 22 verified negatives)
 - Detection: Signal-to-Control ratio with ratio-space CFAR adaptive threshold
-- Conformal threshold: τ = 3.5796 at α=0.10 (n=35 non-emitter calibration sites, FPR ≤ 10% guaranteed)
+- Conformal threshold: τ = 3.5796 at α=0.10 (n=35 non-emitter calibration sites, empirical FPR 5.7%)
 
 ---
 
-## Key Dependencies
+## Installation
 
 ```bash
-pip install torch torchvision numpy scipy rasterio pydantic requests cdsapi
+conda create -n methane python=3.11
+conda activate methane
+pip install -r requirements.txt
 ```
 
-- Copernicus Data Space account (free): https://dataspace.copernicus.eu
-- CDS API key for ERA5 winds: https://cds.climate.copernicus.eu
+Required external credentials:
+- Copernicus Data Space (CDSE) account — https://dataspace.copernicus.eu
+- CDS API key for ERA5 winds — https://cds.climate.copernicus.eu
+
+See `requirements.txt` for full package list with versions.
 
 ---
 
