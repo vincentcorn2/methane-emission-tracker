@@ -202,7 +202,7 @@ class CarbonPriceParams:
         Beta parameter of the Beta enforcement pass-through distribution.
     """
     central:           float = 70.0
-    log_vol:           float = 0.30
+    log_vol:           float = 0.35
     gwp100:            int   = GWP100_FACTOR
     gwp20:             int   = GWP20_FACTOR
     passthrough_alpha: float = 9.0

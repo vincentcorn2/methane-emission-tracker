@@ -435,7 +435,7 @@ The remaining 32 intensive-window dates returned no usable TROPOMI enhancement v
 
 ### 5.5 Temporal Sampling Is Near the Structural Ceiling for Sentinel-2 in Central Poland
 
-The Bełchatów intensive monitoring coverage record (111 acquisitions ingested, 47 `no_coverage` via partial-swath repair, 64 valid — see Section 4.1 and Section 2.3) averages approximately 16 valid observations per year. The full 2019–2025 pipeline ingested 139 acquisitions, of which 65 were partial-swath, yielding 74 valid observations; of these, 26 support CEMF+IME quantification under the MBSP retrieval and OSM mine polygon boundary. Above-threshold responses cluster in Q2 (April–June) and Q3 (July–September), with none in any November through March record across all years.
+The Bełchatów intensive monitoring coverage record (111 acquisitions ingested, 47 `no_coverage` via partial-swath repair, 64 valid — see Section 4.1 and Section 2.3) averages approximately 16 valid observations per year. The full 2019–2025 pipeline ingested 147 acquisitions, of which 65 were partial-swath, yielding 74 valid observations; of these, 30 support CEMF+IME quantification under the MBSP retrieval and OSM mine polygon boundary. Above-threshold responses cluster in Q2 (April–June) and Q3 (July–September), with none in any November through March record across all years.
 
 **Why this is close to the structural ceiling.** Sentinel-2's nominal revisit at 51°N (Bełchatów) with the A+B constellation is 5 days, implying roughly 73 theoretical passes per year. However, the SWIR methane absorption signal requires both solar illumination and a cloud-free line of sight. Central Poland has a cloud climatology of 55–70% annual cloud cover, concentrated in the November–March period (60–80% cloudy days in DJF). This reduces effective Sentinel-2 clear-sky passes to approximately 15–25 per year at this latitude, consistent with the 15/year average this pipeline achieved. The 26 MBSP quantification-supporting observations drawn from the full 2019–2025 record represent a near-complete draw on the realistic cloud-free opportunities at this site and latitude, not a sparse sample of a larger accessible set.
 
@@ -475,7 +475,7 @@ The deterministic financial scenarios in report §7.3–7.5 are produced by `scr
 
 The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance/finance_climate_var.py` and serialised to `results_analysis/finance_climate_var.json`. It runs 10,000 Monte Carlo simulations propagating five uncertainty layers through the carbon-liability calculation, following the stochastic climate risk framework of Desnos, Le Guenedal, Morais and Roncalli (Amundi, 2024) and incorporating the IME plume quantification uncertainty budget recommended in Worden et al. (NIST IR 8575, 2025).
 
-**Simulation structure.** In each simulation five inputs are drawn independently: (i) annual CH₄ emission from a zero-truncated normal matching the 30-observation sampling CI; (ii) systematic ERA5 wind bias from N(0, 0.10) per NIST IR 8575 §4.2; (iii) plume spatial-extent multiplier from Uniform(0.85, 1.15) per Varon et al. (2021, AMT §2.3); (iv) carbon price from LogNormal centred at €70/tCO₂e with 30% log-volatility; and (v) regulatory enforcement probability from Beta(9,1), mean 90%. GWP conversion (factor 28 for GWP100, factor 83 for GWP20) is applied as a constant outside the stochastic draw. Outputs are reported as mean expected liability, 95th and 99th percentile Climate Value-at-Risk, and 99% Expected Shortfall — separately under GWP100 (EU MRV regulatory metric) and GWP20 (near-term transition risk horizon).
+**Simulation structure.** In each simulation five inputs are drawn independently: (i) annual CH₄ emission from a zero-truncated normal matching the 30-observation sampling CI; (ii) systematic ERA5 wind bias from N(0, 0.10) per NIST IR 8575 §4.2; (iii) plume spatial-extent multiplier from Uniform(0.85, 1.15) per Varon et al. (2021, AMT §2.3); (iv) carbon price from LogNormal centred at €70/tCO₂e with 35% log-volatility; and (v) regulatory enforcement probability from Beta(9,1), mean 90%. GWP conversion (factor 28 for GWP100, factor 83 for GWP20) is applied as a constant outside the stochastic draw. Outputs are reported as mean expected liability, 95th and 99th percentile Climate Value-at-Risk, and 99% Expected Shortfall — separately under GWP100 (EU MRV regulatory metric) and GWP20 (near-term transition risk horizon).
 
 **Uncertainty layers (in order of application):**
 
@@ -484,7 +484,7 @@ The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance
 | 1 — Annual emission | Truncated Normal(μ, σ), zero-bounded | μ = 4,174 t/yr; σ = SEM from 95% CI = (5,360 − 2,987) / (2 × t₀.₉₇₅,₂₉) ≈ 580 t/yr | 30-observation corrected sampling distribution; μ is ~7.2σ above zero, so truncation shifts E[Q] by <10⁻¹² σ — E[Q] ≈ μ in practice |
 | 2 — ERA5 wind systematic bias | Multiplicative N(1, 0.10), clipped [0.5, 2.0] | σ = 10% | NIST IR 8575 §4.2: grid-to-point interpolation error vs. tower observations |
 | 3 — Plume spatial extent | Uniform(0.85, 1.15) | ±15% | Varon et al. (2021, AMT §2.3): IME integration boundary sensitivity |
-| 4 — Carbon price | LogNormal centred at €70/tCO₂e | log-vol = 30% | Amundi (2024) GBM calibration to EU ETS historical dynamics |
+| 4 — Carbon price | LogNormal centred at €70/tCO₂e | log-vol = 35% | Amundi (2024) GBM calibration to EU ETS historical dynamics |
 | 5 — Regulatory pass-through | Beta(9, 1) | mean = 90% | Conservative compliance stress; Beta(5,2) → 71% for policy-uncertainty scenario |
 
 **Accounting property.** Layer 1 uses a truncated normal rather than log-normal so that E[Liability] = E[Q] × GWP × E[Price] × E[β] holds to an excellent approximation, making the stochastic mean auditable against the deterministic base case. (A log-normal Layer 1 would shift the joint product mean via Jensen's inequality; the truncated normal avoids this. The zero truncation itself is negligible: μ is ~7.2σ above the bound.) The simulated mean (€7.51M GWP100) lies ~8% below the deterministic base case (€8.18M) by construction, reflecting the Beta(9,1) enforcement probability mean of 90%.
@@ -493,13 +493,13 @@ The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance
 
 | Source | Relative σ | σ share (σᵢ/σ_total) | Variance share (σᵢ²/Σσᵢ²) |
 |---|---|---|---|
-| Carbon price (log-vol 30%) | 0.300 | 84% | **70.9%** |
+| Carbon price (log-vol 35%) | 0.350 | 88% | **88.0%** |
 | Emission sampling (truncnorm, n=30 corrected) | 0.139 | 39% | 15.2% |
 | ERA5 wind systematic (±10%) | 0.100 | 28% | 7.9% |
 | Mask spatial extent (±15%) | 0.087 | 24% | 6.0% |
-| **Combined (quadrature)** | **0.356** | — | **100%** |
+| **Combined (quadrature)** | **0.399** | — | **100%** |
 
-The σ-share column (σᵢ/σ_total) sums to more than 100% by construction — this is the correct behaviour for independent additive quadrature contributions. The variance-share column (σᵢ²/Σσᵢ²) sums to exactly 100% and is the standard decomposition. Carbon price is now the strongly dominant source (70.9%); the emission sampling contribution fell from 43.2% (n=26, wide CI) to 15.2% (n=30 corrected, narrower CI) because the corrected dataset has a tighter confidence interval. Satellite measurement uncertainties (ERA5 + spatial extent) together contribute ~14%. Improving emission measurement precision would reduce the emission sampling row but leave the dominant carbon-price uncertainty largely untouched.
+The σ-share column (σᵢ/σ_total) sums to more than 100% by construction — this is the correct behaviour for independent additive quadrature contributions. The variance-share column (σᵢ²/Σσᵢ²) sums to exactly 100% and is the standard decomposition. Carbon price is now the strongly dominant source (88.0%); the emission sampling contribution fell from 43.2% (n=26, wide CI) to 15.2% (n=30 corrected, narrower CI) because the corrected dataset has a tighter confidence interval. Satellite measurement uncertainties (ERA5 + spatial extent) together contribute ~14%. Improving emission measurement precision would reduce the emission sampling row but leave the dominant carbon-price uncertainty largely untouched.
 
 **Reproducibility:** `python scripts/finance_climate_var.py` — all parameters declared as module-level dataclasses (`EmissionParams`, `UncertaintyParams`, `CarbonPriceParams`). seed=42, n_sim=10,000.
 

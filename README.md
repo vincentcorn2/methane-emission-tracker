@@ -34,8 +34,8 @@ The pipeline detects methane plumes using a domain-adapted deep learning model (
 | Risk Metric | GWP100 (M€) | GWP20 (M€) |
 |---|---|---|
 | Mean expected liability | 7.51 | 22.25 |
-| 99% Value-at-Risk | 17.77 | — |
-| 99% Expected Shortfall | 20.22 | — |
+| 99% Value-at-Risk | 17.77 | 53.14 |
+| 99% Expected Shortfall | 20.22 | 60.32 |
 | CO₂e (GWP100, deterministic) | 116,872 t/yr | — |
 
 **Rybnik–Chwałowice finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. Sub-threshold signals are present but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses them below τ. The cause is a training distribution gap, not an absence of model response.
@@ -121,6 +121,9 @@ methane-api/
 
 ## Reproducing Results
 
+**Interactive notebook (recommended):** open [START_HERE.ipynb](START_HERE.ipynb) — covers every result with inline explanations and a live API demo.
+
+**Programmatic check:**
 ```bash
 conda activate methane
 cd ~/Downloads/methane-api

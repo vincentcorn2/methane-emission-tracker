@@ -8,7 +8,7 @@
       "NIST IR 8575 (Worden et al. 2025) \u2014 IME uncertainty budget"
     ],
     "carbon_price_central_eur_tco2e": 70.0,
-    "carbon_price_log_vol": 0.3,
+    "carbon_price_log_vol": 0.35,
     "passthrough_beta_mean": 0.9,
     "layers": [
       {
@@ -37,9 +37,9 @@
       },
       {
         "layer": "CarbonPrice",
-        "distribution": "LogNormal(mu=4.203, sigma=0.3)",
+        "distribution": "LogNormal(mu=4.187, sigma=0.35)",
         "central_eur": 70.0,
-        "log_vol": 0.3
+        "log_vol": 0.35
       },
       {
         "layer": "RegulatoryPassThrough",
@@ -55,39 +55,39 @@
     "q_sd_t_yr": 805.7
   },
   "carbon_price_draws": {
-    "mean_eur_tco2e": 70.48,
-    "p5_eur_tco2e": 40.93,
-    "p95_eur_tco2e": 111.05
+    "mean_eur_tco2e": 70.56,
+    "p5_eur_tco2e": 37.1,
+    "p95_eur_tco2e": 118.89
   },
   "liability_gwp100": {
     "label": "GWP100 (factor 28)",
-    "mean": 7.425,
-    "median": 6.961,
-    "var_95": 12.782,
-    "var_99": 16.492,
-    "es_99": 18.377,
-    "p5": 3.686,
-    "p25": 5.407,
-    "p75": 8.883
+    "mean": 7.434,
+    "median": 6.866,
+    "var_95": 13.475,
+    "var_99": 17.926,
+    "es_99": 20.349,
+    "p5": 3.405,
+    "p25": 5.175,
+    "p75": 9.01
   },
   "liability_gwp20": {
     "label": "GWP20  (factor 83)",
-    "mean": 22.009,
-    "median": 20.633,
-    "var_95": 37.889,
-    "var_99": 48.887,
-    "es_99": 54.476,
-    "p5": 10.926,
-    "p25": 16.027,
-    "p75": 26.331
+    "mean": 22.036,
+    "median": 20.353,
+    "var_95": 39.944,
+    "var_99": 53.139,
+    "es_99": 60.322,
+    "p5": 10.095,
+    "p25": 15.339,
+    "p75": 26.708
   },
   "tau_sensitivity": {
     "note": "Lower-bound framing (det_rate x mean_flow x 8760). Upper framing is tau-independent.",
     "tau_mean_draw": 3.3364,
     "det_rate_mean": 0.246,
-    "gwp100_mean_liability_meur": 1.803,
-    "gwp20_mean_liability_meur": 5.344,
-    "gwp100_var99_meur": 3.634,
-    "gwp20_var99_meur": 10.772
+    "gwp100_mean_liability_meur": 1.802,
+    "gwp20_mean_liability_meur": 5.341,
+    "gwp100_var99_meur": 4.06,
+    "gwp20_var99_meur": 12.035
   }
 }
