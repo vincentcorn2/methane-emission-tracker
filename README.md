@@ -157,8 +157,7 @@ jupyter nbconvert --to notebook --execute scripts/timeseries/demo_timeseries.ipy
 python scripts/detection/apply_bitemporal_diff.py --sites belchatow
 
 # Conformal calibration (n=35)
-python scripts/calibration/run_mac_inference.py --phase 2
-python scripts/calibration/run_mac_inference.py --phase 3
+caffeinate -i python scripts/calibration/run_mac_inference.py
 
 # Annual timeseries
 caffeinate -i python scripts/timeseries/belchatow_annual_timeseries.py
