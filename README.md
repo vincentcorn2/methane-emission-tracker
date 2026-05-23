@@ -54,7 +54,7 @@ The pipeline detects methane plumes using a domain-adapted deep learning model (
 ```
 methane-api/
 │
-├── report.md                     # Main paper
+├── START_HERE.ipynb              # Interactive walkthrough — start here
 ├── technical_appendix.md         # Full methodology and validation details
 ├── requirements.txt
 ├── download_weights.py           # Fetch CH4Net weights from cloud storage
@@ -86,7 +86,7 @@ methane-api/
 │   ├── timeseries/               # demo_timeseries.ipynb — annual timeseries
 │   └── validation/               # demo_validation.ipynb — AUROC, leakage, LOO
 │
-├── figures/                      # Paper figures (figure1–3, .py + .png)
+├── figures/                      # Paper figures (figure1–3, .py + .png; figure2_belchatow, figure3_timeseries)
 │
 ├── data/
 │   ├── crops/                    # Training crops (positive / negative / synthetic, 41 MB)
@@ -114,7 +114,7 @@ methane-api/
 │
 ├── config/                       # Environment and API settings
 ├── tests/                        # Integration test runner
-└── archive/                      # Legacy scripts, experiments, old results
+└── scripts/archive/              # Legacy scripts, experiments, old results
     ├── docs/                     # Meeting notes and internal reports
     ├── scripts_analysis/         # Old one-off analysis scripts
     ├── scripts_archived/         # Superseded pipeline versions
