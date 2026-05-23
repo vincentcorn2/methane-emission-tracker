@@ -1,10 +1,15 @@
 # Satellite-Based Coal Mine Methane Monitoring in Europe
 
-**AI Applications in Finance (IEOR 4737) · Columbia University · European Central Bank & European Investment Bank**
+**Columbia University · AI Applications in Finance (IEOR 4737) · European Central Bank & European Investment Bank**
 
-Students: Konstantina Mavrogianni · Vincent Chandler Cornelius · Mihika Saraf · Yuhao Zhang
+| Student | Email |
+|---|---|
+| Konstantina Mavrogianni | konstantina.mavrogianni@columbia.edu |
+| Vincent C. Cornelius | vcc2127@columbia.edu |
+| Mihika Saraf | ms7321@columbia.edu |
+| Yuhao Zhang | yz5075@columbia.edu |
 
-Academic Advisors: Prof. Ali Hirsa · Miao Wang (Columbia) · Dr. Oleg Reichmann (ECB) · Dr. Giuseppe Bonavolontà (EIB)
+**Academic Advisors:** Prof. Ali Hirsa · Miao Wang · **ECB & EIB:** Dr. Oleg Reichmann · Dr. Giuseppe Bonavolontà
 
 ---
 
@@ -196,12 +201,23 @@ See `requirements.txt` for full package list with versions.
 
 ## References
 
-- Vaughan et al. (2024). CH4Net. *Atmospheric Measurement Techniques*, 17, 2583–2593.
-- Varon et al. (2021). CEMF+IME. *Atmospheric Measurement Techniques*, 14, 2771–2785.
-- Angelopoulos & Bates (2021). Conformal prediction. *arXiv:2107.07511*.
-- Worden et al. (2025). NIST IR 8575 — methane plume quantification practices.
-- Desnos et al. (2024). Climate VaR stochastic approach. *Amundi Institute Working Paper*.
-- Reinders, Schoenmaker & van Dijk (2025). Climate risk stress testing. *Journal of Climate Finance*, 10.
+- Angelopoulos, A. N. and Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. *arXiv:2107.07511*.
+- Carbon Mapper (2026). Carbon mapper data portal: Methane and CO2 super-emitter observations. https://carbonmapper.org/data. Accessed May 2026.
+- Climate TRACE (2026). Climate TRACE emissions inventory and data platform. https://climatetrace.org. Accessed May 2026.
+- Copernicus Climate Change Service (2026). ERA5 hourly data on single levels from 1940 to present. https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels. Accessed May 2026.
+- Copernicus Data Space Ecosystem (2026). Copernicus data space ecosystem API documentation. https://documentation.dataspace.copernicus.eu. Accessed May 2026.
+- Desnos, B., Le Guenedal, T., Morais, P., and Roncalli, T. (2023). From climate stress testing to climate value-at-risk: A stochastic approach. *SSRN Electronic Journal*.
+- Ehret, T., De Truchis, A., Mazzolini, M., Morel, J.-M., d'Aspremont, A., Lauvaux, T., Duren, R., Cusworth, D., and Facciolo, G. (2022). Global tracking and quantification of oil and gas methane emissions from recurrent Sentinel-2 imagery. *Environmental Science & Technology*, 56(14):10517–10529.
+- European Central Bank Banking Supervision (2026). Good practices for advancing climate and nature-related risk management. https://www.bankingsupervision.europa.eu. Accessed May 2026.
+- European Parliament and Council (2024). Regulation (EU) 2024/1787 on the reduction of methane emissions in the energy sector. https://eur-lex.europa.eu.
+- European Space Agency (2021). Copernicus Sentinel-5P TROPOMI Level 2 methane total column products, version 02. Accessed May 2026.
+- GHGSat (2026). Satellite-based greenhouse gas emissions monitoring. https://www.ghgsat.com. Accessed May 2026.
+- Intergovernmental Panel on Climate Change (2024). Global warming potential values from IPCC assessment reports. https://www.ipcc.ch. Accessed May 2026.
+- PGE Polska Grupa Energetyczna S.A. (2025a). Consolidated financial statements for the year ended December 31, 2024. https://www.gkpge.pl. Accessed May 2026.
+- PGE Polska Grupa Energetyczna S.A. (2025b). Credit rating. https://www.gkpge.pl/en/for-investors/bonds/rating. Accessed May 2026.
+- Varon, D. J., Jervis, D., McKeever, J., Spence, I., Gains, D., and Jacob, D. J. (2021). High-frequency monitoring of anomalous methane point sources with multispectral Sentinel-2 satellite observations. *Atmospheric Measurement Techniques*, 14:2771–2785.
+- Vaughan, A., Mateo-García, G., Gómez-Chova, L., Růžička, V., Guanter, L., and Irakulis-Loitxate, I. (2024). CH4Net: A deep learning model for monitoring methane super-emitters with Sentinel-2 imagery. *Atmospheric Measurement Techniques*, 17:2583–2593.
+- Worden, J., Cusworth, D., et al. (2025). Common practices for quantifying methane emissions from plumes detected by remote sensing. *NIST Interagency/Internal Report 8575*.
 
 ---
 
