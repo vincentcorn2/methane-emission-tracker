@@ -913,7 +913,7 @@ def main() -> None:
 
     # ── Recompute τ ────────────────────────────────────────────────────────────
     log.info("Recomputing conformal threshold ...")
-    conformal_script = ROOT / "scripts" / "conformal_threshold.py"
+    conformal_script = ROOT / "scripts" / "calibration" / "conformal_threshold.py"
     if conformal_script.exists():
         proc = subprocess.run(
             [sys.executable, str(conformal_script)], cwd=str(ROOT)

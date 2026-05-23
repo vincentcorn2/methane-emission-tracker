@@ -338,7 +338,7 @@ def main():
     # Recompute conformal threshold
     log.info("=" * 65)
     log.info("Recomputing conformal threshold on n=%d sites ...", len(existing_sites))
-    cmd = [sys.executable, str(ROOT / "scripts" / "conformal_threshold.py")]
+    cmd = [sys.executable, str(ROOT / "scripts" / "calibration" / "conformal_threshold.py")]
     log.info("$ %s", " ".join(cmd))
     proc = subprocess.run(cmd, cwd=str(ROOT))
     if proc.returncode != 0:
