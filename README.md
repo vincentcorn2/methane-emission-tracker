@@ -1,8 +1,10 @@
-# Methane from Space: Satellite Detection and Quantification of Fugitive Coal Mine Emissions
+# Satellite-Based Coal Mine Methane Monitoring in Europe
 
-**ECB / EIB Sponsored Research · Columbia University IEOR 4737 · 2025–2026**
+**AI Applications in Finance (IEOR 4737) · Columbia University · European Central Bank & European Investment Bank**
 
-Advisors: Prof. Ali Hirsa, Miao Wang (Columbia) · Dr. Oleg Reichmann (ECB) · Dr. Giuseppe Bonavolontà (EIB)
+Students: Konstantina Mavrogianni · Vincent Chandler Cornelius · Mihika Saraf · Yuhao Zhang
+
+Academic Advisors: Prof. Ali Hirsa · Miao Wang (Columbia) · Dr. Oleg Reichmann (ECB) · Dr. Giuseppe Bonavolontà (EIB)
 
 ---
 
@@ -36,7 +38,7 @@ The pipeline detects methane plumes using a domain-adapted deep learning model (
 | Mean expected liability | 7.51 | 22.25 |
 | 99% Value-at-Risk | 17.77 | 53.14 |
 | 99% Expected Shortfall | 20.22 | 60.32 |
-| CO₂e (GWP100, deterministic) | 116,872 t/yr | — |
+| CO₂e (deterministic) | 116,872 t/yr | 346,442 t/yr |
 
 **Rybnik–Chwałowice finding:** The most externally validated site in the candidate set (5 TROPOMI enhancements, 4 Carbon Mapper quantified overpasses at 1,150–2,019 kg/hr) never clears the calibrated detection rule. Sub-threshold signals are present but the CFAR gate — inflated by Silesian industrial-fringe terrain heterogeneity — suppresses them below τ. The cause is a training distribution gap, not an absence of model response.
 
