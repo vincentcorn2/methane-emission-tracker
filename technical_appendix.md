@@ -168,6 +168,10 @@ Thirty-five non-emitter sites drawn from CORINE Land Cover (the European Environ
 
 The Continental stratum (n = 8) is adequate to support a meaningful stratum-specific threshold of τ = 4.1052, which applies to all six lignite/coal candidate sites in this report. The Atlantic stratum (n = 9) exceeds the recommended minimum. The Pannonian, Boreal, and Mediterranean strata each have n = 6 — doubled from the initial calibration — and carry no small-sample warnings. At n = 6, thresholds are sensitive to individual-site variance but are no longer single-observation-determined. These strata produce meaningful indicative thresholds suitable for screening but not for operational deployment without further expansion. The global threshold (n = 35) and Continental stratum threshold remain stable under bootstrap resampling and are appropriate for the candidate sites evaluated here. Groningen and Maasvlakte sit in the Atlantic stratum.
 
+**Figure A1 — Conformal calibration ECDF.** Sorted S/C scores for all 35 non-emitter calibration sites. The legacy production threshold (1.15) fires on 16 of 35 sites (FPR 45.7%). The conformal threshold τ = 3.5796 fires on 2 of 35 (FPR 5.7%), satisfying the ≤10% finite-sample guarantee.
+
+![Conformal calibration ECDF](results_analysis/conformal_calibration.png)
+
 ### 2.2 Bitemporal Differencing Diagnostic
 
 **What "bitemporal differencing" means.** Bitemporal (BT) differencing takes two Sentinel-2 acquisitions of the same site — a target date (the date being tested for methane) and a reference date (a different date used as a baseline) — and subtracts the reference from the target band by band. The intent is that surface features present on both dates cancel out, leaving only what changed between the two acquisitions.
@@ -243,6 +247,10 @@ Top-5 months by mean sc_cfar influence (full 19-month table in `results_analysis
 | *remaining 14 months* | *≤151* | — | 0.4091 | −0.0131 | *≤0.021* |
 
 **Verdict.** The detection rate is stable: max |Δrate| = 0.73 pp (scene-level) and 1.31 pp (month-level), both well below 2 percentage points. No single scene drives the binary detection outcome. The August 2022 acquisition is an outlier in sc_cfar magnitude and exerts a 16% influence on the distributional mean; this is disclosed in the main text (§4.4) but does not affect any detection count, financial estimate, or threshold calculation, all of which depend on binary cfar_detect flags rather than continuous sc_cfar values.
+
+**Figure A2 — Leave-one-out scene stability.** Mean sc_cfar influence by month. August 2022 (sc_cfar = 515) is the sole outlier at 16.5% influence on the distributional mean; all other months are below 5%. Detection rate is stable across all LOO perturbations.
+
+![LOO detection stability](results_analysis/loo_detection_stability.png)
 
 ---
 
