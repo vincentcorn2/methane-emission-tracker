@@ -501,13 +501,13 @@ The stochastic extension (report §7.1–7.2) is implemented in `scripts/finance
 
 | Source | Relative σ | σ share (σᵢ/σ_total) | Variance share (σᵢ²/Σσᵢ²) |
 |---|---|---|---|
-| Carbon price (log-vol 35%) | 0.350 | 88% | **88.0%** |
-| Emission sampling (truncnorm, n=30 corrected) | 0.139 | 39% | 15.2% |
-| ERA5 wind systematic (±10%) | 0.100 | 28% | 7.9% |
-| Mask spatial extent (±15%) | 0.087 | 24% | 6.0% |
+| Carbon price (log-vol 35%) | 0.350 | 88% | **76.9%** |
+| Emission sampling (truncnorm, n=30 corrected) | 0.139 | 35% | 12.1% |
+| ERA5 wind systematic (±10%) | 0.100 | 25% | 6.3% |
+| Mask spatial extent (±15%) | 0.087 | 22% | 4.7% |
 | **Combined (quadrature)** | **0.399** | — | **100%** |
 
-The σ-share column (σᵢ/σ_total) sums to more than 100% by construction — this is the correct behaviour for independent additive quadrature contributions. The variance-share column (σᵢ²/Σσᵢ²) sums to exactly 100% and is the standard decomposition. Carbon price is now the strongly dominant source (88.0%); the emission sampling contribution fell from 43.2% (n=26, wide CI) to 15.2% (n=30 corrected, narrower CI) because the corrected dataset has a tighter confidence interval. Satellite measurement uncertainties (ERA5 + spatial extent) together contribute ~14%. Improving emission measurement precision would reduce the emission sampling row but leave the dominant carbon-price uncertainty largely untouched.
+The σ-share column (σᵢ/σ_total) sums to more than 100% by construction — this is the correct behaviour for independent additive quadrature contributions. The variance-share column (σᵢ²/Σσᵢ²) sums to exactly 100% and is the standard decomposition. Carbon price is now the strongly dominant source (76.9%); the emission sampling contribution fell from 43.2% (n=26, wide CI) to 12.1% (n=30 corrected, narrower CI) because the corrected dataset has a tighter confidence interval. Satellite measurement uncertainties (ERA5 + spatial extent) together contribute ~11%. Improving emission measurement precision would reduce the emission sampling row but leave the dominant carbon-price uncertainty largely untouched.
 
 **Reproducibility:** `python scripts/finance_climate_var.py` — all parameters declared as module-level dataclasses (`EmissionParams`, `UncertaintyParams`, `CarbonPriceParams`). seed=42, n_sim=10,000.
 
