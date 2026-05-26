@@ -405,6 +405,25 @@ Carbon Mapper (Tanager and EMIT instruments) did not run a campaign at Bełchat�
 
 For the cross-instrument comparison case we additionally use Neurath, where TROPOMI produced a +12.2 ppb coincident enhancement with a CFAR-confirmed CH4Net detection on 2024-06-25 (`results_analysis/tropomi_validation.json`).
 
+### 4.4 Carbon Mapper CO₂ Observation at Bełchatów
+
+Carbon Mapper's Tanager instrument recorded one processed plume observation over the Bełchatów industrial region on **07 March 2026**. The observation is a CO₂ plume (sector: Electricity).
+
+| Field | Value |
+|---|---|
+| Plume name | TAN20260307T104413C3854001-8 |
+| Date acquired | 2026-03-07, 10:44:13 UTC |
+| Date published | 2026-04-06, 11:19:13 UTC |
+| Latitude, Longitude | 51.26908°N, 19.31736°E |
+| Emission rate | 121.6K ppm·m |
+| Gas | CO₂ |
+| Sector | Electricity |
+| Instrument | TAN (Tanager) |
+| Platform | Tanager (Production) |
+| Wind estimate | 1.6 m/s from 140.3° |
+
+The source coordinates place the observation within the Bełchatów power station footprint (IPCC sector 1A1a), consistent with combustion CO₂ from the generating unit rather than the fugitive methane source at the adjacent KWB Bełchatów coal mine (IPCC sector 1B1a). No methane detections were recorded by Carbon Mapper at Bełchatów during the study period. The Rybnik methane observations (Section 3.3) are the only Carbon Mapper methane data in the candidate set.
+
 ---
 
 ## Section 5 — Limitations and Next Steps
@@ -455,7 +474,7 @@ The timing limitation is partly structural and partly addressable:
 
 - *Partially structural.* Sentinel-2 SWIR detection requires clear-sky solar reflectance. No post-processing can recover a cloudy overpass. Central Poland's cloud climatology is a physical constraint that any optical instrument faces at this latitude.
 
-- *Partially addressable.* Sentinel-2C (launched September 2024) reduces revisit to approximately 3 days when operating with Sentinel-2A and 2B, adding ~20–30% more acquisition opportunities per year. Better scene-level cloud masks (ESA Sen2Cor Cloud Score+, Google Dynamic World cloud layer) can recover borderline partly-cloudy passes that are currently discarded. These two improvements together could raise effective annual clear-sky acquisitions from ~15 to ~20.
+- *Partially addressable.* Sentinel-2C (launched 5 September 2024) is designed to reduce revisit to approximately 3 days when operating alongside Sentinel-2A and 2B, adding ~20–30% more acquisition opportunities per year. Sentinel-2C products were unavailable during summer 2025, as the satellite was still in its commissioning and performance-validation phase. By early 2026, Sentinel-2C products have begun appearing in the Copernicus dataset, and the effective revisit frequency over Poland is expected to increase — though the precise gain depends on geographic latitude, cloud climatology, and the rate at which Sentinel-2C progressively replaces the ageing Sentinel-2A. Better scene-level cloud masks (ESA Sen2Cor Cloud Score+, Google Dynamic World cloud layer) can additionally recover borderline partly-cloudy passes that are currently discarded. These improvements together could raise effective annual clear-sky acquisitions from ~15 to ~20.
 
 - *Instrument complementarity.* SAR instruments (Sentinel-1 C-band) are cloud-independent but are sensitive to surface roughness and moisture rather than SWIR absorption, and would require an entirely different detection model not developed here. Hyperspectral instruments (PRISMA/ASI, SBG/EMIT) provide narrower spectral resolution in the methane absorption window and can in principle detect methane at lower concentrations, but their revisit rates at a given latitude are lower than Sentinel-2's, not higher. Commercial constellation instruments (GHGSat, MethaneSAT, Carbon Mapper's Tanager fleet) offer targeted tasking on cloud-optimal days but are not freely available for the time series density this study requires.
 
